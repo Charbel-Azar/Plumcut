@@ -1,0 +1,4 @@
+---
+alwaysApply: true
+---
+Before making any changes, read the code to understand the existing structure. When updating styles, modify the appropriate CSS file — do not inline or scatter CSS in HTML or JS files. Similarly, only add or update JavaScript in the relevant existing JS files or script sections. Maintain the current template structure and follow the established patterns. Avoid duplicating functionality or styles. Only insert code where related logic or styles already exist.
