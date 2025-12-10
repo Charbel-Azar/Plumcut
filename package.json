@@ -1,0 +1,10 @@
+{
+  "name": "plumcut",
+  "version": "1.0.0",
+  "description": "Plumcut - AI-Powered Business Automation & Chatbots",
+  "scripts": {
+    "dev": "echo 'Static site - use a local server'",
+    "build": "echo 'No build step required for static site'"
+  }
+}
+
