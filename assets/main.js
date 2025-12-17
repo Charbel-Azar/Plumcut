@@ -1,3 +1,27 @@
+// =========================
+// Google Analytics Configuration
+// =========================
+// Google tag (gtag.js) - Configured for G-5HBN957GV9
+(function() {
+  const GA_MEASUREMENT_ID = 'G-5HBN957GV9';
+  
+  // Load Google Analytics script dynamically
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(script);
+  
+  // Initialize Google Analytics
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+})();
+
+// =========================
+// End Google Analytics Configuration
+// =========================
+
 const accordionAnimation = {
   accordionItems: null,
   activeItem: null,

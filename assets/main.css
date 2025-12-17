@@ -30709,3 +30709,16 @@ svg.leaflet-zoom-animated {
     width: 50%;
   }
 }
+
+/* Custom Quote Section Styles */
+@media (min-width: 80rem) {
+  .custom-quote-section .xl\:py-28 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+}
+
+@media (min-width: 96rem) {
+  .custom-quote-section h2 {
+    font-size: 44px;
+  }
+}
