@@ -30195,6 +30195,18 @@ svg.leaflet-zoom-animated {
   }
 }
 
+.feature-card-gradient {
+  background-image: var(--color-gradient-11);
+}
+
+@media (max-width: 768px) {
+  .feature-card-gradient {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+  }
+}
+
 @media (hover: none) and (pointer: coarse) {
   .reviews-fade-in-swiper .swiper-slide {
     transition: all .5s cubic-bezier(.25, .46, .45, .94);
