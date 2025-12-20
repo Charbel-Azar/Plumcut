@@ -9485,6 +9485,9 @@ body {
   .border-background-12 {
     border-color: var(--color-background-12);
   }
+  .border-background-ali {
+    border-color: #ffffff;
+  }
 
   .border-ns-yellow {
     border-color: var(--color-ns-yellow);
