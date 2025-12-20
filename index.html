@@ -127,7 +127,7 @@ Header
 ===========================-->
 <header>
   <div
-    class="header-one opacity-0 rounded-full lp:!max-w-[1290px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] min-[500px]:max-w-[450px] min-[425px]:max-w-[375px] max-w-[350px] mx-auto w-full fixed left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-2.5 xl:py-0 py-2.5 bg-white backdrop-blur-[25px] top-13.5 has-top-nav {=$class}"
+    class="header-one navbar-custom opacity-0 rounded-full lp:!max-w-[1290px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] min-[500px]:max-w-[450px] min-[425px]:max-w-[375px] max-w-[350px] mx-auto w-full fixed left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-2.5 xl:py-0 py-2.5 backdrop-blur-[25px] top-13.5 has-top-nav {=$class}"
     data-ns-animate
     data-direction="up"
     data-offset="100"
@@ -329,6 +329,20 @@ Header
       </ul>
     </nav>
 
+
+    <!-- WhatsApp "Say Hi To Plum!" Link -->
+    <a
+      href="https://wa.me/96178860758?text=Hi%20plum!"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-link hidden xl:flex items-center justify-center px-6 py-3 font-bold text-xl text-black hover:text-primary transition-all duration-300"
+      aria-label="Contact us on WhatsApp"
+      style="opacity: 0; transform: translateX(-50%) translateY(100%); pointer-events: none;"
+    >
+      Say Hi To Plum!
+    </a>
+
+
     <div class="xl:flex hidden items-center justify-center">
       <div
   class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
@@ -382,7 +396,20 @@ Header
 </div>
 
     </div>
-    <div class="xl:hidden block">
+
+    <!-- WhatsApp "Say Hi To Plum!" Link - Mobile -->
+    <a
+      href="https://wa.me/96178860758?text=Hi%20plum!"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-link-mobile xl:hidden flex items-center justify-center px-4 py-2 font-bold text-base text-black hover:text-primary transition-all duration-300"
+      aria-label="Contact us on WhatsApp"
+      style="opacity: 0; transform: translateX(-50%) translateY(100%); pointer-events: none;"
+    >
+      Say Hi To Plum!
+    </a>
+
+    <div class="xl:hidden block hamburger-container">
       <button
         class="nav-hamburger flex flex-col gap-[5px] size-12 bg-background-4 dark:bg-background-6 rounded-full items-center justify-center cursor-pointer"
       >
@@ -499,8 +526,11 @@ Mobile Menu
       <!-- ==========================Hero=========================== -->
 <section class="pt-23 max-[1920px]:px-5">
   <div
-    class="bg-background-12 max-w-[1880px] mx-auto relative pt-20 -mb-2 md:pt-30 border overflow-hidden border-background-12 rounded-3xl xl:rounded-4xl"
+    class="bg-[#1a1a1a] max-w-[1880px] mx-auto relative pt-20 -mb-2 md:pt-30 border overflow-hidden border-background-12 rounded-3xl xl:rounded-4xl"
   >
+    <!-- Interactive Gradient Blob Background -->
+    <div class="hero-blob-background" id="heroBlobContainer"></div>
+
     <div
       data-ns-animate
       data-delay="0.3"
@@ -518,11 +548,11 @@ Mobile Menu
         <span data-ns-animate data-delay="0.1" class="badge badge-white text-secondary font-medium mb-4"
           >AI-Powered Business Automation</span
         >
-        <h1 class="font-medium mb-3 opacity-0" data-ns-animate data-instant data-delay="0.1">
+        <h1 class="font-medium mb-3 opacity-0 text-white" data-ns-animate data-instant data-delay="0.1">
           yes... we can automate it
         </h1>
         <p
-          class="max-w-[750px] mx-auto mb-7 md:mb-14"
+          class="max-w-[750px] mx-auto mb-7 md:mb-14 text-white"
           data-ns-animate
           data-instant
           data-delay="0.2"
@@ -532,67 +562,6 @@ Mobile Menu
         <div
           class="flex md:flex-row flex-col gap-y-3 md:gap-y-0 items-center justify-center gap-x-4"
         >
-          <div
-            data-ns-animate
-            data-delay="0.4"
-            data-direction="left"
-            data-offset="50"
-            data-instant
-            class="w-[90%] md:w-auto"
-          >
-            <div
-  class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
->
-  <a
-    href="services.html"
-    class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-secondary-v2 group-hover/btn-v2:btn-primary-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase w-full md:w-auto mx-auto md:mx-0 h-12 md:h-auto"
-  >
-    <span class="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase"
-      >Book a Free Consultation
-    </span>
-
-    <div class="relative overflow-hidden size-6">
-      <!-- one  -->
-      <span
-        class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M11 5H13V7H11V5Z" />
-          <path d="M5 5H7V7H5V5Z" />
-          <path d="M14 8H16V10H14V8Z" />
-          <path d="M8 8H10V10H8V8Z" />
-          <path d="M17 11H19V13H17V11Z" />
-          <path d="M11 11H13V13H11V11Z" />
-          <path d="M14 14H16V16H14V14Z" />
-          <path d="M8 14H10V16H8V14Z" />
-          <path d="M11 17H13V19H11V17Z" />
-          <path d="M5 17H7V19H5V17Z" />
-        </svg>
-      </span>
-
-      <!-- two  -->
-      <span
-        class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M11 5H13V7H11V5Z" />
-          <path d="M5 5H7V7H5V5Z" />
-          <path d="M14 8H16V10H14V8Z" />
-          <path d="M8 8H10V10H8V8Z" />
-          <path d="M17 11H19V13H17V11Z" />
-          <path d="M11 11H13V13H11V11Z" />
-          <path d="M14 14H16V16H14V14Z" />
-          <path d="M8 14H10V16H8V14Z" />
-          <path d="M11 17H13V19H11V17Z" />
-          <path d="M5 17H7V19H5V17Z" />
-        </svg>
-      </span>
-    </div>
-  </a>
-</div>
-
-          </div>
-
           <div
             data-ns-animate
             data-delay="0.5"
@@ -661,9 +630,9 @@ Mobile Menu
         data-ns-animate
         data-delay="0.4"
         data-instant
-        class="max-w-[620px] -mb-3 lg:max-w-[840px] xl:max-w-[1000px] 2xl:max-w-[1016px] min-[1800px]:!max-w-[1166px] mx-auto"
+        class="max-w-[620px] -mb-3 lg:max-w-[840px] xl:max-w-[1000px] 2xl:max-w-[1016px] min-[1800px]:!max-w-[1166px] mx-auto hidden sm:block"
       >
-        <img src="images/ns-img-327.png" alt="Hero banner" class="w-full h-full object-cover" />
+        <img src="images/ns-img-327.png" alt="Hero banner" class="w-full h-full object-cover" style="border-top-left-radius: 30px;border-top-right-radius: 30px;"/>
       </figure>
     </div>
   </div>
@@ -1094,45 +1063,7 @@ Services section
     <!-- services cards -->
     <div class="grid grid-cols-12 md:gap-6 gap-y-6">
       <!-- service card 01 -->
-      <div class="col-span-12 group/card-img" data-ns-animate data-delay="0.1">
-        <div
-          class="bg-background-12 h-full rounded-4xl border border-background-12 px-5 md:px-8 pt-8 pb-8 grid grid-cols-12 md:gap-6 gap-y-6"
-        >
-          <aside
-            class="pt-14 pb-9 col-span-12 flex flex-col justify-between space-y-5 md:col-span-5 lg:col-span-3"
-          >
-            <blockquote class="space-y-2">
-              <h3 class="text-heading-5 md:text-heading-4">Sales Automation</h3>
-              <p class="text-tagline-1 text-secondary/60">
-                Turn conversations into customers automatically. Capture leads, qualify prospects, recommend products, and handle objections, all while you sleep.
-              </p>
-            </blockquote>
-
-            <a
-              href="service-details.html"
-              class="hover:bg-primary-500 group bg-secondary transition-all duration-500 ease-in-out ring-8 ring-white rounded-[40px] w-18 md:w-22 relative overflow-hidden flex items-center justify-center space-y-5 h-10 md:h-13 p-4 md:p-5"
-            >
-              <figure class="size-6 relative items-center justify-center overflow-hidden">
-                <img
-                  src="images/icons/new-arrow-white.svg"
-                  alt="new-arrow"
-                  class="size-full absolute inset-0 -translate-x-6 object-cover group-hover:translate-x-1 transition-transform duration-400 ease-in-out"
-                />
-                <img
-                  src="images/icons/new-arrow-white.svg"
-                  alt="new-arrow"
-                  class="size-full object-cover group-hover:translate-x-6 transition-transform duration-400 ease-in-out"
-                />
-              </figure>
-            </a>
-          </aside>
-          <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 mb-6 md:mb-8 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-7 lg:col-span-9"
-          >
-            <img src="images/index/sales automation.png" alt="services" class="w-full h-full object-cover" />
-          </figure>
-        </div>
-      </div>
+    
       <!-- service card 02 -->
       <div
         class="col-span-12 group/card-img lg:col-span-6"
@@ -1176,12 +1107,11 @@ Services section
           </figure>
         </div>
       </div>
-
-      <!-- service card 03 -->
-      <div
+        <!-- service card 05 -->
+        <div
         class="col-span-12 group/card-img lg:col-span-6"
         data-ns-animate
-        data-delay="0.3"
+        data-delay="0.2"
         data-direction="right"
       >
         <div
@@ -1189,9 +1119,9 @@ Services section
         >
           <aside class="pt-14 col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
-              <h3 class="text-heading-5 md:text-heading-4">Data & Analytics</h3>
+              <h3 class="text-heading-5 md:text-heading-4">Order Management</h3>
               <p class="text-tagline-1 text-secondary/60">
-                Stop guessing. Track every conversation, measure response times, identify drop-off points, analyze sentiment, and get dashboards that show you exactly what's working and what's not.
+                From "is this in stock?" to "where's my package?", fully automated. Check inventory, process orders, send confirmations, track shipments, and handle returns without lifting a finger.
               </p>
             </blockquote>
 
@@ -1216,10 +1146,56 @@ Services section
           <figure
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
-            <img src="images/index/data analytics.jpg" alt="services" class="w-full h-full object-cover" />
+            <img src="images/index/order management.jpg" alt="services" class="w-full h-full object-cover" />
           </figure>
         </div>
       </div>
+      <!-- service card 07 -->
+      <div
+        class="col-span-12 group/card-img lg:col-span-6"
+        data-ns-animate
+        data-delay="0.2"
+        data-direction="right"
+      >
+        <div
+          class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 md:gap-6 gap-y-16"
+        >
+          <aside class="pt-14 col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
+            <blockquote class="space-y-2">
+              <h3 class="text-heading-5 md:text-heading-4">AI-Powered Conversations</h3>
+              <p class="text-tagline-1 text-secondary/60">
+                Smart conversations that actually understand context. Natural language processing, image recognition, voice transcription, sentiment detection, and multilingual support. Your bot gets smarter every day.
+              </p>
+            </blockquote>
+
+            <a
+              href="service-details.html"
+              class="hover:bg-primary-500 group bg-secondary transition-all duration-500 ease-in-out ring-8 ring-white rounded-[40px] w-18 md:w-22 relative overflow-hidden flex items-center justify-center space-y-5 h-10 md:h-13 p-4 md:p-5"
+            >
+              <figure class="size-6 relative items-center justify-center overflow-hidden">
+                <img
+                  src="images/icons/new-arrow-white.svg"
+                  alt="new-arrow"
+                  class="size-full absolute inset-0 -translate-x-6 object-cover group-hover:translate-x-1 transition-transform duration-400 ease-in-out"
+                />
+                <img
+                  src="images/icons/new-arrow-white.svg"
+                  alt="new-arrow"
+                  class="size-full object-cover group-hover:translate-x-6 transition-transform duration-400 ease-in-out"
+                />
+              </figure>
+            </a>
+          </aside>
+          <figure
+            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
+          >
+            <img src="images/index/ai conversations.jfif" alt="services" class="w-full h-full object-cover object-center" />
+          </figure>
+        </div>
+      </div>
+
+
+    
 
       <!-- service card 04 -->
       <div
@@ -1261,50 +1237,6 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out"
           >
             <img src="images/index/appointment booking.jpg" alt="services" class="w-full h-full object-cover" />
-          </figure>
-        </div>
-      </div>
-
-      <!-- service card 05 -->
-      <div
-        class="col-span-12 group/card-img lg:col-span-6"
-        data-ns-animate
-        data-delay="0.2"
-        data-direction="right"
-      >
-        <div
-          class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 md:gap-6 gap-y-16"
-        >
-          <aside class="pt-14 col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
-            <blockquote class="space-y-2">
-              <h3 class="text-heading-5 md:text-heading-4">Order Management</h3>
-              <p class="text-tagline-1 text-secondary/60">
-                From "is this in stock?" to "where's my package?", fully automated. Check inventory, process orders, send confirmations, track shipments, and handle returns without lifting a finger.
-              </p>
-            </blockquote>
-
-            <a
-              href="service-details.html"
-              class="hover:bg-primary-500 group bg-secondary transition-all duration-500 ease-in-out ring-8 ring-white rounded-[40px] w-18 md:w-22 relative overflow-hidden flex items-center justify-center space-y-5 h-10 md:h-13 p-4 md:p-5"
-            >
-              <figure class="size-6 relative items-center justify-center overflow-hidden">
-                <img
-                  src="images/icons/new-arrow-white.svg"
-                  alt="new-arrow"
-                  class="size-full absolute inset-0 -translate-x-6 object-cover group-hover:translate-x-1 transition-transform duration-400 ease-in-out"
-                />
-                <img
-                  src="images/icons/new-arrow-white.svg"
-                  alt="new-arrow"
-                  class="size-full object-cover group-hover:translate-x-6 transition-transform duration-400 ease-in-out"
-                />
-              </figure>
-            </a>
-          </aside>
-          <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
-          >
-            <img src="images/index/order management.jpg" alt="services" class="w-full h-full object-cover" />
           </figure>
         </div>
       </div>
@@ -1352,50 +1284,50 @@ Services section
           </figure>
         </div>
       </div>
+  <!-- service card 03 -->
+  <div
+  class="col-span-12 group/card-img lg:col-span-6"
+  data-ns-animate
+  data-delay="0.3"
+  data-direction="right"
+>
+  <div
+    class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 md:gap-6 gap-y-16"
+  >
+    <aside class="pt-14 col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
+      <blockquote class="space-y-2">
+        <h3 class="text-heading-5 md:text-heading-4">Data & Analytics</h3>
+        <p class="text-tagline-1 text-secondary/60">
+          Stop guessing. Track every conversation, measure response times, identify drop-off points, analyze sentiment, and get dashboards that show you exactly what's working and what's not.
+        </p>
+      </blockquote>
 
-      <!-- service card 07 -->
-      <div
-        class="col-span-12 group/card-img lg:col-span-6"
-        data-ns-animate
-        data-delay="0.2"
-        data-direction="right"
+      <a
+        href="service-details.html"
+        class="hover:bg-primary-500 group bg-secondary transition-all duration-500 ease-in-out ring-8 ring-white rounded-[40px] w-18 md:w-22 relative overflow-hidden flex items-center justify-center space-y-5 h-10 md:h-13 p-4 md:p-5"
       >
-        <div
-          class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 md:gap-6 gap-y-16"
-        >
-          <aside class="pt-14 col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
-            <blockquote class="space-y-2">
-              <h3 class="text-heading-5 md:text-heading-4">AI-Powered Conversations</h3>
-              <p class="text-tagline-1 text-secondary/60">
-                Smart conversations that actually understand context. Natural language processing, image recognition, voice transcription, sentiment detection, and multilingual support. Your bot gets smarter every day.
-              </p>
-            </blockquote>
-
-            <a
-              href="service-details.html"
-              class="hover:bg-primary-500 group bg-secondary transition-all duration-500 ease-in-out ring-8 ring-white rounded-[40px] w-18 md:w-22 relative overflow-hidden flex items-center justify-center space-y-5 h-10 md:h-13 p-4 md:p-5"
-            >
-              <figure class="size-6 relative items-center justify-center overflow-hidden">
-                <img
-                  src="images/icons/new-arrow-white.svg"
-                  alt="new-arrow"
-                  class="size-full absolute inset-0 -translate-x-6 object-cover group-hover:translate-x-1 transition-transform duration-400 ease-in-out"
-                />
-                <img
-                  src="images/icons/new-arrow-white.svg"
-                  alt="new-arrow"
-                  class="size-full object-cover group-hover:translate-x-6 transition-transform duration-400 ease-in-out"
-                />
-              </figure>
-            </a>
-          </aside>
-          <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
-          >
-            <img src="images/index/ai conversations.jfif" alt="services" class="w-full h-full object-cover object-center" />
-          </figure>
-        </div>
-      </div>
+        <figure class="size-6 relative items-center justify-center overflow-hidden">
+          <img
+            src="images/icons/new-arrow-white.svg"
+            alt="new-arrow"
+            class="size-full absolute inset-0 -translate-x-6 object-cover group-hover:translate-x-1 transition-transform duration-400 ease-in-out"
+          />
+          <img
+            src="images/icons/new-arrow-white.svg"
+            alt="new-arrow"
+            class="size-full object-cover group-hover:translate-x-6 transition-transform duration-400 ease-in-out"
+          />
+        </figure>
+      </a>
+    </aside>
+    <figure
+      class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
+    >
+      <img src="images/index/data analytics.jpg" alt="services" class="w-full h-full object-cover" />
+    </figure>
+  </div>
+</div>
+    
 
       <!-- service card 08 -->
       <div class="col-span-12 group/card-img" data-ns-animate data-delay="0.1">
@@ -1406,7 +1338,7 @@ Services section
             class="pt-14 pb-9 col-span-12 flex flex-col justify-between space-y-5 md:col-span-5 lg:col-span-3"
           >
             <blockquote class="space-y-2">
-              <h3 class="text-heading-5 md:text-heading-4">Lead Generation & CRM</h3>
+              <h3 class="text-heading-5 md:text-heading-4">Lead Generation & Sales Automation</h3>
               <p class="text-tagline-1 text-secondary/60">
                 Capture every lead, lose none. Automatically collect contact info, score prospects, sync to your CRM, trigger nurture sequences, and alert your team the moment a hot lead comes in. Your pipeline fills itself.
               </p>
@@ -2322,65 +2254,6 @@ Testimonail section
       </div>
       <div class="max-w-[770px] mx-auto text-center space-y-6">
    
-        <div class="flex justify-center">
-          <div
-            class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
-          >
-            <a
-              href="#"
-              class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-secondary-v2 group-hover/btn-v2:btn-primary-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase w-full md:w-auto mx-auto md:mx-0 h-12 md:h-auto"
-            >
-              <span
-                class="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase"
-                >Book a Free Consultation
-              </span>
-
-              <div class="relative overflow-hidden size-6">
-                <!-- one  -->
-                <span
-                  class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M11 5H13V7H11V5Z" />
-                    <path d="M5 5H7V7H5V5Z" />
-                    <path d="M14 8H16V10H14V8Z" />
-                    <path d="M8 8H10V10H8V8Z" />
-                    <path d="M17 11H19V13H17V11Z" />
-                    <path d="M11 11H13V13H11V11Z" />
-                    <path d="M14 14H16V16H14V14Z" />
-                    <path d="M8 14H10V16H8V14Z" />
-                    <path d="M11 17H13V19H11V17Z" />
-                    <path d="M5 17H7V19H5V17Z" />
-                  </svg>
-                </span>
-
-                <!-- two  -->
-                <span
-                  class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M11 5H13V7H11V5Z" />
-                    <path d="M5 5H7V7H5V5Z" />
-                    <path d="M14 8H16V10H14V8Z" />
-                    <path d="M8 8H10V10H8V8Z" />
-                    <path d="M17 11H19V13H17V11Z" />
-                    <path d="M11 11H13V13H11V11Z" />
-                    <path d="M14 14H16V16H14V14Z" />
-                    <path d="M8 14H10V16H8V14Z" />
-                    <path d="M11 17H13V19H11V17Z" />
-                    <path d="M5 17H7V19H5V17Z" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -2397,66 +2270,6 @@ CTA section
           <h2 data-ns-animate data-delay="0.1">Ready to stop doing everything manually?</h2>
 
       <div class="flex md:flex-row flex-col gap-y-3 md:gap-y-0 items-center justify-center gap-x-4">
-        <div
-          data-ns-animate
-          data-delay="0.4"
-          data-direction="left"
-          data-offset="50"
-          class="w-[90%] sm:w-auto"
-        >
-          <div
-  class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
->
-  <a
-    href="#"
-    class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-secondary-v2 group-hover/btn-v2:btn-primary-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase w-full md:w-auto mx-auto md:mx-0 h-12 md:h-auto"
-  >
-    <span class="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase"
-      >Book a Free Consultation
-    </span>
-
-    <div class="relative overflow-hidden size-6">
-      <!-- one  -->
-      <span
-        class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M11 5H13V7H11V5Z" />
-          <path d="M5 5H7V7H5V5Z" />
-          <path d="M14 8H16V10H14V8Z" />
-          <path d="M8 8H10V10H8V8Z" />
-          <path d="M17 11H19V13H17V11Z" />
-          <path d="M11 11H13V13H11V11Z" />
-          <path d="M14 14H16V16H14V14Z" />
-          <path d="M8 14H10V16H8V14Z" />
-          <path d="M11 17H13V19H11V17Z" />
-          <path d="M5 17H7V19H5V17Z" />
-        </svg>
-      </span>
-
-      <!-- two  -->
-      <span
-        class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M11 5H13V7H11V5Z" />
-          <path d="M5 5H7V7H5V5Z" />
-          <path d="M14 8H16V10H14V8Z" />
-          <path d="M8 8H10V10H8V8Z" />
-          <path d="M17 11H19V13H17V11Z" />
-          <path d="M11 11H13V13H11V11Z" />
-          <path d="M14 14H16V16H14V14Z" />
-          <path d="M8 14H10V16H8V14Z" />
-          <path d="M11 17H13V19H11V17Z" />
-          <path d="M5 17H7V19H5V17Z" />
-        </svg>
-      </span>
-    </div>
-  </a>
-</div>
-
-        </div>
-
         <div
           data-ns-animate
           data-delay="0.5"
@@ -2704,16 +2517,6 @@ Footer
       </p>
     </div>
   </div>
-  <button
-  style="writing-mode: sideways-lr; text-orientation: mixed; background-color: #864FFE;"
-  id="open-demo-showcase"
-  class="fixed bottom-1/2 translate-y-1/2 cursor-pointer right-0 z-[99999] pt-4 pb-1 sm:pl-1 sm:pr-1 rounded-l-xl border border-purple-500 text-accent text-tagline-1 font-medium flex items-center gap-4"
->
-  <span class="">
-    <img src="images/shared/plumcut_logo_transparent.png" alt="Plum Logo" width="44" height="44" />
-  </span>
-  <span> say hi to Plum!</span>
-</button>
 
 <div
   id="demo-showcase"
@@ -3017,7 +2820,6 @@ Footer
     init() {
       const demoShowcase = document.querySelector('#demo-showcase');
       const demoShowcaseClose = document.querySelector('#demo-showcase-close');
-      const openDemoShowcase = document.querySelector('#open-demo-showcase');
       const demoShowcaseListContainer = document.querySelector('#demo-showcase-list');
 
       if (demoShowcaseListContainer && demoShowcaseList) {
@@ -3104,21 +2906,6 @@ Footer
           });
         });
       }
-
-      if (openDemoShowcase) {
-        openDemoShowcase.addEventListener('click', () => {
-          // Remove closed class first
-          demoShowcase.classList.remove('demo-showcase-closed');
-          // Use requestAnimationFrame to ensure smooth transition
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              // Add open class for animation
-              demoShowcase.classList.add('demo-showcase-open');
-            });
-          });
-          document.body.style.overflow = 'hidden';
-        });
-      }
       if (demoShowcaseClose) {
         demoShowcaseClose.addEventListener('click', () => {
           // Remove open class first
@@ -3157,9 +2944,262 @@ Footer
 
 
   <script  src="assets/main.js"></script>
+<!-- Interactive Gradient Blob Background -->
+<script>
+  (function() {
+    const container = document.getElementById('heroBlobContainer');
+    if (!container) return;
+    
+    const blobs = [];
+    
+    let lastMouseX = window.innerWidth / 2;
+    let lastMouseY = window.innerHeight / 2;
+    let mouseDeltaX = 0;
+    let mouseDeltaY = 0;
+    let isFirstMove = true;
+
+    const gradients = [
+      'linear-gradient(23deg, rgb(73, 34, 82) 0%, rgb(167, 85, 60) 50%, rgb(247, 174, 107) 100%)',
+      'linear-gradient(156deg, rgb(73, 34, 82) 0%, rgb(155, 72, 55) 50%, rgb(236, 131, 50) 100%)',
+      'linear-gradient(87deg, rgb(112, 60, 73) 0%, rgb(175, 95, 65) 50%, rgb(247, 174, 107) 100%)',
+      'linear-gradient(312deg, rgb(73, 34, 82) 0%, rgb(160, 80, 58) 50%, rgb(219, 110, 37) 100%)',
+      'linear-gradient(198deg, rgb(112, 60, 73) 0%, rgb(180, 100, 70) 50%, rgb(247, 174, 107) 100%)',
+      'linear-gradient(67deg, rgb(73, 34, 82) 0%, rgb(145, 70, 52) 50%, rgb(236, 131, 50) 100%)',
+      'linear-gradient(243deg, rgb(112, 60, 73) 0%, rgb(165, 88, 62) 50%, rgb(219, 110, 37) 100%)',
+      'linear-gradient(129deg, rgb(73, 34, 82) 0%, rgb(170, 90, 65) 50%, rgb(247, 174, 107) 100%)',
+    ];
+
+    class Blob {
+      constructor(x, y, size = null) {
+        // Detect desktop vs mobile
+        const isDesktop = window.innerWidth >= 768;
+        
+        // Larger sizes on desktop, smaller on mobile
+        if (size === null) {
+          this.baseSize = isDesktop ? Math.random() * 500 + 400 : Math.random() * 180 + 150;
+        } else {
+          // Scale down predefined sizes on mobile
+          this.baseSize = isDesktop ? size : size * 0.45;
+        }
+        
+        this.size = this.baseSize;
+        this.x = x - this.size / 2;
+        this.y = y - this.size / 2;
+        this.offsetX = 0;
+        this.offsetY = 0;
+        this.depth = Math.random() * 0.4 + 0.3;
+        this.morphSpeed = Math.random() * 0.0004 + 0.0002;
+        this.sizeSpeed = Math.random() * 0.0002 + 0.0001;
+        this.morphOffset = Math.random() * Math.PI * 2;
+        this.sizeOffset = Math.random() * Math.PI * 2;
+        this.time = 0;
+        
+        // Autonomous movement properties - always active
+        this.wanderX = 0;
+        this.wanderY = 0;
+        this.wanderAngle = Math.random() * Math.PI * 2;
+        this.wanderSpeed = Math.random() * 0.008 + 0.004; // Slow constant speed
+        this.wanderTurnSpeed = Math.random() * 0.002 + 0.001; // How fast direction changes
+        this.wanderNoiseOffset = Math.random() * 1000;
+        
+        // Drift radius for boundaries
+        this.maxWander = isDesktop ? 150 : 80;
+        
+        // Create wrapper for positioning and transform
+        this.wrapper = document.createElement('div');
+        this.wrapper.className = 'hero-blob-wrapper';
+        this.wrapper.style.position = 'absolute';
+        this.wrapper.style.left = this.x + 'px';
+        this.wrapper.style.top = this.y + 'px';
+        this.wrapper.style.width = this.size + 'px';
+        this.wrapper.style.height = this.size + 'px';
+        
+        // Inner element with gradient and edge blur
+        this.element = document.createElement('div');
+        this.element.className = 'hero-blob spawning';
+        this.element.style.width = '100%';
+        this.element.style.height = '100%';
+        this.element.style.background = gradients[Math.floor(Math.random() * gradients.length)];
+        this.element.style.filter = isDesktop ? 'blur(50px)' : 'blur(30px)';
+        this.element.style.opacity = 1;
+        
+        this.wrapper.appendChild(this.element);
+        container.appendChild(this.wrapper);
+      }
+
+      update(deltaTime, mouseDX, mouseDY) {
+        this.time += deltaTime;
+
+        // Slow morphing shape
+        const morphTime = this.time * this.morphSpeed + this.morphOffset;
+        const r1 = 50 + Math.sin(morphTime) * 15;
+        const r2 = 50 + Math.sin(morphTime * 1.3 + 1) * 15;
+        const r3 = 50 + Math.sin(morphTime * 0.9 + 2) * 15;
+        const r4 = 50 + Math.sin(morphTime * 1.1 + 3) * 15;
+        const r5 = 50 + Math.sin(morphTime * 0.8 + 4) * 15;
+        const r6 = 50 + Math.sin(morphTime * 1.2 + 5) * 15;
+        const r7 = 50 + Math.sin(morphTime * 1.0 + 6) * 15;
+        const r8 = 50 + Math.sin(morphTime * 0.7 + 7) * 15;
+
+        this.element.style.borderRadius = `${r1}% ${r2}% ${r3}% ${r4}% / ${r5}% ${r6}% ${r7}% ${r8}%`;
+
+        // Slow size pulsing
+        const sizeTime = this.time * this.sizeSpeed + this.sizeOffset;
+        const sizeFactor = 1 + Math.sin(sizeTime) * 0.12;
+        this.size = this.baseSize * sizeFactor;
+        const currentHeight = this.size * (0.9 + Math.sin(sizeTime * 0.7) * 0.1);
+        
+        this.wrapper.style.width = this.size + 'px';
+        this.wrapper.style.height = currentHeight + 'px';
+
+        // Autonomous wandering movement - always active
+        // Gradually change direction using noise-like behavior
+        const noiseTime = this.time * 0.0005 + this.wanderNoiseOffset;
+        this.wanderAngle += Math.sin(noiseTime) * this.wanderTurnSpeed * deltaTime;
+        this.wanderAngle += Math.sin(noiseTime * 1.7) * this.wanderTurnSpeed * 0.5 * deltaTime;
+        
+        // Move in current direction
+        this.wanderX += Math.cos(this.wanderAngle) * this.wanderSpeed * deltaTime;
+        this.wanderY += Math.sin(this.wanderAngle) * this.wanderSpeed * deltaTime;
+        
+        // Soft boundary - gently push back when too far from origin
+        const distFromOrigin = Math.sqrt(this.wanderX * this.wanderX + this.wanderY * this.wanderY);
+        if (distFromOrigin > this.maxWander) {
+          const pushBackStrength = (distFromOrigin - this.maxWander) * 0.001;
+          this.wanderX -= this.wanderX * pushBackStrength * deltaTime;
+          this.wanderY -= this.wanderY * pushBackStrength * deltaTime;
+          
+          // Also adjust angle to point back toward center
+          const angleToCenter = Math.atan2(-this.wanderY, -this.wanderX);
+          const angleDiff = angleToCenter - this.wanderAngle;
+          this.wanderAngle += Math.sin(angleDiff) * 0.001 * deltaTime;
+        }
+
+        // Mouse interaction offset (additive to wandering)
+        this.offsetX += -mouseDX * this.depth * 0.4;
+        this.offsetY += -mouseDY * this.depth * 0.4;
+        
+        // Mouse offset slowly returns to zero
+        this.offsetX *= 0.995;
+        this.offsetY *= 0.995;
+
+        // Combine wandering with mouse offset
+        const totalOffsetX = this.wanderX + this.offsetX;
+        const totalOffsetY = this.wanderY + this.offsetY;
+
+        this.wrapper.style.transform = `translate(${totalOffsetX}px, ${totalOffsetY}px)`;
+      }
+
+      remove() {
+        this.wrapper.remove();
+      }
+    }
+
+    let lastTime = performance.now();
+
+    function animate(currentTime) {
+      const deltaTime = currentTime - lastTime;
+      lastTime = currentTime;
+
+      blobs.forEach(blob => blob.update(deltaTime, mouseDeltaX, mouseDeltaY));
+      
+      // Reset mouse delta after applying - slower decay for more reactive feel
+      mouseDeltaX *= 0.95;
+      mouseDeltaY *= 0.95;
+
+      requestAnimationFrame(animate);
+    }
+
+    // Track mouse movement delta
+    document.addEventListener('mousemove', (e) => {
+      if (isFirstMove) {
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+        isFirstMove = false;
+        return;
+      }
+      
+      mouseDeltaX = e.clientX - lastMouseX;
+      mouseDeltaY = e.clientY - lastMouseY;
+      lastMouseX = e.clientX;
+      lastMouseY = e.clientY;
+    });
+
+    // Spawn blob on click (only within the hero section)
+    const heroSection = container.closest('section');
+    if (heroSection) {
+      heroSection.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+        
+        const rect = heroSection.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const blob = new Blob(x, y);
+        blobs.push(blob);
+      });
+    }
+
+    // Touch support
+    if (heroSection) {
+      heroSection.addEventListener('touchstart', (e) => {
+        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+        
+        const touch = e.touches[0];
+        const rect = heroSection.getBoundingClientRect();
+        lastMouseX = touch.clientX;
+        lastMouseY = touch.clientY;
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+        
+        const blob = new Blob(x, y);
+        blobs.push(blob);
+      }, { passive: true });
+
+      heroSection.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        mouseDeltaX = touch.clientX - lastMouseX;
+        mouseDeltaY = touch.clientY - lastMouseY;
+        lastMouseX = touch.clientX;
+        lastMouseY = touch.clientY;
+      }, { passive: true });
+    }
+
+    // Spawn initial blobs
+    function spawnInitialBlobs() {
+      const sectionRect = heroSection ? heroSection.getBoundingClientRect() : { width: window.innerWidth, height: window.innerHeight };
+      const isDesktop = window.innerWidth >= 768;
+      
+      // Larger sizes on desktop, smaller on mobile
+      const initialPositions = isDesktop ? [
+        { x: sectionRect.width * 0.25, y: sectionRect.height * 0.35, size: 900 },
+        { x: sectionRect.width * 0.75, y: sectionRect.height * 0.25, size: 850 },
+        { x: sectionRect.width * 0.5, y: sectionRect.height * 0.7, size: 800 },
+        { x: sectionRect.width * 0.85, y: sectionRect.height * 0.65, size: 750 },
+        { x: sectionRect.width * 0.1, y: sectionRect.height * 0.8, size: 700 },
+      ] : [
+        { x: sectionRect.width * 0.3, y: sectionRect.height * 0.25, size: 480 },
+        { x: sectionRect.width * 0.7, y: sectionRect.height * 0.2, size: 450 },
+        { x: sectionRect.width * 0.5, y: sectionRect.height * 0.55, size: 420 },
+        { x: sectionRect.width * 0.8, y: sectionRect.height * 0.7, size: 400 },
+        { x: sectionRect.width * 0.15, y: sectionRect.height * 0.75, size: 380 },
+      ];
+
+      initialPositions.forEach((pos, index) => {
+        setTimeout(() => {
+          const blob = new Blob(pos.x, pos.y, pos.size);
+          blobs.push(blob);
+        }, index * 150);
+      });
+    }
+
+    // Initialize
+    spawnInitialBlobs();
+    requestAnimationFrame(animate);
+  })();
+</script>
 </footer>
 
   </body>
 
 </html>
-

@@ -326,6 +326,20 @@ Header
       </ul>
     </nav>
 
+
+    <!-- WhatsApp "Say Hi To Plum!" Link -->
+    <a
+      href="https://wa.me/96178860758?text=Hi%20plum!"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-link hidden xl:flex items-center justify-center px-6 py-3 font-bold text-xl text-black hover:text-primary transition-all duration-300"
+      aria-label="Contact us on WhatsApp"
+      style="opacity: 0; transform: translateX(-50%) translateY(100%); pointer-events: none;"
+    >
+      Say Hi To Plum!
+    </a>
+
+
     <div class="xl:flex hidden items-center justify-center">
       <div
   class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
@@ -379,7 +393,20 @@ Header
 </div>
 
     </div>
-    <div class="xl:hidden block">
+
+    <!-- WhatsApp "Say Hi To Plum!" Link - Mobile -->
+    <a
+      href="https://wa.me/96178860758?text=Hi%20plum!"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-link-mobile xl:hidden flex items-center justify-center px-4 py-2 font-bold text-base text-black hover:text-primary transition-all duration-300"
+      aria-label="Contact us on WhatsApp"
+      style="opacity: 0; transform: translateX(-50%) translateY(100%); pointer-events: none;"
+    >
+      Say Hi To Plum!
+    </a>
+
+    <div class="xl:hidden block hamburger-container">
       <button
         class="nav-hamburger flex flex-col gap-[5px] size-12 bg-background-4 dark:bg-background-6 rounded-full items-center justify-center cursor-pointer"
       >
@@ -957,16 +984,6 @@ Footer
       </p>
     </div>
   </div>
-  <button
-  style="writing-mode: sideways-lr; text-orientation: mixed; background-color: #864FFE;"
-  id="open-demo-showcase"
-  class="fixed bottom-1/2 translate-y-1/2 cursor-pointer right-0 z-[99999] pt-4 pb-1 sm:pl-1 sm:pr-1 rounded-l-xl border border-purple-500 text-accent text-tagline-1 font-medium flex items-center gap-4"
->
-  <span class="">
-    <img src="images/shared/plumcut_logo_transparent.png" alt="Plum Logo" width="44" height="44" />
-  </span>
-  <span> say hi to Plum!</span>
-</button>
 
 <div
   id="demo-showcase"
@@ -1270,7 +1287,6 @@ Footer
     init() {
       const demoShowcase = document.querySelector('#demo-showcase');
       const demoShowcaseClose = document.querySelector('#demo-showcase-close');
-      const openDemoShowcase = document.querySelector('#open-demo-showcase');
       const demoShowcaseListContainer = document.querySelector('#demo-showcase-list');
 
       if (demoShowcaseListContainer && demoShowcaseList) {
@@ -1355,21 +1371,6 @@ Footer
 
             setActiveCard(card);
           });
-        });
-      }
-
-      if (openDemoShowcase) {
-        openDemoShowcase.addEventListener('click', () => {
-          // Remove closed class first
-          demoShowcase.classList.remove('demo-showcase-closed');
-          // Use requestAnimationFrame to ensure smooth transition
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              // Add open class for animation
-              demoShowcase.classList.add('demo-showcase-open');
-            });
-          });
-          document.body.style.overflow = 'hidden';
         });
       }
       if (demoShowcaseClose) {

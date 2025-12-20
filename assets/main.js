@@ -805,13 +805,90 @@ document.addEventListener("DOMContentLoaded", function() {
 const headerAnimation = {
   headerOne() {
     const header = document.querySelector(".header-one");
+    const whatsappLink = document.querySelector(".whatsapp-link");
+    const whatsappLinkMobile = document.querySelector(".whatsapp-link-mobile");
+    const nav = document.querySelector(".header-one nav");
+    const hamburgerContainer = document.querySelector(".hamburger-container");
+
     if (header) {
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 200) {
           header.style.transition = "all 0.5s ease-in-out";
           header.classList.add("scroll-header");
+
+          // Slide down/hide the navigation menu
+          if (nav) {
+            nav.style.transition = "all 0.5s ease-in-out";
+            nav.style.transform = "translateY(-100%)";
+            nav.style.opacity = "0";
+            nav.style.pointerEvents = "none";
+          }
+
+          // Hide hamburger on mobile
+          if (hamburgerContainer) {
+            hamburgerContainer.style.transition = "all 0.5s ease-in-out";
+            hamburgerContainer.style.transform = "translateY(-100%)";
+            hamburgerContainer.style.opacity = "0";
+            hamburgerContainer.style.pointerEvents = "none";
+          }
+
+          // Slide up and show WhatsApp link (desktop)
+          if (whatsappLink) {
+            whatsappLink.style.display = "flex";
+            setTimeout(() => {
+              whatsappLink.style.transition = "all 0.5s ease-in-out";
+              whatsappLink.style.transform = "translateX(-50%) translateY(0)";
+              whatsappLink.style.opacity = "1";
+              whatsappLink.style.pointerEvents = "auto";
+            }, 50);
+          }
+
+          // Slide up and show WhatsApp link (mobile)
+          if (whatsappLinkMobile) {
+            whatsappLinkMobile.style.display = "flex";
+            setTimeout(() => {
+              whatsappLinkMobile.style.transition = "all 0.5s ease-in-out";
+              whatsappLinkMobile.style.transform = "translateX(-50%) translateY(0)";
+              whatsappLinkMobile.style.opacity = "1";
+              whatsappLinkMobile.style.pointerEvents = "auto";
+            }, 50);
+          }
         } else {
           header.classList.remove("scroll-header");
+
+          // Show navigation menu
+          if (nav) {
+            nav.style.transform = "translateY(0)";
+            nav.style.opacity = "1";
+            nav.style.pointerEvents = "auto";
+          }
+
+          // Show hamburger on mobile
+          if (hamburgerContainer) {
+            hamburgerContainer.style.transform = "translateY(0)";
+            hamburgerContainer.style.opacity = "1";
+            hamburgerContainer.style.pointerEvents = "auto";
+          }
+
+          // Hide WhatsApp link (desktop)
+          if (whatsappLink) {
+            whatsappLink.style.transform = "translateX(-50%) translateY(100%)";
+            whatsappLink.style.opacity = "0";
+            whatsappLink.style.pointerEvents = "none";
+            setTimeout(() => {
+              whatsappLink.style.display = "none";
+            }, 500);
+          }
+
+          // Hide WhatsApp link (mobile)
+          if (whatsappLinkMobile) {
+            whatsappLinkMobile.style.transform = "translateX(-50%) translateY(100%)";
+            whatsappLinkMobile.style.opacity = "0";
+            whatsappLinkMobile.style.pointerEvents = "none";
+            setTimeout(() => {
+              whatsappLinkMobile.style.display = "none";
+            }, 500);
+          }
         }
       });
     }
