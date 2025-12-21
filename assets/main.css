@@ -30748,7 +30748,7 @@ svg.leaflet-zoom-animated {
 
 @media (min-width: 1024px) {
   .logo-responsive {
-    width: 35%;
+    width: 27%;
   }
 }
 
@@ -30835,11 +30835,36 @@ svg.leaflet-zoom-animated {
 
 /* WhatsApp "Say Hi To Plum!" Link - Centered in entire navbar */
 .whatsapp-link {
+  position: relative;
   transition: all 0.3s ease-in-out;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   font-weight: 500;
+}
+
+.whatsapp-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 3px;
+  background:
+    linear-gradient(#000 0 0) content-box,
+    conic-gradient(from var(--navbar-angle), #481D52, #702E3F, #E65E04, #EE7418, #FA9639, #481D52);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  animation: navbarGradientRotate 3s linear infinite;
 }
 
 /* Desktop - absolute center of navbar */
@@ -30848,17 +30873,54 @@ svg.leaflet-zoom-animated {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 600 !important;
   }
 
-  .whatsapp-link:hover {
-    font-size: 1.4rem;
-  }
 
   /* Desktop: Narrow navbar when scrolled */
   .header-one.scroll-header.navbar-custom {
     width: 20% !important;
+  }
+
+  @property --navbar-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes navbarGradientRotate {
+    to {
+      --navbar-angle: 360deg;
+    }
+  }
+
+  .header-one.navbar-custom::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    padding: 3.5px;
+    background:
+      linear-gradient(#000 0 0) content-box,
+      conic-gradient(from var(--navbar-angle), #481D52, #702E3F, #E65E04, #EE7418, #FA9639, #481D52, #481D52, #702E3F);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  .header-one.scroll-header.navbar-custom::before {
+    opacity: 1;
+    animation: navbarGradientRotate 3s linear infinite;
   }
 }
 
@@ -30870,6 +30932,7 @@ svg.leaflet-zoom-animated {
 
   .header-one.scroll-header.navbar-custom {
     max-width: 300px !important;
+    position: relative;
   }
 
   .whatsapp-link {
