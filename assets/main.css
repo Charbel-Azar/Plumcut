@@ -4281,6 +4281,7 @@ body {
     margin-top: calc(var(--spacing) * 40);
   }
 
+
   .mt-\[1\.7px\] {
     margin-top: 1.7px;
   }
@@ -30725,7 +30726,7 @@ svg.leaflet-zoom-animated {
 
 @media (min-width: 1024px) {
   .logo-responsive {
-    width: 50%;
+    width: 35%;
   }
 }
 
@@ -30776,43 +30777,81 @@ svg.leaflet-zoom-animated {
   animation: hero-spawn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* WhatsApp "Say Hi To Plum!" Link Styles */
-.whatsapp-link,
-.whatsapp-link-mobile {
-  transition: all 0.5s ease-in-out;
-  white-space: nowrap;
+/* Navbar modifications for WhatsApp link */
+.header-one {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease-in-out;
+  min-height: 72px;
 }
 
+.header-one > div:first-child {
+  position: absolute;
+  left: 0.625rem;
+  transition: all 1s ease-in-out;
+}
+
+.header-one nav {
+  transition: all 0.6s ease-in-out;
+  will-change: opacity, transform;
+}
+
+.header-one .get-started-container {
+  position: absolute;
+  right: 0.625rem;
+  transition: all 0.6s ease-in-out;
+  will-change: opacity, transform;
+}
+
+.header-one .hamburger-container {
+  position: absolute;
+  right: 0.625rem;
+  transition: all 0.6s ease-in-out;
+  will-change: opacity, transform;
+}
+
+/* WhatsApp "Say Hi To Plum!" Link - Centered in entire navbar */
 .whatsapp-link {
-  font-size: 1.5rem;
+  transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  font-weight: 500;
 }
 
-.whatsapp-link-mobile {
-  font-size: 1.125rem;
-}
-
-/* Desktop: Center the WhatsApp link */
+/* Desktop - absolute center of navbar */
 @media (min-width: 1280px) {
   .whatsapp-link {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) translateY(100%);
+    transform: translateX(-50%);
+    font-size: 1.25rem;
+    font-weight: 600 !important;
   }
 
-  .whatsapp-link.active {
-    transform: translateX(-50%) translateY(0);
+  .whatsapp-link:hover {
+    font-size: 1.4rem;
+  }
+
+  /* Desktop: Narrow navbar when scrolled */
+  .header-one.scroll-header.navbar-custom {
+    width: 20% !important;
   }
 }
 
-/* Mobile: Center the WhatsApp link */
+/* Mobile navbar height fix and narrow width when scrolled */
 @media (max-width: 1279px) {
-  .whatsapp-link-mobile {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateY(100%);
+  .header-one {
+    min-height: 60px;
   }
 
-  .whatsapp-link-mobile.active {
-    transform: translateX(-50%) translateY(0);
+  .header-one.scroll-header.navbar-custom {
+    max-width: 300px !important;
+  }
+
+  .whatsapp-link {
+    font-size: 1rem;
+     font-weight: 600 !important;
   }
 }
