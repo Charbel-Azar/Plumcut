@@ -748,6 +748,28 @@ body {
   opacity: 0;
 }
 
+.footer-gradient-bg {
+  position: absolute;
+  overflow: hidden;
+  display: block;
+  width: 600px;
+  height: 600px;
+  rotate: 120deg;
+  right: -301px;
+  top: -237px;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .footer-gradient-bg {
+    width: 1220px;
+    height: 1220px;
+          right: -554px;
+    top: -485px;
+  }
+}
+
 .scroll-bar::-webkit-scrollbar {
   display: none;
 }
@@ -30853,5 +30875,9 @@ svg.leaflet-zoom-animated {
   .whatsapp-link {
     font-size: 1rem;
      font-weight: 600 !important;
+  }
+
+  .footer figure.absolute {
+    display: none;
   }
 }
