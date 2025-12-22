@@ -809,38 +809,10 @@ const headerAnimation = {
     const nav = document.querySelector(".header-one nav");
     const hamburgerContainer = document.querySelector(".hamburger-container");
     const getStartedContainer = document.querySelector(".get-started-container");
-    const backToTopButton = document.querySelector(".back-to-top");
-    const footer = document.querySelector("footer");
-    let backToTopLocked = false;
-
-    if (backToTopButton) {
-      backToTopButton.addEventListener("click", () => {
-        backToTopLocked = true;
-        backToTopButton.classList.remove("is-visible");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
 
     if (header) {
       window.addEventListener("scroll", () => {
-        const isScrolled = window.scrollY > 200;
-        const isFooterVisible = footer
-          ? footer.getBoundingClientRect().top <= window.innerHeight
-          : false;
-
-        if (backToTopButton) {
-          if (window.scrollY <= 200) {
-            backToTopLocked = false;
-          }
-
-          if (isScrolled && !isFooterVisible && !backToTopLocked) {
-            backToTopButton.classList.add("is-visible");
-          } else {
-            backToTopButton.classList.remove("is-visible");
-          }
-        }
-
-        if (isScrolled) {
+        if (window.scrollY > 200) {
           
           // Scrolling down past threshold
           header.classList.add("scroll-header");
