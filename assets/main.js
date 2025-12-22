@@ -813,60 +813,65 @@ const headerAnimation = {
     if (header) {
       window.addEventListener("scroll", () => {
         if (window.scrollY > 200) {
+          
+          // Scrolling down past threshold
           header.classList.add("scroll-header");
           header.classList.add("header-scrolled");
+          header.classList.add("scrolling-down");
+          header.classList.remove("scrolling-up");
 
-          // Fade out the navigation menu
+          // Fade out the navigation menu immediately
           if (nav) {
             nav.style.opacity = "0";
             nav.style.pointerEvents = "none";
           }
 
-          // Fade out "Get started" button
+          // Fade out "Get started" button immediately
           if (getStartedContainer) {
             getStartedContainer.style.opacity = "0";
             getStartedContainer.style.pointerEvents = "none";
           }
 
-          // Fade out hamburger on mobile
+          // Fade out hamburger on mobile immediately
           if (hamburgerContainer) {
             hamburgerContainer.style.opacity = "0";
             hamburgerContainer.style.pointerEvents = "none";
           }
 
-          // Fade in WhatsApp link smoothly
+          // WhatsApp link and border fade in after menu fades out (via CSS transition delay)
           if (whatsappLink) {
-            setTimeout(() => {
-              whatsappLink.style.opacity = "1";
-              whatsappLink.style.pointerEvents = "auto";
-            }, 300);
+            whatsappLink.style.opacity = "1";
+            whatsappLink.style.pointerEvents = "auto";
           }
         } else {
+          // Scrolling up past threshold
           header.classList.remove("scroll-header");
           header.classList.remove("header-scrolled");
+          header.classList.remove("scrolling-down");
+          header.classList.add("scrolling-up");
 
-          // Fade in navigation menu
+          // Fade out WhatsApp link immediately
+          if (whatsappLink) {
+            whatsappLink.style.opacity = "0";
+            whatsappLink.style.pointerEvents = "none";
+          }
+
+          // Navigation menu fades in after WhatsApp fades out (via CSS transition delay)
           if (nav) {
             nav.style.opacity = "1";
             nav.style.pointerEvents = "auto";
           }
 
-          // Fade in "Get started" button
+          // Fade in "Get started" button after WhatsApp fades out
           if (getStartedContainer) {
             getStartedContainer.style.opacity = "1";
             getStartedContainer.style.pointerEvents = "auto";
           }
 
-          // Fade in hamburger on mobile
+          // Fade in hamburger on mobile after WhatsApp fades out
           if (hamburgerContainer) {
             hamburgerContainer.style.opacity = "1";
             hamburgerContainer.style.pointerEvents = "auto";
-          }
-
-          // Fade out WhatsApp link
-          if (whatsappLink) {
-            whatsappLink.style.opacity = "0";
-            whatsappLink.style.pointerEvents = "none";
           }
         }
       });

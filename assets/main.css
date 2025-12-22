@@ -30804,43 +30804,64 @@ svg.leaflet-zoom-animated {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 1s ease-in-out;
+  transition: width 0.5s ease-in-out 0.4s, max-width 0.5s ease-in-out 0.4s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s ease-in-out;
   min-height: 72px;
+  will-change: transform;
 }
 
 .header-one > div:first-child {
   position: absolute;
   left: 0.625rem;
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .header-one nav {
-  transition: all 0.6s ease-in-out;
+  transition: opacity 0.4s ease-in-out 0s, transform 0.4s ease-in-out 0s;
   will-change: opacity, transform;
+}
+
+/* When scrolling up, delay menu appearance until WhatsApp fades out */
+.header-one.scrolling-up nav {
+  transition-delay: 0.4s;
 }
 
 .header-one .get-started-container {
   position: absolute;
   right: 0.625rem;
-  transition: all 0.6s ease-in-out;
+  transition: opacity 0.4s ease-in-out 0s, transform 0.4s ease-in-out 0s;
   will-change: opacity, transform;
+}
+
+/* When scrolling up, delay get-started appearance */
+.header-one.scrolling-up .get-started-container {
+  transition-delay: 0.4s;
 }
 
 .header-one .hamburger-container {
   position: absolute;
   right: 0.625rem;
-  transition: all 0.6s ease-in-out;
+  transition: opacity 0.4s ease-in-out 0s, transform 0.4s ease-in-out 0s;
   will-change: opacity, transform;
+}
+
+/* When scrolling up, delay hamburger appearance */
+.header-one.scrolling-up .hamburger-container {
+  transition-delay: 0.4s;
 }
 
 /* WhatsApp "Say Hi To Plum!" Link - Centered in entire navbar */
 .whatsapp-link {
   position: relative;
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out 0s;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   font-weight: 500;
+}
+
+/* When scrolling down, delay WhatsApp appearance until menu fades out */
+.header-one.scrolling-down .whatsapp-link {
+  transition-delay: 0.4s;
 }
 
 .whatsapp-link::before {
@@ -30862,9 +30883,14 @@ svg.leaflet-zoom-animated {
   mask-composite: exclude;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out 0s;
   pointer-events: none;
   animation: navbarGradientRotate 3s linear infinite;
+}
+
+/* When scrolling down, delay border appearance along with WhatsApp link */
+.header-one.scrolling-down .whatsapp-link::before {
+  transition-delay: 0.4s;
 }
 
 /* Desktop - absolute center of navbar */
@@ -30914,8 +30940,13 @@ svg.leaflet-zoom-animated {
     mask-composite: exclude;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.4s ease-in-out 0s;
     pointer-events: none;
+  }
+
+  /* When scrolling down, delay navbar border along with navbar shrink */
+  .header-one.scrolling-down.navbar-custom::before {
+    transition-delay: 0.4s;
   }
 
   .header-one.scroll-header.navbar-custom::before {
@@ -30932,7 +30963,51 @@ svg.leaflet-zoom-animated {
 
   .header-one.scroll-header.navbar-custom {
     max-width: 300px !important;
-    position: relative;
+    position: fixed;
+  }
+
+  @property --navbar-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes navbarGradientRotate {
+    to {
+      --navbar-angle: 360deg;
+    }
+  }
+
+  .header-one.navbar-custom::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    padding: 3px;
+    background:
+      linear-gradient(#000 0 0) content-box,
+      conic-gradient(from var(--navbar-angle), #481D52, #702E3F, #E65E04, #EE7418, #FA9639, #481D52, #481D52, #702E3F);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out 0s;
+    pointer-events: none;
+  }
+
+  .header-one.scrolling-down.navbar-custom::before {
+    transition-delay: 0.4s;
+  }
+
+  .header-one.scroll-header.navbar-custom::before {
+    opacity: 1;
+    animation: navbarGradientRotate 3s linear infinite;
   }
 
   .whatsapp-link {
