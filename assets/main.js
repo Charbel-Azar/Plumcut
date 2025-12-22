@@ -809,10 +809,38 @@ const headerAnimation = {
     const nav = document.querySelector(".header-one nav");
     const hamburgerContainer = document.querySelector(".hamburger-container");
     const getStartedContainer = document.querySelector(".get-started-container");
+    const backToTopButton = document.querySelector(".back-to-top");
+    const footer = document.querySelector("footer");
+    let backToTopLocked = false;
+
+    if (backToTopButton) {
+      backToTopButton.addEventListener("click", () => {
+        backToTopLocked = true;
+        backToTopButton.classList.remove("is-visible");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
 
     if (header) {
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 200) {
+        const isScrolled = window.scrollY > 200;
+        const isFooterVisible = footer
+          ? footer.getBoundingClientRect().top <= window.innerHeight
+          : false;
+
+        if (backToTopButton) {
+          if (window.scrollY <= 200) {
+            backToTopLocked = false;
+          }
+
+          if (isScrolled && !isFooterVisible && !backToTopLocked) {
+            backToTopButton.classList.add("is-visible");
+          } else {
+            backToTopButton.classList.remove("is-visible");
+          }
+        }
+
+        if (isScrolled) {
           
           // Scrolling down past threshold
           header.classList.add("scroll-header");
@@ -1006,14 +1034,14 @@ document.addEventListener("DOMContentLoaded", function() {
       if (document.querySelector(".icon-right-marquee-container")) {
         new InfiniteMarquee({
           element: ".icon-right-marquee-container",
-          speed: 2e3,
+          speed: 1600,
           smoothEdges: true,
           direction: "right",
           gap: "32px",
           duplicateCount: 1,
           mobileSettings: {
             direction: "right",
-            speed: 5e4
+            speed: 2e3
           },
           on: {
             beforeInit: () => {

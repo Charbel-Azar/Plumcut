@@ -30761,7 +30761,7 @@ svg.leaflet-zoom-animated {
 
 @media (min-width: 96rem) {
   .custom-quote-section h2 {
-    font-size: 44px;
+    font-size: 35px;
   }
 }
 
@@ -30862,6 +30862,42 @@ svg.leaflet-zoom-animated {
 /* When scrolling down, delay WhatsApp appearance until menu fades out */
 .header-one.scrolling-down .whatsapp-link {
   transition-delay: 0.4s;
+}
+
+.back-to-top {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary);
+  background-color: #ffffff33;
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, background-color 0.3s ease-in-out;
+  z-index: 40;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: #ffffff4d;
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid #0000001a;
+  outline-offset: 3px;
 }
 
 .whatsapp-link::before {
@@ -31018,4 +31054,40 @@ svg.leaflet-zoom-animated {
   .footer figure.absolute {
     display: none;
   }
+}
+
+/* Homepage button palette: black base, white hover. */
+.home-bw-buttons .btn-gray-v2,
+.home-bw-buttons .btn-ash-v2,
+.home-bw-buttons .btn-green-v2,
+.home-bw-buttons .btn-primary-v2,
+.home-bw-buttons .btn-stone-v2,
+.home-bw-buttons .btn-v2-white,
+.home-bw-buttons .btn-white-v2 {
+  background-color: #000;
+  color: #fff;
+}
+
+.home-bw-buttons .btn-v2-icon {
+  fill: #fff;
+}
+
+.home-bw-buttons .btn-secondary-v2 {
+  background-color: #fff;
+  color: #000;
+}
+
+.home-bw-buttons .btn-secondary-v2 .btn-v2-icon {
+  fill: #000;
+}
+
+.home-bw-buttons .group-hover\/btn-v2\:btn-secondary-v2:is(:where(.group\/btn-v2):hover *) {
+  background-color: #fff;
+  color: #000;
+}
+
+.home-bw-buttons
+  .group-hover\/btn-v2\:btn-secondary-v2:is(:where(.group\/btn-v2):hover *)
+  .btn-v2-icon {
+  fill: #000;
 }

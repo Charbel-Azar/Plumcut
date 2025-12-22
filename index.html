@@ -130,7 +130,7 @@ Head links
     <!-- Google Analytics is configured in assets/main.js -->
     <!-- Just update the GA_MEASUREMENT_ID variable in that file -->
   </head>
-  <body class="bg-white">
+  <body class="bg-white home-bw-buttons">
     <!-- =========================
 Top Nav Buttons
 ===========================-->
@@ -140,7 +140,7 @@ Header
 ===========================-->
 <header>
   <div
-    class="header-one navbar-custom opacity-0 rounded-full lp:!max-w-[1290px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] min-[500px]:max-w-[450px] min-[425px]:max-w-[375px] max-w-[350px] mx-auto w-full fixed left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-2.5 xl:py-0 py-2.5 backdrop-blur-[25px] top-13.5 has-top-nav {=$class}"
+    class="header-one navbar-custom opacity-0 rounded-full lp:!max-w-[1290px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] min-[500px]:max-w-[450px] min-[425px]:max-w-[375px] max-w-[350px] mx-auto w-full fixed left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-2.5 xl:py-0 py-2.5 backdrop-blur-[25px] top-8 has-top-nav {=$class}"
     data-ns-animate
     data-direction="up"
     data-offset="100"
@@ -342,7 +342,7 @@ Header
       </ul>
     </nav>
 
-    <!-- WhatsApp "Chat with plum!" Link -->
+    <!-- WhatsApp "Chat with plum now!" Link -->
     <a
       href="https://wa.me/96178860758?text=Hi%20plum!"
       target="_blank"
@@ -351,7 +351,7 @@ Header
       aria-label="Contact us on WhatsApp"
       style="opacity: 0; pointer-events: none;"
     >
-      Chat with plum!
+      Chat with plum now!
     </a>
 
     <div class="get-started-container xl:flex hidden items-center justify-center">
@@ -477,7 +477,7 @@ Mobile Menu
 
     <main class="space-y-6">
       <!-- ==========================Hero=========================== -->
-<section class="pt-23 max-[1920px]:px-5">
+<section class="pt-16 max-[1920px]:px-5">
   <div
     class="bg-[#1a1a1a] max-w-[1880px] mx-auto relative pt-20 -mb-2 md:pt-30 border overflow-hidden border-background-ali rounded-3xl xl:rounded-4xl"
   >
@@ -877,6 +877,26 @@ How It's Work section
       </div>
 
       <div
+        class="bg-background-3 ring-8 ring-white rounded-[80px] px-9 py-4 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 max-w-[140px] w-full overflow-hidden flex items-center justify-center sm:hidden"
+        style="top: 33%;"
+      >
+        <div class="size-6 overflow-hidden icon-right-marquee-container rotate-90">
+          <figure class="size-6 flex items-center justify-center">
+            <img
+              src="images/icons/new-arrow.svg"
+              alt="new-arrow"
+              class="size-full object-cover"
+            />
+            <img
+              src="images/icons/new-arrow.svg"
+              alt="new-arrow"
+              class="size-full object-cover"
+            />
+          </figure>
+        </div>
+      </div>
+
+      <div
         data-ns-animate
         data-delay="0.7"
         data-direction="left"
@@ -905,6 +925,26 @@ How It's Work section
         class="bg-background-3 z-10 ring-8 ring-white rounded-[80px] py-9 px-4 absolute top-1/2 -translate-y-1/2 right-[31%] hidden lg:inline-block max-w-[52px] w-full overflow-hidden"
       >
         <div class="size-6 overflow-hidden icon-right-marquee-container">
+          <figure class="size-6 flex items-center justify-center">
+            <img
+              src="images/icons/new-arrow.svg"
+              alt="new-arrow"
+              class="size-full object-cover"
+            />
+            <img
+              src="images/icons/new-arrow.svg"
+              alt="new-arrow"
+              class="size-full object-cover"
+            />
+          </figure>
+        </div>
+      </div>
+
+      <div
+        class="bg-background-3 ring-8 ring-white rounded-[80px] px-9 py-4 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 max-w-[140px] w-full overflow-hidden flex items-center justify-center sm:hidden"
+        style="top: 67%;"
+      >
+        <div class="size-6 overflow-hidden icon-right-marquee-container rotate-90">
           <figure class="size-6 flex items-center justify-center">
             <img
               src="images/icons/new-arrow.svg"
@@ -954,7 +994,7 @@ How It's Work section
       <!-- =========================
 Services section
 ===========================-->
-<section class="py-14 md:py-16 lg:py-24 overflow-hidden">
+<section class="py-14 md:py-16 lg:py-24 overflow-hidden ">
   <div class="main-container">
     <div class="mb-11 lg:mb-9 text-center lg:max-w-[730px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="badge badge-gray-light-v2 mb-5"
@@ -2145,7 +2185,7 @@ Testimonail section
 <!-- FAQ -->
 <!-- ============================ -->
 
-<section class="max-[1920px]:px-5">
+<section class="max-[1920px]:px-5 pb-10">
   <div
     class="bg-[#1a1a1a] max-w-[1880px] mx-auto lg:py-25 md:py-20 py-18 xl:py-28 rounded-2xl md:rounded-4xl relative overflow-hidden border border-background-ali"
     data-ns-animate
@@ -2156,10 +2196,10 @@ Testimonail section
 
     <div class="main-container relative z-30">
       <div class="text-center space-y-3 md:space-y-5 max-w-[720px] mx-auto lg:mb-[70px] mb-12">
-        <span data-ns-animate data-delay="0.2" class="badge badge-white text-secondary font-medium uppercase">FAQ</span>
+
         <div class="space-y-3">
           <h2 data-ns-animate data-delay="0.3" class="text-white">
-            Skip the FAQ rabbit hole. Just ask us directly.
+            Skip the FAQ rabbit hole. <br>Just ask us directly.
           </h2>
         </div>
       </div>
@@ -2236,88 +2276,33 @@ Testimonail section
       <!-- =========================
 CTA section
 ===========================-->
-<section
-  class="pb-14 pt-14 md:pb-16 md:pt-16 lg:pb-[88px] lg:pt-[88px] xl:pb-[112px] xl:pt-[112px]"
->
-  <div class="main-container">
-    <div class="text-center max-w-[649px] space-y-8 mx-auto">
-          <h2 data-ns-animate data-delay="0.1">Ready to stop doing everything manually?</h2>
 
-      <div class="flex md:flex-row flex-col gap-y-3 md:gap-y-0 items-center justify-center gap-x-4">
-        <div
-          data-ns-animate
-          data-delay="0.5"
-          data-direction="left"
-          data-offset="50"
-          class="w-[90%] sm:w-auto"
-        >
-          <div
-  class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
->
-  <a
-    href="services.html"
-    class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-ash-v2 group-hover/btn-v2:btn-secondary-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase w-full md:w-auto mx-auto md:mx-0 h-12 md:h-auto"
-  >
-    <span class="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase"
-      >See Our Services
-    </span>
-
-    <div class="relative overflow-hidden size-6">
-      <!-- one  -->
-      <span
-        class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M11 5H13V7H11V5Z" />
-          <path d="M5 5H7V7H5V5Z" />
-          <path d="M14 8H16V10H14V8Z" />
-          <path d="M8 8H10V10H8V8Z" />
-          <path d="M17 11H19V13H17V11Z" />
-          <path d="M11 11H13V13H11V11Z" />
-          <path d="M14 14H16V16H14V14Z" />
-          <path d="M8 14H10V16H8V14Z" />
-          <path d="M11 17H13V19H11V17Z" />
-          <path d="M5 17H7V19H5V17Z" />
-        </svg>
-      </span>
-
-      <!-- two  -->
-      <span
-        class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M11 5H13V7H11V5Z" />
-          <path d="M5 5H7V7H5V5Z" />
-          <path d="M14 8H16V10H14V8Z" />
-          <path d="M8 8H10V10H8V8Z" />
-          <path d="M17 11H19V13H17V11Z" />
-          <path d="M11 11H13V13H11V11Z" />
-          <path d="M14 14H16V16H14V14Z" />
-          <path d="M8 14H10V16H8V14Z" />
-          <path d="M11 17H13V19H11V17Z" />
-          <path d="M5 17H7V19H5V17Z" />
-        </svg>
-      </span>
-    </div>
-  </a>
-</div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
     </main>
+    <button class="back-to-top" type="button" aria-label="Back to top">
+      <span class="sr-only">Back to top</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-5"
+      >
+        <path d="M12 19V5" />
+        <path d="m5 12 7-7 7 7" />
+      </svg>
+    </button>
+
     <!-- =========================
 Footer
 ===========================-->
 <footer class="footer footer-three dark:bg-background-8 relative bg-background-2 overflow-hidden">
   <div class="main-container">
     <!-- footer bg-img  -->
-    <figure class="footer-gradient-bg">
-      <img src="images/ns-img-509.png" alt="gradient-img" class="w-full h-full object-cover" />
-    </figure>
+ 
 
     <div
       class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[100px] pt-16 pb-16 justify-between"
