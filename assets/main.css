@@ -30897,6 +30897,12 @@ svg.leaflet-zoom-animated {
   z-index: 80;
 }
 
+.home-bw-buttons .scroll-top-trigger {
+  right: auto;
+  left: calc(1.5rem + env(safe-area-inset-left));
+  border: 1px solid #000000;
+}
+
 .scroll-top-trigger.is-visible {
   opacity: 1;
   pointer-events: auto;
