@@ -3360,7 +3360,7 @@ Footer
           const footerTop = footer ? footer.getBoundingClientRect().top : Number.POSITIVE_INFINITY;
           const footerVisible = footerTop <= window.innerHeight;
           const headerActive = header
-            ? header.classList.contains("scrolling-down") || header.classList.contains("scroll-header")
+            ? header.classList.contains("scrolling-down") || header.classList.contains("scroll-header") || scrollY > 200
             : scrollY > 200;
           const shouldShow = headerActive && scrollY > 200 && !footerVisible && !locked;
           button.classList.toggle("is-visible", shouldShow);

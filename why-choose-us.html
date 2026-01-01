@@ -1784,6 +1784,57 @@ Footer
 </script>
 </footer>
 
+    <button class="scroll-top-trigger" type="button" aria-label="Back to top">
+      <span class="sr-only">Back to top</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-5"
+      >
+        <path d="M12 19V5" />
+        <path d="m5 12 7-7 7 7" />
+      </svg>
+    </button>
+    <script>
+      (function() {
+        const button = document.querySelector(".scroll-top-trigger");
+        const footer = document.querySelector("footer");
+        const header = document.querySelector(".header-one");
+        if (!button) return;
+
+        let locked = false;
+
+        const update = () => {
+          const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+          if (scrollY <= 200) {
+            locked = false;
+          }
+
+          const footerTop = footer ? footer.getBoundingClientRect().top : Number.POSITIVE_INFINITY;
+          const footerVisible = footerTop <= window.innerHeight;
+          const headerActive = header
+            ? header.classList.contains("scrolling-down") || header.classList.contains("scroll-header") || scrollY > 200
+            : scrollY > 200;
+          const shouldShow = headerActive && scrollY > 200 && !footerVisible && !locked;
+          button.classList.toggle("is-visible", shouldShow);
+        };
+
+        button.addEventListener("click", () => {
+          locked = true;
+          button.classList.remove("is-visible");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+      })();
+    </script>
   </body>
 
 </html>

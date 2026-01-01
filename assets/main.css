@@ -30895,9 +30895,16 @@ svg.leaflet-zoom-animated {
   transform: translateY(10px) scale(0.98);
   transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.25s ease;
   z-index: 80;
+  cursor: pointer;
 }
 
 .home-bw-buttons .scroll-top-trigger {
+  right: auto;
+  left: calc(1.5rem + env(safe-area-inset-left));
+  border: 1px solid #000000;
+}
+
+body:not(.home-bw-buttons) .scroll-top-trigger {
   right: auto;
   left: calc(1.5rem + env(safe-area-inset-left));
   border: 1px solid #000000;
