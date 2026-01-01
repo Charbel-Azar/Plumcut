@@ -163,7 +163,7 @@ Header
             href="#"
             class="flex items-center gap-1 px-4 py-2 border border-transparent hover:border-stroke-2 dark:hover:border-stroke-7 rounded-full text-tagline-1 font-normal text-secondary/60 hover:text-secondary transition-all duration-200 dark:text-accent/60 dark:hover:text-accent"
           >
-            <span>plumcut</span>
+            <span>Home</span>
             <span class="nav-arrow block origin-center transition-all duration-300 translate-y-px">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -409,7 +409,7 @@ Mobile Menu
             data-menu="company"
           >
             <span class="text-secondary/60 dark:text-accent/60 font-normal text-tagline-1 block"
-              >plumcut</span
+              >Home</span
             >
 
             <span class="menu-arrow transition-transform duration-300 rotate-90">
@@ -498,9 +498,14 @@ Mobile Menu
 
     <div class="main-container relative z-30">
       <div class="text-center mb-12 lg:mb-20 xl:mb-33">
-        <span data-ns-animate data-delay="0.1" class="badge badge-white text-secondary font-medium mb-4"
-          >AI-Powered Business Automation</span
+        <span
+          data-ns-animate
+          data-delay="0.1"
+          class="badge badge-white text-secondary font-medium mb-4"
+          style="text-transform: capitalize;"
         >
+          AI-Powered Business Automation
+        </span>
         <h1 class="font-medium mb-3 opacity-0 text-white" data-ns-animate data-instant data-delay="0.1">
           yes... we can automate it
         </h1>
@@ -534,43 +539,29 @@ Mobile Menu
       >See How It Works
     </span>
 
-    <div class="relative overflow-hidden size-6">
-      <!-- one  -->
-      <span
-        class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M11 5H13V7H11V5Z" />
-          <path d="M5 5H7V7H5V5Z" />
-          <path d="M14 8H16V10H14V8Z" />
-          <path d="M8 8H10V10H8V8Z" />
-          <path d="M17 11H19V13H17V11Z" />
-          <path d="M11 11H13V13H11V11Z" />
-          <path d="M14 14H16V16H14V14Z" />
-          <path d="M8 14H10V16H8V14Z" />
-          <path d="M11 17H13V19H11V17Z" />
-          <path d="M5 17H7V19H5V17Z" />
-        </svg>
-      </span>
+                <div class="relative overflow-hidden size-6">
+                  <span
+                    class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+                  >
+                    <img
+                      src="images/icons/new-arrow-white.svg"
+                      alt="arrow"
+                      class="size-full object-cover"
+                      loading="lazy"
+                    />
+                  </span>
 
-      <!-- two  -->
-      <span
-        class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M11 5H13V7H11V5Z" />
-          <path d="M5 5H7V7H5V5Z" />
-          <path d="M14 8H16V10H14V8Z" />
-          <path d="M8 8H10V10H8V8Z" />
-          <path d="M17 11H19V13H17V11Z" />
-          <path d="M11 11H13V13H11V11Z" />
-          <path d="M14 14H16V16H14V14Z" />
-          <path d="M8 14H10V16H8V14Z" />
-          <path d="M11 17H13V19H11V17Z" />
-          <path d="M5 17H7V19H5V17Z" />
-        </svg>
-      </span>
-    </div>
+                  <span
+                    class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+                  >
+                    <img
+                      src="images/icons/new-arrow-white.svg"
+                      alt="arrow"
+                      class="size-full object-cover"
+                      loading="lazy"
+                    />
+                  </span>
+                </div>
   </a>
 </div>
 
@@ -601,12 +592,12 @@ What We Do section
     data-ns-animate
     data-delay="0.2"
   >
-    <div class="max-w-[1400px] mx-auto py-16 lg:py-20 xl:py-30">
+    <div class="max-w-[1400px] mx-auto py-16 lg:py-20 xl:py-10">
       <h2
         data-ns-animate
         data-delay="0.1"
         data-split-type="words"
-        class="split-text-team-title text-center text-accent font-inter-tight font-light text-heading-5 sm:text-heading-4 md:text-heading-3 lg:text-heading-2 xl:text-heading-1 2xl:text-[88px] 2xl:leading-[120%] wrap-break-word"
+        class="split-text-team-title text-center text-accent font-inter-tight font-light text-heading-5 sm:text-heading-4 md:text-heading-3 lg:text-heading-2 xl:text-heading-1 2xl:text-[30px] 2xl:leading-[120%] wrap-break-word"
       >
         "We started building websites. Then e-commerce exploded, and we built 30+ stores. That's when we noticed something: store owners weren't struggling to get sales; they were drowning in everything that came after. So we built systems that handle the chaos. Now we help startups and SMBs turn messy operations into machines that scale."
       </h2>
@@ -838,13 +829,13 @@ Services section
     
       <!-- service card 02 -->
       <div
-        class="col-span-12 group/card-img lg:col-span-6"
+        class="col-span-12 lg:col-span-6"
         data-ns-animate
         data-delay="0.2"
         data-direction="left"
       >
         <div
-          class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -873,7 +864,7 @@ Services section
             </a>
           </aside>
           <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
+            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img src="images/index/customer service.png" alt="services" class="w-full h-full object-cover" />
           </figure>
@@ -881,13 +872,13 @@ Services section
       </div>
         <!-- service card 05 -->
         <div
-        class="col-span-12 group/card-img lg:col-span-6"
+        class="col-span-12 lg:col-span-6"
         data-ns-animate
         data-delay="0.2"
         data-direction="right"
       >
         <div
-          class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -916,7 +907,7 @@ Services section
             </a>
           </aside>
           <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
+            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img src="images/index/order management.jpg" alt="services" class="w-full h-full object-cover" />
           </figure>
@@ -924,13 +915,13 @@ Services section
       </div>
       <!-- service card 07 -->
       <div
-        class="col-span-12 group/card-img lg:col-span-6"
+        class="col-span-12 lg:col-span-6"
         data-ns-animate
         data-delay="0.2"
         data-direction="right"
       >
         <div
-          class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -959,9 +950,9 @@ Services section
             </a>
           </aside>
           <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
+            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
-            <img src="images/index/ai conversations.jfif" alt="services" class="w-full h-full object-cover object-center" />
+            <img src="images/index/ai conversations.jpg" alt="services" class="w-full h-full object-cover object-center" />
           </figure>
         </div>
       </div>
@@ -971,13 +962,13 @@ Services section
 
       <!-- service card 04 -->
       <div
-        class="col-span-12 group/card-img lg:col-span-6"
+        class="col-span-12 lg:col-span-6"
         data-ns-animate
         data-delay="0.1"
         data-direction="left"
       >
         <div
-          class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -1006,7 +997,7 @@ Services section
             </a>
           </aside>
           <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out"
+            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img src="images/index/appointment booking.jpg" alt="services" class="w-full h-full object-cover" />
           </figure>
@@ -1015,13 +1006,13 @@ Services section
 
       <!-- service card 06 -->
       <div
-        class="col-span-12 group/card-img lg:col-span-6"
+        class="col-span-12 lg:col-span-6"
         data-ns-animate
         data-delay="0.1"
         data-direction="left"
       >
         <div
-          class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -1050,21 +1041,21 @@ Services section
             </a>
           </aside>
           <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
+            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
-            <img src="images/index/payment and billing.jfif" alt="services" class="w-full h-full object-cover" />
+            <img src="images/index/payment and billing.jpg" alt="services" class="w-full h-full object-cover" />
           </figure>
         </div>
       </div>
   <!-- service card 03 -->
   <div
-  class="col-span-12 group/card-img lg:col-span-6"
+  class="col-span-12 lg:col-span-6"
   data-ns-animate
   data-delay="0.3"
   data-direction="right"
 >
   <div
-    class="bg-background-12 h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+    class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
   >
     <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
       <blockquote class="space-y-2">
@@ -1093,7 +1084,7 @@ Services section
       </a>
     </aside>
     <figure
-      class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
+      class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
     >
       <img src="images/index/data analytics.jpg" alt="services" class="w-full h-full object-cover" />
     </figure>
@@ -1102,9 +1093,9 @@ Services section
     
 
       <!-- service card 08 -->
-      <div class="col-span-12 group/card-img" data-ns-animate data-delay="0.1">
+      <div class="col-span-12" data-ns-animate data-delay="0.1">
         <div
-          class="bg-background-12 h-full rounded-4xl border border-background-12 px-5 md:px-8 pt-5 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-4xl border border-background-12 px-5 md:px-8 pt-5 grid grid-cols-12 gap-y-0 md:gap-6"
         >
           <aside
             class="pt-14-desktop  col-span-12 flex flex-col justify-between space-y-5 md:col-span-5 lg:col-span-3"
@@ -1135,9 +1126,9 @@ Services section
             </a>
           </aside>
           <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 mb-6 md:mb-8 group-hover/card-img:scale-105 transition-transform duration-500 ease-in-out rounded-lg md:rounded-[20px] overflow-hidden md:col-span-7 lg:col-span-9"
+            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 mb-6 md:mb-8 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-7 lg:col-span-9"
           >
-            <img src="images/index/lead capture.jfif" alt="services" class="w-full h-full object-cover object-center" />
+            <img src="images/index/lead capture.jpg" alt="services" class="w-full h-full object-cover object-center" />
           </figure>
         </div>
       </div>
@@ -1339,17 +1330,13 @@ Case Study section
         <div data-ns-animate data-delay="0.3" class="col-span-12">
           <figure class="space-y-6">
             <div
-              class="relative w-full h-[300px] lg:h-[802px] rounded-[20px] overflow-hidden group cursor-pointer"
+              class="relative w-full h-[300px] lg:h-[802px] rounded-[20px] overflow-hidden hover-soft-card"
             >
               <img
                 src="images/ns-img-323.png"
-                class="w-full h-full object-cover rounded-[20px] transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-cover rounded-[20px]"
                 alt="portfolio"
               />
-              <!-- Black Overlay -->
-              <div
-                class="absolute inset-0 group-hover:bg-black/40 transition-all duration-500 ease-in-out"
-              ></div>
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5">
@@ -1364,17 +1351,13 @@ Case Study section
         <div data-ns-animate data-delay="0.1" class="col-span-12 lg:col-span-6">
           <figure class="space-y-6">
             <div
-              class="relative w-full h-[300px] lg:h-[802px] rounded-[20px] overflow-hidden group cursor-pointer"
+              class="relative w-full h-[300px] lg:h-[802px] rounded-[20px] overflow-hidden hover-soft-card"
             >
               <img
                 src="images/ns-img-324.png"
-                class="w-full h-full object-cover rounded-[20px] transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-cover rounded-[20px]"
                 alt="portfolio"
               />
-              <!-- Black Overlay -->
-              <div
-                class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 ease-in-out"
-              ></div>
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5">
@@ -1389,17 +1372,13 @@ Case Study section
         <div data-ns-animate data-delay="0.2" class="col-span-12 lg:col-span-6">
           <figure class="space-y-6">
             <div
-              class="relative w-full h-[300px] lg:h-[802px] rounded-[20px] overflow-hidden group cursor-pointer"
+              class="relative w-full h-[300px] lg:h-[802px] rounded-[20px] overflow-hidden hover-soft-card"
             >
               <img
                 src="images/ns-img-325.png"
                 alt="portfolio"
-                class="w-full h-full object-cover rounded-[20px] transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-cover rounded-[20px]"
               />
-              <!-- Black Overlay -->
-              <div
-                class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 ease-in-out"
-              ></div>
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5">
@@ -1414,17 +1393,13 @@ Case Study section
         <div data-ns-animate data-delay="0.1" class="col-span-12">
           <figure class="space-y-6">
             <div
-              class="relative w-full h-[300px] lg:h-[802px] rounded-[20px] overflow-hidden group cursor-pointer"
+              class="relative w-full h-[300px] lg:h-[802px] rounded-[20px] overflow-hidden hover-soft-card"
             >
               <img
                 src="images/ns-img-326.png"
-                class="w-full h-full object-cover rounded-[20px] transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-cover rounded-[20px]"
                 alt="portfolio"
               />
-              <!-- Black Overlay -->
-              <div
-                class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 ease-in-out"
-              ></div>
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5">
@@ -2220,40 +2195,26 @@ Testimonail section
                 </span>
 
                 <div class="relative overflow-hidden size-6">
-                  <!-- one  -->
                   <span
                     class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <path d="M11 5H13V7H11V5Z" />
-                      <path d="M5 5H7V7H5V5Z" />
-                      <path d="M14 8H16V10H14V8Z" />
-                      <path d="M8 8H10V10H8V8Z" />
-                      <path d="M17 11H19V13H17V11Z" />
-                      <path d="M11 11H13V13H11V11Z" />
-                      <path d="M14 14H16V16H14V14Z" />
-                      <path d="M8 14H10V16H8V14Z" />
-                      <path d="M11 17H13V19H11V17Z" />
-                      <path d="M5 17H7V19H5V17Z" />
-                    </svg>
+                    <img
+                      src="images/icons/new-arrow-white.svg"
+                      alt="arrow"
+                      class="size-full object-cover"
+                      loading="lazy"
+                    />
                   </span>
 
-                  <!-- two  -->
                   <span
                     class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <path d="M11 5H13V7H11V5Z" />
-                      <path d="M5 5H7V7H5V5Z" />
-                      <path d="M14 8H16V10H14V8Z" />
-                      <path d="M8 8H10V10H8V8Z" />
-                      <path d="M17 11H19V13H17V11Z" />
-                      <path d="M11 11H13V13H11V11Z" />
-                      <path d="M14 14H16V16H14V14Z" />
-                      <path d="M8 14H10V16H8V14Z" />
-                      <path d="M11 17H13V19H11V17Z" />
-                      <path d="M5 17H7V19H5V17Z" />
-                    </svg>
+                    <img
+                      src="images/icons/new-arrow-white.svg"
+                      alt="arrow"
+                      class="size-full object-cover"
+                      loading="lazy"
+                    />
                   </span>
                 </div>
               </a>
@@ -2378,7 +2339,7 @@ Footer
         <div class="col-span-12 md:col-span-4">
           <div data-ns-animate data-delay="0.4" class="space-y-8">
             <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent">
-              plumcut
+              Home
             </p>
             <ul class="space-y-5">
               <li>
@@ -2879,12 +2840,37 @@ Footer
     if (!container) return;
     
     const blobs = [];
+    const heroSection = container.closest('section');
+    let isActive = true;
     
     let lastMouseX = window.innerWidth / 2;
     let lastMouseY = window.innerHeight / 2;
     let mouseDeltaX = 0;
     let mouseDeltaY = 0;
     let isFirstMove = true;
+
+    const resetMouseState = () => {
+      const rect = container.getBoundingClientRect();
+      lastMouseX = rect.left + rect.width / 2;
+      lastMouseY = rect.top + rect.height / 2;
+      mouseDeltaX = 0;
+      mouseDeltaY = 0;
+      isFirstMove = true;
+    };
+
+    const getContainerSize = () => {
+      const width = container.clientWidth || window.innerWidth;
+      const height = container.clientHeight || window.innerHeight;
+      return { width, height };
+    };
+
+    const pruneBlobs = () => {
+      for (let i = blobs.length - 1; i >= 0; i -= 1) {
+        if (!blobs[i].wrapper || !blobs[i].wrapper.isConnected) {
+          blobs.splice(i, 1);
+        }
+      }
+    };
 
     const gradients = [
       'linear-gradient(23deg, rgb(73, 34, 82) 0%, rgb(167, 85, 60) 50%, rgb(247, 174, 107) 100%)',
@@ -3033,6 +3019,11 @@ Footer
     let lastTime = performance.now();
 
     function animate(currentTime) {
+      if (!isActive) {
+        lastTime = currentTime;
+        requestAnimationFrame(animate);
+        return;
+      }
       const deltaTime = currentTime - lastTime;
       lastTime = currentTime;
 
@@ -3047,6 +3038,7 @@ Footer
 
     // Track mouse movement delta
     document.addEventListener('mousemove', (e) => {
+      if (!isActive) return;
       if (isFirstMove) {
         lastMouseX = e.clientX;
         lastMouseY = e.clientY;
@@ -3061,12 +3053,12 @@ Footer
     });
 
     // Spawn blob on click (only within the hero section)
-    const heroSection = container.closest('section');
-    if (heroSection) {
-      heroSection.addEventListener('click', (e) => {
+    const interactionTarget = heroSection || container;
+    if (interactionTarget) {
+      interactionTarget.addEventListener('click', (e) => {
         if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
         
-        const rect = heroSection.getBoundingClientRect();
+        const rect = container.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         
@@ -3076,12 +3068,12 @@ Footer
     }
 
     // Touch support
-    if (heroSection) {
-      heroSection.addEventListener('touchstart', (e) => {
+    if (interactionTarget) {
+      interactionTarget.addEventListener('touchstart', (e) => {
         if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
         
         const touch = e.touches[0];
-        const rect = heroSection.getBoundingClientRect();
+        const rect = container.getBoundingClientRect();
         lastMouseX = touch.clientX;
         lastMouseY = touch.clientY;
         const x = touch.clientX - rect.left;
@@ -3091,7 +3083,7 @@ Footer
         blobs.push(blob);
       }, { passive: true });
 
-      heroSection.addEventListener('touchmove', (e) => {
+      interactionTarget.addEventListener('touchmove', (e) => {
         const touch = e.touches[0];
         mouseDeltaX = touch.clientX - lastMouseX;
         mouseDeltaY = touch.clientY - lastMouseY;
@@ -3102,22 +3094,22 @@ Footer
 
     // Spawn initial blobs
     function spawnInitialBlobs() {
-      const sectionRect = heroSection ? heroSection.getBoundingClientRect() : { width: window.innerWidth, height: window.innerHeight };
+      const { width, height } = getContainerSize();
       const isDesktop = window.innerWidth >= 768;
       
       // Larger sizes on desktop, smaller on mobile
       const initialPositions = isDesktop ? [
-        { x: sectionRect.width * 0.25, y: sectionRect.height * 0.35, size: 900 },
-        { x: sectionRect.width * 0.75, y: sectionRect.height * 0.25, size: 850 },
-        { x: sectionRect.width * 0.5, y: sectionRect.height * 0.7, size: 800 },
-        { x: sectionRect.width * 0.85, y: sectionRect.height * 0.65, size: 750 },
-        { x: sectionRect.width * 0.1, y: sectionRect.height * 0.8, size: 700 },
+        { x: width * 0.25, y: height * 0.35, size: 900 },
+        { x: width * 0.75, y: height * 0.25, size: 850 },
+        { x: width * 0.5, y: height * 0.7, size: 800 },
+        { x: width * 0.85, y: height * 0.65, size: 750 },
+        { x: width * 0.1, y: height * 0.8, size: 700 },
       ] : [
-        { x: sectionRect.width * 0.3, y: sectionRect.height * 0.25, size: 480 },
-        { x: sectionRect.width * 0.7, y: sectionRect.height * 0.2, size: 450 },
-        { x: sectionRect.width * 0.5, y: sectionRect.height * 0.55, size: 420 },
-        { x: sectionRect.width * 0.8, y: sectionRect.height * 0.7, size: 400 },
-        { x: sectionRect.width * 0.15, y: sectionRect.height * 0.75, size: 380 },
+        { x: width * 0.3, y: height * 0.25, size: 480 },
+        { x: width * 0.7, y: height * 0.2, size: 450 },
+        { x: width * 0.5, y: height * 0.55, size: 420 },
+        { x: width * 0.8, y: height * 0.7, size: 400 },
+        { x: width * 0.15, y: height * 0.75, size: 380 },
       ];
 
       initialPositions.forEach((pos, index) => {
@@ -3130,6 +3122,27 @@ Footer
 
     // Initialize
     spawnInitialBlobs();
+
+    const visibilityTarget = heroSection || container;
+    if ('IntersectionObserver' in window && visibilityTarget) {
+      const observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        isActive = entry.isIntersecting;
+        if (isActive) {
+          lastTime = performance.now();
+          resetMouseState();
+          pruneBlobs();
+          if (blobs.length === 0) {
+            spawnInitialBlobs();
+          }
+        } else {
+          resetMouseState();
+        }
+      }, { threshold: 0.05 });
+      observer.observe(visibilityTarget);
+    }
+
     requestAnimationFrame(animate);
   })();
 </script>
@@ -3368,3 +3381,4 @@ Footer
   </body>
 
 </html>
+

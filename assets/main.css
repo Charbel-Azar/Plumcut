@@ -31016,7 +31016,7 @@ svg.leaflet-zoom-animated {
   }
 
   .header-one.scroll-header.navbar-custom {
-    max-width: 300px !important;
+    width: 67%;
     position: fixed;
   }
 
@@ -31108,4 +31108,26 @@ svg.leaflet-zoom-animated {
   .group-hover\/btn-v2\:btn-secondary-v2:is(:where(.group\/btn-v2):hover *)
   .btn-v2-icon {
   fill: #000;
+}
+
+.home-bw-buttons .hover-soft-card {
+  transition: background 1s ease, box-shadow 1s ease;
+}
+
+.home-bw-buttons .hover-soft-card:hover {
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 20px 20px 69px #a4a4a4, -20px -20px 69px #ffffff;
+}
+
+.home-bw-buttons .bg-background-12.hover-soft-card {
+  transition: box-shadow 1s ease;
+}
+
+.home-bw-buttons .bg-background-12.hover-soft-card:hover {
+  background: var(--color-background-12);
+  box-shadow: 20px 20px 69px #a4a4a4, -20px -20px 69px #ffffff;
+}
+
+.home-bw-buttons img {
+  cursor: default;
 }
