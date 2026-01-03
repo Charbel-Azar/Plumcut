@@ -125,6 +125,48 @@ Head links
         font-family: 'Zain', sans-serif !important;
         font-weight: 300 !important;
       }
+
+      .section-title-badge {
+        --badge-shadow-alpha: 0;
+        --badge-shadow-blur: 28px;
+        --badge-shadow-y: 16px;
+        font-size: var(--text-tagline-1);
+        line-height: var(--tw-leading, var(--text-tagline-1--line-height));
+        padding-inline: calc(var(--spacing) * 6);
+        padding-block: calc(var(--spacing) * 2);
+        margin-top: calc(var(--spacing) * 4);
+        margin-bottom: calc(var(--spacing) * 8);
+        box-shadow: 0 var(--badge-shadow-y) var(--badge-shadow-blur)
+          rgba(0, 0, 0, var(--badge-shadow-alpha));
+        transition: box-shadow 0.6s ease;
+        will-change: box-shadow;
+      }
+
+      .section-title-badge + h2 {
+        font-size: var(--text-heading-6);
+        line-height: var(--tw-leading, var(--text-heading-6--line-height));
+      }
+
+      @media (min-width: 40rem) {
+        .section-title-badge + h2 {
+          font-size: var(--text-heading-5);
+          line-height: var(--tw-leading, var(--text-heading-5--line-height));
+        }
+      }
+
+      @media (min-width: 48rem) {
+        .section-title-badge + h2 {
+          font-size: var(--text-heading-4);
+          line-height: var(--tw-leading, var(--text-heading-4--line-height));
+        }
+      }
+
+      @media (min-width: 80rem) {
+        .section-title-badge + h2 {
+          font-size: var(--text-heading-3);
+          line-height: var(--tw-leading, var(--text-heading-3--line-height));
+        }
+      }
     </style>
     
     <!-- Google Analytics is configured in assets/main.js -->
@@ -501,7 +543,7 @@ Mobile Menu
         <span
           data-ns-animate
           data-delay="0.1"
-          class="badge badge-white text-secondary font-medium mb-4"
+          class="badge section-title-badge badge-white text-secondary font-medium mb-4"
           style="text-transform: capitalize;"
         >
           AI-Powered Business Automation
@@ -592,7 +634,14 @@ What We Do section
     data-ns-animate
     data-delay="0.2"
   >
-    <div class="max-w-[1400px] mx-auto py-16 lg:py-20 xl:py-10">
+    <div class="max-w-[1400px] mx-auto py-16 lg:py-20 xl:py-10 text-center space-y-4">
+      <span
+        data-ns-animate
+        data-delay="0.1"
+        class="badge section-title-badge badge-white text-secondary font-medium hidden"
+      >
+        What We Do
+      </span>
       <h2
         data-ns-animate
         data-delay="0.1"
@@ -614,7 +663,7 @@ Features section
   >
     <div class="main-container">
       <div class="space-y-4 mb-10 md:mb-14 text-center lg:max-w-[740px] lg:mx-auto">
-        <span data-ns-animate data-delay="0.1" class="badge badge-white text-secondary font-medium"
+        <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-white text-secondary font-medium"
           >Features</span
         >
         <h2 data-ns-animate data-delay="0.2">
@@ -809,10 +858,10 @@ Features section
       <!-- =========================
 Services section
 ===========================-->
-<section class="md:py-16 lg:py-24 overflow-hidden ">
+<section class="pt-10 md:py-16 lg:py-24 overflow-hidden ">
   <div class="main-container">
     <div class="mb-11 lg:mb-9 text-center lg:max-w-[730px] lg:mx-auto">
-      <span data-ns-animate data-delay="0.1" class="badge badge-gray-light-v2 mb-5"
+      <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2 mb-5"
         >Our Services</span
       >
       <h2 data-ns-animate data-delay="0.2" class="md:mb-3 mb-1">
@@ -1139,10 +1188,10 @@ Services section
       <!-- =========================
 How It's Work section
 ===========================-->
-<section class="mt-20">
+<section class="pt-10 md:pt-16 lg:pt-0">
   <div class="main-container">
     <div class="mb-10 md:mb-11 text-center lg:max-w-[730px] lg:mx-auto">
-      <span data-ns-animate data-delay="0.1" class="badge badge-gray-light-v2 mb-4"
+      <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2 mb-4"
         >How It Works</span
       >
       <h2 data-ns-animate data-delay="0.2" class="mb-3">From chaos to system in three steps.</h2>
@@ -1301,7 +1350,7 @@ How It's Work section
         </div>
       </div>
     </div>
-    <div data-ns-animate data-delay="0.5" class="text-center mt-14">
+    <div data-ns-animate data-delay="0.5" class="text-center mt-14 lg:mt-0">
       <div
   class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
 >
@@ -1315,10 +1364,13 @@ How It's Work section
       <!-- =========================
 Case Study section
 ===========================-->
-<section class="py-10 lg:py-20 xl:py-25">
+<section class="pt-10 pb-10 md:pt-16 lg:pt-0 lg:pb-20 xl:pb-25">
   <div class="main-container">
     <div class="text-center mb-10 lg:mb-[70px]">
       <div class="space-y-3">
+        <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2">
+          Case Study
+        </span>
         <h2 data-ns-animate data-delay="0.1">yes... we can scale it</h2>
         <p data-ns-animate data-delay="0.2" class="max-w-[680px] mx-auto">
           We don't do generic demos. Here's what automation actually looks like when it's built for how you work.
@@ -1425,7 +1477,7 @@ Testimonail section
 >
   <div class="main-container">
     <div class="text-center mb-14 md:mb-[70px]">
-      <span data-ns-animate data-delay="0.1" class="badge badge-green-v2 mb-3.5 md:mb-5"
+      <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-green-v2 mb-3.5 md:mb-5"
         >Testimonials</span
       >
       <h2 data-ns-animate data-delay="0.2" class="xl:max-w-[906px] xl:mx-auto">
@@ -2165,6 +2217,13 @@ Testimonail section
       <div class="text-center space-y-3 md:space-y-5 max-w-[720px] mx-auto lg:mb-[70px] mb-12">
 
         <div class="space-y-3">
+          <span
+            data-ns-animate
+            data-delay="0.1"
+            class="badge section-title-badge badge-white text-secondary font-medium hidden"
+          >
+            FAQ
+          </span>
           <h2 data-ns-animate data-delay="0.3" class="text-white">
             Skip the FAQ rabbit hole. <br>Just ask us directly.
           </h2>
@@ -3027,7 +3086,8 @@ Footer
       const deltaTime = currentTime - lastTime;
       lastTime = currentTime;
 
-      blobs.forEach(blob => blob.update(deltaTime, mouseDeltaX, mouseDeltaY));
+      const clampedDeltaTime = Math.min(deltaTime, 50);
+      blobs.forEach(blob => blob.update(clampedDeltaTime, mouseDeltaX, mouseDeltaY));
       
       // Reset mouse delta after applying - slower decay for more reactive feel
       mouseDeltaX *= 0.95;
@@ -3142,6 +3202,21 @@ Footer
       }, { threshold: 0.05 });
       observer.observe(visibilityTarget);
     }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        isActive = false;
+        resetMouseState();
+        return;
+      }
+      isActive = true;
+      lastTime = performance.now();
+      resetMouseState();
+      pruneBlobs();
+      if (blobs.length === 0) {
+        spawnInitialBlobs();
+      }
+    });
 
     requestAnimationFrame(animate);
   })();
@@ -3375,6 +3450,46 @@ Footer
         window.addEventListener("scroll", update, { passive: true });
         window.addEventListener("resize", update);
         update();
+      })();
+    </script>
+    <script>
+      (function() {
+        const badges = Array.from(document.querySelectorAll(".section-title-badge"));
+        if (!badges.length) return;
+
+        const maxAlpha = 0.35;
+        const distanceRatio = 0.45;
+        let ticking = false;
+
+        const update = () => {
+          ticking = false;
+          const viewportCenter = window.innerHeight / 2;
+          const maxDistance = window.innerHeight * distanceRatio;
+
+          badges.forEach((badge) => {
+            const rect = badge.getBoundingClientRect();
+            if (rect.width === 0 && rect.height === 0) {
+              badge.style.setProperty("--badge-shadow-alpha", "0");
+              return;
+            }
+
+            const badgeCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(viewportCenter - badgeCenter);
+            const strength = Math.max(0, Math.min(1, 1 - distance / maxDistance));
+            badge.style.setProperty("--badge-shadow-alpha", strength * maxAlpha);
+          });
+        };
+
+        const requestUpdate = () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+          }
+        };
+
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate);
+        requestUpdate();
       })();
     </script>
 
