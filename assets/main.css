@@ -31289,3 +31289,64 @@ body:not(.home-bw-buttons) .scroll-top-trigger {
     display: none;
   }
 }
+
+/* Home page overrides */
+.section-title-badge + h2 + p {
+  font-size: calc(var(--text-tagline-1) * 1.15);
+  line-height: 160%;
+}
+
+.case-study-description {
+  font-size: calc(var(--text-tagline-1) * 1.15);
+  line-height: 160%;
+}
+
+p.text-secondary\/60 {
+  font-size: calc(var(--text-tagline-1) * 1.125);
+  line-height: 160%;
+}
+
+.how-it-works-flow .how-it-works-card {
+  max-width: 450px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.how-it-works-flow .how-it-works-card h3 {
+  font-size: calc(var(--text-heading-6) * 1.1);
+}
+
+.how-it-works-flow .how-it-works-card p {
+  font-size: calc(var(--text-tagline-1) * 1.1);
+}
+
+.how-it-works-flow .how-it-works-card > div {
+  width: 100%;
+}
+
+.how-it-works-flow .how-it-works-arrow {
+  flex: 0 0 auto;
+  align-self: center;
+  margin-inline: -1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.how-it-works-flow {
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .how-it-works-flow .how-it-works-card {
+    max-width: 480px;
+    min-height: 420px;
+  }
+
+  .how-it-works-flow {
+    gap: 1rem;
+  }
+}

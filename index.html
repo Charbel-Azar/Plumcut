@@ -130,7 +130,7 @@ Head links
         --badge-shadow-alpha: 0;
         --badge-shadow-blur: 28px;
         --badge-shadow-y: 16px;
-        font-size: var(--text-tagline-1);
+        font-size: calc(var(--text-tagline-1) * 1.2);
         line-height: var(--tw-leading, var(--text-tagline-1--line-height));
         padding-inline: calc(var(--spacing) * 6);
         padding-block: calc(var(--spacing) * 2);
@@ -858,8 +858,8 @@ Features section
       <!-- =========================
 Services section
 ===========================-->
-<section class="pt-10 md:py-16 lg:py-24 overflow-hidden ">
-  <div class="main-container">
+<section class="pt-10 md:py-16 lg:py-24 overflow-hidden">
+  <div class="main-container max-w-[1880px]">
     <div class="mb-11 lg:mb-9 text-center lg:max-w-[730px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2 mb-5"
         >Our Services</span
@@ -878,7 +878,7 @@ Services section
     
       <!-- service card 02 -->
       <div
-        class="col-span-12 lg:col-span-6"
+        class="col-span-12 lg:col-span-6 xl:col-span-4"
         data-ns-animate
         data-delay="0.2"
         data-direction="left"
@@ -921,7 +921,7 @@ Services section
       </div>
         <!-- service card 05 -->
         <div
-        class="col-span-12 lg:col-span-6"
+        class="col-span-12 lg:col-span-6 xl:col-span-4"
         data-ns-animate
         data-delay="0.2"
         data-direction="right"
@@ -964,7 +964,7 @@ Services section
       </div>
       <!-- service card 07 -->
       <div
-        class="col-span-12 lg:col-span-6"
+        class="col-span-12 lg:col-span-6 xl:col-span-4"
         data-ns-animate
         data-delay="0.2"
         data-direction="right"
@@ -1011,7 +1011,7 @@ Services section
 
       <!-- service card 04 -->
       <div
-        class="col-span-12 lg:col-span-6"
+        class="col-span-12 lg:col-span-6 xl:col-span-4"
         data-ns-animate
         data-delay="0.1"
         data-direction="left"
@@ -1055,7 +1055,7 @@ Services section
 
       <!-- service card 06 -->
       <div
-        class="col-span-12 lg:col-span-6"
+        class="col-span-12 lg:col-span-6 xl:col-span-4"
         data-ns-animate
         data-delay="0.1"
         data-direction="left"
@@ -1098,7 +1098,7 @@ Services section
       </div>
   <!-- service card 03 -->
   <div
-  class="col-span-12 lg:col-span-6"
+  class="col-span-12 lg:col-span-6 xl:col-span-4"
   data-ns-animate
   data-delay="0.3"
   data-direction="right"
@@ -1142,9 +1142,9 @@ Services section
     
 
       <!-- service card 08 -->
-      <div class="col-span-12" data-ns-animate data-delay="0.1">
+      <div class="col-span-12 lg:col-span-12" data-ns-animate data-delay="0.1">
         <div
-          class="bg-background-12 hover-soft-card h-full rounded-4xl border border-background-12 px-5 md:px-8 pt-5 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-4xl border border-background-12 px-5 md:px-8 pt-5 pb-5 grid grid-cols-12 gap-y-0 md:gap-6"
         >
           <aside
             class="pt-14-desktop  col-span-12 flex flex-col justify-between space-y-5 md:col-span-5 lg:col-span-3"
@@ -1175,7 +1175,7 @@ Services section
             </a>
           </aside>
           <figure
-            class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 mb-6 md:mb-8 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-7 lg:col-span-9"
+            class="h-[360px] md:h-full w-full mx-auto col-span-12 mb-6 md:mb-8 lg:mb-14 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-7 lg:col-span-9"
           >
             <img src="images/index/lead capture.jpg" alt="services" class="w-full h-full object-cover object-center" />
           </figure>
@@ -1189,7 +1189,7 @@ Services section
 How It's Work section
 ===========================-->
 <section class="pt-10 md:pt-16 lg:pt-0">
-  <div class="main-container">
+  <div class="main-container max-w-[1880px]">
     <div class="mb-10 md:mb-11 text-center lg:max-w-[730px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2 mb-4"
         >How It Works</span
@@ -1201,14 +1201,14 @@ How It's Work section
     </div>
 
     <div
-      class="flex justify-center items-center gap-8 relative flex-col sm:flex-row max-lg:flex-wrap"
+      class="flex justify-center items-center gap-8 relative flex-col sm:flex-row max-lg:flex-wrap how-it-works-flow"
     >
       <div
         data-ns-animate
         data-delay="0.4"
         data-direction="left"
         data-offset="80"
-        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px]"
+        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px] how-it-works-card"
         style="background-color: #481D52; color: white;"
       >
         <div class="text-center">
@@ -1228,7 +1228,7 @@ How It's Work section
         data-direction="left"
         data-offset="100"
         data-duration="0.6"
-        class="bg-background-3 ring-8 ring-white rounded-[80px] py-9 px-4 absolute top-1/2 z-10 -translate-y-1/2 left-[31%] hidden lg:inline-block max-w-[52px] w-full overflow-hidden"
+        class="bg-background-3 ring-8 ring-white rounded-[80px] py-9 px-4 hidden lg:inline-block max-w-[52px] w-full overflow-hidden how-it-works-arrow"
       >
         <div class="size-6 overflow-hidden icon-right-marquee-container">
           <figure class="size-6 flex items-center justify-center">
@@ -1272,7 +1272,7 @@ How It's Work section
         data-direction="left"
         data-offset="70"
         data-duration="0.5"
-        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px]"
+        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px] how-it-works-card"
         style="background-color: #702E3F; color: white;"
       >
         <div class="text-center">
@@ -1292,7 +1292,7 @@ How It's Work section
         data-direction="left"
         data-offset="100"
         data-duration="0.6"
-        class="bg-background-3 z-10 ring-8 ring-white rounded-[80px] py-9 px-4 absolute top-1/2 -translate-y-1/2 right-[31%] hidden lg:inline-block max-w-[52px] w-full overflow-hidden"
+        class="bg-background-3 ring-8 ring-white rounded-[80px] py-9 px-4 hidden lg:inline-block max-w-[52px] w-full overflow-hidden how-it-works-arrow"
       >
         <div class="size-6 overflow-hidden icon-right-marquee-container">
           <figure class="size-6 flex items-center justify-center">
@@ -1336,7 +1336,7 @@ How It's Work section
         data-direction="left"
         data-offset="80"
         data-duration="0.7"
-        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px]"
+        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px] how-it-works-card"
         style="background-color: #FA9639; color: white;"
       >
         <div class="text-center">
@@ -1365,7 +1365,7 @@ How It's Work section
 Case Study section
 ===========================-->
 <section class="pt-10 pb-10 md:pt-16 lg:pt-0 lg:pb-20 xl:pb-25">
-  <div class="main-container">
+  <div class="main-container max-w-[1880px]">
     <div class="text-center mb-10 lg:mb-[70px]">
       <div class="space-y-3">
         <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2">
@@ -1394,7 +1394,7 @@ Case Study section
               <h3 class="text-heading-6 sm:text-heading-5">
                 E-commerce Store captures 3x more leads with WhatsApp automation
               </h3>
-              <p class="w-full text-left">
+              <p class="w-full text-left case-study-description">
                 The cherry on top of your online store, a 24/7 sales assistant that qualifies, recommends, and converts while you sleep. Response time dropped from 4 hours to 30 seconds.
               </p>
             </div>
@@ -1415,7 +1415,7 @@ Case Study section
               <h3 class="text-heading-6 sm:text-heading-5">
                 Furniture Store cuts support time by 75%
               </h3>
-              <p class="w-full text-left">
+              <p class="w-full text-left case-study-description">
                 Full e-commerce automation from "Is this in stock?" to "Your order is out for delivery." Conversion rate up 40%.
               </p>
             </div>
@@ -1436,7 +1436,7 @@ Case Study section
               <h3 class="text-heading-6 sm:text-heading-5">
                 Electronics Retailer reduces support tickets by 60%
               </h3>
-              <p class="w-full text-left">
+              <p class="w-full text-left case-study-description">
                 AI-powered FAQ bot handles the noise: compatibility checks, warranty lookups, troubleshooting; so humans handle what actually matters.
               </p>
             </div>
@@ -1457,7 +1457,7 @@ Case Study section
               <h3 class="text-heading-6 sm:text-heading-5">
                 Beauty Salon scales from 10 to 50 daily appointments
               </h3>
-              <p class="w-full text-left">
+              <p class="w-full text-left case-study-description">
                 End-to-end booking automation with smart reminders. No-shows dropped from 22% to 4%, revenue up 65%.
               </p>
             </div>
