@@ -30901,13 +30901,15 @@ svg.leaflet-zoom-animated {
 .home-bw-buttons .scroll-top-trigger {
   right: auto;
   left: calc(1.5rem + env(safe-area-inset-left));
-  border: 1px solid #000000;
+  border: 1px solid #481d52;
+  color: #481d52;
 }
 
 body:not(.home-bw-buttons) .scroll-top-trigger {
   right: auto;
   left: calc(1.5rem + env(safe-area-inset-left));
-  border: 1px solid #000000;
+  border: 1px solid #481d52;
+  color: #481d52;
 }
 
 .scroll-top-trigger.is-visible {
@@ -31104,6 +31106,27 @@ body:not(.home-bw-buttons) .scroll-top-trigger {
 
 .home-bw-buttons .btn-secondary-v2 .btn-v2-icon {
   fill: #000;
+}
+
+.home-bw-buttons .ask-plum-button {
+  background-color: #481d52;
+  color: #fff;
+}
+
+.home-bw-buttons .ask-plum-button .btn-v2-icon {
+  fill: #fff;
+}
+
+.home-bw-buttons
+  .group-hover\/btn-v2\:btn-secondary-v2.ask-plum-button:is(:where(.group\/btn-v2):hover *) {
+  background-color: #481d52;
+  color: #fff;
+}
+
+.home-bw-buttons
+  .group-hover\/btn-v2\:btn-secondary-v2.ask-plum-button:is(:where(.group\/btn-v2):hover *)
+  .btn-v2-icon {
+  fill: #fff;
 }
 
 .home-bw-buttons .group-hover\/btn-v2\:btn-secondary-v2:is(:where(.group\/btn-v2):hover *) {
