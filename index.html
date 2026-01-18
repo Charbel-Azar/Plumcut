@@ -74,7 +74,7 @@ Head links
   "@type": "Organization",
   "name": "plumcut",
   "url": "https://plumcut.com/",
-  "logo": "https://plumcut.com/images/shared/plumcut_logo_transparent.png",
+  "logo": "https://plumcut.com/images/shared/new%20icon.png",
   "description": "plumcut designs intelligent chatbots and automation systems that capture leads, book appointments, process orders, and handle customer inquiries 24/7.",
   "address": {
     "@type": "PostalAddress",
@@ -99,10 +99,10 @@ Head links
 />
 <meta name="msapplication-starturl" content="/" />
 <!-- Favicon and Icons -->
-<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="images/shared/new%20icon.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="images/shared/new%20icon.png" />
+<link rel="shortcut icon" href="images/shared/new%20icon.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/shared/new%20icon.png" />
 <link rel="manifest" href="site.webmanifest" />
 <link rel="preconnect" href="https://fonts.googleapis.com/" />
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
@@ -111,7 +111,11 @@ Head links
   rel="stylesheet"
 />
 <link
-  href="https://fonts.googleapis.com/css2?family=Zain:wght@300&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@400&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@500&display=swap"
   rel="stylesheet"
 />
 
@@ -120,58 +124,740 @@ Head links
     <link rel="stylesheet" href="assets/main.css">
     
     <style>
-      /* Apply Zain Light 300 to all elements on index page */
+      /* Apply Alan Sans Regular across the index page while allowing weight overrides */
+      body {
+        font-weight: 400;
+      }
+
       body * {
-        font-family: 'Zain', sans-serif !important;
-        font-weight: 300 !important;
+        font-family: 'Alan Sans', sans-serif !important;
       }
 
-      .section-title-badge {
-        --badge-shadow-alpha: 0;
-        --badge-shadow-blur: 28px;
-        --badge-shadow-y: 16px;
-        font-size: calc(var(--text-tagline-1) * 1.2);
-        line-height: var(--tw-leading, var(--text-tagline-1--line-height));
-        padding-inline: calc(var(--spacing) * 6);
-        padding-block: calc(var(--spacing) * 2);
-        margin-top: calc(var(--spacing) * 4);
-        margin-bottom: calc(var(--spacing) * 8);
-        box-shadow: 0 var(--badge-shadow-y) var(--badge-shadow-blur)
-          rgba(0, 0, 0, var(--badge-shadow-alpha));
-        transition: box-shadow 0.6s ease;
-        will-change: box-shadow;
+      .section-title-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: #E65E04;
+        font-size: calc(var(--text-tagline-1) * 1.3);
+        line-height: 1.2;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
       }
 
-      .section-title-badge + h2 {
+      .section-title-bullet {
+        width: 1.4rem;
+        height: 1.4rem;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+
+      .section-title-text {
+        display: inline-block;
+      }
+
+      .section-title-heading {
         font-size: var(--text-heading-6);
         line-height: var(--tw-leading, var(--text-heading-6--line-height));
+        color: #4B1D6A;
+        text-transform: uppercase;
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 500 !important;
+      }
+
+      .services-section {
+        background: #481D52;
+      }
+
+      .services-section .section-title-label {
+        color: #ffffff;
+      }
+
+      .services-section .section-title-heading {
+        color: #E65E04;
+      }
+
+      .services-section .services-intro {
+        color: #ffffff;
+      }
+
+      .services-section .hover-soft-card {
+        position: relative;
+        overflow: hidden;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        transition: none;
+      }
+
+      .services-section .hover-soft-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          140% 140% at 100% 100%,
+          rgba(230, 94, 4, 0.95) 0%,
+          rgba(230, 94, 4, 0.5) 40%,
+          rgba(230, 94, 4, 0) 75%
+        );
+        transform: scale(1);
+        transform-origin: 100% 100%;
+        transition: transform 0.9s ease;
+      }
+
+      .services-section .hover-soft-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .services-section .hover-soft-card h3,
+      .services-section .hover-soft-card p {
+        color: #ffffff;
+      }
+
+      .services-section .hover-soft-card p {
+        opacity: 0.88;
+      }
+
+      .ask-plum-orb {
+        background: #4B1D6A;
+      }
+
+      .faq-section {
+        padding-bottom: clamp(3rem, 6vw, 5.5rem);
+      }
+
+      .faq-section .faq-card {
+        padding-top: clamp(4.5rem, 8vw, 7.5rem);
+        padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
+        border-radius: clamp(1.75rem, 3vw, 3rem);
+      }
+
+      .faq-section .faq-intro {
+        max-width: 860px;
+      }
+
+      .faq-section .faq-intro > * + * {
+        margin-top: clamp(0.85rem, 2vw, 1.5rem);
+      }
+
+      .faq-section .section-title-label {
+        font-size: calc(var(--text-tagline-1) * 1.5);
+        gap: 0.8rem;
+      }
+
+      .faq-section .section-title-bullet {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+
+      .faq-section .section-title-heading {
+        font-size: clamp(2.5rem, 4.8vw, 4.35rem);
+      }
+
+      .faq-section .faq-tagline {
+        font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+      }
+
+      .faq-section .ask-plum-orb {
+        width: clamp(220px, 28vw, 320px);
+        height: clamp(220px, 28vw, 320px);
+        gap: clamp(0.5rem, 1.4vw, 1rem);
+      }
+
+      .faq-section .faq-orb-icon {
+        width: clamp(110px, 14vw, 170px);
+        height: clamp(110px, 14vw, 170px);
+      }
+
+      .faq-section .faq-orb-text {
+        font-size: clamp(1.2rem, 2.6vw, 1.95rem);
+      }
+
+      @keyframes ask-plum-wave {
+        0% {
+          background-position: 0% 0%;
+        }
+        25% {
+          background-position: 100% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        75% {
+          background-position: 0% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+
+      .services-section .hover-soft-card:hover {
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .services-section .hover-soft-card:hover::before {
+        transform: scale(2.2);
+      }
+
+      .home-bw-buttons .services-section .bg-background-12.hover-soft-card {
+        border: none;
+        box-shadow: none;
+        transition: none;
+      }
+
+      .home-bw-buttons .services-section .bg-background-12.hover-soft-card:hover {
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .case-study-section {
+        background: #481D52;
+      }
+
+      .case-study-section .section-title-label {
+        color: #ffffff;
+      }
+
+      .case-study-section .section-title-heading {
+        color: #E65E04;
+      }
+
+      .case-study-section .case-study-intro,
+      .case-study-section .case-study-description {
+        color: #ffffff;
+      }
+
+      .case-study-section .case-study-description {
+        opacity: 0.88;
+      }
+
+      .case-study-section .case-study-title {
+        color: #E65E04;
+      }
+
+      .case-study-section .hover-soft-card,
+      .case-study-section .hover-soft-card:hover {
+        background: transparent;
+        box-shadow: none;
+        transition: none;
       }
 
       @media (min-width: 40rem) {
-        .section-title-badge + h2 {
+        .section-title-heading {
           font-size: var(--text-heading-5);
           line-height: var(--tw-leading, var(--text-heading-5--line-height));
         }
       }
 
       @media (min-width: 48rem) {
-        .section-title-badge + h2 {
+        .section-title-heading {
           font-size: var(--text-heading-4);
           line-height: var(--tw-leading, var(--text-heading-4--line-height));
         }
       }
 
       @media (min-width: 80rem) {
-        .section-title-badge + h2 {
+        .section-title-heading {
           font-size: var(--text-heading-3);
           line-height: var(--tw-leading, var(--text-heading-3--line-height));
+        }
+      }
+
+      @media (min-width: 64rem) {
+        .section-title-label {
+          font-size: calc(var(--text-tagline-1) * 1.55);
         }
       }
 
       .services-section .hover-soft-card:hover {
         box-shadow: none;
       }
-    </style>
+
+      .text-brand-orange {
+        color: #f29a3b;
+      }
+
+      [data-hero-parallax] .text-brand-orange {
+        color: #E65E04;
+      }
+
+      .pc-navbar {
+        position: absolute;
+        top: 24px;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        background: transparent;
+        transform: translateY(0);
+        transition: opacity 0.35s ease, transform 0.35s ease;
+        will-change: opacity, transform;
+      }
+
+      .pc-navbar.is-faded {
+        opacity: 0;
+        transform: translateY(-100%);
+        pointer-events: none;
+      }
+
+      .pc-navbar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pc-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(1.5rem, 6vw, 4.5rem);
+        padding: 0.35rem 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .pc-nav-link {
+        position: relative;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        padding-bottom: 0.55rem;
+        opacity: 0.82;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .pc-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 2px;
+        width: 48%;
+        background: #ffffff;
+        transform: translateX(-50%) scaleX(0.7);
+        transform-origin: center;
+        opacity: 0.55;
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .pc-nav-link:hover {
+        opacity: 1;
+      }
+
+      .pc-nav-link:hover::after {
+        opacity: 1;
+        width: 62%;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .pc-nav-link.is-active {
+        font-size: clamp(1.3rem, 3vw, 1.95rem);
+        font-weight: 600;
+        opacity: 1;
+      }
+
+      .pc-nav-link.is-active::after {
+        width: 72%;
+        height: 3px;
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .hero-wordmark {
+
+        width: auto;
+      }
+
+      @media (min-width: 40rem) {
+        .hero-wordmark {
+          height: 7.5rem;
+        }
+      }
+
+      @media (min-width: 64rem) {
+        .hero-wordmark {
+          height: 10rem;
+        }
+      }
+
+      .hero-mantra {
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .hero-mantra-line {
+        width: 4px;
+        height: clamp(3rem, 6vw, 4.5rem);
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 999px;
+      }
+
+      .hero-cta-button {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(255, 255, 255, 0.62) 48%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
+        background-size: 220% 100%;
+        background-position: 0% 50%;
+        color: #4B1D6A;
+        box-shadow:
+          0 26px 55px rgba(14, 6, 26, 0.35),
+          inset 0 1px 2px rgba(255, 255, 255, 0.8),
+          inset 0 -10px 25px rgba(255, 255, 255, 0.25);
+        font-size: clamp(1.45rem, 2.05vw, 2.35rem);
+        line-height: 1.1;
+        padding: clamp(0.35rem, 0.75vw, 0.6rem) clamp(1.85rem, 3.2vw, 2.25rem);
+        justify-content: center;
+        gap: clamp(0.75rem, 1.4vw, 1rem);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+      }
+
+      .hero-cta-button:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(255, 255, 255, 0.62) 48%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
+        background-size: 220% 100%;
+      }
+
+      .hero-cta-icon {
+        width: clamp(3.4rem, 4.8vw, 3.9rem);
+        height: clamp(3.4rem, 4.8vw, 3.9rem);
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .hero-cta-icon img {
+        width: clamp(2.2rem, 2.9vw, 2.6rem);
+        height: clamp(2.2rem, 2.9vw, 2.6rem);
+      }
+
+      .hero-cta-button > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      @keyframes hero-cta-glass {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+
+      [data-hero-parallax] {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      [data-hero-parallax] .hero-content {
+        max-width: 1500px;
+        padding-top: clamp(3rem, 6vw, 5.5rem);
+        padding-bottom: clamp(3.5rem, 7vw, 6.5rem);
+      }
+
+      [data-hero-parallax] .hero-top-row {
+        margin-bottom: clamp(2.5rem, 4vw, 4rem);
+        gap: clamp(1.5rem, 3vw, 2.5rem);
+      }
+
+      [data-hero-parallax] .hero-copy {
+        gap: clamp(1.25rem, 2.8vw, 2.25rem);
+      }
+
+      [data-hero-parallax] .hero-copy p {
+        font-size: clamp(1.35rem, 2.6vw, 2rem);
+      }
+
+      [data-hero-parallax] .hero-copy h1 {
+        font-size: clamp(2.75rem, 6vw, 4.75rem);
+        line-height: 1.05;
+      }
+
+      [data-hero-parallax] .hero-mantra {
+        font-size: clamp(1.35rem, 2.6vw, 2.15rem);
+        letter-spacing: 0.12em;
+      }
+
+      [data-hero-parallax] .hero-cta {
+        gap: clamp(2rem, 4vw, 3.5rem);
+      }
+
+      [data-hero-parallax] .hero-content > .mt-12 h3 {
+        font-size: clamp(1.4rem, 2.7vw, 2.15rem);
+      }
+
+      [data-hero-parallax] .hero-content > .mt-12 p {
+        font-size: clamp(0.95rem, 1.9vw, 1.3rem);
+      }
+
+      [data-hero-parallax] .hero-content > .mt-8 p {
+        font-size: clamp(0.95rem, 1.9vw, 1.35rem);
+      }
+
+      @media (max-width: 640px) {
+        .pc-navbar {
+          top: 14px;
+        }
+
+        .pc-nav {
+          width: 100%;
+          justify-content: space-between;
+          gap: 0.75rem;
+          flex-wrap: nowrap;
+        }
+
+        .pc-nav-link {
+          font-size: 0.95rem;
+          letter-spacing: 0.02em;
+          padding-bottom: 0.4rem;
+        }
+
+        .pc-nav-link.is-active {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        [data-hero-parallax] .hero-content {
+          text-align: center;
+        }
+
+        [data-hero-parallax] .hero-top-row {
+          align-items: center;
+          text-align: center;
+        }
+
+        [data-hero-parallax] .hero-mantra-wrap {
+          justify-content: center;
+        }
+
+        [data-hero-parallax] .hero-mantra {
+          text-align: center;
+        }
+
+        [data-hero-parallax] .hero-copy {
+          text-align: center;
+          align-items: center;
+        }
+
+        [data-hero-parallax] .hero-copy p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        [data-hero-parallax] .hero-cta {
+          align-items: center;
+          text-align: center;
+        }
+
+        [data-hero-parallax] .hero-cta > div {
+          align-items: center;
+        }
+      }
+
+      [data-hero-parallax] > .absolute > img {
+        width: 120%;
+        height: 120%;
+        max-width: none;
+        left: 50%;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+      }
+
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 91%,
+          rgba(255, 255, 255, 0.45) 96%,
+          #ffffff 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .hero-bg > img {
+        z-index: 0;
+      }
+
+        .hero-beans {
+          position: absolute;
+          inset: 0;
+          z-index: 2;
+        }
+
+        .hero-bean {
+          position: absolute;
+          left: var(--bean-x, 50%);
+          top: var(--bean-y, 50%);
+          width: var(--bean-size, 420px);
+          transform: translate(-50%, -50%);
+          pointer-events: none;
+          will-change: transform;
+        }
+
+        .hero-bean-parallax {
+          transform: translate3d(var(--bean-parallax-x, 0px), var(--bean-parallax-y, 0px), 0);
+          will-change: transform;
+        }
+
+        .hero-bean-float {
+          animation: bean-float var(--float-duration, 14s) ease-in-out var(--float-delay, 0s) infinite;
+          will-change: transform;
+        }
+
+        .hero-bean img {
+          width: 100%;
+          height: auto;
+          display: block;
+          filter: blur(var(--bean-blur, 0px));
+          opacity: var(--bean-opacity, 0.7);
+          transform-origin: center;
+          animation: bean-rotate var(--spin-duration, 32s) linear infinite;
+          animation-direction: var(--spin-direction, normal);
+        }
+
+      .hero-beans::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 88%,
+          rgba(255, 255, 255, 0.55) 98%,
+          #ffffff 100%
+        );
+          pointer-events: none;
+          z-index: 3;
+        }
+
+        @keyframes bean-float {
+          0% {
+            transform: translate3d(0, 0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate3d(var(--float-x, 0px), var(--float-y, 0px), 0) rotate(var(--float-rotate, 0deg));
+          }
+          100% {
+            transform: translate3d(0, 0, 0) rotate(0deg);
+          }
+        }
+
+        @keyframes bean-rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        @media (max-width: 640px) {
+          [data-hero-parallax] > .absolute > img {
+            width: 140%;
+            height: 140%;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-bean-float {
+            animation: none;
+          }
+        }
+
+        .footer.footer-three {
+          background-color: #E65E04;
+        }
+
+        .footer-brand-card {
+          background: #ffffff;
+          border-radius: 24px;
+          padding: 24px;
+          box-shadow: 0 16px 28px rgba(18, 9, 30, 0.2);
+        }
+
+        .footer-brand-card figure {
+          margin: 0;
+        }
+
+        .footer-outside-white {
+          color: #ffffff;
+        }
+
+        .footer-outside-white .footer-link-v2,
+        .footer-outside-white .text-secondary,
+        .footer-outside-white .text-secondary\/40,
+        .footer-outside-white .text-secondary\/60,
+        .footer-outside-white .text-secondary\/80 {
+          color: #ffffff;
+        }
+
+        .footer-social-white .stroke-secondary {
+          stroke: #ffffff;
+          fill: none;
+        }
+
+        .footer-social-white .fill-secondary {
+          fill: #ffffff;
+        }
+
+        .footer-social-white .bg-stroke-1 {
+          background-color: rgba(255, 255, 255, 0.45);
+        }
+
+        .footer-social-white {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+        }
+
+        .footer-social-white .footer-social-link {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+        }
+
+        .footer-social-white svg {
+          width: 24px;
+          height: 24px;
+        }
+
+        .footer-outside-white .footer-link-v2:before {
+          background-color: #ffffff;
+        }
+
+      </style>
     
     <!-- Google Analytics is configured in assets/main.js -->
     <!-- Just update the GA_MEASUREMENT_ID variable in that file -->
@@ -184,493 +870,318 @@ Top Nav Buttons
     <!-- =========================
 Header
 ===========================-->
-<header>
-  <div
-    class="header-one navbar-custom opacity-0 rounded-full lp:!max-w-[1290px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] min-[500px]:max-w-[450px] min-[425px]:max-w-[375px] max-w-[350px] mx-auto w-full fixed left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-2.5 xl:py-0 py-2.5 backdrop-blur-[25px] top-8 has-top-nav {=$class}"
-    data-ns-animate
-    data-direction="up"
-    data-offset="100"
-  >
-    <div>
-      <a href="index.html">
-        <span class="sr-only">Home</span>
-        <figure class="lg:max-w-[198px] lg:block hidden">
-          <img src="images/shared/plumcut_logo_transparent.png" alt="plumcut" class="logo-responsive" />
-        </figure>
-        <figure class="max-w-[44px] lg:hidden block">
-          <img src="images/shared/plumcut_logo_transparent.png" alt="plumcut" class="logo-responsive" />
-        </figure>
-      </a>
-    </div>
-    <nav class="hidden xl:flex items-center">
-      <ul class="flex items-center">
-        <li class="relative nav-item cursor-pointer py-2.5" data-menu="company-mega-menu-v2">
-          <a
-            href="#"
-            class="flex items-center gap-1 px-4 py-2 border border-transparent hover:border-stroke-2 dark:hover:border-stroke-7 rounded-full text-tagline-1 font-normal text-secondary/60 hover:text-secondary transition-all duration-200 dark:text-accent/60 dark:hover:text-accent"
-          >
-            <span>Home</span>
-            <span class="nav-arrow block origin-center transition-all duration-300 translate-y-px">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </span>
-          </a>
-          <div>
-  <div
-    class="dropdown-menu-bridge fixed left-1/2 -translate-x-1/2 top-full w-full h-3 z-40 lg:w-[946px] pointer-events-none bg-transparent opacity-0"
-  ></div>
-  <div
-    id="company-mega-menu-v2"
-    class="dropdown-menu fixed left-1/2 -translate-x-1/2 top-full mt-2 pointer-events-none transition-all duration-300 opacity-0 lg:w-[946px] w-full bg-white dark:bg-background-6 z-50 rounded-[20px] p-4 flex items-start md:gap-x-6 gap-y-6 border border-stroke-1 dark:border-white/10"
-  >
-    <div class="flex-1 space-y-3">
-      <ul class="space-y-2">
-        <li>
-          <a
-            href="why-choose-us.html"
-            class="flex items-start gap-2 p-3 relative group"
-          >
-            <div
-  class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-background-3 dark:bg-background-7 opacity-0 group-hover:opacity-100 rounded-[10px] z-0 transition-all duration-400 {=$class}"
-></div>
-
-            <div
-              class="mt-1 size-7 shrink-0 rounded-lg p-1 border border-stroke-1 dark:border-white/10 flex items-center justify-center relative z-10"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-  <path
-    d="M2.87976 14.3702C2.16069 13.6512 2.63762 12.1415 2.27162 11.257C1.89222 10.34 0.5 9.60195 0.5 8.62497C0.5 7.64801 1.89222 6.91 2.27163 5.99303C2.63763 5.10846 2.1607 3.59882 2.87976 2.87976C3.59882 2.16069 5.10846 2.63762 5.99304 2.27162C6.91002 1.89222 7.64805 0.5 8.62503 0.5C9.60199 0.5 10.34 1.89222 11.257 2.27163C12.1415 2.63763 13.6512 2.1607 14.3702 2.87976C15.0893 3.59882 14.6124 5.10846 14.9784 5.99304C15.3578 6.91002 16.75 7.64805 16.75 8.62503C16.75 9.60199 15.3578 10.34 14.9784 11.257C14.6124 12.1415 15.0893 13.6512 14.3702 14.3702C13.6512 15.0893 12.1415 14.6124 11.257 14.9784C10.34 15.3578 9.60195 16.75 8.62497 16.75C7.64801 16.75 6.91 15.3578 5.99303 14.9784C5.10846 14.6124 3.59882 15.0893 2.87976 14.3702Z"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path
-    d="M8.625 13.625C9.14277 13.625 9.5625 13.2053 9.5625 12.6875C9.5625 12.1697 9.14277 11.75 8.625 11.75C8.10723 11.75 7.6875 12.1697 7.6875 12.6875C7.6875 13.2053 8.10723 13.625 8.625 13.625Z"
-    class="fill-secondary dark:fill-accent {=$class}"
-  />
-  <path
-    d="M8.625 9.87537V9.25037C9.05765 9.25037 9.48058 9.12207 9.84031 8.88171C10.2 8.64134 10.4804 8.2997 10.646 7.89999C10.8116 7.50027 10.8549 7.06044 10.7705 6.63611C10.6861 6.21177 10.4777 5.822 10.1718 5.51607C9.86587 5.21014 9.47609 5.0018 9.05176 4.9174C8.62743 4.83299 8.18759 4.87631 7.78788 5.04188C7.38817 5.20745 7.04653 5.48782 6.80616 5.84756C6.5658 6.20729 6.4375 6.63022 6.4375 7.06287"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-</svg>
-
-            </div>
-            <div class="relative z-10">
-              <p class="text-tagline-1 font-normal text-secondary dark:text-accent">
-                Why Us
-              </p>
-              <p class="text-tagline-2 font-normal text-secondary/60 dark:text-accent/60">
-                Our unique selling points and competitive advantages
-              </p>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="about.html" class="flex items-start gap-2 p-3 relative group">
-            <div
-  class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-background-3 dark:bg-background-7 opacity-0 group-hover:opacity-100 rounded-[10px] z-0 transition-all duration-400 {=$class}"
-></div>
-
-            <div
-              class="mt-1 size-7 shrink-0 rounded-lg p-1 border border-stroke-1 dark:border-white/10 flex items-center justify-center relative z-10"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-  <path
-    d="M10.0003 18.3334C14.6027 18.3334 18.3337 14.6024 18.3337 10C18.3337 5.39765 14.6027 1.66669 10.0003 1.66669C5.39795 1.66669 1.66699 5.39765 1.66699 10C1.66699 14.6024 5.39795 18.3334 10.0003 18.3334Z"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path
-    d="M10 13.3333H10.0083"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path
-    d="M10 6.66669V10"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-</svg>
-
-            </div>
-            <div class="relative z-10">
-              <p class="text-tagline-1 font-normal text-secondary dark:text-accent">Our Story</p>
-              <p class="text-tagline-2 font-normal text-secondary/60 dark:text-accent/60">
-                Learn about our journey
-              </p>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="career.html" class="flex items-start gap-2 p-3 relative group">
-            <div
-  class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-background-3 dark:bg-background-7 opacity-0 group-hover:opacity-100 rounded-[10px] z-0 transition-all duration-400 {=$class}"
-></div>
-
-            <div
-              class="mt-1 size-7 shrink-0 rounded-lg p-1 border border-stroke-1 dark:border-white/10 flex items-center justify-center relative z-10"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
-  <path
-    d="M14.875 3H1.125C0.779822 3 0.5 3.27982 0.5 3.625V13.625C0.5 13.9702 0.779822 14.25 1.125 14.25H14.875C15.2202 14.25 15.5 13.9702 15.5 13.625V3.625C15.5 3.27982 15.2202 3 14.875 3Z"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path
-    d="M11.124 3V1.75C11.124 1.41848 10.9923 1.10054 10.7579 0.866116C10.5235 0.631696 10.2055 0.5 9.87402 0.5H6.12402C5.7925 0.5 5.47456 0.631696 5.24014 0.866116C5.00572 1.10054 4.87402 1.41848 4.87402 1.75V3"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path
-    d="M15.5001 7.24292C13.2207 8.56171 10.633 9.25416 7.99949 9.25002C5.36647 9.25416 2.77919 8.56195 0.5 7.24358"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path
-    d="M7.06152 6.75H8.93652"
-    class="stroke-secondary dark:stroke-accent {=$class}"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-</svg>
-
-            </div>
-            <div class="relative z-10">
-              <p class="text-tagline-1 font-normal text-secondary dark:text-accent">Careers</p>
-              <p class="text-tagline-2 font-normal text-secondary/60 dark:text-accent/60">
-                Join our team
-              </p>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-        </li>
-        <li class="relative nav-item cursor-pointer py-2.5">
-          <a
-            href="services.html"
-            class="flex items-center gap-1 px-4 py-2 border border-transparent hover:border-stroke-2 dark:hover:border-stroke-7 rounded-full text-tagline-1 font-normal text-secondary/60 hover:text-secondary transition-all duration-200 dark:text-accent/60 dark:hover:text-accent"
-          >
-            <span>Solutions</span>
-          </a>
-        </li>
-        <li class="relative nav-item cursor-pointer py-2.5">
-          <a
-            href="pricing.html"
-            class="flex items-center gap-1 px-4 py-2 border border-transparent hover:border-stroke-2 dark:hover:border-stroke-7 rounded-full text-tagline-1 font-normal text-secondary/60 hover:text-secondary transition-all duration-200 dark:text-accent/60 dark:hover:text-accent"
-          >
-            <span>Pricing</span>
-          </a>
-        </li>
-      </ul>
+<header class="pc-navbar">
+  <div class="pc-navbar-inner">
+    <nav class="pc-nav" aria-label="Primary">
+      <a class="pc-nav-link is-active" href="index.html">Home</a>
+      <a class="pc-nav-link" href="services.html">Services</a>
+      <a class="pc-nav-link" href="pricing.html">Pricing</a>
+      <a class="pc-nav-link" href="about.html">About</a>
     </nav>
-
-    <!-- WhatsApp "Chat with plum now!" Link -->
-    <a
-      href="https://wa.me/96178860758?text=Hi%20plum!"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="whatsapp-link flex items-center justify-center px-4 lg:px-6 py-2 lg:py-3 font-bold text-base lg:text-xl text-black hover:text-primary transition-all duration-300"
-      aria-label="Contact us on WhatsApp"
-      style="opacity: 0; pointer-events: none;"
-    >
-      Chat with plum now!
-    </a>
-
-    <div class="get-started-container xl:flex hidden items-center justify-center">
-      <div
-  class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
->
-
-</div>
-
-    </div>
-    <div class="xl:hidden block hamburger-container">
-      <button
-        class="nav-hamburger flex flex-col gap-[5px] size-12 bg-background-4 dark:bg-background-6 rounded-full items-center justify-center cursor-pointer"
-      >
-        <span class="sr-only">Menu</span>
-        <span class="block w-6 h-0.5 bg-stroke-9 dark:bg-stroke-1"></span>
-        <span class="block w-6 h-0.5 bg-stroke-9 dark:bg-stroke-1"></span>
-        <span class="block w-6 h-0.5 bg-stroke-9 dark:bg-stroke-1"></span>
-      </button>
-    </div>
   </div>
-  <!-- =========================
-Mobile Menu
-===========================-->
-
-<aside
-  class="sidebar fixed top-0 right-0 w-full sm:w-1/2 translate-x-full transition-all duration-300 h-screen bg-white dark:bg-background-8 rounded-l-3xl xl:hidden z-[9999] scroll-bar"
->
-  <div class="lg:p-9 sm:p-8 p-5 space-y-4">
-    <div class="flex items-center justify-between">
-      <a href="index.html">
-        <span class="sr-only">Home</span>
-        <figure class="max-w-[44px]">
-          <img src="images/shared/plumcut_logo_transparent.png" alt="plumcut" class="logo-responsive" />
-        </figure>
-      </a>
-      <button
-        class="nav-hamburger-close flex flex-col gap-1.5 size-10 bg-background-4 dark:bg-background-9 rounded-full items-center justify-center cursor-pointer relative"
-      >
-        <span class="sr-only">Close Menu</span>
-        <span class="block w-4 h-0.5 bg-stroke-9/60 dark:bg-stroke-1 rotate-45 absolute"></span>
-        <span class="block w-4 h-0.5 bg-stroke-9/60 dark:bg-stroke-1 -rotate-45 absolute"></span>
-      </button>
-    </div>
-    <div class="mt-6 h-[85vh] w-full overflow-y-auto overflow-x-hidden pb-10 scroll-bar">
-      <p
-        class="text-secondary dark:text-accent font-normal text-tagline-1 block before:content-[''] before:w-full before:-right-16 before:top-1/2 before:-translate-y-1/2 before:h-px before:bg-stroke-4 dark:before:bg-stroke-6 before:absolute relative mb-2"
-      >
-        Menu
-      </p>
-      <ul class="space-y-2">
-        <li class="space-y-2">
-          <button
-            class="mobile-menu-toggle flex items-center justify-between w-full py-2.5 cursor-pointer"
-            data-menu="company"
-          >
-            <span class="text-secondary/60 dark:text-accent/60 font-normal text-tagline-1 block"
-              >Home</span
-            >
-
-            <span class="menu-arrow transition-transform duration-300 rotate-90">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-              >
-                <path
-                  d="M10 12L14 8L10 4"
-                  class="stroke-secondary/60 dark:stroke-accent/60"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul class="mobile-submenu block" data-submenu="company">
-            <li>
-              <a
-                href="why-choose-us.html"
-                class="text-tagline-1 font-normal text-secondary dark:text-accent transition-all duration-200 py-2.5 text-left block ml-4"
-                >Why Us</a
-              >
-            </li>
-            <li>
-              <a
-                href="about.html"
-                class="text-tagline-1 font-normal text-secondary dark:text-accent transition-all duration-200 py-2.5 text-left block ml-4"
-                >Our Story</a
-              >
-            </li>
-            <li>
-              <a
-                href="career.html"
-                class="text-tagline-1 font-normal text-secondary dark:text-accent transition-all duration-200 py-2.5 text-left block ml-4"
-                >Careers</a
-              >
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a
-            href="services.html"
-            class="text-tagline-1 font-normal text-secondary/60 dark:text-accent/60 transition-all duration-200 py-2.5 text-left block"
-            >Solutions</a
-          >
-        </li>
-        <li>
-          <a
-            href="pricing.html"
-            class="text-tagline-1 font-normal text-secondary/60 dark:text-accent/60 transition-all duration-200 py-2.5 text-left block"
-            >Pricing</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</aside>
-
 </header>
 
     <main class="space-y-6">
       <!-- ==========================Hero=========================== -->
-<section class="pt-16 max-[1920px]:px-5">
+<section class="pt-12 px-0">
   <div
-    class="bg-[#1a1a1a] max-w-[1880px] mx-auto relative pt-20 -mb-2 md:pt-30 border overflow-hidden border-background-ali rounded-3xl xl:rounded-4xl"
+    class="w-full relative overflow-hidden bg-[#2b0c3c]"
+    data-hero-parallax
   >
-    <!-- Interactive Gradient Blob Background -->
-    <div class="hero-blob-background" id="heroBlobContainer"></div>
-
-    <div
-      data-ns-animate
-      data-delay="0.3"
-      data-instant
-      data-direction="up"
-      class="hidden md:block absolute w-full h-full top-0 left-0 before:content-[''] before:absolute before:left-[7%] 2xl:before:left-[16%] before:z-10 before:w-px before:h-[100%] before:bg-stroke-3 before:top-0 after:content-[''] after:absolute after:right-[7%] 2xl:after:right-[16%] after:z-10 after:w-px after:h-[100%] after:bg-stroke-3 after:top-0 z-10"
-    >
-      <div
-        class="absolute w-[100%] h-px bg-stroke-3 top-[44%] xl:top-[43%] before:absolute before:content-[''] before:size-3 before:bg-white before:drop-shadow-[0,1px,2px,#AFB9C6] before:left-[6.3%] 2xl:before:left-[15.7%] before:z-20 before:-top-2 before:ring-6 before:ring-stroke-3 before:rounded-full after:absolute after:content-[''] after:size-3 after:bg-white after:ring-6 after:ring-stroke-3 after:right-[6.3%] 2xl:after:right-[15.7%] after:z-20 after:-top-[7px] after:drop-shadow-[0,1px,2px,#AFB9C6] after:rounded-full"
-      ></div>
-    </div>
-
-    <div class="main-container relative z-30">
-      <div class="text-center mb-12 lg:mb-20 xl:mb-33">
-        <span
-          data-ns-animate
-          data-delay="0.1"
-          class="badge section-title-badge badge-white text-secondary font-medium mb-4"
-          style="text-transform: capitalize;"
-        >
-          AI-Powered Business Automation
-        </span>
-        <h1 class="font-medium mb-3 opacity-0 text-white" data-ns-animate data-instant data-delay="0.1">
-          yes... we can automate it
-        </h1>
-        <p
-          class="max-w-[750px] mx-auto mb-7 md:mb-14 text-white"
-          data-ns-animate
-          data-instant
-          data-delay="0.2"
-        >
-          We design intelligent chatbots and automation systems that capture leads, qualify prospects, book appointments, process orders, handle complaints, and never take a day off. They speak your brand's voice. They remember your customers. They integrate with the tools you already use.
-        </p>
-        <div
-          class="flex md:flex-row flex-col gap-y-3 md:gap-y-0 items-center justify-center gap-x-4"
-        >
+    <div class="absolute inset-0 z-0 hero-bg">
+      <img
+        src="images/index/LP-BackGround.svg"
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover select-none"
+      />
+        <div class="absolute inset-0 pointer-events-none hero-beans" aria-hidden="true">
           <div
-            data-ns-animate
-            data-delay="0.5"
-            data-direction="left"
-            data-offset="50"
-            data-instant
-            class="w-[90%] md:w-auto"
+            class="hero-bean"
+            style="--bean-x: 12%; --bean-y: 22%; --bean-size: clamp(140px, 16vw, 300px); --bean-opacity: 0.4;"
           >
-            <div
-  class="group/btn-v2 inline-block {=$class} w-[85%] rounded-full md:w-auto mx-auto md:mx-0 duration-500 transition-transform ease-in-out"
->
-  <a
-    href="signup.html"
-    class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 group-hover/btn-v2:btn-secondary-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase w-full md:w-auto mx-auto md:mx-0 h-12 md:h-auto"
-  >
-    <span class="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase"
-      >See How It Works
-    </span>
-
-                <div class="relative overflow-hidden size-6">
-                  <span
-                    class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-                  >
-                    <img
-                      src="images/icons/new-arrow.svg"
-                      alt="arrow"
-                      class="size-full object-cover"
-                      loading="lazy"
-                    />
-                  </span>
-
-                  <span
-                    class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-                  >
-                    <img
-                      src="images/icons/new-arrow-white.svg"
-                      alt="arrow"
-                      class="size-full object-cover"
-                      loading="lazy"
-                    />
-                  </span>
-                </div>
-  </a>
-</div>
-
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2010.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 26%; --bean-y: 62%; --bean-size: clamp(150px, 18vw, 320px); --bean-opacity: 0.45;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2011.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 46%; --bean-y: 18%; --bean-size: clamp(160px, 18vw, 340px); --bean-opacity: 0.5;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2012.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 64%; --bean-y: 36%; --bean-size: clamp(150px, 17vw, 320px); --bean-opacity: 0.45;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2013.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 82%; --bean-y: 20%; --bean-size: clamp(140px, 16vw, 300px); --bean-opacity: 0.4;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2014.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 18%; --bean-y: 40%; --bean-size: clamp(170px, 19vw, 360px); --bean-opacity: 0.55;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Front-B%2001.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 34%; --bean-y: 30%; --bean-size: clamp(160px, 18vw, 340px); --bean-opacity: 0.55;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Front-B%2002.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 52%; --bean-y: 52%; --bean-size: clamp(170px, 20vw, 380px); --bean-opacity: 0.6;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Front-B%2003.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 74%; --bean-y: 62%; --bean-size: clamp(170px, 19vw, 360px); --bean-opacity: 0.6;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Front-B%2004.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 10%; --bean-y: 72%; --bean-size: clamp(160px, 18vw, 340px); --bean-opacity: 0.5;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2005.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 30%; --bean-y: 82%; --bean-size: clamp(150px, 17vw, 320px); --bean-opacity: 0.5;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2006.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 50%; --bean-y: 74%; --bean-size: clamp(160px, 18vw, 340px); --bean-opacity: 0.55;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2007.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 68%; --bean-y: 82%; --bean-size: clamp(150px, 17vw, 320px); --bean-opacity: 0.5;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2008.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-bean"
+            style="--bean-x: 90%; --bean-y: 74%; --bean-size: clamp(140px, 16vw, 300px); --bean-opacity: 0.45;"
+          >
+            <div class="hero-bean-parallax" data-parallax-layer>
+              <div class="hero-bean-float">
+                <img
+                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2009.svg"
+                  alt=""
+                  class="select-none"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- banner -->
-      <figure
-        data-ns-animate
-        data-delay="0.4"
-        data-instant
-        class="max-w-[620px] -mb-3 lg:max-w-[840px] xl:max-w-[1000px] 2xl:max-w-[1016px] min-[1800px]:!max-w-[1166px] mx-auto hidden sm:block"
-      >
-        <img src="images/ns-img-327.png" alt="Hero banner" class="w-full h-full object-cover" style="border-top-left-radius: 30px;border-top-right-radius: 30px;"/>
-      </figure>
-    </div>
-  </div>
-</section>
+    <div class="main-container hero-content relative z-20 pt-10 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
+      <div class="mt-10  grid-cols-1 gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-12 flex flex-col gap-6 lg:gap-8">
+          <div class="hero-top-row flex flex-col gap-4 mb-12 sm:flex-row sm:items-center sm:justify-between">
+            <img
+              src="images/index/plumcut-wordmark.png"
+              alt="plumcut"
+              class="hero-wordmark"
+              loading="lazy"
+            />
+            <div class="hero-mantra-wrap flex items-center gap-4 lg:gap-5 w-full sm:w-auto sm:justify-end">
+              <div class="hero-mantra text-white text-xl sm:text-2xl lg:text-3xl uppercase leading-tight text-left sm:text-right">
+                <span class="block">CUT THE WORK</span>
+                <span class="block">KEEP GROWING</span>
+              </div>
+              <span class="hero-mantra-line"></span>
+            </div>
+          </div>
+        </div>
 
+        <div class="hero-copy lg:col-span-7 flex flex-col gap-4 lg:gap-6 lg:pt-4 lg:mt-2">
+          <p class="text-brand-orange text-xl sm:text-2xl font-semibold max-w-[600px]">
+            AI-powered automation infrastructure for businesses to scale.
+          </p>
+          <h1 class="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+            <span class="block">Faster. Smarter. Bigger.</span>
+            <span class="block">We cut, you grow.</span>
+          </h1>
+        </div>
 
-      <!-- =========================
-What We Do section
-===========================-->
-<section class="max-[1920px]:px-5 custom-quote-section">
-  <div
-    class="bg-secondary max-w-[1880px] rounded-3xl xl:rounded-4xl lg:py-24 xl:py-28 px-5 mx-auto"
-    data-ns-animate
-    data-delay="0.2"
-  >
-    <div class="max-w-[1400px] mx-auto py-16 lg:py-20 xl:py-10 text-center space-y-4">
-      <span
-        data-ns-animate
-        data-delay="0.1"
-        class="badge section-title-badge badge-white text-secondary font-medium hidden"
-      >
-        What We Do
-      </span>
-      <h2
-        data-ns-animate
-        data-delay="0.1"
-        data-split-type="words"
-        class="split-text-team-title text-center text-accent font-inter-tight font-light text-heading-5 sm:text-heading-4 md:text-heading-3 lg:text-heading-2 xl:text-heading-1 2xl:text-[30px] 2xl:leading-[120%] wrap-break-word"
-      >
-        "We started building websites. Then e-commerce exploded, and we built 30+ stores. That's when we noticed something: store owners weren't struggling to get sales; they were drowning in everything that came after. So we built systems that handle the chaos. Now we help startups and SMBs turn messy operations into machines that scale."
-      </h2>
+        <div class="hero-cta mt-8 lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right gap-6 lg:gap-10 lg:pt-4 lg:mt-6 lg:justify-self-end">
+          <div class="flex flex-col items-start lg:items-end gap-3">
+            <p class="text-white text-lg sm:text-xl lg:text-2xl font-semibold">Ready to Cut?</p>
+            <a
+              href="signup.html"
+              class="hero-cta-button inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
+            >
+              <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
+                <img
+                  src="images/shared/new%20icon.png"
+                  alt=""
+                  aria-hidden="true"
+                  class="size-10"
+                  loading="lazy"
+                />
+              </span>
+              <span>Chat with plum</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center lg:mt-16">
+        <h3 class="text-brand-orange text-xl sm:text-2xl lg:text-3xl font-semibold">
+          you name it... we automate it...
+        </h3>
+        <p class="mt-3 text-white text-base sm:text-lg max-w-[900px] mx-auto">
+          We design intelligent chatbots and automation systems that capture leads, qualify prospects, book appointments, process orders, handle complaints, and never take a day off. They speak your brand's voice. They remember your customers. They integrate with the tools you already use.
+        </p>
+      </div>
+
+      <div class="mt-8 lg:mt-10">
+        <div class="mx-auto max-w-[1100px] px-4 pb-6 text-center sm:px-6">
+          <p class="text-brand-orange text-base sm:text-lg lg:text-xl leading-relaxed">
+            "We started building websites. Then e-commerce exploded, and we built 30+ stores. That's when we noticed something: store owners weren't struggling to get sales; they were drowning in everything that came after. So we built systems that handle the chaos. Now we help startups and SMBs turn messy operations into machines that scale."
+          </p>
+        </div>
+      </div>
     </div>
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-40 lg:h-52 bg-gradient-to-b from-transparent via-white/60 to-white z-30"></div>
   </div>
 </section>
 
       <!-- =========================
 Features section
 ===========================-->
-<section class="max-[1920px]:px-5">
+<section>
   <div
-    class="bg-background-12 max-w-[1880px] rounded-3xl lg:rounded-4xl py-20 lg:py-30 xl:py-39 mx-auto"
+    class="rounded-3xl lg:rounded-4xl lg:py-30 "
   >
     <div class="main-container">
       <div class="space-y-4 mb-10 md:mb-14 text-center lg:max-w-[740px] lg:mx-auto">
-        <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-white text-secondary font-medium"
-          >Features</span
-        >
-        <h2 data-ns-animate data-delay="0.2">
+        <span data-ns-animate data-delay="0.1" class="section-title-label">
+          <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+          <span class="section-title-text">Features</span>
+        </span>
+        <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
           Powerful automation that works while you sleep.
         </h2>
       </div>
@@ -680,12 +1191,14 @@ Features section
         <!-- feature item 1 -->
         <div class="col-span-12 md:col-span-6" data-ns-animate data-delay="0.3">
           <div
-            class="bg-white h-full max-w-full min-h-[450px] sm:min-h-[780px] md:min-h-[720px] rounded-[20px] lg:p-10.5 overflow-hidden relative"
+            class="h-full max-w-full min-h-[450px] sm:min-h-[780px] md:min-h-[720px] rounded-[20px] lg:p-10.5 overflow-hidden relative"
+            style="background: linear-gradient(180deg, #ffffff 0%, #481D52 100%);"
           >
             <div
               data-ns-animate
               data-delay="0.3"
-              class="absolute bottom-0 md:bottom-20 lg:bottom-0 left-0 w-full h-[480px] bg-(image:--color-gradient-11) blur-[2px] z-10 feature-card-gradient"
+              class="absolute bottom-0 md:bottom-20 lg:bottom-0 left-0 w-full h-[480px] blur-[2px] z-10 feature-card-gradient"
+              style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #481D52 100%);"
             ></div>
             <figure
               data-ns-animate
@@ -702,10 +1215,10 @@ Features section
               data-ns-animate
               data-delay="0.4"
               data-instant
-              class="max-md:space-y-0.5 absolute bottom-10.5 left-6 sm:left-10.5 md:left-6 xl:left-10.5 right-10.5 z-20"
+              class="max-md:space-y-0.5 absolute bottom-10.5 left-6 sm:left-10.5 md:left-6 xl:left-10.5 right-10.5 z-20 text-white"
             >
-              <h3 class="text-heading-6 md:text-heading-5">A Chatbot Never Fails</h3>
-              <p class="max-w-[450px]">
+              <h3 class="text-heading-6 md:text-heading-5 text-white">A Chatbot Never Fails</h3>
+              <p class="max-w-[450px] text-white">
                 Systematic. Consistent. Zero human error. Our chatbots work 24/7, never miss a message, never forget a follow-up, and always respond in your brand's voice. No sick days. No mood swings. Just results.
               </p>
             </div>
@@ -715,9 +1228,10 @@ Features section
         <!-- feature item 2 -->
         <div class="col-span-12 space-y-8 md:col-span-6">
           <div
-            class="bg-white rounded-[20px] space-y-6 p-5 sm:p-8 md:p-5 xl:p-8"
+            class="rounded-[20px] space-y-6 p-5 sm:p-8 md:p-5 xl:p-8 text-white"
             data-ns-animate
             data-delay="0.4"
+            style="background: linear-gradient(180deg, #ffffff 0%, #702E3F 100%);"
           >
             <div
               data-ns-animate
@@ -798,19 +1312,20 @@ Features section
                 </div>
               </aside>
             </div>
-            <div data-ns-animate data-delay="0.4" start="top 97%" class="max-md:space-y-0.5">
-              <h3 class="text-heading-6 md:text-heading-5">Plugs Into Your Stack</h3>
-              <p class="max-w-[450px]">
+            <div data-ns-animate data-delay="0.4" start="top 97%" class="max-md:space-y-0.5 text-white">
+              <h3 class="text-heading-6 md:text-heading-5 text-white">Plugs Into Your Stack</h3>
+              <p class="max-w-[450px] text-white">
                 Our systems don't live in isolation; they talk to your CRM, your calendar, your e-commerce platform, your payment gateway. Your data flows. Your tools connect. Everything just works.
               </p>
             </div>
           </div>
 
           <div
-            class="bg-white rounded-[20px] space-y-8 p-5 sm:p-8 md:p-5 xl:p-8"
+            class="rounded-[20px] space-y-8 p-5 sm:p-8 md:p-5 xl:p-8 text-white"
             data-ns-animate
             start="top 99%"
             data-delay="0.2"
+            style="background: linear-gradient(180deg, #ffffff 0%, #E65E04 100%);"
           >
             <div class="flex justify-center -space-x-12 items-center">
               <figure
@@ -845,10 +1360,10 @@ Features section
               data-ns-animate
               data-delay="0.1"
               start="top 99%"
-              class="max-md:space-y-0.5 relative z-20"
+              class="max-md:space-y-0.5 relative z-20 text-white"
             >
-              <h3 class="text-heading-6 md:text-heading-5">Smart, Not Robotic</h3>
-              <p class="max-w-[450px]">
+              <h3 class="text-heading-6 md:text-heading-5 text-white">Smart, Not Robotic</h3>
+              <p class="max-w-[450px] text-white">
                 Nobody wants to chat with a wall of canned responses. Our bots understand context, handle objections, crack the occasional joke, and know when to bring in a human. Witty, responsive, problem-solvers, just like us.
               </p>
             </div>
@@ -865,13 +1380,14 @@ Services section
 <section class="pt-10 md:py-16 lg:py-24 overflow-hidden services-section">
   <div class="main-container max-w-[1880px]">
     <div class="mb-11 lg:mb-9 text-center lg:max-w-[730px] lg:mx-auto">
-      <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2 mb-5"
-        >Our Services</span
-      >
-      <h2 data-ns-animate data-delay="0.2" class="md:mb-3 mb-1">
+      <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
+        <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" />
+        <span class="section-title-text">Our Services</span>
+      </span>
+      <h2 data-ns-animate data-delay="0.2" class="section-title-heading md:mb-3 mb-1">
         Everything you need to automate your business.
       </h2>
-      <p data-ns-animate data-delay="0.3" class="lg:max-w-[530px] lg:mx-auto">
+      <p data-ns-animate data-delay="0.3" class="lg:max-w-[530px] lg:mx-auto services-intro">
         From the first "hello" to the final receipt, we've built solutions for every step of your customer journey.
       </p>
     </div>
@@ -1192,16 +1708,15 @@ Services section
       <!-- =========================
 How It's Work section
 ===========================-->
-<section class="pt-10 md:pt-16 lg:pt-0">
+<section class="py-20 max-sm:py-10">
   <div class="main-container max-w-[1880px]">
-    <div class="mb-10 md:mb-11 text-center lg:max-w-[730px] lg:mx-auto">
-      <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2 mb-4"
-        >How It Works</span
-      >
-      <h2 data-ns-animate data-delay="0.2" class="mb-3">From chaos to system in three steps.</h2>
-      <p data-ns-animate data-delay="0.3">
-        We don't just drop a chatbot in your lap and disappear. We build automation that actually fits how your business runs.
-      </p>
+    <div class="mb-0 sm:mb-10 md:mb-11 text-center lg:max-w-[730px] lg:mx-auto">
+      <span data-ns-animate data-delay="0.1" class="section-title-label mb-4">
+        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+        <span class="section-title-text">How It Works</span>
+      </span>
+      <h2 data-ns-animate data-delay="0.2" class="section-title-heading mb-3">From chaos to system in three steps.</h2>
+   
     </div>
 
     <div
@@ -1212,62 +1727,13 @@ How It's Work section
         data-delay="0.4"
         data-direction="left"
         data-offset="80"
-        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px] how-it-works-card"
-        style="background-color: #481D52; color: white;"
+        class="w-full how-it-works-card"
       >
-        <div class="text-center">
-          <span class="ns-shape-3 text-[52px]" style="color: white;"> </span>
-        </div>
-        <div class="max-md:space-y-0.5 space-y-1 text-center">
-          <h3 class="text-heading-6 md:text-heading-5" style="color: white;">Capture & Qualify</h3>
-          <p class="text-tagline-1" style="color: white; opacity: 0.9;">
-            Your chatbot collects contact info, asks the right questions, scores leads based on their answers, and routes hot prospects straight to your team. No more leads slipping through the cracks.
-          </p>
-        </div>
-      </div>
-
-      <div
-        data-ns-animate
-        data-delay="0.5"
-        data-direction="left"
-        data-offset="100"
-        data-duration="0.6"
-        class="bg-background-3 ring-8 ring-white rounded-[80px] py-9 px-4 hidden lg:inline-block max-w-[52px] w-full overflow-hidden how-it-works-arrow"
-      >
-        <div class="size-6 overflow-hidden icon-right-marquee-container">
-          <figure class="size-6 flex items-center justify-center">
-            <img
-              src="images/icons/new-arrow.svg"
-              alt="new-arrow"
-              class="size-full object-cover"
-            />
-            <img
-              src="images/icons/new-arrow.svg"
-              alt="new-arrow"
-              class="size-full object-cover"
-            />
-          </figure>
-        </div>
-      </div>
-
-      <div
-        class="bg-background-3 ring-8 ring-white rounded-[80px] px-9 py-4 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 max-w-[140px] w-full overflow-hidden flex items-center justify-center sm:hidden"
-        style="top: 33%;"
-      >
-        <div class="size-6 overflow-hidden icon-right-marquee-container rotate-90">
-          <figure class="size-6 flex items-center justify-center">
-            <img
-              src="images/icons/new-arrow.svg"
-              alt="new-arrow"
-              class="size-full object-cover"
-            />
-            <img
-              src="images/icons/new-arrow.svg"
-              alt="new-arrow"
-              class="size-full object-cover"
-            />
-          </figure>
-        </div>
+        <img
+          src="images/index/3 Steps - Cards/3steps-A-shape.svg"
+          alt="Step A: Capture & Qualify"
+          class="w-full h-auto block"
+        />
       </div>
 
       <div
@@ -1276,62 +1742,13 @@ How It's Work section
         data-direction="left"
         data-offset="70"
         data-duration="0.5"
-        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px] how-it-works-card"
-        style="background-color: #702E3F; color: white;"
+        class="w-full how-it-works-card"
       >
-        <div class="text-center">
-          <span class="ns-shape-2 text-[52px]" style="color: white;"> </span>
-        </div>
-        <div class="max-md:space-y-0.5 space-y-1 text-center">
-          <h3 class="text-heading-6 md:text-heading-5" style="color: white;">Engage & Support</h3>
-          <p class="text-tagline-1" style="color: white; opacity: 0.9;">
-            Answer FAQs, handle complaints, provide order updates, book appointments. All automatically, all in your brand's voice, all without hiring another support rep.
-          </p>
-        </div>
-      </div>
-
-      <div
-        data-ns-animate
-        data-delay="0.8"
-        data-direction="left"
-        data-offset="100"
-        data-duration="0.6"
-        class="bg-background-3 ring-8 ring-white rounded-[80px] py-9 px-4 hidden lg:inline-block max-w-[52px] w-full overflow-hidden how-it-works-arrow"
-      >
-        <div class="size-6 overflow-hidden icon-right-marquee-container">
-          <figure class="size-6 flex items-center justify-center">
-            <img
-              src="images/icons/new-arrow.svg"
-              alt="new-arrow"
-              class="size-full object-cover"
-            />
-            <img
-              src="images/icons/new-arrow.svg"
-              alt="new-arrow"
-              class="size-full object-cover"
-            />
-          </figure>
-        </div>
-      </div>
-
-      <div
-        class="bg-background-3 ring-8 ring-white rounded-[80px] px-9 py-4 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 max-w-[140px] w-full overflow-hidden flex items-center justify-center sm:hidden"
-        style="top: 67%;"
-      >
-        <div class="size-6 overflow-hidden icon-right-marquee-container rotate-90">
-          <figure class="size-6 flex items-center justify-center">
-            <img
-              src="images/icons/new-arrow.svg"
-              alt="new-arrow"
-              class="size-full object-cover"
-            />
-            <img
-              src="images/icons/new-arrow.svg"
-              alt="new-arrow"
-              class="size-full object-cover"
-            />
-          </figure>
-        </div>
+        <img
+          src="images/index/3 Steps - Cards/3steps-B-shape.svg"
+          alt="Step B: Engage & Support"
+          class="w-full h-auto block"
+        />
       </div>
 
       <div
@@ -1340,18 +1757,13 @@ How It's Work section
         data-direction="left"
         data-offset="80"
         data-duration="0.7"
-        class="rounded-[20px] max-w-[408px] w-full flex flex-col justify-between p-11 max-sm:space-y-8 sm:min-h-[350px] how-it-works-card"
-        style="background-color: #FA9639; color: white;"
+        class="w-full how-it-works-card"
       >
-        <div class="text-center">
-          <span class="ns-shape-8 text-[52px]" style="color: white;"> </span>
-        </div>
-        <div class="max-md:space-y-0.5 space-y-1 text-center">
-          <h3 class="text-heading-6 md:text-heading-5" style="color: white;">Convert & Scale</h3>
-          <p class="text-tagline-1" style="color: white; opacity: 0.9;">
-            Process orders, send payment links, trigger follow-ups, collect feedback. Your entire customer journey runs on autopilot while you focus on growing the business.
-          </p>
-        </div>
+        <img
+          src="images/index/3 Steps - Cards/3steps-C-shape.svg"
+          alt="Step C: Convert & Scale"
+          class="w-full h-auto block"
+        />
       </div>
     </div>
     <div data-ns-animate data-delay="0.5" class="text-center mt-14 lg:mt-0">
@@ -1368,15 +1780,16 @@ How It's Work section
       <!-- =========================
 Case Study section
 ===========================-->
-<section class="pt-10 pb-10 md:pt-16 lg:pt-0 lg:pb-20 xl:pb-25">
+<section class="pt-16 pb-10 md:pt-20 lg:pt-24 lg:pb-20 xl:pb-25 case-study-section">
   <div class="main-container max-w-[1880px]">
     <div class="text-center mb-10 lg:mb-[70px]">
       <div class="space-y-3">
-        <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-gray-light-v2">
-          Case Study
+        <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
+          <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" />
+          <span class="section-title-text">Case Study</span>
         </span>
-        <h2 data-ns-animate data-delay="0.1">yes... we can scale it</h2>
-        <p data-ns-animate data-delay="0.2" class="max-w-[680px] mx-auto">
+        <h2 data-ns-animate data-delay="0.1" class="section-title-heading">yes... we can scale it</h2>
+        <p data-ns-animate data-delay="0.2" class="max-w-[680px] mx-auto case-study-intro">
           We don't do generic demos. Here's what automation actually looks like when it's built for how you work.
         </p>
       </div>
@@ -1395,7 +1808,7 @@ Case Study section
               />
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
-              <h3 class="text-heading-6 sm:text-heading-5">
+              <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
                 E-commerce Store captures 3x more leads with WhatsApp automation
               </h3>
               <p class="w-full text-left case-study-description">
@@ -1416,7 +1829,7 @@ Case Study section
               />
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
-              <h3 class="text-heading-6 sm:text-heading-5">
+              <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
                 Furniture Store cuts support time by 75%
               </h3>
               <p class="w-full text-left case-study-description">
@@ -1437,7 +1850,7 @@ Case Study section
               />
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
-              <h3 class="text-heading-6 sm:text-heading-5">
+              <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
                 Electronics Retailer reduces support tickets by 60%
               </h3>
               <p class="w-full text-left case-study-description">
@@ -1458,7 +1871,7 @@ Case Study section
               />
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
-              <h3 class="text-heading-6 sm:text-heading-5">
+              <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
                 Beauty Salon scales from 10 to 50 daily appointments
               </h3>
               <p class="w-full text-left case-study-description">
@@ -1481,10 +1894,11 @@ Testimonail section
 >
   <div class="main-container">
     <div class="text-center mb-14 md:mb-[70px]">
-      <span data-ns-animate data-delay="0.1" class="badge section-title-badge badge-green-v2 mb-3.5 md:mb-5"
-        >Testimonials</span
-      >
-      <h2 data-ns-animate data-delay="0.2" class="xl:max-w-[906px] xl:mx-auto">
+      <span data-ns-animate data-delay="0.1" class="section-title-label mb-3.5 md:mb-5">
+        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+        <span class="section-title-text">Testimonials</span>
+      </span>
+      <h2 data-ns-animate data-delay="0.2" class="section-title-heading xl:max-w-[906px] xl:mx-auto">
         User stories: find out why so many people love our themes!
       </h2>
     </div>
@@ -2205,38 +2619,38 @@ Testimonail section
 </section>
 
       <!-- ============================ -->
-<!-- FAQ -->
+<!-- Ask Plum -->
 <!-- ============================ -->
 
-<section class="max-[1920px]:px-5 pb-10">
+<section class="faq-section max-[1920px]:px-5 pb-10">
   <div
-    class="bg-[#1a1a1a] max-w-[1880px] mx-auto lg:py-25 md:py-20 py-18 xl:py-28 rounded-2xl md:rounded-4xl relative overflow-hidden border border-background-ali"
+    class="faq-card bg-[#1a1a1a] max-w-[1880px] mx-auto lg:py-25 md:py-20 py-18 xl:py-28 rounded-2xl md:rounded-4xl relative overflow-hidden border border-background-ali"
     data-ns-animate
     data-delay="0.1"
   >
-    <!-- Interactive Gradient Blob Background -->
-    <div class="hero-blob-background" id="faqBlobContainer"></div>
-
     <div class="main-container relative z-30">
-      <div class="text-center space-y-3 md:space-y-5 max-w-[720px] mx-auto lg:mb-[70px] mb-12">
-
-        <div class="space-y-3">
-          <span
-            data-ns-animate
-            data-delay="0.1"
-            class="badge section-title-badge badge-white text-secondary font-medium hidden"
-          >
-            FAQ
-          </span>
-          <h2 data-ns-animate data-delay="0.3" class="text-white">
-            Skip the FAQ rabbit hole. <br>Just ask us directly.
-          </h2>
-        </div>
+      <div class="faq-intro text-center space-y-3 md:space-y-5 max-w-[720px] mx-auto lg:mb-[70px] mb-12">
+        <span data-ns-animate data-delay="0.1" class="section-title-label justify-center">
+          <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+          <span class="section-title-text">FAQ</span>
+        </span>
+        <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
+          Just ask us directly
+        </h2>
+        <p data-ns-animate data-delay="0.3" class="faq-tagline text-tagline-1" style="color: #4B1D6A;">
+          Skip the rabbit hole of FAQ. Plum is always there, ready to answer you.
+        </p>
       </div>
-      <div class="max-w-[770px] mx-auto text-center space-y-6">
+
+      <div class="flex flex-col items-center gap-3">
         <div
-          class="flex justify-center"
+          data-ns-animate
+          data-delay="0.4"
+          data-direction="up"
+          data-offset="40"
+          class="size-[200px] rounded-full flex flex-col items-center justify-center gap-2 ask-plum-orb"
         >
+<<<<<<< HEAD
           <div
             data-ns-animate
             data-delay="0.5"
@@ -2283,6 +2697,15 @@ Testimonail section
               </a>
             </div>
           </div>
+=======
+          <img
+            src="images/index/21-%20icon%20white.svg"
+            alt="Plum icon"
+            class="faq-orb-icon size-[100px] object-contain block"
+            loading="lazy"
+          />
+          <span class="faq-orb-text text-white text-heading-6 font-semibold">Ask Plum!</span>
+>>>>>>> 2f69451884204b987c9843673c9ce364e58cd72d
         </div>
       </div>
     </div>
@@ -2308,133 +2731,40 @@ Footer
     >
       <div class="lg:col-span-4 col-span-12">
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
-          <figure>
-            <img src="images/shared/plumcut_logo_transparent.png" alt="plumcut" class="logo-responsive" />
-          </figure>
-          <p class="mt-4 mb-7 text-secondary dark:text-accent">
-            We design intelligent chatbots and automation systems that capture leads, book appointments, and handle customer inquiries 24/7. Based in Lebanon, built for businesses ready to scale.
-          </p>
-          <div class="flex items-center gap-3">
-            <a href="#" class="footer-social-link">
-              <span class="sr-only">Instagram</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M11 1H5C2.79086 1 1 2.79086 1 5V11C1 13.2091 2.79086 15 5 15H11C13.2091 15 15 13.2091 15 11V5C15 2.79086 13.2091 1 11 1Z"
-                  class="stroke-secondary dark:stroke-accent"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55871 10.6839 8.79565 11 8 11Z"
-                  class="stroke-secondary dark:stroke-accent"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <rect
-                  x="11"
-                  y="5"
-                  width="2"
-                  height="2"
-                  rx="1"
-                  transform="rotate(-90 11 5)"
-                  class="fill-secondary dark:fill-accent"
-                />
-                <rect
-                  x="11.5"
-                  y="4.5"
-                  width="1"
-                  height="1"
-                  rx="0.5"
-                  transform="rotate(-90 11.5 4.5)"
-                  class="stroke-secondary dark:stroke-accent"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </a>
-            <div class="h-5 w-px bg-stroke-1 dark:bg-stroke-8"></div>
-            <a href="#" class="footer-social-link">
-              <span class="sr-only">Facebook</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="7"
-                height="16"
-                viewBox="0 0 7 16"
-                fill="none"
-              >
-                <path
-                  d="M2.25 15C2.25 15.4142 2.58579 15.75 3 15.75C3.41421 15.75 3.75 15.4142 3.75 15H2.25ZM3.75 7C3.75 6.58579 3.41421 6.25 3 6.25C2.58579 6.25 2.25 6.58579 2.25 7H3.75ZM6 1.75C6.41421 1.75 6.75 1.41421 6.75 1C6.75 0.585786 6.41421 0.25 6 0.25V1.75ZM3 4H2.25H3ZM2.25 7C2.25 7.41421 2.58579 7.75 3 7.75C3.41421 7.75 3.75 7.41421 3.75 7H2.25ZM3 6.25C2.58579 6.25 2.25 6.58579 2.25 7C2.25 7.41421 2.58579 7.75 3 7.75V6.25ZM5 7.75C5.41421 7.75 5.75 7.41421 5.75 7C5.75 6.58579 5.41421 6.25 5 6.25V7.75ZM3 7.75C3.41421 7.75 3.75 7.41421 3.75 7C3.75 6.58579 3.41421 6.25 3 6.25V7.75ZM1 6.25C0.585786 6.25 0.25 6.58579 0.25 7C0.25 7.41421 0.585786 7.75 1 7.75V6.25ZM3 15H3.75V7H3H2.25V15H3ZM6 1V0.25C3.92893 0.25 2.25 1.92893 2.25 4H3H3.75C3.75 2.75736 4.75736 1.75 6 1.75V1ZM3 4H2.25V7H3H3.75V4H3ZM3 7V7.75H5V7V6.25H3V7ZM3 7V6.25H1V7V7.75H3V7Z"
-                  class="fill-secondary dark:fill-accent"
-                />
-              </svg>
-            </a>
-            <div class="h-5 w-px bg-stroke-1 dark:bg-stroke-8"></div>
-            <a href="#" class="footer-social-link">
-              <span class="sr-only">LinkedIn</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="13"
-                height="11"
-                viewBox="0 0 13 11"
-                fill="none"
-              >
-                <path
-                  d="M2.25 4C2.25 3.58579 1.91421 3.25 1.5 3.25C1.08579 3.25 0.75 3.58579 0.75 4H2.25ZM0.75 10C0.75 10.4142 1.08579 10.75 1.5 10.75C1.91421 10.75 2.25 10.4142 2.25 10H0.75ZM10.75 10C10.75 10.4142 11.0858 10.75 11.5 10.75C11.9142 10.75 12.25 10.4142 12.25 10H10.75ZM5.5 7H4.75H5.5ZM4.75 10C4.75 10.4142 5.08579 10.75 5.5 10.75C5.91421 10.75 6.25 10.4142 6.25 10H4.75ZM2.25 1C2.25 0.585786 1.91421 0.25 1.5 0.25C1.08579 0.25 0.75 0.585786 0.75 1H2.25ZM0.75 2C0.75 2.41421 1.08579 2.75 1.5 2.75C1.91421 2.75 2.25 2.41421 2.25 2H0.75ZM1.5 4H0.75V10H1.5H2.25V4H1.5ZM11.5 10H12.25V7H11.5H10.75V10H11.5ZM11.5 7H12.25C12.25 4.92893 10.5711 3.25 8.5 3.25V4V4.75C9.74264 4.75 10.75 5.75736 10.75 7H11.5ZM8.5 4V3.25C6.42893 3.25 4.75 4.92893 4.75 7H5.5H6.25C6.25 5.75736 7.25736 4.75 8.5 4.75V4ZM5.5 7H4.75V10H5.5H6.25V7H5.5ZM1.5 1H0.75V2H1.5H2.25V1H1.5Z"
-                  class="fill-secondary dark:fill-accent"
-                />
-              </svg>
-            </a>
+          <div class="footer-brand-card">
+            <figure>
+              <img src="images/shared/new%20icon.png" alt="plumcut" class="logo-responsive" />
+            </figure>
+            <p class="mt-4 mb-7 text-secondary dark:text-accent">
+              We design intelligent chatbots and automation systems that capture leads, book appointments, and handle customer inquiries 24/7. Based in Lebanon, built for businesses ready to scale.
+            </p>
           </div>
         </div>
       </div>
-      <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8">
+      <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8 footer-outside-white">
         <div class="col-span-12 md:col-span-4">
           <div data-ns-animate data-delay="0.4" class="space-y-8">
             <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent">
-              Home
+              Menu
             </p>
             <ul class="space-y-5">
               <li>
-                <a href="why-choose-us.html" class="footer-link-v2"> Why Us </a>
+                <a href="index.html" class="footer-link-v2"> Home </a>
               </li>
-              <li>
-                <a href="about.html" class="footer-link-v2"> Our Story </a>
-              </li>
-              <li>
-                <a href="career.html" class="footer-link-v2"> Careers </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-span-12 md:col-span-4">
-          <div data-ns-animate data-delay="0.5" class="space-y-8">
-            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent">
-              Solutions
-            </p>
-            <ul class="space-y-5">
               <li>
                 <a href="services.html" class="footer-link-v2"> Services </a>
               </li>
               <li>
                 <a href="pricing.html" class="footer-link-v2"> Pricing </a>
               </li>
-        
+              <li>
+                <a href="about.html" class="footer-link-v2"> About </a>
+              </li>
             </ul>
           </div>
         </div>
         <div class="col-span-12 md:col-span-4">
-          <div data-ns-animate data-delay="0.6" class="space-y-8">
+          <div data-ns-animate data-delay="0.5" class="space-y-8">
             <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent">
               Legal
             </p>
@@ -2452,9 +2782,96 @@ Footer
             </ul>
           </div>
         </div>
+        <div class="col-span-12 md:col-span-4">
+          <div data-ns-animate data-delay="0.6" class="space-y-8">
+            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent">
+              Social
+            </p>
+            <div class="footer-social-white">
+              <a href="#" class="footer-social-link">
+                <span class="sr-only">Instagram</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M11 1H5C2.79086 1 1 2.79086 1 5V11C1 13.2091 2.79086 15 5 15H11C13.2091 15 15 13.2091 15 11V5C15 2.79086 13.2091 1 11 1Z"
+                    class="stroke-secondary dark:stroke-accent"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55871 10.6839 8.79565 11 8 11Z"
+                    class="stroke-secondary dark:stroke-accent"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <rect
+                    x="11"
+                    y="5"
+                    width="2"
+                    height="2"
+                    rx="1"
+                    transform="rotate(-90 11 5)"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                  <rect
+                    x="11.5"
+                    y="4.5"
+                    width="1"
+                    height="1"
+                    rx="0.5"
+                    transform="rotate(-90 11.5 4.5)"
+                    class="stroke-secondary dark:stroke-accent"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="footer-social-link">
+                <span class="sr-only">Facebook</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="7"
+                  height="16"
+                  viewBox="0 0 7 16"
+                  fill="none"
+                >
+                  <path
+                    d="M2.25 15C2.25 15.4142 2.58579 15.75 3 15.75C3.41421 15.75 3.75 15.4142 3.75 15H2.25ZM3.75 7C3.75 6.58579 3.41421 6.25 3 6.25C2.58579 6.25 2.25 6.58579 2.25 7H3.75ZM6 1.75C6.41421 1.75 6.75 1.41421 6.75 1C6.75 0.585786 6.41421 0.25 6 0.25V1.75ZM3 4H2.25H3ZM2.25 7C2.25 7.41421 2.58579 7.75 3 7.75C3.41421 7.75 3.75 7.41421 3.75 7H2.25ZM3 6.25C2.58579 6.25 2.25 6.58579 2.25 7C2.25 7.41421 2.58579 7.75 3 7.75V6.25ZM5 7.75C5.41421 7.75 5.75 7.41421 5.75 7C5.75 6.58579 5.41421 6.25 5 6.25V7.75ZM3 7.75C3.41421 7.75 3.75 7.41421 3.75 7C3.75 6.58579 3.41421 6.25 3 6.25V7.75ZM1 6.25C0.585786 6.25 0.25 6.58579 0.25 7C0.25 7.41421 0.585786 7.75 1 7.75V6.25ZM3 15H3.75V7H3H2.25V15H3ZM6 1V0.25C3.92893 0.25 2.25 1.92893 2.25 4H3H3.75C3.75 2.75736 4.75736 1.75 6 1.75V1ZM3 4H2.25V7H3H3.75V4H3ZM3 7V7.75H5V7V6.25H3V7ZM3 7V6.25H1V7V7.75H3V7Z"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="footer-social-link">
+                <span class="sr-only">LinkedIn</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="11"
+                  viewBox="0 0 13 11"
+                  fill="none"
+                >
+                  <path
+                    d="M2.25 4C2.25 3.58579 1.91421 3.25 1.5 3.25C1.08579 3.25 0.75 3.58579 0.75 4H2.25ZM0.75 10C0.75 10.4142 1.08579 10.75 1.5 10.75C1.91421 10.75 2.25 10.4142 2.25 10H0.75ZM10.75 10C10.75 10.4142 11.0858 10.75 11.5 10.75C11.9142 10.75 12.25 10.4142 12.25 10H10.75ZM5.5 7H4.75H5.5ZM4.75 10C4.75 10.4142 5.08579 10.75 5.5 10.75C5.91421 10.75 6.25 10.4142 6.25 10H4.75ZM2.25 1C2.25 0.585786 1.91421 0.25 1.5 0.25C1.08579 0.25 0.75 0.585786 0.75 1H2.25ZM0.75 2C0.75 2.41421 1.08579 2.75 1.5 2.75C1.91421 2.75 2.25 2.41421 2.25 2H0.75ZM1.5 4H0.75V10H1.5H2.25V4H1.5ZM11.5 10H12.25V7H11.5H10.75V10H11.5ZM11.5 7H12.25C12.25 4.92893 10.5711 3.25 8.5 3.25V4V4.75C9.74264 4.75 10.75 5.75736 10.75 7H11.5ZM8.5 4V3.25C6.42893 3.25 4.75 4.92893 4.75 7H5.5H6.25C6.25 5.75736 7.25736 4.75 8.5 4.75V4ZM5.5 7H4.75V10H5.5H6.25V7H5.5ZM1.5 1H0.75V2H1.5H2.25V1H1.5Z"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="pt-6 pb-[60px] text-center relative overflow-hidden">
+    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white">
       <div
         class="footer-divider absolute top-0 left-0 right-0 w-0 origin-center mx-auto h-px bg-stroke-2 dark:bg-accent/5"
       ></div>
@@ -2896,513 +3313,133 @@ Footer
 
 
   <script  src="assets/main.js"></script>
-<!-- Interactive Gradient Blob Background -->
+  <script>
+    (function() {
+      const navbar = document.querySelector(".pc-navbar");
+      if (!navbar) return;
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const shouldFade = window.scrollY > 120;
+        navbar.classList.toggle("is-faded", shouldFade);
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+<!-- Hero Bubble Parallax -->
 <script>
   (function() {
-    const container = document.getElementById('heroBlobContainer');
-    if (!container) return;
-    
-    const blobs = [];
-    const heroSection = container.closest('section');
-    let isActive = true;
-    
-    let lastMouseX = window.innerWidth / 2;
-    let lastMouseY = window.innerHeight / 2;
-    let mouseDeltaX = 0;
-    let mouseDeltaY = 0;
-    let isFirstMove = true;
+    const hero = document.querySelector('[data-hero-parallax]');
+    if (!hero) return;
 
-    const resetMouseState = () => {
-      const rect = container.getBoundingClientRect();
-      lastMouseX = rect.left + rect.width / 2;
-      lastMouseY = rect.top + rect.height / 2;
-      mouseDeltaX = 0;
-      mouseDeltaY = 0;
-      isFirstMove = true;
-    };
+    const layers = Array.from(hero.querySelectorAll('[data-parallax-layer]'));
+    if (!layers.length) return;
 
-    const getContainerSize = () => {
-      const width = container.clientWidth || window.innerWidth;
-      const height = container.clientHeight || window.innerHeight;
-      return { width, height };
-    };
+    const layerMeta = new Map();
 
-    const pruneBlobs = () => {
-      for (let i = blobs.length - 1; i >= 0; i -= 1) {
-        if (!blobs[i].wrapper || !blobs[i].wrapper.isConnected) {
-          blobs.splice(i, 1);
-        }
-      }
-    };
+    layers.forEach((layer) => {
+      const bean = layer.closest('.hero-bean');
+      const speed = 8 + Math.random() * 16;
+      const angle = Math.random() * Math.PI * 2;
+      const driftX = 8 + Math.random() * 18;
+      const driftY = 8 + Math.random() * 18;
+      const driftSpeed = 0.15 + Math.random() * 0.25;
+      const driftPhase = Math.random() * Math.PI * 2;
 
-    const gradients = [
-      'linear-gradient(23deg, rgb(73, 34, 82) 0%, rgb(167, 85, 60) 50%, rgb(247, 174, 107) 100%)',
-      'linear-gradient(156deg, rgb(73, 34, 82) 0%, rgb(155, 72, 55) 50%, rgb(236, 131, 50) 100%)',
-      'linear-gradient(87deg, rgb(112, 60, 73) 0%, rgb(175, 95, 65) 50%, rgb(247, 174, 107) 100%)',
-      'linear-gradient(312deg, rgb(73, 34, 82) 0%, rgb(160, 80, 58) 50%, rgb(219, 110, 37) 100%)',
-      'linear-gradient(198deg, rgb(112, 60, 73) 0%, rgb(180, 100, 70) 50%, rgb(247, 174, 107) 100%)',
-      'linear-gradient(67deg, rgb(73, 34, 82) 0%, rgb(145, 70, 52) 50%, rgb(236, 131, 50) 100%)',
-      'linear-gradient(243deg, rgb(112, 60, 73) 0%, rgb(165, 88, 62) 50%, rgb(219, 110, 37) 100%)',
-      'linear-gradient(129deg, rgb(73, 34, 82) 0%, rgb(170, 90, 65) 50%, rgb(247, 174, 107) 100%)',
-    ];
+      layer.dataset.speed = speed.toFixed(2);
+      layer.dataset.angle = angle.toFixed(4);
+      layerMeta.set(layer, { driftX, driftY, driftSpeed, driftPhase });
 
-    class Blob {
-      constructor(x, y, size = null) {
-        // Detect desktop vs mobile
-        const isDesktop = window.innerWidth >= 768;
-        
-        // Larger sizes on desktop, smaller on mobile
-        if (size === null) {
-          this.baseSize = isDesktop ? Math.random() * 500 + 400 : Math.random() * 180 + 150;
-        } else {
-          // Scale down predefined sizes on mobile
-          this.baseSize = isDesktop ? size : size * 0.45;
-        }
-        
-        this.size = this.baseSize;
-        this.x = x - this.size / 2;
-        this.y = y - this.size / 2;
-        this.offsetX = 0;
-        this.offsetY = 0;
-        this.depth = Math.random() * 0.4 + 0.3;
-        this.morphSpeed = Math.random() * 0.0004 + 0.0002;
-        this.sizeSpeed = Math.random() * 0.0002 + 0.0001;
-        this.morphOffset = Math.random() * Math.PI * 2;
-        this.sizeOffset = Math.random() * Math.PI * 2;
-        this.time = 0;
-        
-        // Autonomous movement properties - always active
-        this.wanderX = 0;
-        this.wanderY = 0;
-        this.wanderAngle = Math.random() * Math.PI * 2;
-        this.wanderSpeed = Math.random() * 0.008 + 0.004; // Slow constant speed
-        this.wanderTurnSpeed = Math.random() * 0.002 + 0.001; // How fast direction changes
-        this.wanderNoiseOffset = Math.random() * 1000;
-        
-        // Drift radius for boundaries
-        this.maxWander = isDesktop ? 150 : 80;
+      if (bean) {
+        const floatRange = 18 + Math.random() * 35;
+        const floatAngle = Math.random() * Math.PI * 2;
+        const floatX = Math.cos(floatAngle) * floatRange;
+        const floatY = Math.sin(floatAngle) * floatRange;
+        const floatDuration = (18 + Math.random() * 18).toFixed(2) + 's';
+        const floatDelay = (-Math.random() * 12).toFixed(2) + 's';
+        const rotate = (Math.random() * 6 - 3).toFixed(2) + 'deg';
+        const blur = (Math.random() * 8 + 3).toFixed(1) + 'px';
+        const spinDuration = (28 + Math.random() * 36).toFixed(2) + 's';
+        const spinDirection = Math.random() > 0.5 ? 'normal' : 'reverse';
 
-        // Random rotation direction and speed for variety
-        this.rotationDirection = Math.random() > 0.5 ? 1 : -1;
-        this.rotationSpeed = 0.015 + Math.random() * 0.01; // Vary between 0.015 and 0.025
-
-        // Create wrapper for positioning and transform
-        this.wrapper = document.createElement('div');
-        this.wrapper.className = 'hero-blob-wrapper';
-        this.wrapper.style.position = 'absolute';
-        this.wrapper.style.left = this.x + 'px';
-        this.wrapper.style.top = this.y + 'px';
-        this.wrapper.style.width = this.size + 'px';
-        this.wrapper.style.height = this.size + 'px';
-        this.wrapper.style.transformOrigin = 'center center';
-
-        // Inner element with gradient and edge blur
-        this.element = document.createElement('div');
-        this.element.className = 'hero-blob spawning';
-        this.element.style.width = '100%';
-        this.element.style.height = '100%';
-        this.element.style.background = gradients[Math.floor(Math.random() * gradients.length)];
-        this.element.style.filter = isDesktop ? 'blur(50px)' : 'blur(30px)';
-        this.element.style.opacity = 1;
-
-        this.wrapper.appendChild(this.element);
-        container.appendChild(this.wrapper);
-      }
-
-      update(deltaTime, mouseDX, mouseDY) {
-        this.time += deltaTime;
-
-        // Slow morphing shape
-        const morphTime = this.time * this.morphSpeed + this.morphOffset;
-        const r1 = 50 + Math.sin(morphTime) * 15;
-        const r2 = 50 + Math.sin(morphTime * 1.3 + 1) * 15;
-        const r3 = 50 + Math.sin(morphTime * 0.9 + 2) * 15;
-        const r4 = 50 + Math.sin(morphTime * 1.1 + 3) * 15;
-        const r5 = 50 + Math.sin(morphTime * 0.8 + 4) * 15;
-        const r6 = 50 + Math.sin(morphTime * 1.2 + 5) * 15;
-        const r7 = 50 + Math.sin(morphTime * 1.0 + 6) * 15;
-        const r8 = 50 + Math.sin(morphTime * 0.7 + 7) * 15;
-
-        this.element.style.borderRadius = `${r1}% ${r2}% ${r3}% ${r4}% / ${r5}% ${r6}% ${r7}% ${r8}%`;
-
-        // Slow size pulsing
-        const sizeTime = this.time * this.sizeSpeed + this.sizeOffset;
-        const sizeFactor = 1 + Math.sin(sizeTime) * 0.12;
-        this.size = this.baseSize * sizeFactor;
-        const currentHeight = this.size * (0.9 + Math.sin(sizeTime * 0.7) * 0.1);
-        
-        this.wrapper.style.width = this.size + 'px';
-        this.wrapper.style.height = currentHeight + 'px';
-
-        // Autonomous wandering movement - always active
-        // Gradually change direction using noise-like behavior
-        const noiseTime = this.time * 0.0005 + this.wanderNoiseOffset;
-        this.wanderAngle += Math.sin(noiseTime) * this.wanderTurnSpeed * deltaTime;
-        this.wanderAngle += Math.sin(noiseTime * 1.7) * this.wanderTurnSpeed * 0.5 * deltaTime;
-        
-        // Move in current direction
-        this.wanderX += Math.cos(this.wanderAngle) * this.wanderSpeed * deltaTime;
-        this.wanderY += Math.sin(this.wanderAngle) * this.wanderSpeed * deltaTime;
-        
-        // Soft boundary - gently push back when too far from origin
-        const distFromOrigin = Math.sqrt(this.wanderX * this.wanderX + this.wanderY * this.wanderY);
-        if (distFromOrigin > this.maxWander) {
-          const pushBackStrength = (distFromOrigin - this.maxWander) * 0.001;
-          this.wanderX -= this.wanderX * pushBackStrength * deltaTime;
-          this.wanderY -= this.wanderY * pushBackStrength * deltaTime;
-          
-          // Also adjust angle to point back toward center
-          const angleToCenter = Math.atan2(-this.wanderY, -this.wanderX);
-          const angleDiff = angleToCenter - this.wanderAngle;
-          this.wanderAngle += Math.sin(angleDiff) * 0.001 * deltaTime;
-        }
-
-        // Mouse interaction offset (additive to wandering)
-        this.offsetX += -mouseDX * this.depth * 0.4;
-        this.offsetY += -mouseDY * this.depth * 0.4;
-        
-        // Mouse offset slowly returns to zero
-        this.offsetX *= 0.995;
-        this.offsetY *= 0.995;
-
-        // Combine wandering with mouse offset
-        const totalOffsetX = this.wanderX + this.offsetX;
-        const totalOffsetY = this.wanderY + this.offsetY;
-
-        // Super slow rotation
-        const rotation = (this.time * this.rotationSpeed * this.rotationDirection * 0.001) % 360;
-        this.wrapper.style.transform = `translate(${totalOffsetX}px, ${totalOffsetY}px) rotate(${rotation}deg)`;
-      }
-
-      remove() {
-        this.wrapper.remove();
-      }
-    }
-
-    let lastTime = performance.now();
-
-    function animate(currentTime) {
-      if (!isActive) {
-        lastTime = currentTime;
-        requestAnimationFrame(animate);
-        return;
-      }
-      const deltaTime = currentTime - lastTime;
-      lastTime = currentTime;
-
-      const clampedDeltaTime = Math.min(deltaTime, 50);
-      blobs.forEach(blob => blob.update(clampedDeltaTime, mouseDeltaX, mouseDeltaY));
-      
-      // Reset mouse delta after applying - slower decay for more reactive feel
-      mouseDeltaX *= 0.95;
-      mouseDeltaY *= 0.95;
-
-      requestAnimationFrame(animate);
-    }
-
-    // Track mouse movement delta
-    document.addEventListener('mousemove', (e) => {
-      if (!isActive) return;
-      if (isFirstMove) {
-        lastMouseX = e.clientX;
-        lastMouseY = e.clientY;
-        isFirstMove = false;
-        return;
-      }
-      
-      mouseDeltaX = e.clientX - lastMouseX;
-      mouseDeltaY = e.clientY - lastMouseY;
-      lastMouseX = e.clientX;
-      lastMouseY = e.clientY;
-    });
-
-    // Spawn blob on click (only within the hero section)
-    const interactionTarget = heroSection || container;
-    if (interactionTarget) {
-      interactionTarget.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
-        
-        const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const blob = new Blob(x, y);
-        blobs.push(blob);
-      });
-    }
-
-    // Touch support
-    if (interactionTarget) {
-      interactionTarget.addEventListener('touchstart', (e) => {
-        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
-        
-        const touch = e.touches[0];
-        const rect = container.getBoundingClientRect();
-        lastMouseX = touch.clientX;
-        lastMouseY = touch.clientY;
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
-        
-        const blob = new Blob(x, y);
-        blobs.push(blob);
-      }, { passive: true });
-
-      interactionTarget.addEventListener('touchmove', (e) => {
-        const touch = e.touches[0];
-        mouseDeltaX = touch.clientX - lastMouseX;
-        mouseDeltaY = touch.clientY - lastMouseY;
-        lastMouseX = touch.clientX;
-        lastMouseY = touch.clientY;
-      }, { passive: true });
-    }
-
-    // Spawn initial blobs
-    function spawnInitialBlobs() {
-      const { width, height } = getContainerSize();
-      const isDesktop = window.innerWidth >= 768;
-      
-      // Larger sizes on desktop, smaller on mobile
-      const initialPositions = isDesktop ? [
-        { x: width * 0.25, y: height * 0.35, size: 900 },
-        { x: width * 0.75, y: height * 0.25, size: 850 },
-        { x: width * 0.5, y: height * 0.7, size: 800 },
-        { x: width * 0.85, y: height * 0.65, size: 750 },
-        { x: width * 0.1, y: height * 0.8, size: 700 },
-      ] : [
-        { x: width * 0.3, y: height * 0.25, size: 480 },
-        { x: width * 0.7, y: height * 0.2, size: 450 },
-        { x: width * 0.5, y: height * 0.55, size: 420 },
-        { x: width * 0.8, y: height * 0.7, size: 400 },
-        { x: width * 0.15, y: height * 0.75, size: 380 },
-      ];
-
-      initialPositions.forEach((pos, index) => {
-        setTimeout(() => {
-          const blob = new Blob(pos.x, pos.y, pos.size);
-          blobs.push(blob);
-        }, index * 150);
-      });
-    }
-
-    // Initialize
-    spawnInitialBlobs();
-
-    const visibilityTarget = heroSection || container;
-    if ('IntersectionObserver' in window && visibilityTarget) {
-      const observer = new IntersectionObserver((entries) => {
-        const entry = entries[0];
-        if (!entry) return;
-        isActive = entry.isIntersecting;
-        if (isActive) {
-          lastTime = performance.now();
-          resetMouseState();
-          pruneBlobs();
-          if (blobs.length === 0) {
-            spawnInitialBlobs();
-          }
-        } else {
-          resetMouseState();
-        }
-      }, { threshold: 0.05 });
-      observer.observe(visibilityTarget);
-    }
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        isActive = false;
-        resetMouseState();
-        return;
-      }
-      isActive = true;
-      lastTime = performance.now();
-      resetMouseState();
-      pruneBlobs();
-      if (blobs.length === 0) {
-        spawnInitialBlobs();
+        bean.style.setProperty('--float-x', `${floatX}px`);
+        bean.style.setProperty('--float-y', `${floatY}px`);
+        bean.style.setProperty('--float-duration', floatDuration);
+        bean.style.setProperty('--float-delay', floatDelay);
+        bean.style.setProperty('--float-rotate', rotate);
+        bean.style.setProperty('--bean-blur', blur);
+        bean.style.setProperty('--spin-duration', spinDuration);
+        bean.style.setProperty('--spin-direction', spinDirection);
       }
     });
 
-    requestAnimationFrame(animate);
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    const update = (time) => {
+      const t = time * 0.001;
+      layers.forEach((layer) => {
+        const meta = layerMeta.get(layer);
+        const speed = parseFloat(layer.dataset.speed || '10');
+        const angle = parseFloat(layer.dataset.angle || '0');
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const rotatedX = currentX * cos - currentY * sin;
+        const rotatedY = currentX * sin + currentY * cos;
+        const driftT = t * meta.driftSpeed + meta.driftPhase;
+        const driftX = Math.sin(driftT) * meta.driftX;
+        const driftY = Math.cos(driftT * 0.9 + meta.driftPhase) * meta.driftY;
+        const x = rotatedX * speed + driftX;
+        const y = rotatedY * speed + driftY;
+
+        layer.style.setProperty('--bean-parallax-x', `${x}px`);
+        layer.style.setProperty('--bean-parallax-y', `${y}px`);
+      });
+    };
+
+    const tick = (time) => {
+      const ease = 0.04;
+      currentX += (targetX - currentX) * ease;
+      currentY += (targetY - currentY) * ease;
+      update(time);
+      requestAnimationFrame(tick);
+    };
+
+    const handleMove = (event) => {
+      const rect = hero.getBoundingClientRect();
+      const relX = (event.clientX - rect.left) / rect.width - 0.5;
+      const relY = (event.clientY - rect.top) / rect.height - 0.5;
+      const mouseScale = 0.6;
+      targetX = relX * mouseScale;
+      targetY = relY * mouseScale;
+    };
+
+    const reset = () => {
+      targetX = 0;
+      targetY = 0;
+    };
+
+    hero.addEventListener('mousemove', handleMove);
+    hero.addEventListener('mouseleave', reset);
+    hero.addEventListener('touchend', reset);
+    requestAnimationFrame(tick);
   })();
 </script>
 
-<!-- FAQ Section Gradient Blob Background -->
-<script>
-  (function() {
-    const container = document.getElementById('faqBlobContainer');
-    if (!container) return;
-
-    const blobs = [];
-
-    let lastMouseX = window.innerWidth / 2;
-    let lastMouseY = window.innerHeight / 2;
-    let mouseDeltaX = 0;
-    let mouseDeltaY = 0;
-    let isFirstMove = true;
-
-    const gradients = [
-      'linear-gradient(23deg, rgb(73, 34, 82) 0%, rgb(167, 85, 60) 50%, rgb(247, 174, 107) 100%)',
-      'linear-gradient(156deg, rgb(73, 34, 82) 0%, rgb(155, 72, 55) 50%, rgb(236, 131, 50) 100%)',
-      'linear-gradient(87deg, rgb(112, 60, 73) 0%, rgb(175, 95, 65) 50%, rgb(247, 174, 107) 100%)',
-      'linear-gradient(312deg, rgb(73, 34, 82) 0%, rgb(160, 80, 58) 50%, rgb(219, 110, 37) 100%)',
-      'linear-gradient(198deg, rgb(112, 60, 73) 0%, rgb(180, 100, 70) 50%, rgb(247, 174, 107) 100%)',
-      'linear-gradient(67deg, rgb(73, 34, 82) 0%, rgb(145, 70, 52) 50%, rgb(236, 131, 50) 100%)',
-      'linear-gradient(243deg, rgb(112, 60, 73) 0%, rgb(165, 88, 62) 50%, rgb(219, 110, 37) 100%)',
-      'linear-gradient(129deg, rgb(73, 34, 82) 0%, rgb(170, 90, 65) 50%, rgb(247, 174, 107) 100%)',
-    ];
-
-    class Blob {
-      constructor(x, y, size = null) {
-        const isDesktop = window.innerWidth >= 768;
-
-        if (size === null) {
-          this.baseSize = isDesktop ? Math.random() * 500 + 400 : Math.random() * 180 + 150;
-        } else {
-          this.baseSize = isDesktop ? size : size * 0.45;
-        }
-
-        this.size = this.baseSize;
-        this.x = x - this.size / 2;
-        this.y = y - this.size / 2;
-        this.offsetX = 0;
-        this.offsetY = 0;
-        this.depth = Math.random() * 0.4 + 0.3;
-        this.morphSpeed = Math.random() * 0.0004 + 0.0002;
-        this.sizeSpeed = Math.random() * 0.0002 + 0.0001;
-        this.morphOffset = Math.random() * Math.PI * 2;
-        this.sizeOffset = Math.random() * Math.PI * 2;
-        this.time = 0;
-
-        this.wanderX = 0;
-        this.wanderY = 0;
-        this.wanderAngle = Math.random() * Math.PI * 2;
-        this.wanderSpeed = Math.random() * 0.008 + 0.004;
-        this.wanderTurnSpeed = Math.random() * 0.002 + 0.001;
-        this.wanderNoiseOffset = Math.random() * 1000;
-
-        this.maxWander = isDesktop ? 150 : 80;
-
-        // Random rotation direction and speed for variety
-        this.rotationDirection = Math.random() > 0.5 ? 1 : -1;
-        this.rotationSpeed = 0.015 + Math.random() * 0.01; // Vary between 0.015 and 0.025
-
-        this.wrapper = document.createElement('div');
-        this.wrapper.className = 'hero-blob-wrapper';
-        this.wrapper.style.position = 'absolute';
-        this.wrapper.style.left = this.x + 'px';
-        this.wrapper.style.top = this.y + 'px';
-        this.wrapper.style.width = this.size + 'px';
-        this.wrapper.style.height = this.size + 'px';
-
-        this.element = document.createElement('div');
-        this.element.className = 'hero-blob spawning';
-        this.element.style.width = '100%';
-        this.element.style.height = '100%';
-        this.element.style.background = gradients[Math.floor(Math.random() * gradients.length)];
-        this.element.style.filter = isDesktop ? 'blur(50px)' : 'blur(30px)';
-        this.element.style.opacity = 1;
-        this.element.style.transformOrigin = 'center center';
-
-        this.wrapper.appendChild(this.element);
-        container.appendChild(this.wrapper);
-      }
-
-      update() {
-        this.time += 1;
-
-        const morphFactor = Math.sin(this.time * this.morphSpeed + this.morphOffset) * 15;
-        const sizeFactor = Math.sin(this.time * this.sizeSpeed + this.sizeOffset) * 0.15 + 1;
-        this.size = this.baseSize * sizeFactor;
-
-        this.wanderAngle += (Math.random() - 0.5) * this.wanderTurnSpeed;
-
-        const targetWanderX = Math.cos(this.wanderAngle) * this.wanderSpeed;
-        const targetWanderY = Math.sin(this.wanderAngle) * this.wanderSpeed;
-
-        this.wanderX = this.wanderX * 0.98 + targetWanderX * 0.02;
-        this.wanderY = this.wanderY * 0.98 + targetWanderY * 0.02;
-
-        this.x += this.wanderX;
-        this.y += this.wanderY;
-
-        const boundaryForce = 0.05;
-        const containerRect = container.getBoundingClientRect();
-        const margin = this.size / 2 + 50;
-
-        if (this.x < -margin) this.x += boundaryForce * (-margin - this.x);
-        if (this.x > containerRect.width - this.size + margin) this.x -= boundaryForce * (this.x - (containerRect.width - this.size + margin));
-        if (this.y < -margin) this.y += boundaryForce * (-margin - this.y);
-        if (this.y > containerRect.height - this.size + margin) this.y -= boundaryForce * (this.y - (containerRect.height - this.size + margin));
-
-        this.offsetX = this.offsetX * 0.95 + mouseDeltaX * this.depth * 0.05;
-        this.offsetY = this.offsetY * 0.95 + mouseDeltaY * this.depth * 0.05;
-      }
-
-      render() {
-        const rotation = (this.time * this.rotationSpeed * this.rotationDirection) % 360; // Super slow rotation
-        const transformValue = `translate(${this.offsetX}px, ${this.offsetY}px) scale(${1 + Math.sin(this.time * this.morphSpeed + this.morphOffset) * 0.08}) rotate(${rotation}deg)`;
-        this.wrapper.style.left = this.x + 'px';
-        this.wrapper.style.top = this.y + 'px';
-        this.wrapper.style.width = this.size + 'px';
-        this.wrapper.style.height = this.size + 'px';
-        this.element.style.transform = transformValue;
-      }
-    }
-
-    function animate() {
-      mouseDeltaX *= 0.95;
-      mouseDeltaY *= 0.95;
-
-      blobs.forEach(blob => {
-        blob.update();
-        blob.render();
-      });
-
-      requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('mousemove', (e) => {
-      if (isFirstMove) {
-        lastMouseX = e.clientX;
-        lastMouseY = e.clientY;
-        isFirstMove = false;
-      }
-
-      mouseDeltaX = (e.clientX - lastMouseX) * 0.8;
-      mouseDeltaY = (e.clientY - lastMouseY) * 0.8;
-
-      lastMouseX = e.clientX;
-      lastMouseY = e.clientY;
-    });
-
-    const faqSection = container.closest('section');
-
-    function spawnInitialBlobs() {
-      const sectionRect = faqSection ? faqSection.getBoundingClientRect() : { width: window.innerWidth, height: window.innerHeight };
-      const isDesktop = window.innerWidth >= 768;
-
-      const initialPositions = isDesktop ? [
-        { x: sectionRect.width * 0.25, y: sectionRect.height * 0.35, size: 700 },
-        { x: sectionRect.width * 0.75, y: sectionRect.height * 0.25, size: 650 },
-        { x: sectionRect.width * 0.5, y: sectionRect.height * 0.7, size: 600 },
-      ] : [
-        { x: sectionRect.width * 0.3, y: sectionRect.height * 0.25, size: 380 },
-        { x: sectionRect.width * 0.7, y: sectionRect.height * 0.2, size: 350 },
-        { x: sectionRect.width * 0.5, y: sectionRect.height * 0.55, size: 320 },
-      ];
-
-      initialPositions.forEach((pos, index) => {
-        setTimeout(() => {
-          const blob = new Blob(pos.x, pos.y, pos.size);
-          blobs.push(blob);
-        }, index * 150);
-      });
-    }
-
-    spawnInitialBlobs();
-    requestAnimationFrame(animate);
-  })();
-</script>
 </footer>
 
     <button class="scroll-top-trigger" type="button" aria-label="Back to top">
@@ -3456,48 +3493,8 @@ Footer
         update();
       })();
     </script>
-    <script>
-      (function() {
-        const badges = Array.from(document.querySelectorAll(".section-title-badge"));
-        if (!badges.length) return;
-
-        const maxAlpha = 0.35;
-        const distanceRatio = 0.45;
-        let ticking = false;
-
-        const update = () => {
-          ticking = false;
-          const viewportCenter = window.innerHeight / 2;
-          const maxDistance = window.innerHeight * distanceRatio;
-
-          badges.forEach((badge) => {
-            const rect = badge.getBoundingClientRect();
-            if (rect.width === 0 && rect.height === 0) {
-              badge.style.setProperty("--badge-shadow-alpha", "0");
-              return;
-            }
-
-            const badgeCenter = rect.top + rect.height / 2;
-            const distance = Math.abs(viewportCenter - badgeCenter);
-            const strength = Math.max(0, Math.min(1, 1 - distance / maxDistance));
-            badge.style.setProperty("--badge-shadow-alpha", strength * maxAlpha);
-          });
-        };
-
-        const requestUpdate = () => {
-          if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(update);
-          }
-        };
-
-        window.addEventListener("scroll", requestUpdate, { passive: true });
-        window.addEventListener("resize", requestUpdate);
-        requestUpdate();
-      })();
-    </script>
-
   </body>
 
 </html>
+
 
