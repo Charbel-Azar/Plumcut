@@ -376,6 +376,12 @@ Head links
         }
       }
 
+      @media (min-width: 64rem) {
+        [data-hero-parallax] .hero-mantra-wrap {
+          margin-right: -1.25rem;
+        }
+      }
+
       .services-section .hover-soft-card:hover {
         box-shadow: none;
       }
@@ -422,6 +428,147 @@ Head links
         opacity: 0;
         transform: translateY(-100%);
         pointer-events: none;
+      }
+
+      /* Sticky navbar (slides in after hero) */
+      .pc-navbar--sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 70;
+        background: #ffffff;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        border-bottom: 2px solid #E65E04;
+        box-shadow: none;
+        will-change: opacity, transform;
+      }
+
+      .pc-navbar--sticky.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .pc-navbar--sticky .pc-nav-link {
+        position: relative;
+        color: #481D52 !important;
+        text-decoration: none !important;
+        font-size: clamp(1.15rem, 2.5vw, 1.6rem) !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.03em !important;
+        padding-bottom: 0.55rem !important;
+        opacity: 0.82;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .pc-navbar--sticky .pc-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 2px;
+        width: 48%;
+        background: #E65E04;
+        transform: translateX(-50%) scaleX(0.7);
+        transform-origin: center;
+        opacity: 0.7;
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .pc-navbar--sticky .pc-nav-link:hover {
+        opacity: 1;
+      }
+
+      .pc-navbar--sticky .pc-nav-link:hover::after {
+        opacity: 1;
+        width: 62%;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .pc-navbar--sticky .pc-nav-link.is-active {
+        font-size: clamp(1.3rem, 3vw, 1.95rem) !important;
+        font-weight: 600 !important;
+        opacity: 1;
+      }
+
+      .pc-navbar--sticky .pc-nav-link.is-active::after {
+        width: 72%;
+        height: 3px;
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .pc-navbar--sticky .pc-navbar-inner {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+        min-height: 76px;
+        padding: 0.8rem 32px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+      }
+
+      .pc-navbar--sticky .pc-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(1.5rem, 6vw, 4.5rem);
+        padding: 0.9rem 0.5rem;
+        flex-wrap: wrap;
+        grid-column: 2;
+        justify-self: center;
+      }
+
+      .pc-navbar--sticky .pc-nav-logo {
+        position: static;
+        grid-column: 1;
+        justify-self: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pc-navbar--sticky .pc-nav-logo img {
+        height: 56px;
+        width: auto;
+        display: block;
+      }
+
+      @media (max-width: 1024px) {
+        .pc-navbar--sticky .pc-nav-logo {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .pc-navbar--sticky {
+          top: 0;
+        }
+
+        .pc-navbar--sticky .pc-nav {
+          width: 100%;
+          justify-content: space-around;
+          gap: 1.25rem;
+          flex-wrap: nowrap;
+          padding: 0.5rem 0.75rem;
+        }
+
+        .pc-navbar--sticky .pc-nav-link {
+          font-size: 0.95rem !important;
+          letter-spacing: 0.02em !important;
+          padding: 0.35rem 0.35rem 0.4rem !important;
+        }
+
+        .pc-navbar--sticky .pc-nav-link.is-active {
+          font-size: 1rem !important;
+        }
       }
 
       .pc-navbar-inner {
@@ -925,6 +1072,22 @@ Header
     </nav>
   </div>
 </header>
+
+<!-- Sticky navbar (slides in after hero) -->
+<header class="pc-navbar pc-navbar--sticky" aria-hidden="true">
+  <div class="pc-navbar-inner">
+    <a class="pc-nav-logo" href="index.html" aria-label="plumcut home">
+      <img src="images/index/logo%20with%20wordmark.png" alt="plumcut" />
+    </a>
+    <nav class="pc-nav" aria-label="Primary">
+      <a class="pc-nav-link is-active" href="index.html">Home</a>
+      <a class="pc-nav-link" href="services.html">Services</a>
+      <a class="pc-nav-link" href="pricing.html">Pricing</a>
+      <a class="pc-nav-link" href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
     <main class="space-y-6">
       <!-- ==========================Hero=========================== -->
 <section class="pt-12 px-0">
@@ -1701,7 +1864,43 @@ Services section
     </figure>
   </div>
 </div>
-    
+    <div class="col-span-12 text-center mt-6" data-ns-animate data-delay="0.1">
+        <div
+          class="group/btn-v2 inline-block w-[85%] rounded-full md:w-auto mx-auto duration-500 transition-transform ease-in-out"
+        >
+          <a
+            href="services.html"
+            class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 btn-orange-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase w-full md:w-auto mx-auto h-14 md:h-16 px-12 md:px-14"
+          >
+            <span class="inline-block transition-transform duration-300 ease-in-out">learn more</span>
+
+            <div class="relative overflow-hidden size-6">
+              <span
+                class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+              >
+                <img
+                  src="images/icons/new-arrow-white.svg"
+                  alt="arrow"
+                  class="size-full object-cover"
+                  loading="lazy"
+                />
+              </span>
+
+              <span
+                class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+              >
+                <img
+                  src="images/icons/new-arrow-white.svg"
+                  alt="arrow"
+                  class="size-full object-cover"
+                  loading="lazy"
+                />
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+   
 
     </div>
   </div>
@@ -3307,7 +3506,7 @@ Footer
   <script  src="assets/main.js"></script>
   <script>
     (function() {
-      const navbar = document.querySelector(".pc-navbar");
+      const navbar = document.querySelector(".pc-navbar:not(.pc-navbar--sticky)");
       if (!navbar) return;
 
       let ticking = false;
@@ -3316,6 +3515,38 @@ Footer
         ticking = false;
         const shouldFade = window.scrollY > 120;
         navbar.classList.toggle("is-faded", shouldFade);
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+  <script>
+    (function() {
+      const stickyNavbar = document.querySelector(".pc-navbar--sticky");
+      const hero = document.querySelector("[data-hero-parallax]");
+      if (!stickyNavbar || !hero) return;
+
+      const setVisible = (isVisible) => {
+        stickyNavbar.classList.toggle("is-visible", isVisible);
+        stickyNavbar.setAttribute("aria-hidden", isVisible ? "false" : "true");
+      };
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const stickyHeight = stickyNavbar.offsetHeight || 0;
+        setVisible(heroBottom <= stickyHeight);
       };
 
       const onScroll = () => {
