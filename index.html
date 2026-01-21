@@ -264,6 +264,7 @@ Head links
         width: clamp(220px, 28vw, 320px);
         height: clamp(220px, 28vw, 320px);
         gap: clamp(0.5rem, 1.4vw, 1rem);
+        border-radius: 50%;
       }
 
       .faq-section .faq-orb-icon {
@@ -273,6 +274,7 @@ Head links
         box-sizing: border-box;
         object-fit: contain;
         object-position: center;
+     
       }
 
       .faq-section .faq-orb-text {
@@ -454,53 +456,13 @@ Head links
       }
 
       .pc-navbar--sticky .pc-nav-link {
-        position: relative;
-        color: #481D52 !important;
-        text-decoration: none !important;
-        font-size: clamp(1.15rem, 2.5vw, 1.6rem) !important;
-        font-weight: 500 !important;
-        letter-spacing: 0.03em !important;
-        padding-bottom: 0.55rem !important;
+        color: #481D52;
         opacity: 0.82;
-        transition: opacity 0.2s ease, transform 0.2s ease;
       }
 
       .pc-navbar--sticky .pc-nav-link::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        height: 2px;
-        width: 48%;
         background: #E65E04;
-        transform: translateX(-50%) scaleX(0.7);
-        transform-origin: center;
         opacity: 0.7;
-        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
-          transform 0.2s ease;
-      }
-
-      .pc-navbar--sticky .pc-nav-link:hover {
-        opacity: 1;
-      }
-
-      .pc-navbar--sticky .pc-nav-link:hover::after {
-        opacity: 1;
-        width: 62%;
-        transform: translateX(-50%) scaleX(1);
-      }
-
-      .pc-navbar--sticky .pc-nav-link.is-active {
-        font-size: clamp(1.3rem, 3vw, 1.95rem) !important;
-        font-weight: 600 !important;
-        opacity: 1;
-      }
-
-      .pc-navbar--sticky .pc-nav-link.is-active::after {
-        width: 72%;
-        height: 3px;
-        opacity: 1;
-        transform: translateX(-50%) scaleX(1);
       }
 
       .pc-navbar--sticky .pc-navbar-inner {
@@ -541,6 +503,52 @@ Head links
         display: block;
       }
 
+      .pc-navbar--sticky .pc-nav-link {
+        position: relative;
+        text-decoration: none;
+        font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        padding-bottom: 0.55rem;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .pc-navbar--sticky .pc-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 2px;
+        width: 48%;
+        transform: translateX(-50%) scaleX(0.7);
+        transform-origin: center;
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .pc-navbar--sticky .pc-nav-link:hover {
+        opacity: 1;
+      }
+
+      .pc-navbar--sticky .pc-nav-link:hover::after {
+        opacity: 1;
+        width: 62%;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .pc-navbar--sticky .pc-nav-link.is-active {
+        font-size: clamp(1.3rem, 3vw, 1.95rem);
+        font-weight: 600;
+        opacity: 1;
+      }
+
+      .pc-navbar--sticky .pc-nav-link.is-active::after {
+        width: 72%;
+        height: 3px;
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1);
+      }
+
       @media (max-width: 1024px) {
         .pc-navbar--sticky .pc-nav-logo {
           display: none;
@@ -561,13 +569,13 @@ Head links
         }
 
         .pc-navbar--sticky .pc-nav-link {
-          font-size: 0.95rem !important;
-          letter-spacing: 0.02em !important;
-          padding: 0.35rem 0.35rem 0.4rem !important;
+          font-size: 0.95rem;
+          letter-spacing: 0.02em;
+          padding: 0.35rem 0.35rem 0.4rem;
         }
 
         .pc-navbar--sticky .pc-nav-link.is-active {
-          font-size: 1rem !important;
+          font-size: 1rem;
         }
       }
 
@@ -789,9 +797,7 @@ Head links
       }
 
       @media (max-width: 640px) {
-        .pc-navbar {
-          top: 14px;
-        }
+      
 
         .pc-nav {
           width: 100%;
@@ -2843,61 +2849,25 @@ Testimonail section
         </p>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <div
+      <div class="flex flex-col items-center">
+        <a
+          href="https://wa.me/96178860758?text=Hi%20plum!"
+          target="_blank"
+          rel="noopener noreferrer"
           data-ns-animate
           data-delay="0.4"
           data-direction="up"
           data-offset="40"
-          class="size-[200px] rounded-full flex flex-col items-center justify-center gap-2 ask-plum-orb"
+          class="ask-plum-orb flex flex-col items-center justify-center gap-4 cursor-pointer hover:scale-105 transition-transform duration-300"
         >
-          <div
-            data-ns-animate
-            data-delay="0.5"
-            data-direction="up"
-            data-offset="50"
-            class="w-[90%] md:w-auto"
-          >
-            <div
-              class="group/btn-v2 inline-block w-[85%] rounded-full md:w-auto mx-auto duration-500 transition-transform ease-in-out"
-            >
-              <a
-                href="https://wa.me/96178860758?text=Hi%20plum!"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 ask-plum-button group-hover/btn-v2:btn-secondary-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase w-full md:w-auto mx-auto h-12 md:h-auto"
-              >
-                <span class="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase"
-                  >Ask Plum!
-                </span>
-
-                <div class="relative overflow-hidden size-6">
-                  <span
-                    class="group-hover/btn-v2:translate-x-0 -translate-x-6 absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out btn-v2-icon"
-                  >
-                    <img
-                      src="images/icons/new-arrow.svg"
-                      alt="arrow"
-                      class="size-5 object-contain block"
-                      loading="lazy"
-                    />
-                  </span>
-
-                  <span
-                    class="group-hover/btn-v2:translate-x-6 absolute inset-0 translate-x-0 flex items-center justify-center transition-all duration-300 ease-in-out btn-v2-icon"
-                  >
-                    <img
-                      src="images/icons/new-arrow-white.svg"
-                      alt="arrow"
-                      class="size-5 object-contain block"
-                      loading="lazy"
-                    />
-                  </span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
+          <img
+            src="images/index/21- icon white.svg"
+            alt="Plum Icon"
+            class="faq-orb-icon"
+            loading="lazy"
+          />
+          <span class="faq-orb-text text-white font-medium">ask plum !</span>
+        </a>
       </div>
     </div>
   </div>

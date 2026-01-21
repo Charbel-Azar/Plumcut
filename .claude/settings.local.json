@@ -3,6 +3,9 @@
     "allow": [
       "Bash(node fix-headers.js:*)",
       "Bash(cat:*)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\user\\Documents\\GitHub\\Plumcut"
     ]
   }
 }
