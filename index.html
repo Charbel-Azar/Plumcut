@@ -269,6 +269,10 @@ Head links
       .faq-section .faq-orb-icon {
         width: clamp(110px, 14vw, 170px);
         height: clamp(110px, 14vw, 170px);
+        padding: clamp(6px, 0.6vw, 10px);
+        box-sizing: border-box;
+        object-fit: contain;
+        object-position: center;
       }
 
       .faq-section .faq-orb-text {
@@ -382,6 +386,24 @@ Head links
 
       [data-hero-parallax] .text-brand-orange {
         color: #E65E04;
+      }
+
+      .btn-orange-v2 {
+        background-color: #E65E04;
+        color: #ffffff;
+      }
+
+      .btn-orange-v2 .btn-v2-icon {
+        fill: #ffffff;
+      }
+
+      .home-bw-buttons .btn-orange-v2 {
+        background-color: #E65E04;
+        color: #ffffff;
+      }
+
+      .home-bw-buttons .btn-orange-v2 .btn-v2-icon {
+        fill: #ffffff;
       }
 
       .pc-navbar {
@@ -574,9 +596,10 @@ Head links
       }
 
       [data-hero-parallax] .hero-content {
-        max-width: 1500px;
+        max-width: 100%;
         padding-top: clamp(3rem, 6vw, 5.5rem);
         padding-bottom: clamp(3.5rem, 7vw, 6.5rem);
+        padding-inline: 0;
       }
 
       [data-hero-parallax] .hero-top-row {
@@ -625,15 +648,16 @@ Head links
 
         .pc-nav {
           width: 100%;
-          justify-content: space-between;
-          gap: 0.75rem;
+          justify-content: space-around;
+          gap: 1.25rem;
           flex-wrap: nowrap;
+          padding: 0.5rem 0.75rem;
         }
 
         .pc-nav-link {
           font-size: 0.95rem;
           letter-spacing: 0.02em;
-          padding-bottom: 0.4rem;
+          padding: 0.35rem 0.35rem 0.4rem;
         }
 
         .pc-nav-link.is-active {
@@ -643,39 +667,60 @@ Head links
 
       @media (max-width: 640px) {
         [data-hero-parallax] .hero-content {
-          text-align: center;
+          text-align: left;
+          padding-inline: 1.25rem;
         }
 
         [data-hero-parallax] .hero-top-row {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          grid-template-rows: auto auto;
           align-items: center;
-          text-align: center;
+          justify-content: space-between;
+          text-align: left;
+          gap: 0.5rem 0.75rem;
+        }
+
+        [data-hero-parallax] .hero-wordmark {
+          grid-column: 1;
+          grid-row: 1;
+          height: clamp(3.5rem, 12vw, 4.6rem);
+          max-width: 100%;
         }
 
         [data-hero-parallax] .hero-mantra-wrap {
-          justify-content: center;
+          grid-column: 2;
+          grid-row: 2;
+          justify-content: flex-end;
         }
 
         [data-hero-parallax] .hero-mantra {
-          text-align: center;
+          text-align: right;
+          font-size: clamp(1.05rem, 3.6vw, 1.35rem);
+          letter-spacing: 0.08em;
+        }
+
+        [data-hero-parallax] .hero-mantra-line {
+          height: clamp(2.5rem, 9vw, 3.25rem);
         }
 
         [data-hero-parallax] .hero-copy {
-          text-align: center;
-          align-items: center;
+          text-align: left;
+          align-items: flex-start;
         }
 
         [data-hero-parallax] .hero-copy p {
-          margin-left: auto;
-          margin-right: auto;
+          margin-left: 0;
+          margin-right: 0;
         }
 
         [data-hero-parallax] .hero-cta {
-          align-items: center;
-          text-align: center;
+          align-items: flex-end;
+          text-align: right;
         }
 
         [data-hero-parallax] .hero-cta > div {
-          align-items: center;
+          align-items: flex-end;
         }
       }
 
@@ -880,7 +925,6 @@ Header
     </nav>
   </div>
 </header>
-
     <main class="space-y-6">
       <!-- ==========================Hero=========================== -->
 <section class="pt-12 px-0">
@@ -1096,7 +1140,7 @@ Header
       </div>
 
     <div class="main-container hero-content relative z-20 pt-10 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <div class="mt-10  grid-cols-1 gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-8">
+      <div class="mt-10 grid grid-cols-1 gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-14">
         <div class="lg:col-span-12 flex flex-col gap-6 lg:gap-8">
           <div class="hero-top-row flex flex-col gap-4 mb-12 sm:flex-row sm:items-center sm:justify-between">
             <img
@@ -1115,7 +1159,7 @@ Header
           </div>
         </div>
 
-        <div class="hero-copy lg:col-span-7 flex flex-col gap-4 lg:gap-6 lg:pt-4 lg:mt-2">
+        <div class="hero-copy lg:col-span-6 flex flex-col gap-4 lg:gap-6 lg:pt-4 lg:mt-2">
           <p class="text-brand-orange text-xl sm:text-2xl font-semibold max-w-[600px]">
             AI-powered automation infrastructure for businesses to scale.
           </p>
@@ -1125,7 +1169,7 @@ Header
           </h1>
         </div>
 
-        <div class="hero-cta mt-8 lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right gap-6 lg:gap-10 lg:pt-4 lg:mt-6 lg:justify-self-end">
+        <div class="hero-cta mt-8 lg:col-span-6 flex flex-col items-start lg:items-end text-left lg:text-right gap-6 lg:gap-10 lg:pt-4 lg:mt-6 lg:justify-self-end">
           <div class="flex flex-col items-start lg:items-end gap-3">
             <p class="text-white text-lg sm:text-xl lg:text-2xl font-semibold">Ready to Cut?</p>
             <a
@@ -1158,9 +1202,7 @@ Header
 
       <div class="mt-8 lg:mt-10">
         <div class="mx-auto max-w-[1100px] px-4 pb-6 text-center sm:px-6">
-          <p class="text-brand-orange text-base sm:text-lg lg:text-xl leading-relaxed">
-            "We started building websites. Then e-commerce exploded, and we built 30+ stores. That's when we noticed something: store owners weren't struggling to get sales; they were drowning in everything that came after. So we built systems that handle the chaos. Now we help startups and SMBs turn messy operations into machines that scale."
-          </p>
+      
         </div>
       </div>
     </div>
@@ -1661,46 +1703,6 @@ Services section
 </div>
     
 
-      <!-- service card 08 -->
-      <div class="col-span-12 lg:col-span-12" data-ns-animate data-delay="0.1">
-        <div
-          class="bg-background-12 hover-soft-card h-full rounded-4xl border border-background-12 px-5 md:px-8 pt-5 pb-5 grid grid-cols-12 gap-y-0 md:gap-6"
-        >
-          <aside
-            class="pt-14-desktop  col-span-12 flex flex-col justify-between space-y-5 md:col-span-5 lg:col-span-3"
-          >
-            <blockquote class="space-y-2">
-              <h3 class="text-heading-5 md:text-heading-4">Lead Generation & Sales Automation</h3>
-              <p class="text-tagline-1 text-secondary/60">
-                Capture every lead, lose none. Automatically collect contact info, score prospects, sync to your CRM, trigger nurture sequences, and alert your team the moment a hot lead comes in. Your pipeline fills itself.
-              </p>
-            </blockquote>
-
-            <a
-              href="service-details.html"
-              class="hidden hover:bg-primary-500 group bg-secondary transition-all duration-500 ease-in-out ring-8 ring-white rounded-[40px] w-18 md:w-22 relative overflow-hidden flex items-center justify-center space-y-5 h-10 md:h-13 p-4 md:p-5"
-            >
-              <figure class="size-6 relative items-center justify-center overflow-hidden">
-                <img
-                  src="images/icons/new-arrow-white.svg"
-                  alt="new-arrow"
-                  class="size-full absolute inset-0 -translate-x-6 object-cover group-hover:translate-x-1 transition-transform duration-400 ease-in-out"
-                />
-                <img
-                  src="images/icons/new-arrow-white.svg"
-                  alt="new-arrow"
-                  class="size-full object-cover group-hover:translate-x-6 transition-transform duration-400 ease-in-out"
-                />
-              </figure>
-            </a>
-          </aside>
-          <figure
-            class="h-[360px] md:h-full w-full mx-auto col-span-12 mb-6 md:mb-8 lg:mb-14 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-7 lg:col-span-9"
-          >
-            <img src="images/index/lead capture.jpg" alt="services" class="w-full h-full object-cover object-center" />
-          </figure>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -2650,7 +2652,6 @@ Testimonail section
           data-offset="40"
           class="size-[200px] rounded-full flex flex-col items-center justify-center gap-2 ask-plum-orb"
         >
-<<<<<<< HEAD
           <div
             data-ns-animate
             data-delay="0.5"
@@ -2673,23 +2674,23 @@ Testimonail section
 
                 <div class="relative overflow-hidden size-6">
                   <span
-                    class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+                    class="group-hover/btn-v2:translate-x-0 -translate-x-6 absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out btn-v2-icon"
                   >
                     <img
                       src="images/icons/new-arrow.svg"
                       alt="arrow"
-                      class="size-full object-cover"
+                      class="size-5 object-contain block"
                       loading="lazy"
                     />
                   </span>
 
                   <span
-                    class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+                    class="group-hover/btn-v2:translate-x-6 absolute inset-0 translate-x-0 flex items-center justify-center transition-all duration-300 ease-in-out btn-v2-icon"
                   >
                     <img
                       src="images/icons/new-arrow-white.svg"
                       alt="arrow"
-                      class="size-full object-cover"
+                      class="size-5 object-contain block"
                       loading="lazy"
                     />
                   </span>
@@ -2697,15 +2698,6 @@ Testimonail section
               </a>
             </div>
           </div>
-=======
-          <img
-            src="images/index/21-%20icon%20white.svg"
-            alt="Plum icon"
-            class="faq-orb-icon size-[100px] object-contain block"
-            loading="lazy"
-          />
-          <span class="faq-orb-text text-white text-heading-6 font-semibold">Ask Plum!</span>
->>>>>>> 2f69451884204b987c9843673c9ce364e58cd72d
         </div>
       </div>
     </div>
@@ -3442,22 +3434,6 @@ Footer
 
 </footer>
 
-    <button class="scroll-top-trigger" type="button" aria-label="Back to top">
-      <span class="sr-only">Back to top</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="size-5"
-      >
-        <path d="M12 19V5" />
-        <path d="m5 12 7-7 7 7" />
-      </svg>
-    </button>
     <script>
       (function() {
         const button = document.querySelector(".scroll-top-trigger");
