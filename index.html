@@ -752,9 +752,22 @@ Head links
 
       [data-hero-parallax] .hero-content {
         max-width: 100%;
-        padding-top: clamp(3rem, 6vw, 5.5rem);
+        padding-top: clamp(7rem, 6vw, 5.5rem);
         padding-bottom: clamp(3.5rem, 7vw, 6.5rem);
-        padding-inline: 0;
+      }
+
+      [data-hero-parallax] .main-container.hero-content,
+      [data-hero-parallax] .main-container {
+        max-width: 1800px !important;
+        padding-inline: 0 !important;
+      }
+
+      @media (min-width: 1440px) {
+        [data-hero-parallax] .main-container.hero-content,
+        [data-hero-parallax] .main-container {
+          max-width: 1800px !important;
+          padding-inline: 0 !important;
+        }
       }
 
       [data-hero-parallax] .hero-top-row {
@@ -771,7 +784,7 @@ Head links
       }
 
       [data-hero-parallax] .hero-copy h1 {
-        font-size: clamp(2.75rem, 6vw, 4.75rem);
+        font-size: clamp(3rem, 2vw, 1.7rem);
         line-height: 1.05;
       }
 
@@ -821,7 +834,11 @@ Head links
       @media (max-width: 640px) {
         [data-hero-parallax] .hero-content {
           text-align: left;
-          padding-inline: 1.25rem;
+        }
+        
+        [data-hero-parallax] .main-container.hero-content,
+        [data-hero-parallax] .main-container {
+          padding-inline: 1rem !important;
         }
 
         [data-hero-parallax] .hero-top-row {
@@ -837,8 +854,8 @@ Head links
         [data-hero-parallax] .hero-wordmark {
           grid-column: 1;
           grid-row: 1;
-          height: clamp(3.5rem, 12vw, 4.6rem);
-          max-width: 100%;
+
+          max-width: 150%;
         }
 
         [data-hero-parallax] .hero-mantra-wrap {
@@ -851,6 +868,11 @@ Head links
           text-align: right;
           font-size: clamp(1.05rem, 3.6vw, 1.35rem);
           letter-spacing: 0.08em;
+        }
+
+        [data-hero-parallax] .hero-copy h1 {
+          font-size: clamp(2rem, 2.5vw, 4rem);
+          line-height: 1.05;
         }
 
         [data-hero-parallax] .hero-mantra-line {
@@ -1309,30 +1331,30 @@ Header
       </div>
 
     <div class="main-container hero-content relative z-20 pt-10 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <div class="mt-10 grid grid-cols-1 gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-14">
-        <div class="lg:col-span-12 flex flex-col gap-6 lg:gap-8">
-          <div class="hero-top-row flex flex-col gap-4 mb-12 sm:flex-row sm:items-center sm:justify-between">
-            <img
-              src="images/index/plumcut-wordmark.png"
-              alt="plumcut"
-              class="hero-wordmark"
-              loading="lazy"
-            />
-            <div class="hero-mantra-wrap flex items-center gap-4 lg:gap-5 w-full sm:w-auto sm:justify-end">
-              <div class="hero-mantra text-white text-xl sm:text-2xl lg:text-3xl uppercase leading-tight text-left sm:text-right">
-                <span class="block">CUT THE WORK</span>
-                <span class="block">KEEP GROWING</span>
-              </div>
-              <span class="hero-mantra-line"></span>
+      <div class="hero-top-row-wrapper w-full">
+        <div class="hero-top-row flex flex-col gap-4 mb-12 sm:flex-row sm:items-center sm:justify-between max-w-[1800px] mx-auto px-[clamp(1rem,2vw,2rem)]">
+          <img
+            src="images/index/plumcut-wordmark.png"
+            alt="plumcut"
+            class="hero-wordmark"
+            loading="lazy"
+          />
+          <div class="hero-mantra-wrap flex items-center gap-4 lg:gap-5 w-full sm:w-auto sm:justify-end">
+            <div class="hero-mantra text-white text-xl sm:text-2xl lg:text-3xl uppercase leading-tight text-left sm:text-right">
+              <span class="block">CUT THE WORK</span>
+              <span class="block">KEEP GROWING</span>
             </div>
+            <span class="hero-mantra-line"></span>
           </div>
         </div>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-7 lg:mt-16 lg:grid-cols-12  px-[clamp(1rem,2vw,2rem)]">
 
         <div class="hero-copy lg:col-span-6 flex flex-col gap-4 lg:gap-6 lg:pt-4 lg:mt-2">
           <p class="text-brand-orange text-xl sm:text-2xl font-semibold max-w-[600px]">
             AI-powered automation infrastructure for businesses to scale.
           </p>
-          <h1 class="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 class="text-white text-lg sm:text-xl lg:text-2xl font-bold leading-tight">
             <span class="block">Faster. Smarter. Bigger.</span>
             <span class="block">We cut, you grow.</span>
           </h1>
