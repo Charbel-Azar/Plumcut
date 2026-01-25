@@ -113,7 +113,13 @@ Head links
       }
     </style>
   </head>
-  <body class="bg-background-2 dark:bg-background-5">
+  <body class="bg-background-2 dark:bg-background-5 is-loading">
+    <div class="site-loader" aria-hidden="true">
+      <video class="site-loader__video" autoplay muted playsinline loop>
+        <source src="images/loader.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <!-- =========================
 Header v1
 ===========================-->

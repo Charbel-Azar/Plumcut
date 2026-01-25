@@ -114,7 +114,13 @@ Head links
       }
     </style>
   </head>
-  <body class="bg-background-3 dark:bg-background-7">
+  <body class="bg-background-3 dark:bg-background-7 is-loading">
+    <div class="site-loader" aria-hidden="true">
+      <video class="site-loader__video" autoplay muted playsinline loop>
+        <source src="images/loader.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <!-- =========================
 Top Nav Buttons
 ===========================-->

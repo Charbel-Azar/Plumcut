@@ -3790,42 +3790,32 @@ if (typeof window !== "undefined") {
   const LOADER_CLASS = "site-loader";
   const HIDDEN_CLASS = "site-loader--hidden";
   const BODY_LOADING_CLASS = "is-loading";
-  const VIDEO_SRC = "images/loader.mp4";
 
-  const createLoader = () => {
-    if (!document.body || document.querySelector(`.${LOADER_CLASS}`)) {
-      return;
-    }
-    const loader = document.createElement("div");
-    loader.className = LOADER_CLASS;
-    loader.setAttribute("aria-hidden", "true");
-    loader.innerHTML = `
-      <video class="site-loader__video" autoplay muted playsinline loop>
-        <source src="${VIDEO_SRC}" type="video/mp4">
-      </video>
-    `.trim();
-    document.body.prepend(loader);
-    document.body.classList.add(BODY_LOADING_CLASS);
-  };
+  const body = document.body;
+  const loader = document.querySelector(`.${LOADER_CLASS}`);
 
   const hideLoader = () => {
-    const loader = document.querySelector(`.${LOADER_CLASS}`);
+    if (body) {
+      body.classList.remove(BODY_LOADING_CLASS);
+    }
+
     if (!loader) {
       return;
     }
+
     loader.classList.add(HIDDEN_CLASS);
-    if (document.body) {
-      document.body.classList.remove(BODY_LOADING_CLASS);
-    }
-    const removeLoader = () => loader.remove();
+    const removeLoader = () => {
+      if (loader.parentNode) {
+        loader.remove();
+      }
+    };
+
     loader.addEventListener("transitionend", removeLoader, { once: true });
     setTimeout(removeLoader, 1200);
   };
 
-  if (document.body) {
-    createLoader();
-  } else {
-    document.addEventListener("DOMContentLoaded", createLoader, { once: true });
+  if (body) {
+    body.classList.add(BODY_LOADING_CLASS);
   }
 
   if (document.readyState === "complete") {

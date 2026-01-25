@@ -549,9 +549,46 @@ Head links
       .footer-outside-white .footer-link-v2:before {
         background-color: #ffffff;
       }
+
+      .footer-heading {
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.25rem;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: footer-heading-underline 0.6s ease-out forwards;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      @keyframes footer-heading-underline {
+        from {
+          transform: scaleX(0);
+          opacity: 0;
+        }
+        to {
+          transform: scaleX(1);
+          opacity: 1;
+        }
+      }
     </style>
   </head>
-  <body class="bg-white dark:bg-background-5">
+  <body class="bg-white dark:bg-background-5 is-loading">
+    <div class="site-loader" aria-hidden="true">
+      <video class="site-loader__video" autoplay muted playsinline loop>
+        <source src="images/loader.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <!-- =========================
 Top Nav Buttons
 ===========================-->
@@ -872,7 +909,16 @@ Header
 
 
       <section class="faq-section max-[1920px]:px-5 pb-10">
-      
+          <div data-ns-animate data-delay="0.35" class=" mt-10 lg:mb-12 max-w-[100px] lg:max-w-[500px] mx-auto">
+        <div class="overflow-hidden rounded-3xl border border-stroke-1 dark:border-white/10">
+          <img
+            src="images/why%20choose%20us/gif.gif"
+            alt="Our Promise"
+            class="block w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      </div>
   <div
     class="faq-card bg-[#1a1a1a] max-w-[1880px] mx-auto lg:py-25 md:py-20 py-18 xl:py-28 rounded-2xl md:rounded-4xl relative overflow-hidden border border-background-ali"
     data-ns-animate
@@ -945,7 +991,7 @@ Footer
       <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8 footer-outside-white">
         <div class="col-span-12 md:col-span-4">
           <div data-ns-animate data-delay="0.4" class="space-y-8">
-            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent">
+            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
               Menu
             </p>
             <ul class="space-y-5">
@@ -966,7 +1012,7 @@ Footer
         </div>
         <div class="col-span-12 md:col-span-4">
           <div data-ns-animate data-delay="0.5" class="space-y-8">
-            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent">
+            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
               Legal
             </p>
             <ul class="space-y-5">
@@ -985,8 +1031,8 @@ Footer
         </div>
         <div class="col-span-12 md:col-span-4">
           <div data-ns-animate data-delay="0.6" class="space-y-8">
-            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent">
-              Social
+            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
+              Socials
             </p>
             <div class="footer-social-white">
               <a href="#" class="footer-social-link">
