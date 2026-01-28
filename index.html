@@ -424,6 +424,10 @@ Head links
         transform: translateY(0);
         transition: opacity 0.35s ease, transform 0.35s ease;
         will-change: opacity, transform;
+        --pc-nav-font-size: clamp(0.9rem, 1.1vw + 0.6rem, 1.35rem);
+        --pc-nav-font-size-active: clamp(1rem, 1.6vw + 0.55rem, 1.55rem);
+        --pc-nav-letter-spacing: clamp(0.015em, 0.25vw, 0.03em);
+        --pc-nav-gap: clamp(0.75rem, 4.5vw, 3.5rem);
       }
 
       .pc-navbar.is-faded {
@@ -481,11 +485,12 @@ Head links
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: clamp(1.5rem, 6vw, 4.5rem);
+        gap: var(--pc-nav-gap);
         padding: 0.9rem 0.5rem;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         grid-column: 2;
         justify-self: center;
+        white-space: nowrap;
       }
 
       .pc-navbar--sticky .pc-nav-logo {
@@ -506,9 +511,9 @@ Head links
       .pc-navbar--sticky .pc-nav-link {
         position: relative;
         text-decoration: none;
-        font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+        font-size: var(--pc-nav-font-size);
         font-weight: 500;
-        letter-spacing: 0.03em;
+        letter-spacing: var(--pc-nav-letter-spacing);
         padding-bottom: 0.55rem;
         transition: opacity 0.2s ease, transform 0.2s ease;
       }
@@ -537,7 +542,7 @@ Head links
       }
 
       .pc-navbar--sticky .pc-nav-link.is-active {
-        font-size: clamp(1.3rem, 3vw, 1.95rem);
+        font-size: var(--pc-nav-font-size-active);
         font-weight: 600;
         opacity: 1;
       }
@@ -560,22 +565,29 @@ Head links
           top: 0;
         }
 
+        .pc-navbar--sticky {
+          --pc-nav-font-size: 0.85rem;
+          --pc-nav-font-size-active: 0.95rem;
+          --pc-nav-letter-spacing: 0.015em;
+          --pc-nav-gap: 0.85rem;
+        }
+
         .pc-navbar--sticky .pc-nav {
           width: 100%;
           justify-content: space-around;
-          gap: 1.25rem;
+          gap: var(--pc-nav-gap);
           flex-wrap: nowrap;
           padding: 0.5rem 0.75rem;
         }
 
         .pc-navbar--sticky .pc-nav-link {
-          font-size: 0.95rem;
-          letter-spacing: 0.02em;
+          font-size: var(--pc-nav-font-size);
+          letter-spacing: var(--pc-nav-letter-spacing);
           padding: 0.35rem 0.35rem 0.4rem;
         }
 
         .pc-navbar--sticky .pc-nav-link.is-active {
-          font-size: 1rem;
+          font-size: var(--pc-nav-font-size-active);
         }
       }
 
@@ -592,21 +604,23 @@ Head links
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: clamp(1.5rem, 6vw, 4.5rem);
+        gap: var(--pc-nav-gap);
         padding: 0.35rem 0.5rem;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        white-space: nowrap;
       }
 
       .pc-nav-link {
         position: relative;
         color: #ffffff;
         text-decoration: none;
-        font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+        font-size: var(--pc-nav-font-size);
         font-weight: 500;
-        letter-spacing: 0.03em;
+        letter-spacing: var(--pc-nav-letter-spacing);
         padding-bottom: 0.55rem;
         opacity: 0.82;
         transition: opacity 0.2s ease, transform 0.2s ease;
+        white-space: nowrap;
       }
 
       .pc-nav-link::after {
@@ -635,7 +649,7 @@ Head links
       }
 
       .pc-nav-link.is-active {
-        font-size: clamp(1.3rem, 3vw, 1.95rem);
+        font-size: var(--pc-nav-font-size-active);
         font-weight: 600;
         opacity: 1;
       }

@@ -4,7 +4,8 @@
       "Bash(node fix-headers.js:*)",
       "Bash(cat:*)",
       "Bash(powershell -Command \"Get-Content -Path ''c:\\\\Users\\\\user\\\\Documents\\\\GitHub\\\\Plumcut\\\\services.html'' -Encoding Unicode | Select-String -Pattern ''services-plum-image'' -Context 0,3\")",
-      "Bash(powershell -Command \"Get-Content ''c:\\\\Users\\\\user\\\\Documents\\\\GitHub\\\\Plumcut\\\\services.html'' | Select-Object -Skip 905 -First 70\")"
+      "Bash(powershell -Command \"Get-Content ''c:\\\\Users\\\\user\\\\Documents\\\\GitHub\\\\Plumcut\\\\services.html'' | Select-Object -Skip 905 -First 70\")",
+      "Bash(powershell -Command:*)"
     ],
     "additionalDirectories": [
       "c:\\Users\\user\\Documents\\GitHub\\Plumcut"
