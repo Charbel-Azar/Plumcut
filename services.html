@@ -54,10 +54,6 @@ Head links
 
 <meta name="language" content="English" />
 
-<meta name="geo.region" content="LB" />
-
-<meta name="geo.placename" content="Lebanon" />
-
 
 
 <link rel="canonical" href="https://plumcut.com/services.html" />
@@ -66,13 +62,7 @@ Head links
 
 <!-- Additional SEO Meta Tags -->
 
-<meta name="rating" content="General" />
-
 <meta name="distribution" content="Global" />
-
-<meta name="revisit-after" content="7 days" />
-
-<meta name="expires" content="never" />
 
 
 
@@ -99,6 +89,8 @@ Head links
   content="https://plumcut.com/images/shared/plumcut-og-image.jpg"
 
 />
+
+<meta property="og:image:type" content="image/jpeg" />
 
 <meta property="og:image:width" content="1200" />
 
@@ -145,6 +137,62 @@ Head links
 />
 
 <meta name="twitter:image:alt" content="Plumcut - AI Chatbots & Business Automation Services" />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "AI Chatbot Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "Plumcut",
+    "url": "https://plumcut.com/"
+  },
+  "areaServed": "Worldwide",
+  "description": "Explore Plumcut's automation services: intelligent chatbots, sales automation, customer service bots, appointment scheduling, order management, and data analytics for startups and SMBs."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AI chatbot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI chatbot is a conversational system that understands customer requests and automates replies, lead capture, and routine tasks across your business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a chatbot cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pricing depends on complexity, integrations, and volume. Plumcut offers affordable plans for SMBs and custom quotes for advanced automation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What platforms do you support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We support website chat, WhatsApp Business, Instagram, Facebook Messenger, and custom integrations with CRMs and scheduling tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can a chatbot go live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most SMB deployments launch within 2-4 weeks, depending on scope and integrations."
+      }
+    }
+  ]
+}
+</script>
 
 
 
@@ -1508,7 +1556,7 @@ Service section
 
 <section
 
-  class="pb-14 pt-10 :pb-16 lg:pb-[88px] xl:pb-[100px] text-white"
+  class="pb-14 pt-10 :pb-16 lg:pb-[88px] xl:pb-[100px] text-white services-primary"
 
   style="background-color:#481D52; color:#ffffff;"
 
@@ -4424,6 +4472,12 @@ Footer
 
       }
 
+      .services-primary [class^="ns-shape-"],
+      .services-primary [class*=" ns-shape-"] {
+        font-weight: 900;
+        -webkit-text-stroke: 0.7px currentColor;
+        text-shadow: 0 0 1px currentColor;
+      }
 </style>
 
 
