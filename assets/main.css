@@ -4110,6 +4110,10 @@ body {
     }
   }
 
+  .main-container.edge-safe {
+    padding-inline: clamp(1.25rem, 3vw, 3.5rem);
+  }
+
   .mx-1 {
     margin-inline: calc(var(--spacing) * 1);
   }
