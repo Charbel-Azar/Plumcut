@@ -701,6 +701,19 @@ Head links
           opacity: 1;
         }
       }
+      .footer-logo-video {
+        display: block;
+        width: clamp(120px, 35vw, 180px);
+        height: auto;
+        margin: 0 auto;
+      }
+
+      @media (min-width: 1024px) {
+        .footer-logo-video {
+          width: 27%;
+          margin: 0;
+        }
+      }
     </style>
   </head>
   <body class="bg-background-1 dark:bg-background-6 is-loading">
@@ -1324,6 +1337,26 @@ FAQ section
           </h2>
         </div>
 
+        <!-- faq image (mobile) -->
+        <figure
+          data-ns-animate
+          data-delay="0.3"
+          class="w-full relative max-w-[684px] overflow-hidden lg:hidden"
+        >
+          <img
+            class="size-full object-cover dark:hidden"
+            src="images/services/stamp.png"
+            alt="Business agency services illustration"
+            loading="lazy"
+          />
+          <img
+            class="size-full object-cover dark:inline-block hidden"
+            src="images/services/stamp.png"
+            alt="Business agency services illustration"
+            loading="lazy"
+          />
+        </figure>
+
         <!-- faq accordion  -->
         <div
           class="accordion max-w-[576px] mx-auto lg:mx-0 w-full"
@@ -1691,17 +1724,17 @@ Accordian Icon
       <figure
         data-ns-animate
         data-delay="0.3"
-        class="w-full relative max-w-[684px] overflow-hidden flex-1"
+        class="w-full relative max-w-[684px] overflow-hidden flex-1 hidden lg:block"
       >
         <img
           class="size-full object-cover dark:hidden"
-          src="images/ns-img-52.png"
+          src="images/services/stamp.png"
           alt="Business agency services illustration"
           loading="lazy"
         />
         <img
           class="size-full object-cover dark:inline-block hidden"
-          src="images/ns-img-dark-31.png"
+          src="images/services/stamp.png"
           alt="Business agency services illustration"
           loading="lazy"
         />
@@ -1716,10 +1749,13 @@ Accordian Icon
     <!-- =========================
 Footer
 ===========================-->
+    <!-- =========================
+Footer
+===========================-->
 <footer class="footer footer-three dark:bg-background-8 relative bg-background-2 overflow-hidden">
   <div class="main-container">
     <!-- footer bg-img  -->
-
+ 
 
     <div
       class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[100px] pt-16 pb-16 justify-between"
@@ -1728,7 +1764,9 @@ Footer
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
             <figure>
-              <img src="images/shared/new%20icon.png" alt="plumcut" class="logo-responsive" />
+              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop>
+  <source src="images/loader compressed.mp4" type="video/mp4" />
+</video>
             </figure>
             <p class="mt-4 mb-7 text-secondary dark:text-accent">
               We design intelligent chatbots and automation systems that capture leads, book appointments, and handle customer inquiries 24/7. Based in Lebanon, built for businesses ready to scale.
@@ -1736,9 +1774,9 @@ Footer
           </div>
         </div>
       </div>
-      <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8 footer-outside-white">
-        <div class="col-span-12 md:col-span-4">
-          <div data-ns-animate data-delay="0.4" class="space-y-8">
+      <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8 footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
+        <div class="col-span-6 md:col-span-6">
+          <div data-ns-animate data-delay="0.4" class="space-y-8 text-center md:text-left text-white">
             <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
               Menu
             </p>
@@ -1758,32 +1796,13 @@ Footer
             </ul>
           </div>
         </div>
-        <div class="col-span-12 md:col-span-4">
-          <div data-ns-animate data-delay="0.5" class="space-y-8">
-            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
-              Legal
-            </p>
-            <ul class="space-y-5">
-              <li>
-                <a href="privacy-policy.html" class="footer-link-v2">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="terms-conditions.html" class="footer-link-v2">
-                  Terms & Conditions
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-span-12 md:col-span-4">
-          <div data-ns-animate data-delay="0.6" class="space-y-8">
+        <div class="col-span-6 md:col-span-6">
+          <div data-ns-animate data-delay="0.6" class="space-y-8 text-center md:text-left text-white">
             <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
               Socials
             </p>
             <div class="footer-social-white">
-              <a href="#" class="footer-social-link">
+              <a href="#" class="footer-social-link footer-social-instagram">
                 <span class="sr-only">Instagram</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1796,7 +1815,8 @@ Footer
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M11 1H5C2.79086 1 1 2.79086 1 5V11C1 13.2091 2.79086 15 5 15H11C13.2091 15 15 13.2091 15 11V5C15 2.79086 13.2091 1 11 1Z"
-                    class="stroke-secondary dark:stroke-accent"
+                    stroke="#ffffff"
+                    fill="none"
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1805,7 +1825,8 @@ Footer
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55871 10.6839 8.79565 11 8 11Z"
-                    class="stroke-secondary dark:stroke-accent"
+                    stroke="#ffffff"
+                    fill="none"
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1817,7 +1838,9 @@ Footer
                     height="2"
                     rx="1"
                     transform="rotate(-90 11 5)"
-                    class="fill-secondary dark:fill-accent"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
                   />
                   <rect
                     x="11.5"
@@ -1826,7 +1849,9 @@ Footer
                     height="1"
                     rx="0.5"
                     transform="rotate(-90 11.5 4.5)"
-                    class="stroke-secondary dark:stroke-accent"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
                     stroke-linecap="round"
                   />
                 </svg>
@@ -1866,7 +1891,7 @@ Footer
         </div>
       </div>
     </div>
-    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white">
+    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
       <div
         class="footer-divider absolute top-0 left-0 right-0 w-0 origin-center mx-auto h-px bg-stroke-2 dark:bg-accent/5"
       ></div>
@@ -1875,12 +1900,598 @@ Footer
         data-delay="0.7"
         data-offset="10"
         data-start="top 105%"
-        class="text-secondary dark:text-accent/60"
+        class="text-white"
       >
-        ? 2025 plumcut. All rights reserved. yes... we can automate it.
+        © 2025 plumcut. All rights reserved. yes... we can automate it.
       </p>
     </div>
   </div>
+
+<div
+  id="demo-showcase"
+  class="demo-showcase-container demo-showcase-closed fixed top-0 left-0 w-full h-screen z-[99999]"
+  data-lenis-prevent="true"
+>
+  <button
+    id="demo-showcase-close"
+    class="fixed top-5 lg:top-10 right-5 lg:right-10 z-[999999] bg-secondary rounded-[80px] shadow-[0_1px_2px_0_rgba(0,0,0,0.15)] p-2 lg:p-4 flex items-center justify-center cursor-pointer border-6 lg:border-8 border-white"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="stroke-white"
+    >
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
+    </svg>
+  </button>
+
+  <div
+    class="fixed top-0 left-0 w-full h-screen overflow-y-auto bg-background-12 pt-14 pb-16"
+    style="touch-action: pan-y; -webkit-overflow-scrolling: touch; overscroll-behavior: contain"
+  >
+    <div class="max-w-[1560px] md:px-4 min-[1880px]:!px-0 mx-auto">
+      <div class="mb-12 text-center">
+        <h2 class="font-normal text-center text-secondary">38+ Pre-built websites</h2>
+      </div>
+
+      <div id="demo-showcase-list" class="grid grid-cols-12 xl:gap-6 sm:gap-3 gap-y-5"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .demo-showcase-container {
+    transform-origin: center center;
+    backface-visibility: hidden;
+    will-change: transform, opacity, filter;
+    transition:
+      transform 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+      filter 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .demo-showcase-closed {
+    transform: translateX(100%) scale(0.65) rotateY(20deg);
+    opacity: 0;
+    filter: blur(22px);
+  }
+
+  .demo-showcase-open {
+    transform: translateX(0) scale(1) rotateY(0deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
+</style>
+
+<script>
+  const demoShowcaseList = [
+    {
+      title: 'AI Applications',
+      href: './index.html',
+      image: 'https://images.prismic.io/staticmania/aRQlJrpReVYa4XSY_AI-Application.jpg',
+      newRelease: true,
+    },
+    {
+      title: 'AI Gadget',
+      href: './ai-gadgets.html',
+      image: 'https://images.prismic.io/staticmania/aRQlKLpReVYa4XSa_AI-Gadget.jpg',
+      newRelease: true,
+    },
+    {
+      title: 'AI Resume Builder',
+      href: './ai-resume-builder.html',
+      image: 'https://images.prismic.io/staticmania/aRQlKbpReVYa4XSb_AI-ResumeBuilder.jpg',
+      newRelease: true,
+    },
+    {
+      title: 'Crypto Marketing',
+      href: './crypto-marketing.html',
+      image: 'https://images.prismic.io/staticmania/aRQlMLpReVYa4XSi_Crypto-Marketing.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'AI Software',
+      href: './ai-software.html',
+      image: 'https://images.prismic.io/staticmania/aRQlKrpReVYa4XSc_AI-Software.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'AI Chatbot',
+      href: './ai-chatbot.html',
+      image: 'https://images.prismic.io/staticmania/aRQlJ7pReVYa4XSZ_AI-Chatbot.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Web Hosting',
+      href: './web-hosting.html',
+      image: 'https://images.prismic.io/staticmania/aRQlSrpReVYa4XS8_Web-Hosting.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Analytics & Reporting',
+      href: './analytics-and-reporting.html',
+      image: 'https://images.prismic.io/staticmania/aRQlK7pReVYa4XSd_Analytics-Reporting.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Financial Application',
+      href: './financial-application.html',
+      image: 'https://images.prismic.io/staticmania/aRQlNrpReVYa4XSo_Financial-Application.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Payment Solutions',
+      href: './payment-solution.html',
+      image: 'https://images.prismic.io/staticmania/aRQlQLpReVYa4XSy_Payment-Solutions.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Online Banking',
+      href: './online-banking.html',
+      image: 'https://images.prismic.io/staticmania/aRQlP7pReVYa4XSx_Online-Banking.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Cloud Based Software',
+      href: './cloud-software.html',
+      image: 'https://images.prismic.io/staticmania/aRQlLrpReVYa4XSg_Cloud-Based-Software.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Cyber Security',
+      href: './cyber-security.html',
+      image: 'https://images.prismic.io/staticmania/aRQlMbpReVYa4XSj_Cyber-Security.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Email Marketing',
+      href: './email-marketing.html',
+      image: 'https://images.prismic.io/staticmania/aRQlNbpReVYa4XSn_Email-Marketing.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Lead Capture',
+      href: './lead-capture.html',
+      image: 'https://images.prismic.io/staticmania/aRQlOrpReVYa4XSs_Lead-Capture.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Messaging Platform',
+      href: './messaging-platform.html',
+      image: 'https://images.prismic.io/staticmania/aRQlO7pReVYa4XSt_Messaging-Platform.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Mortgage Services',
+      href: './mortgage-services.html',
+      image: 'https://images.prismic.io/staticmania/aRQlPbpReVYa4XSv_Mortgage-Services.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Creative Portfolio',
+      href: './creative-portfolio.html',
+      image: 'https://images.prismic.io/staticmania/aRQlL7pReVYa4XSh_Creative-Portfolio.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'App Builder',
+      href: './app-builder.html',
+      image: 'https://images.prismic.io/staticmania/aRQlLLpReVYa4XSe_App-Builder.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'App Development',
+      href: './app-development.html',
+      image: 'https://images.prismic.io/staticmania/aRQlLbpReVYa4XSf_App-Development.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'AI Agency',
+      href: './ai-agency.html',
+      image: 'https://images.prismic.io/staticmania/aRQlJrpReVYa4XSX_AI-Agency.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Smart Solutions',
+      href: './smart-solutions.html',
+      image: 'https://images.prismic.io/staticmania/aRQlRrpReVYa4XS4_Smart-Solutions.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Risk Management Software',
+      href: './risk-management-software.html',
+      image: 'https://images.prismic.io/staticmania/aRQlRLpReVYa4XS2_Risk-Management-Software.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Personal Finance',
+      href: './personal-finance.html',
+      image: 'https://images.prismic.io/staticmania/aRQlQbpReVYa4XSz_Personal-Finance.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Mobile Management Software',
+      href: './mobile-management-software.html',
+      image:
+        'https://images.prismic.io/staticmania/aRQlPLpReVYa4XSu_Mobile-Management-Software.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Investment Management',
+      href: './investment-management.html',
+      image: 'https://images.prismic.io/staticmania/aRQlObpReVYa4XSr_Investment-Management.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Insurance Software',
+      href: './insurance.html',
+      image: 'https://images.prismic.io/staticmania/aRQlOLpReVYa4XSq_Insurance.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Property Management',
+      href: './property-management-software.html',
+      image:
+        'https://images.prismic.io/staticmania/aRQlQ7pReVYa4XS1_Property-Management-Software.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'POS System',
+      href: './pos-system.html',
+      image: 'https://images.prismic.io/staticmania/aRQlQrpReVYa4XS0_POS-System.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Social Media Management',
+      href: './social-media-management.html',
+      image: 'https://images.prismic.io/staticmania/aRQlR7pReVYa4XS5_Social-Media-Management.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Nuvexa CRM',
+      href: './nuvexa-crm.html',
+      image: 'https://images.prismic.io/staticmania/aRQlPrpReVYa4XSw_Nuvexa-CRM.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Wealth Management',
+      href: './wealth-management.html',
+      image: 'https://images.prismic.io/staticmania/aRQlSbpReVYa4XS7_Wealth-Management.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Security Software',
+      href: './security-software.html',
+      image: 'https://images.prismic.io/staticmania/aRQlRbpReVYa4XS3_Security-Software.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Time Tracking',
+      href: './time-tracking.html',
+      image: 'https://images.prismic.io/staticmania/aRQlSLpReVYa4XS6_Time-Tracking.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Data Visualization',
+      href: './data-visualization.html',
+      image:
+        'https://images.prismic.io/staticmania/aRQlMrpReVYa4XSk_Data-Visualization-Software.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Digital Marketing Agency',
+      href: './digital-marketing.html',
+      image: 'https://images.prismic.io/staticmania/aRQlNLpReVYa4XSm_Digital-Marketing-Agency.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Forex Trading',
+      href: './forex-trading.html',
+      image: 'https://images.prismic.io/staticmania/aRQlOLpReVYa4XSp_Forex-Trading.jpg',
+      newRelease: false,
+    },
+    {
+      title: 'Decentralized Finance',
+      href: './decentralized-finance.html',
+      image: 'https://images.prismic.io/staticmania/aRQlM7pReVYa4XSl_Decentralized-Finance.jpg',
+      newRelease: false,
+    },
+  ];
+
+  const demoShowcaseAnimation = {
+    init() {
+      const demoShowcase = document.querySelector('#demo-showcase');
+      const demoShowcaseClose = document.querySelector('#demo-showcase-close');
+      const demoShowcaseListContainer = document.querySelector('#demo-showcase-list');
+
+      if (demoShowcaseListContainer && demoShowcaseList) {
+        demoShowcaseListContainer.innerHTML = demoShowcaseList
+          .map(
+            (item, index) =>
+              `
+      <div class="col-span-12 md:col-span-6 xl:col-span-4">
+        <a href="${item.href}" data-card-index="${index}"
+          class="demo-card block border cursor-pointer border-stroke-3 group hover:border-primary-400  transition-all duration-300 ease-in-out  max-w-[500px] mx-auto rounded-[36px] p-2"
+        >
+          <div
+            class="p-2 bg-white  rounded-[28px] shadow-[0_1px_4px_0_rgba(16,24,40,0.10)] group-hover:shadow-[0_8px_6px_0_rgba(16,24,40,0.16)] transition-all duration-400 ease-in-out"
+          >
+            <figure class="max-h-[351px] rounded-[20px] overflow-hidden">
+              <img
+                src="${item.image}"
+                alt="Demo Showcase"
+                class="w-full h-full object-cover "
+              />
+            </figure>
+
+            <h2
+              class="text-lg text-center font-medium text-secondary  leading-[150%] flex items-center justify-center gap-2 py-4"
+            >
+              ${item.title} ${item.newRelease ? '<span class="text-secondary bg-ns-green rounded-full px-5 py-[5px] rounded-[35px] text-tagline-2">New</span>' : ''}
+            </h2>
+          </div>
+        </a>
+      </div>
+    `
+          )
+          .join('');
+
+        const setActiveCard = (card) => {
+          const allCards = demoShowcaseListContainer.querySelectorAll('.demo-card');
+          allCards.forEach((c) => {
+            c.classList.remove('active');
+            c.classList.remove('border-primary-500');
+            c.classList.remove('border-2');
+            c.classList.add('border-stroke-3');
+          });
+
+          if (card) {
+            card.classList.add('active');
+            card.classList.remove('border-stroke-3');
+            card.classList.add('border-primary-500');
+            card.classList.add('border-2');
+          }
+        };
+
+        // Restore active state from localStorage on page load, or set first card as default
+        const activeCardHref = localStorage.getItem('activeDemoCard');
+        if (activeCardHref) {
+          const activeCard = demoShowcaseListContainer.querySelector(
+            `.demo-card[href="${activeCardHref}"]`
+          );
+          if (activeCard) {
+            setActiveCard(activeCard);
+          } else {
+            const firstCard = demoShowcaseListContainer.querySelector('.demo-card');
+            if (firstCard) {
+              setActiveCard(firstCard);
+              localStorage.setItem('activeDemoCard', firstCard.getAttribute('href'));
+            }
+          }
+        } else {
+          //  set first card as active by default
+          const firstCard = demoShowcaseListContainer.querySelector('.demo-card');
+          if (firstCard) {
+            setActiveCard(firstCard);
+            localStorage.setItem('activeDemoCard', firstCard.getAttribute('href'));
+          }
+        }
+
+        const demoCards = demoShowcaseListContainer.querySelectorAll('.demo-card');
+        demoCards.forEach((card) => {
+          card.addEventListener('click', (e) => {
+            const cardHref = card.getAttribute('href');
+
+            localStorage.setItem('activeDemoCard', cardHref);
+
+            setActiveCard(card);
+          });
+        });
+      }
+      if (demoShowcaseClose) {
+        demoShowcaseClose.addEventListener('click', () => {
+          // Remove open class first
+          demoShowcase.classList.remove('demo-showcase-open');
+          // Use requestAnimationFrame to ensure smooth transition
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              // Add closed class for reverse animation
+              demoShowcase.classList.add('demo-showcase-closed');
+            });
+          });
+          document.body.style.overflow = 'auto';
+        });
+      }
+    },
+  };
+
+  if (typeof window !== 'undefined') {
+    demoShowcaseAnimation.init();
+  }
+</script>
+
+  <script src="vendor/swiper.min.js"></script>
+<script src="vendor/leaflet.min.js"></script>
+<script src="vendor/vanilla-infinite-marquee.min.js"></script>
+<script src="vendor/split-text.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/scroll-trigger.min.js"></script>
+<script src="vendor/draw-svg.min.js"></script>
+<script src="vendor/scroll-trigger.min.js"></script>
+<script src="vendor/motionpathplugin.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="vendor/springer.min.js"></script>
+<script src="vendor/number-counter.js"></script>
+<script src="vendor/stack-card.min.js"></script>
+
+
+  <script  src="assets/main.js"></script>
+  <script>
+    (function() {
+      const navbar = document.querySelector(".pc-navbar:not(.pc-navbar--sticky)");
+      if (!navbar) return;
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const shouldFade = window.scrollY > 120;
+        navbar.classList.toggle("is-faded", shouldFade);
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+  <script>
+    (function() {
+      const stickyNavbar = document.querySelector(".pc-navbar--sticky");
+      const hero = document.querySelector("[data-hero-parallax]");
+      if (!stickyNavbar || !hero) return;
+
+      const setVisible = (isVisible) => {
+        stickyNavbar.classList.toggle("is-visible", isVisible);
+        stickyNavbar.setAttribute("aria-hidden", isVisible ? "false" : "true");
+      };
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const stickyHeight = stickyNavbar.offsetHeight || 0;
+        setVisible(heroBottom <= stickyHeight);
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+<!-- Hero Bubble Parallax -->
+<script>
+  (function() {
+    const hero = document.querySelector('[data-hero-parallax]');
+    if (!hero) return;
+
+    const layers = Array.from(hero.querySelectorAll('[data-parallax-layer]'));
+    if (!layers.length) return;
+
+    const layerMeta = new Map();
+
+    layers.forEach((layer) => {
+      const bean = layer.closest('.hero-bean');
+      const speed = 8 + Math.random() * 16;
+      const angle = Math.random() * Math.PI * 2;
+      const driftX = 8 + Math.random() * 18;
+      const driftY = 8 + Math.random() * 18;
+      const driftSpeed = 0.15 + Math.random() * 0.25;
+      const driftPhase = Math.random() * Math.PI * 2;
+
+      layer.dataset.speed = speed.toFixed(2);
+      layer.dataset.angle = angle.toFixed(4);
+      layerMeta.set(layer, { driftX, driftY, driftSpeed, driftPhase });
+
+      if (bean) {
+        const floatRange = 18 + Math.random() * 35;
+        const floatAngle = Math.random() * Math.PI * 2;
+        const floatX = Math.cos(floatAngle) * floatRange;
+        const floatY = Math.sin(floatAngle) * floatRange;
+        const floatDuration = (18 + Math.random() * 18).toFixed(2) + 's';
+        const floatDelay = (-Math.random() * 12).toFixed(2) + 's';
+        const rotate = (Math.random() * 6 - 3).toFixed(2) + 'deg';
+        const blur = (Math.random() * 8 + 3).toFixed(1) + 'px';
+        const spinDuration = (28 + Math.random() * 36).toFixed(2) + 's';
+        const spinDirection = Math.random() > 0.5 ? 'normal' : 'reverse';
+
+        bean.style.setProperty('--float-x', `${floatX}px`);
+        bean.style.setProperty('--float-y', `${floatY}px`);
+        bean.style.setProperty('--float-duration', floatDuration);
+        bean.style.setProperty('--float-delay', floatDelay);
+        bean.style.setProperty('--float-rotate', rotate);
+        bean.style.setProperty('--bean-blur', blur);
+        bean.style.setProperty('--spin-duration', spinDuration);
+        bean.style.setProperty('--spin-direction', spinDirection);
+      }
+    });
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    const update = (time) => {
+      const t = time * 0.001;
+      layers.forEach((layer) => {
+        const meta = layerMeta.get(layer);
+        const speed = parseFloat(layer.dataset.speed || '10');
+        const angle = parseFloat(layer.dataset.angle || '0');
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const rotatedX = currentX * cos - currentY * sin;
+        const rotatedY = currentX * sin + currentY * cos;
+        const driftT = t * meta.driftSpeed + meta.driftPhase;
+        const driftX = Math.sin(driftT) * meta.driftX;
+        const driftY = Math.cos(driftT * 0.9 + meta.driftPhase) * meta.driftY;
+        const x = rotatedX * speed + driftX;
+        const y = rotatedY * speed + driftY;
+
+        layer.style.setProperty('--bean-parallax-x', `${x}px`);
+        layer.style.setProperty('--bean-parallax-y', `${y}px`);
+      });
+    };
+
+    const tick = (time) => {
+      const ease = 0.04;
+      currentX += (targetX - currentX) * ease;
+      currentY += (targetY - currentY) * ease;
+      update(time);
+      requestAnimationFrame(tick);
+    };
+
+    const handleMove = (event) => {
+      const rect = hero.getBoundingClientRect();
+      const relX = (event.clientX - rect.left) / rect.width - 0.5;
+      const relY = (event.clientY - rect.top) / rect.height - 0.5;
+      const mouseScale = 0.6;
+      targetX = relX * mouseScale;
+      targetY = relY * mouseScale;
+    };
+
+    const reset = () => {
+      targetX = 0;
+      targetY = 0;
+    };
+
+    hero.addEventListener('mousemove', handleMove);
+    hero.addEventListener('mouseleave', reset);
+    hero.addEventListener('touchend', reset);
+    requestAnimationFrame(tick);
+  })();
+</script>
+
 </footer>
 
 <div

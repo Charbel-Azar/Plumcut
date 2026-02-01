@@ -304,7 +304,7 @@ Head links
       }
 
       .ask-plum-orb {
-        background: #4B1D6A;
+        background: transparent;
       }
 
       .faq-section {
@@ -345,9 +345,8 @@ Head links
 
       .faq-section .ask-plum-orb {
         width: clamp(220px, 28vw, 320px);
-        height: clamp(220px, 28vw, 320px);
         gap: clamp(0.5rem, 1.4vw, 1rem);
-        border-radius: 50%;
+        margin-top: clamp(10px, 2vh, 22px);
       }
 
       .faq-section .faq-orb-icon {
@@ -362,6 +361,11 @@ Head links
 
       .faq-section .faq-orb-text {
         font-size: clamp(1.2rem, 2.6vw, 1.95rem);
+      }
+
+      .faq-section .ask-plum-button {
+        background: #E65E04;
+        color: #ffffff;
       }
 
       .solve-real-icon {
@@ -718,6 +722,19 @@ Head links
           opacity: 1;
         }
       }
+      .footer-logo-video {
+        display: block;
+        width: clamp(120px, 35vw, 180px);
+        height: auto;
+        margin: 0 auto;
+      }
+
+      @media (min-width: 1024px) {
+        .footer-logo-video {
+          width: 27%;
+          margin: 0;
+        }
+      }
     </style>
   </head>
   <body class="bg-white dark:bg-background-5 is-loading">
@@ -888,14 +905,14 @@ Header
           class="lg:max-w-[669px] max-w-[500px] lg:mx-0 mx-auto w-full"
         >
           <img
-            src="images/ns-img-208.png"
-            alt="select-us-reason"
-            class="size-full dark:hidden"
+            src="images/our%20story.png"
+            alt="our story"
+            class="size-full rounded-2xl dark:hidden"
           />
           <img
-            src="images/ns-img-208.png"
-            alt="select-us-reason"
-            class="size-full dark:block hidden"
+            src="images/our%20story.png"
+            alt="our story"
+            class="size-full rounded-2xl dark:block hidden"
           />
         </figure>
       </div>
@@ -1040,7 +1057,7 @@ Header
         <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
           We won't sell you automation you don't need.
         </h2>
-        <p data-ns-animate data-delay="0.3" class="faq-tagline text-tagline-1">
+        <p data-ns-animate data-delay="0.3" class="faq-tagline text-tagline-1" style="color: #4B1D6A;">
           We'll find the bottleneck, fix it, and make sure you actually see results before we move on to the next thing.
         </p>
       </div>
@@ -1057,14 +1074,22 @@ Header
           data-direction="up"
           data-offset="40"
           class="ask-plum-orb flex flex-col items-center justify-center gap-4 cursor-pointer hover:scale-105 transition-transform duration-300"
-        >
-          <img
-            src="images/index/21- icon white.svg"
-            alt="Plum Icon"
-            class="faq-orb-icon"
-            loading="lazy"
-          />
-          <span class="faq-orb-text text-white font-medium">ask plum !</span>
+        ><span class="ask-plum-button group/btn-v2 inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 btn-orange-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase h-12 md:h-14 px-10 md:px-12"
+          >
+            <span class="inline-block transition-transform duration-300 ease-in-out">ask plum!</span>
+            <span class="relative overflow-hidden size-6">
+              <span
+                class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+              >
+                <img src="images/icons/new-arrow-white.svg" alt="arrow" class="size-full object-cover" loading="lazy" />
+              </span>
+              <span
+                class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+              >
+                <img src="images/icons/new-arrow-white.svg" alt="arrow" class="size-full object-cover" loading="lazy" />
+              </span>
+            </span>
+          </span>
         </a>
       </div>
     </div>
@@ -1072,11 +1097,12 @@ Header
 </section>
 
     </main>
+
     <!-- =========================
 Footer
 ===========================-->
 <footer class="footer footer-three dark:bg-background-8 relative bg-background-2 overflow-hidden">
-  <div class="main-container edge-safe">
+  <div class="main-container">
     <!-- footer bg-img  -->
  
 
@@ -1087,7 +1113,9 @@ Footer
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
             <figure>
-              <img src="images/shared/new%20icon.png" alt="plumcut" class="logo-responsive" />
+              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop>
+  <source src="images/loader compressed.mp4" type="video/mp4" />
+</video>
             </figure>
             <p class="mt-4 mb-7 text-secondary dark:text-accent">
               We design intelligent chatbots and automation systems that capture leads, book appointments, and handle customer inquiries 24/7. Based in Lebanon, built for businesses ready to scale.
@@ -1095,9 +1123,9 @@ Footer
           </div>
         </div>
       </div>
-      <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8 footer-outside-white">
-        <div class="col-span-12 md:col-span-4">
-          <div data-ns-animate data-delay="0.4" class="space-y-8">
+      <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8 footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
+        <div class="col-span-6 md:col-span-6">
+          <div data-ns-animate data-delay="0.4" class="space-y-8 text-center md:text-left text-white">
             <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
               Menu
             </p>
@@ -1117,32 +1145,13 @@ Footer
             </ul>
           </div>
         </div>
-        <div class="col-span-12 md:col-span-4">
-          <div data-ns-animate data-delay="0.5" class="space-y-8">
-            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
-              Legal
-            </p>
-            <ul class="space-y-5">
-              <li>
-                <a href="privacy-policy.html" class="footer-link-v2">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="terms-conditions.html" class="footer-link-v2">
-                  Terms & Conditions
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-span-12 md:col-span-4">
-          <div data-ns-animate data-delay="0.6" class="space-y-8">
+        <div class="col-span-6 md:col-span-6">
+          <div data-ns-animate data-delay="0.6" class="space-y-8 text-center md:text-left text-white">
             <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
               Socials
             </p>
             <div class="footer-social-white">
-              <a href="#" class="footer-social-link">
+              <a href="#" class="footer-social-link footer-social-instagram">
                 <span class="sr-only">Instagram</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1155,7 +1164,8 @@ Footer
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M11 1H5C2.79086 1 1 2.79086 1 5V11C1 13.2091 2.79086 15 5 15H11C13.2091 15 15 13.2091 15 11V5C15 2.79086 13.2091 1 11 1Z"
-                    class="stroke-secondary dark:stroke-accent"
+                    stroke="#ffffff"
+                    fill="none"
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1164,7 +1174,8 @@ Footer
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55871 10.6839 8.79565 11 8 11Z"
-                    class="stroke-secondary dark:stroke-accent"
+                    stroke="#ffffff"
+                    fill="none"
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1176,7 +1187,9 @@ Footer
                     height="2"
                     rx="1"
                     transform="rotate(-90 11 5)"
-                    class="fill-secondary dark:fill-accent"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
                   />
                   <rect
                     x="11.5"
@@ -1185,7 +1198,9 @@ Footer
                     height="1"
                     rx="0.5"
                     transform="rotate(-90 11.5 4.5)"
-                    class="stroke-secondary dark:stroke-accent"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
                     stroke-linecap="round"
                   />
                 </svg>
@@ -1225,7 +1240,7 @@ Footer
         </div>
       </div>
     </div>
-    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white">
+    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
       <div
         class="footer-divider absolute top-0 left-0 right-0 w-0 origin-center mx-auto h-px bg-stroke-2 dark:bg-accent/5"
       ></div>
@@ -1234,7 +1249,7 @@ Footer
         data-delay="0.7"
         data-offset="10"
         data-start="top 105%"
-        class="text-secondary dark:text-accent/60"
+        class="text-white"
       >
         © 2025 plumcut. All rights reserved. yes... we can automate it.
       </p>
@@ -1662,6 +1677,7 @@ Footer
 <script src="vendor/motionpathplugin.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
 <script src="vendor/springer.min.js"></script>
+<script src="vendor/number-counter.js"></script>
 <script src="vendor/stack-card.min.js"></script>
 
 
@@ -1732,18 +1748,7 @@ Footer
     const layers = Array.from(hero.querySelectorAll('[data-parallax-layer]'));
     if (!layers.length) return;
 
-    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-    const randomBetween = (min, max) => min + Math.random() * (max - min);
-    const readPercent = (bean, name, fallback) => {
-      const inlineValue = bean.style.getPropertyValue(name);
-      const computedValue = getComputedStyle(bean).getPropertyValue(name);
-      const raw = inlineValue || computedValue;
-      const parsed = parseFloat(raw);
-      return Number.isFinite(parsed) ? parsed : fallback;
-    };
-
     const layerMeta = new Map();
-    const randomizedBeans = new Set();
 
     layers.forEach((layer) => {
       const bean = layer.closest('.hero-bean');
@@ -1759,19 +1764,6 @@ Footer
       layerMeta.set(layer, { driftX, driftY, driftSpeed, driftPhase });
 
       if (bean) {
-        if (!randomizedBeans.has(bean)) {
-          const baseX = readPercent(bean, '--bean-x', 50);
-          const baseY = readPercent(bean, '--bean-y', 50);
-          const jitterX = randomBetween(8, 18);
-          const jitterY = randomBetween(8, 18);
-          const newX = clamp(baseX + randomBetween(-jitterX, jitterX), 6, 94);
-          const newY = clamp(baseY + randomBetween(-jitterY, jitterY), 6, 94);
-
-          bean.style.setProperty('--bean-x', `${newX.toFixed(2)}%`);
-          bean.style.setProperty('--bean-y', `${newY.toFixed(2)}%`);
-          randomizedBeans.add(bean);
-        }
-
         const floatRange = 18 + Math.random() * 35;
         const floatAngle = Math.random() * Math.PI * 2;
         const floatX = Math.cos(floatAngle) * floatRange;
@@ -1850,7 +1842,6 @@ Footer
 </script>
 
 </footer>
-
     
     <script>
       (function() {
