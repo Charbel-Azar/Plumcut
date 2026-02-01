@@ -256,7 +256,7 @@ Head links
       }
 
       .ask-plum-orb {
-        background: #4B1D6A;
+        background: transparent;
       }
 
       .faq-section {
@@ -297,23 +297,20 @@ Head links
 
       .faq-section .ask-plum-orb {
         width: clamp(220px, 28vw, 320px);
-        height: clamp(220px, 28vw, 320px);
         gap: clamp(0.5rem, 1.4vw, 1rem);
-        border-radius: 50%;
       }
-
-      .faq-section .faq-orb-icon {
-        width: clamp(110px, 14vw, 170px);
-        height: clamp(110px, 14vw, 170px);
-        padding: clamp(6px, 0.6vw, 10px);
-        box-sizing: border-box;
+      .faq-section .faq-orb-video {
+        width: clamp(180px, 24vw, 260px);
+        height: clamp(180px, 24vw, 260px);
         object-fit: contain;
-        object-position: center;
-     
+        display: block;
+        margin-top: clamp(6px, 1.5vh, 14px);
+        margin-bottom: clamp(6px, 1.5vh, 14px);
       }
 
-      .faq-section .faq-orb-text {
-        font-size: clamp(1.2rem, 2.6vw, 1.95rem);
+      .faq-section .ask-plum-button {
+        background: #4B1D6A;
+        color: #ffffff;
       }
 
       @keyframes ask-plum-wave {
@@ -1060,7 +1057,7 @@ Head links
             height: 100%;
             left: 50%;
             transform: translateX(-50%);
-            object-fit: cover;
+            object-fit: contain;
           }
         }
 
@@ -2952,7 +2949,7 @@ Testimonail section
     data-delay="0.1"
   >
     <div class="main-container relative z-30">
-      <div class="faq-intro text-center space-y-3 md:space-y-5 max-w-[720px] mx-auto lg:mb-[70px] mb-12">
+      <div class="faq-intro text-center space-y-3 md:space-y-5 max-w-[720px] mx-auto ">
         <span data-ns-animate data-delay="0.1" class="section-title-label justify-center">
           <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
           <span class="section-title-text">FAQ</span>
@@ -2976,13 +2973,25 @@ Testimonail section
           data-offset="40"
           class="ask-plum-orb flex flex-col items-center justify-center gap-4 cursor-pointer hover:scale-105 transition-transform duration-300"
         >
-          <img
-            src="images/index/21- icon white.svg"
-            alt="Plum Icon"
-            class="faq-orb-icon"
-            loading="lazy"
-          />
-          <span class="faq-orb-text text-white font-medium">ask plum !</span>
+          <video class="faq-orb-video pt-4 pb-4" autoplay muted playsinline loop>
+            <source src="images/loader compressed.mp4" type="video/mp4" />
+          </video>
+          <span class="ask-plum-button group/btn-v2 inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 btn-orange-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase h-12 md:h-14 px-10 md:px-12"
+          >
+            <span class="inline-block transition-transform duration-300 ease-in-out">ask plum!</span>
+            <span class="relative overflow-hidden size-6">
+              <span
+                class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+              >
+                <img src="images/icons/new-arrow-white.svg" alt="arrow" class="size-full object-cover" loading="lazy" />
+              </span>
+              <span
+                class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
+              >
+                <img src="images/icons/new-arrow-white.svg" alt="arrow" class="size-full object-cover" loading="lazy" />
+              </span>
+            </span>
+          </span>
         </a>
       </div>
     </div>
@@ -3789,5 +3798,27 @@ Footer
   </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
