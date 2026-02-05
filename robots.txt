@@ -2,4 +2,8 @@
 Allow: /
 Disallow: /assets/vendor/
 
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /assets/vendor/
+
 Sitemap: https://plumcut.com/sitemap.xml
