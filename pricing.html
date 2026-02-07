@@ -215,16 +215,36 @@ Head links
   href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@400&display=swap"
   rel="stylesheet"
 />
+<link
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@500&display=swap"
+  rel="stylesheet"
+/>
 
     <title>Pricing | Plumcut - AI Chatbots & Business Automation</title>
     
     <link rel="stylesheet" href="assets/main.css">
     
     <style>
-      /* Apply Alan Sans Regular 400 to all elements */
+      /* Apply Alan Sans across the page while allowing weight overrides */
+      body {
+        font-weight: 400;
+      }
+
       body * {
         font-family: 'Alan Sans', sans-serif !important;
-        font-weight: 400 !important;
+      }
+
+      main h2 {
+        font-size: var(--text-heading-6) !important;
+        line-height: var(--tw-leading, var(--text-heading-6--line-height)) !important;
+        text-transform: uppercase !important;
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+      }
+
+      main p {
+        text-align: center !important;
       }
 
       .section-title-label {
@@ -260,31 +280,10 @@ Head links
         font-weight: 500 !important;
       }
 
-      .section-title-badge {
-        --badge-shadow-alpha: 0;
-        --badge-shadow-blur: 28px;
-        --badge-shadow-y: 16px;
-        font-size: calc(var(--text-tagline-1) * 1.2);
-        line-height: var(--tw-leading, var(--text-tagline-1--line-height));
-        padding-inline: calc(var(--spacing) * 6);
-        padding-block: calc(var(--spacing) * 2);
-        margin-top: calc(var(--spacing) * 4);
-        margin-bottom: calc(var(--spacing) * 8);
-        box-shadow: 0 var(--badge-shadow-y) var(--badge-shadow-blur)
-          rgba(0, 0, 0, var(--badge-shadow-alpha));
-        transition: box-shadow 0.6s ease;
-        will-change: box-shadow;
-      }
-
-      .section-title-badge + h2 {
-        font-size: var(--text-heading-6);
-        line-height: var(--tw-leading, var(--text-heading-6--line-height));
-      }
-
       @media (min-width: 40rem) {
-        .section-title-badge + h2 {
-          font-size: var(--text-heading-5);
-          line-height: var(--tw-leading, var(--text-heading-5--line-height));
+        main h2 {
+          font-size: var(--text-heading-5) !important;
+          line-height: var(--tw-leading, var(--text-heading-5--line-height)) !important;
         }
 
         .section-title-heading {
@@ -294,9 +293,9 @@ Head links
       }
 
       @media (min-width: 48rem) {
-        .section-title-badge + h2 {
-          font-size: var(--text-heading-4);
-          line-height: var(--tw-leading, var(--text-heading-4--line-height));
+        main h2 {
+          font-size: var(--text-heading-4) !important;
+          line-height: var(--tw-leading, var(--text-heading-4--line-height)) !important;
         }
 
         .section-title-heading {
@@ -306,9 +305,9 @@ Head links
       }
 
       @media (min-width: 80rem) {
-        .section-title-badge + h2 {
-          font-size: var(--text-heading-3);
-          line-height: var(--tw-leading, var(--text-heading-3--line-height));
+        main h2 {
+          font-size: var(--text-heading-3) !important;
+          line-height: var(--tw-leading, var(--text-heading-3--line-height)) !important;
         }
 
         .section-title-heading {
@@ -353,13 +352,13 @@ Head links
       .faq-section .section-title-label {
         font-size: calc(var(--text-tagline-1) * 1.5);
         gap: 0.8rem;
-        color: #ffffff;
+        color: #E65E04;
       }
 
       .faq-section .section-title-bullet {
         width: 1.75rem;
         height: 1.75rem;
-        filter: brightness(0) invert(1);
+        filter: none;
       }
 
       .faq-section .section-title-heading {
@@ -404,10 +403,6 @@ Head links
       }
 
       .faq-section .section-title-text {
-        color: #ffffff;
-      }
-
-      .faq-section #faq-heading {
         color: #E65E04;
       }
 
@@ -594,7 +589,7 @@ Head links
 
       .pc-nav-link.is-active {
         font-size: var(--pc-nav-font-size-active);
-        font-weight: 600;
+        font-weight: 600 !important;
         opacity: 1;
       }
 
@@ -1214,18 +1209,18 @@ Pricing section
 <section data-ns-animate data-delay="0.1" class="pricing-section pt-23">
   <div class="max-w-[1440px] w-full mx-auto rounded-2xl space-y-[50px] md:space-y-[70px] bg-background-1 dark:bg-black py-[60px] md:py-[100px] px-5 md:px-6 lg:px-10 xl:px-16">
     <div class="max-w-2xl mx-auto text-center space-y-3">
-      <span data-ns-animate data-delay="0.2" class="section-title-label mb-5">
+      <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
         <img
           class="section-title-bullet"
           src="images/index/Bullet-Orange.svg"
           alt=""
           aria-hidden="true"
         />
-        <span class="section-title-text" style="color:#E65E04;">Pricing</span>
+        <span class="section-title-text">Pricing</span>
       </span>
-      <h1 data-ns-animate data-delay="0.3" style="color:#481D52;">
-        AI Chatbot & Automation Pricing Plans
-      </h1>
+      <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
+        AI Chatbot & Automation <br>Pricing Plans
+      </h2>
     </div>
 
     <!-- Desktop Table View -->
@@ -1484,10 +1479,10 @@ FAQ section
   <div class="main-container">
     <div class="flex items-center flex-col gap-8 lg:gap-0 lg:flex-row justify-between">
       <!-- faq content -->
-      <div class="space-y-14 text-center lg:text-left flex-1">
+      <div class="space-y-5 text-center lg:text-left flex-1">
         <!-- faq heading  -->
-        <div class="space-y-5">
-          <span class="section-title-label mb-5">
+        <div class="">
+          <span class="section-title-label">
             <img
               class="section-title-bullet"
               src="images/index/Bullet-Orange.svg"
@@ -1496,12 +1491,6 @@ FAQ section
             />
             <span class="section-title-text">FAQ</span>
           </span>
-          <h2
-            class="lg:max-w-[439px] mx-auto lg:mx-0"
-            id="faq-heading"
-          >
-            Frequently asked questions
-          </h2>
         </div>
 
         <!-- faq image (mobile) -->
@@ -2069,7 +2058,7 @@ Footer
         data-start="top 105%"
         class="text-white"
       >
-        © 2025 plumcut. All rights reserved. yes... we can automate it.
+        © 2025 plumcut. All rights reserved.
       </p>
     </div>
   </div>
@@ -2105,7 +2094,7 @@ Footer
   >
     <div class="max-w-[1560px] md:px-4 min-[1880px]:!px-0 mx-auto">
       <div class="mb-12 text-center">
-        <h2 class="font-normal text-center text-secondary">38+ Pre-built websites</h2>
+        <h3 class="font-normal text-center text-secondary">38+ Pre-built websites</h3>
       </div>
 
       <div id="demo-showcase-list" class="grid grid-cols-12 xl:gap-6 sm:gap-3 gap-y-5"></div>
@@ -2398,11 +2387,11 @@ Footer
               />
             </figure>
 
-            <h2
+            <h3
               class="text-lg text-center font-medium text-secondary  leading-[150%] flex items-center justify-center gap-2 py-4"
             >
               ${item.title} ${item.newRelease ? '<span class="text-secondary bg-ns-green rounded-full px-5 py-[5px] rounded-[35px] text-tagline-2">New</span>' : ''}
-            </h2>
+            </h3>
           </div>
         </a>
       </div>
@@ -2661,415 +2650,7 @@ Footer
 
 </footer>
 
-<div
-  id="demo-showcase"
-  class="demo-showcase-container demo-showcase-closed fixed top-0 left-0 w-full h-screen z-[99999]"
-  data-lenis-prevent="true"
->
-  <button
-    id="demo-showcase-close"
-    class="fixed top-5 lg:top-10 right-5 lg:right-10 z-[999999] bg-secondary rounded-[80px] shadow-[0_1px_2px_0_rgba(0,0,0,0.15)] p-2 lg:p-4 flex items-center justify-center cursor-pointer border-6 lg:border-8 border-white"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="stroke-white"
-    >
-      <path d="M18 6 6 18" />
-      <path d="m6 6 12 12" />
-    </svg>
-  </button>
 
-  <div
-    class="fixed top-0 left-0 w-full h-screen overflow-y-auto bg-background-12 pt-14 pb-16"
-    style="touch-action: pan-y; -webkit-overflow-scrolling: touch; overscroll-behavior: contain"
-  >
-    <div class="max-w-[1560px] md:px-4 min-[1880px]:!px-0 mx-auto">
-      <div class="mb-12 text-center">
-        <h2 class="font-normal text-center text-secondary">38+ Pre-built websites</h2>
-      </div>
-
-      <div id="demo-showcase-list" class="grid grid-cols-12 xl:gap-6 sm:gap-3 gap-y-5"></div>
-    </div>
-  </div>
-</div>
-
-<style>
-  .demo-showcase-container {
-    transform-origin: center center;
-    backface-visibility: hidden;
-    will-change: transform, opacity, filter;
-    transition:
-      transform 0.9s cubic-bezier(0.23, 1, 0.32, 1),
-      opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
-      filter 0.9s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .demo-showcase-closed {
-    transform: translateX(100%) scale(0.65) rotateY(20deg);
-    opacity: 0;
-    filter: blur(22px);
-  }
-
-  .demo-showcase-open {
-    transform: translateX(0) scale(1) rotateY(0deg);
-    opacity: 1;
-    filter: blur(0px);
-  }
-</style>
-
-<script>
-  const demoShowcaseList = [
-    {
-      title: 'AI Applications',
-      href: './index.html',
-      image: 'https://images.prismic.io/staticmania/aRQlJrpReVYa4XSY_AI-Application.jpg',
-      newRelease: true,
-    },
-    {
-      title: 'AI Gadget',
-      href: './ai-gadgets.html',
-      image: 'https://images.prismic.io/staticmania/aRQlKLpReVYa4XSa_AI-Gadget.jpg',
-      newRelease: true,
-    },
-    {
-      title: 'AI Resume Builder',
-      href: './ai-resume-builder.html',
-      image: 'https://images.prismic.io/staticmania/aRQlKbpReVYa4XSb_AI-ResumeBuilder.jpg',
-      newRelease: true,
-    },
-    {
-      title: 'Crypto Marketing',
-      href: './crypto-marketing.html',
-      image: 'https://images.prismic.io/staticmania/aRQlMLpReVYa4XSi_Crypto-Marketing.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'AI Software',
-      href: './ai-software.html',
-      image: 'https://images.prismic.io/staticmania/aRQlKrpReVYa4XSc_AI-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'AI Chatbot',
-      href: './ai-chatbot.html',
-      image: 'https://images.prismic.io/staticmania/aRQlJ7pReVYa4XSZ_AI-Chatbot.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Web Hosting',
-      href: './web-hosting.html',
-      image: 'https://images.prismic.io/staticmania/aRQlSrpReVYa4XS8_Web-Hosting.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Analytics & Reporting',
-      href: './analytics-and-reporting.html',
-      image: 'https://images.prismic.io/staticmania/aRQlK7pReVYa4XSd_Analytics-Reporting.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Financial Application',
-      href: './financial-application.html',
-      image: 'https://images.prismic.io/staticmania/aRQlNrpReVYa4XSo_Financial-Application.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Payment Solutions',
-      href: './payment-solution.html',
-      image: 'https://images.prismic.io/staticmania/aRQlQLpReVYa4XSy_Payment-Solutions.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Online Banking',
-      href: './online-banking.html',
-      image: 'https://images.prismic.io/staticmania/aRQlP7pReVYa4XSx_Online-Banking.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Cloud Based Software',
-      href: './cloud-software.html',
-      image: 'https://images.prismic.io/staticmania/aRQlLrpReVYa4XSg_Cloud-Based-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Cyber Security',
-      href: './cyber-security.html',
-      image: 'https://images.prismic.io/staticmania/aRQlMbpReVYa4XSj_Cyber-Security.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Email Marketing',
-      href: './email-marketing.html',
-      image: 'https://images.prismic.io/staticmania/aRQlNbpReVYa4XSn_Email-Marketing.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Lead Capture',
-      href: './lead-capture.html',
-      image: 'https://images.prismic.io/staticmania/aRQlOrpReVYa4XSs_Lead-Capture.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Messaging Platform',
-      href: './messaging-platform.html',
-      image: 'https://images.prismic.io/staticmania/aRQlO7pReVYa4XSt_Messaging-Platform.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Mortgage Services',
-      href: './mortgage-services.html',
-      image: 'https://images.prismic.io/staticmania/aRQlPbpReVYa4XSv_Mortgage-Services.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Creative Portfolio',
-      href: './creative-portfolio.html',
-      image: 'https://images.prismic.io/staticmania/aRQlL7pReVYa4XSh_Creative-Portfolio.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'App Builder',
-      href: './app-builder.html',
-      image: 'https://images.prismic.io/staticmania/aRQlLLpReVYa4XSe_App-Builder.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'App Development',
-      href: './app-development.html',
-      image: 'https://images.prismic.io/staticmania/aRQlLbpReVYa4XSf_App-Development.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'AI Agency',
-      href: './ai-agency.html',
-      image: 'https://images.prismic.io/staticmania/aRQlJrpReVYa4XSX_AI-Agency.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Smart Solutions',
-      href: './smart-solutions.html',
-      image: 'https://images.prismic.io/staticmania/aRQlRrpReVYa4XS4_Smart-Solutions.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Risk Management Software',
-      href: './risk-management-software.html',
-      image: 'https://images.prismic.io/staticmania/aRQlRLpReVYa4XS2_Risk-Management-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Personal Finance',
-      href: './personal-finance.html',
-      image: 'https://images.prismic.io/staticmania/aRQlQbpReVYa4XSz_Personal-Finance.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Mobile Management Software',
-      href: './mobile-management-software.html',
-      image:
-        'https://images.prismic.io/staticmania/aRQlPLpReVYa4XSu_Mobile-Management-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Investment Management',
-      href: './investment-management.html',
-      image: 'https://images.prismic.io/staticmania/aRQlObpReVYa4XSr_Investment-Management.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Insurance Software',
-      href: './insurance.html',
-      image: 'https://images.prismic.io/staticmania/aRQlOLpReVYa4XSq_Insurance.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Property Management',
-      href: './property-management-software.html',
-      image:
-        'https://images.prismic.io/staticmania/aRQlQ7pReVYa4XS1_Property-Management-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'POS System',
-      href: './pos-system.html',
-      image: 'https://images.prismic.io/staticmania/aRQlQrpReVYa4XS0_POS-System.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Social Media Management',
-      href: './social-media-management.html',
-      image: 'https://images.prismic.io/staticmania/aRQlR7pReVYa4XS5_Social-Media-Management.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Nuvexa CRM',
-      href: './nuvexa-crm.html',
-      image: 'https://images.prismic.io/staticmania/aRQlPrpReVYa4XSw_Nuvexa-CRM.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Wealth Management',
-      href: './wealth-management.html',
-      image: 'https://images.prismic.io/staticmania/aRQlSbpReVYa4XS7_Wealth-Management.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Security Software',
-      href: './security-software.html',
-      image: 'https://images.prismic.io/staticmania/aRQlRbpReVYa4XS3_Security-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Time Tracking',
-      href: './time-tracking.html',
-      image: 'https://images.prismic.io/staticmania/aRQlSLpReVYa4XS6_Time-Tracking.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Data Visualization',
-      href: './data-visualization.html',
-      image:
-        'https://images.prismic.io/staticmania/aRQlMrpReVYa4XSk_Data-Visualization-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Digital Marketing Agency',
-      href: './digital-marketing.html',
-      image: 'https://images.prismic.io/staticmania/aRQlNLpReVYa4XSm_Digital-Marketing-Agency.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Forex Trading',
-      href: './forex-trading.html',
-      image: 'https://images.prismic.io/staticmania/aRQlOLpReVYa4XSp_Forex-Trading.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Decentralized Finance',
-      href: './decentralized-finance.html',
-      image: 'https://images.prismic.io/staticmania/aRQlM7pReVYa4XSl_Decentralized-Finance.jpg',
-      newRelease: false,
-    },
-  ];
-
-  const demoShowcaseAnimation = {
-    init() {
-      const demoShowcase = document.querySelector('#demo-showcase');
-      const demoShowcaseClose = document.querySelector('#demo-showcase-close');
-      const demoShowcaseListContainer = document.querySelector('#demo-showcase-list');
-
-      if (demoShowcaseListContainer && demoShowcaseList) {
-        demoShowcaseListContainer.innerHTML = demoShowcaseList
-          .map(
-            (item, index) =>
-              `
-      <div class="col-span-12 md:col-span-6 xl:col-span-4">
-        <a href="${item.href}" data-card-index="${index}"
-          class="demo-card block border cursor-pointer border-stroke-3 group hover:border-primary-400  transition-all duration-300 ease-in-out  max-w-[500px] mx-auto rounded-[36px] p-2"
-        >
-          <div
-            class="p-2 bg-white  rounded-[28px] shadow-[0_1px_4px_0_rgba(16,24,40,0.10)] group-hover:shadow-[0_8px_6px_0_rgba(16,24,40,0.16)] transition-all duration-400 ease-in-out"
-          >
-            <figure class="max-h-[351px] rounded-[20px] overflow-hidden">
-              <img
-                src="${item.image}"
-                alt="Demo Showcase"
-                class="w-full h-full object-cover "
-              />
-            </figure>
-
-            <h2
-              class="text-lg text-center font-medium text-secondary  leading-[150%] flex items-center justify-center gap-2 py-4"
-            >
-              ${item.title} ${item.newRelease ? '<span class="text-secondary bg-ns-green rounded-full px-5 py-[5px] rounded-[35px] text-tagline-2">New</span>' : ''}
-            </h2>
-          </div>
-        </a>
-      </div>
-    `
-          )
-          .join('');
-
-        const setActiveCard = (card) => {
-          const allCards = demoShowcaseListContainer.querySelectorAll('.demo-card');
-          allCards.forEach((c) => {
-            c.classList.remove('active');
-            c.classList.remove('border-primary-500');
-            c.classList.remove('border-2');
-            c.classList.add('border-stroke-3');
-          });
-
-          if (card) {
-            card.classList.add('active');
-            card.classList.remove('border-stroke-3');
-            card.classList.add('border-primary-500');
-            card.classList.add('border-2');
-          }
-        };
-
-        // Restore active state from localStorage on page load, or set first card as default
-        const activeCardHref = localStorage.getItem('activeDemoCard');
-        if (activeCardHref) {
-          const activeCard = demoShowcaseListContainer.querySelector(
-            `.demo-card[href="${activeCardHref}"]`
-          );
-          if (activeCard) {
-            setActiveCard(activeCard);
-          } else {
-            const firstCard = demoShowcaseListContainer.querySelector('.demo-card');
-            if (firstCard) {
-              setActiveCard(firstCard);
-              localStorage.setItem('activeDemoCard', firstCard.getAttribute('href'));
-            }
-          }
-        } else {
-          //  set first card as active by default
-          const firstCard = demoShowcaseListContainer.querySelector('.demo-card');
-          if (firstCard) {
-            setActiveCard(firstCard);
-            localStorage.setItem('activeDemoCard', firstCard.getAttribute('href'));
-          }
-        }
-
-        const demoCards = demoShowcaseListContainer.querySelectorAll('.demo-card');
-        demoCards.forEach((card) => {
-          card.addEventListener('click', (e) => {
-            const cardHref = card.getAttribute('href');
-
-            localStorage.setItem('activeDemoCard', cardHref);
-
-            setActiveCard(card);
-          });
-        });
-      }
-      if (demoShowcaseClose) {
-        demoShowcaseClose.addEventListener('click', () => {
-          // Remove open class first
-          demoShowcase.classList.remove('demo-showcase-open');
-          // Use requestAnimationFrame to ensure smooth transition
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              // Add closed class for reverse animation
-              demoShowcase.classList.add('demo-showcase-closed');
-            });
-          });
-          document.body.style.overflow = 'auto';
-        });
-      }
-    },
-  };
-
-  if (typeof window !== 'undefined') {
-    demoShowcaseAnimation.init();
-  }
-</script>
 
   <script src="vendor/swiper.min.js"></script>
 <script src="vendor/leaflet.min.js"></script>

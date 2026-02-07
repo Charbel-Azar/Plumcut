@@ -266,6 +266,11 @@ Head links
         color: #ffffff;
       }
 
+      .services-section .services-intro.services-copy-match {
+        font-size: var(--text-tagline-1) !important;
+        line-height: var(--tw-leading, var(--text-tagline-1--line-height)) !important;
+      }
+
       .services-section .hover-soft-card {
         position: relative;
         overflow: hidden;
@@ -304,10 +309,6 @@ Head links
         opacity: 0.88;
       }
 
-      .ask-plum-orb {
-        background: transparent;
-      }
-
       .faq-section {
         padding-bottom: clamp(3rem, 6vw, 5.5rem);
       }
@@ -344,12 +345,6 @@ Head links
         font-size: clamp(1.2rem, 2.2vw, 1.7rem);
       }
 
-      .faq-section .ask-plum-orb {
-        width: clamp(220px, 28vw, 320px);
-        gap: clamp(0.5rem, 1.4vw, 1rem);
-        margin-top: clamp(10px, 2vh, 22px);
-      }
-
       .footer-logo-video {
         display: block;
         width: clamp(120px, 35vw, 180px);
@@ -382,29 +377,6 @@ Head links
       .footer-columns-white .footer-social-instagram svg .stroke-secondary {\r\n        stroke: #ffffff !important;\r\n      }
 
       .footer-columns-white .footer-social-instagram svg .fill-secondary {\r\n        fill: none !important;\r\n      }
-
-      .faq-section .ask-plum-button {
-        background: #FF8C00;
-        color: #ffffff;
-      }
-
-      @keyframes ask-plum-wave {
-        0% {
-          background-position: 0% 0%;
-        }
-        25% {
-          background-position: 100% 0%;
-        }
-        50% {
-          background-position: 100% 100%;
-        }
-        75% {
-          background-position: 0% 100%;
-        }
-        100% {
-          background-position: 0% 0%;
-        }
-      }
 
       .services-section .hover-soft-card:hover {
         background: transparent;
@@ -793,8 +765,8 @@ Head links
 
       .hero-mantra-line {
         width: 4px;
-        height: clamp(3rem, 6vw, 4.5rem);
-        background: rgba(255, 255, 255, 0.85);
+        height: clamp(4rem, 4vw, 7rem);
+        background: #E65E04;
         border-radius: 999px;
       }
 
@@ -824,6 +796,10 @@ Head links
         backdrop-filter: blur(20px) saturate(180%);
         -webkit-backdrop-filter: blur(20px) saturate(180%);
         animation: hero-cta-glass 6s ease-in-out infinite;
+        transition:
+          color 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
       }
 
       .hero-cta-button:hover {
@@ -852,6 +828,73 @@ Head links
       .hero-cta-button > * {
         position: relative;
         z-index: 2;
+      }
+
+      .hero-cta-button--hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.45);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .hero-cta-button--hero:hover {
+        border-color: rgba(255, 255, 255, 0.95);
+        box-shadow:
+          0 26px 55px rgba(14, 6, 26, 0.35),
+          inset 0 1px 3px rgba(255, 255, 255, 0.95),
+          inset 0 -12px 26px rgba(255, 255, 255, 0.35);
+      }
+
+      .hero-cta-button--hero:hover::before {
+        opacity: 1;
+      }
+
+      .faq-section .hero-cta-button--faq {
+        position: relative;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.28) 0%,
+            rgba(255, 255, 255, 0.1) 46%,
+            rgba(255, 255, 255, 0.22) 100%
+          ),
+          linear-gradient(160deg, #4B1D6A 0%, #3D1857 100%);
+        background-size: 220% 100%, 100% 100%;
+        background-position: 0% 50%, 0 0;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        box-shadow:
+          0 20px 40px rgba(20, 10, 34, 0.45),
+          inset 0 1px 2px rgba(255, 255, 255, 0.45),
+          inset 0 -8px 22px rgba(255, 255, 255, 0.12);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition:
+          color 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .faq-section .hero-cta-button--faq::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #481D52;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .faq-section .hero-cta-button--faq:hover {
+        color: #ffffff;
+      }
+
+      .faq-section .hero-cta-button--faq:hover::before {
+        opacity: 1;
       }
 
       @keyframes hero-cta-glass {
@@ -891,13 +934,34 @@ Head links
         }
       }
 
+      @media (min-width: 64rem) {
+        [data-hero-parallax] .main-container.hero-content,
+        [data-hero-parallax] .main-container {
+          max-width: 1920px !important;
+        }
+
+        [data-hero-parallax] .hero-top-row {
+          max-width: 1920px;
+          padding-inline: clamp(0.5rem, 0, 1.25rem);
+        }
+
+        [data-hero-parallax] .hero-content > .mt-10 {
+          padding-inline: clamp(0.5rem, 1vw, 1.25rem);
+        }
+      }
+
       [data-hero-parallax] .hero-top-row {
-        margin-bottom: clamp(2.5rem, 4vw, 4rem);
+    
         gap: clamp(1.5rem, 3vw, 2.5rem);
       }
 
       [data-hero-parallax] .hero-copy {
         gap: clamp(1.25rem, 2.8vw, 2.25rem);
+      }
+
+      [data-hero-parallax] .hero-copy.hero-copy-right {
+        text-align: right;
+        align-items: flex-end;
       }
 
       [data-hero-parallax] .hero-copy p {
@@ -918,8 +982,8 @@ Head links
         gap: clamp(2rem, 4vw, 3.5rem);
       }
 
-      [data-hero-parallax] .hero-content > .mt-12 h3 {
-        font-size: clamp(1.4rem, 2.7vw, 2.15rem);
+      [data-hero-parallax] .hero-copy-size-match {
+        font-size: clamp(1.35rem, 2.6vw, 2rem) !important;
       }
 
       [data-hero-parallax] .hero-content > .mt-12 p {
@@ -997,12 +1061,17 @@ Head links
         }
 
         [data-hero-parallax] .hero-mantra-line {
-          height: clamp(2.5rem, 9vw, 3.25rem);
+          height: clamp(2rem, 7vw, 2.8rem);
         }
 
         [data-hero-parallax] .hero-copy {
           text-align: left;
           align-items: flex-start;
+        }
+
+        [data-hero-parallax] .hero-copy.hero-copy-right {
+          text-align: right;
+          align-items: flex-end;
         }
 
         [data-hero-parallax] .hero-copy p {
@@ -1011,12 +1080,12 @@ Head links
         }
 
         [data-hero-parallax] .hero-cta {
-          align-items: flex-end;
-          text-align: right;
+          align-items: center;
+          text-align: center;
         }
 
         [data-hero-parallax] .hero-cta > div {
-          align-items: flex-end;
+          align-items: center;
         }
       }
 
@@ -1470,43 +1539,39 @@ Header
         </div>
       </div>
 
-    <div class="main-container hero-content relative z-20 pt-10 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
+    <div class="main-container hero-content relative z-20 pt-10 pb-14 sm:pt-12 lg:pt-14 lg:pb-20">
       <div class="hero-top-row-wrapper w-full">
-        <div class="hero-top-row flex flex-col gap-4 mb-12 sm:flex-row sm:items-center sm:justify-between max-w-[1800px] mx-auto px-[clamp(1rem,2vw,2rem)]">
+        <div class="hero-top-row flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between max-w-[1800px] mx-auto px-[clamp(1rem,2vw,2rem)]">
           <img
             src="images/index/plumcut-wordmark.png"
             alt="plumcut"
             class="hero-wordmark"
             loading="lazy"
           />
-          <div class="hero-mantra-wrap flex items-center gap-4 lg:gap-5 w-full sm:w-auto sm:justify-end">
-            <div class="hero-mantra text-white text-xl sm:text-2xl lg:text-3xl uppercase leading-tight text-left sm:text-right">
-              <span class="block">CUT THE WORK</span>
-              <span class="block">KEEP GROWING</span>
-            </div>
-            <span class="hero-mantra-line"></span>
-          </div>
-        </div>
+      
       </div>
       <div class="mt-10 grid grid-cols-1 gap-7 lg:mt-16 lg:grid-cols-12  px-[clamp(1rem,2vw,2rem)]">
 
-        <div class="hero-copy lg:col-span-6 flex flex-col gap-4 lg:gap-6 lg:pt-4 lg:mt-2">
-          <p class="text-brand-orange text-xl sm:text-2xl font-semibold max-w-[600px]">
-            AI-powered automation infrastructure for businesses to scale.
-          </p>
-          <h1 class="text-white text-lg sm:text-xl lg:text-2xl font-bold leading-tight">
+        <div class="hero-copy hero-copy-right lg:col-span-6 flex flex-col gap-4 lg:gap-6 lg:pt-4 lg:mt-2">
+          <div class="flex w-full items-center justify-end gap-3">
+            <p class="text-brand-orange text-xl sm:text-2xl font-semibold max-w-[600px] text-right">
+              Intelligence, personalized and responsive
+            </p>
+            <span class="hero-mantra-line"></span>
+          </div>
+          <h1 class="w-full text-left text-white text-lg sm:text-xl lg:text-2xl font-bold leading-tight">
             <span class="block">AI Chatbots <br>& Business Automation</span>
           </h1>
+          
         </div>
 
-        <div class="hero-cta mt-8 lg:col-span-6 flex flex-col items-start lg:items-end text-left lg:text-right gap-6 lg:gap-10 lg:pt-4 lg:mt-6 lg:justify-self-end">
-          <div class="flex flex-col items-start lg:items-end gap-3">
-            <p class="text-white text-lg sm:text-xl lg:text-2xl font-semibold">Ready to Cut?</p>
-            <a
+        <div class="hero-cta mt-8 lg:col-span-6 flex flex-col items-center text-center gap-6 lg:gap-10 lg:pt-4 lg:mt-6">
+          <div class="flex w-full flex-col text-center items-center gap-3">
+             <a
               href="https://wa.me/96178860758?text=Hi%20plum!"
               target="_blank"
               rel="noopener noreferrer"
-              class="hero-cta-button inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
+              class="hero-cta-button hero-cta-button--hero inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
             >
               <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
                 <img
@@ -1524,12 +1589,11 @@ Header
       </div>
 
       <div class="mt-12 text-center lg:mt-16">
-        <h3 class="text-brand-orange text-xl sm:text-2xl lg:text-3xl font-semibold">
+        <h2 class="text-brand-orange hero-copy-size-match font-semibold">
           you name it... we automate it...
-        </h3>
+        </h2>
         <p class="mt-3 text-white text-base sm:text-lg max-w-[900px] mx-auto">
-          We design intelligent chatbots and automation systems that capture leads, qualify prospects, book appointments, process orders, handle complaints, and never take a day off. They speak your brand's voice. They remember your customers. They integrate with the tools you already use.
-        </p>
+Every business is different, but they all share one thing: repetitive tasks that slow them down. Our solutions are intelligent enough to make decisions, personal enough to feel human, and responsive enough to never miss a beat </p>
       </div>
 
       <div class="mt-8 lg:mt-10">
@@ -1556,7 +1620,7 @@ Features section
           <span class="section-title-text">Features</span>
         </span>
         <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
-          Powerful automation that works while you sleep.
+          Powerful automation that <br>works while you sleep
         </h2>
       </div>
 
@@ -1759,9 +1823,9 @@ Services section
         <span class="section-title-text">Our Services</span>
       </span>
       <h2 data-ns-animate data-delay="0.2" class="section-title-heading md:mb-3 mb-1">
-        Everything you need to automate your business.
+        Everything you need to automate your business
       </h2>
-      <p data-ns-animate data-delay="0.3" class="lg:max-w-[530px] lg:mx-auto services-intro">
+      <p data-ns-animate data-delay="0.3" class="text-tagline-1 text-secondary/60 text-white">
         From the first "hello" to the final receipt, we've built solutions for every step of your customer journey.
       </p>
     </div>
@@ -1844,7 +1908,7 @@ Services section
             <blockquote class="space-y-2">
               <h3 class="text-heading-5 md:text-heading-4">AI-Powered Conversations</h3>
               <p class="text-tagline-1 text-secondary/60">
-                Smart conversations that actually understand context. Natural language processing, image recognition, voice transcription, sentiment detection, and multilingual support. Your bot gets smarter every day.
+                Smart conversations that actually understand context. Natural language processing, image recognition, voice transcription, sentiment detection, and multilingual support.
               </p>
             </blockquote>
 
@@ -1961,7 +2025,7 @@ Services section
         >
           <a
             href="services.html#services"
-            class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 btn-orange-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase w-full md:w-auto mx-auto h-14 md:h-16 px-12 md:px-14"
+            class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 btn-orange-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap w-full md:w-auto mx-auto h-14 md:h-16 px-12 md:px-14"
           >
             <span class="inline-block transition-transform duration-300 ease-in-out">Learn more</span>
 
@@ -2007,7 +2071,7 @@ How It's Work section
         <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
         <span class="section-title-text">How It Works</span>
       </span>
-      <h2 data-ns-animate data-delay="0.2" class="section-title-heading mb-3">From chaos to system in three steps.</h2>
+      <h2 data-ns-animate data-delay="0.2" class="section-title-heading mb-3">From chaos to system <br>in three steps</h2>
    
     </div>
 
@@ -2022,7 +2086,7 @@ How It's Work section
         class="w-full how-it-works-card"
       >
         <img
-          src="images/index/3 Steps - Cards/3steps-A-shape.svg"
+          src="images/index/3 Steps - Cards/3steps-A-updated.svg"
           alt="Step A: Capture & Qualify"
           class="w-full h-auto block"
         />
@@ -2037,7 +2101,7 @@ How It's Work section
         class="w-full how-it-works-card"
       >
         <img
-          src="images/index/3 Steps - Cards/3steps-B-shape.svg"
+          src="images/index/3 Steps - Cards/3steps-B-updated.svg"
           alt="Step B: Engage & Support"
           class="w-full h-auto block"
         />
@@ -2052,7 +2116,7 @@ How It's Work section
         class="w-full how-it-works-card"
       >
         <img
-          src="images/index/3 Steps - Cards/3steps-C-shape.svg"
+          src="images/index/3 Steps - Cards/3steps-C-updated.svg"
           alt="Step C: Convert & Scale"
           class="w-full h-auto block"
         />
@@ -2080,8 +2144,8 @@ Case Study section
           <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" />
           <span class="section-title-text">Case Study</span>
         </span>
-        <h2 data-ns-animate data-delay="0.1" class="section-title-heading">yes... we can scale it</h2>
-        <p data-ns-animate data-delay="0.2" class="max-w-[680px] mx-auto case-study-intro">
+        <h2 data-ns-animate data-delay="0.1" class="section-title-heading">Designed to Scale With Your Business</h2>
+        <p data-ns-animate data-delay="0.2" class="text-tagline-1 text-secondary/60 text-white">
           We don't do generic demos. Here's what automation actually looks like when it's built for how you work.
         </p>
       </div>
@@ -2104,7 +2168,7 @@ Case Study section
                 E-commerce Store captures 3x more leads with WhatsApp automation
               </h3>
               <p class="w-full text-left case-study-description">
-                The cherry on top of your online store, a 24/7 sales assistant that qualifies, recommends, and converts while you sleep. Response time dropped from 4 hours to 30 seconds.
+                The cherry on top of your online store, a 24/7 sales assistant that qualifies, recommends, and converts. Response time dropped from 1 hour to 30 seconds.
               </p>
             </div>
           </figure>
@@ -2122,11 +2186,10 @@ Case Study section
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
-                Furniture Store cuts support time by 75%
+                FFurniture Store boosts sales by 60%
               </h3>
               <p class="w-full text-left case-study-description">
-                Full e-commerce automation from "Is this in stock?" to "Your order is out for delivery." Conversion rate up 40%.
-              </p>
+             Customers visualize furniture in their homes. From "Will this fit my living room?" to "Your sofa is on its way." Fewer returns, more confidence, more sales. </p>
             </div>
           </figure>
         </div>
@@ -2586,23 +2649,18 @@ Testimonail section
           data-delay="0.4"
           data-direction="up"
           data-offset="40"
-          class="ask-plum-orb flex flex-col items-center justify-center gap-4 cursor-pointer hover:scale-105 transition-transform duration-300"
-        ><span class="ask-plum-button group/btn-v2 inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 btn-orange-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap lowercase h-12 md:h-14 px-10 md:px-12"
-          >
-            <span class="inline-block transition-transform duration-300 ease-in-out">ask plum!</span>
-            <span class="relative overflow-hidden size-6">
-              <span
-                class="group-hover/btn-v2:translate-x-1 -translate-x-6 absolute inset-0 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-              >
-                <img src="images/icons/new-arrow-white.svg" alt="arrow" class="size-full object-cover" loading="lazy" />
-              </span>
-              <span
-                class="group-hover/btn-v2:translate-x-6 absolute -translate-x-2 transition-all duration-300 ease-in-out size-6 btn-v2-icon"
-              >
-                <img src="images/icons/new-arrow-white.svg" alt="arrow" class="size-full object-cover" loading="lazy" />
-              </span>
-            </span>
+          class="hero-cta-button hero-cta-button--faq inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
+        >
+          <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
+            <img
+              src="images/shared/21- icon white.png"
+              alt=""
+              aria-hidden="true"
+              class="size-10"
+              loading="lazy"
+            />
           </span>
+          <span>Chat with plum</span>
         </a>
       </div>
     </div>
@@ -2763,420 +2821,12 @@ Footer
         data-start="top 105%"
         class="text-white"
       >
-        © 2025 plumcut. All rights reserved. yes... we can automate it.
+        © 2025 plumcut. All rights reserved.
       </p>
     </div>
   </div>
 
-<div
-  id="demo-showcase"
-  class="demo-showcase-container demo-showcase-closed fixed top-0 left-0 w-full h-screen z-[99999]"
-  data-lenis-prevent="true"
->
-  <button
-    id="demo-showcase-close"
-    class="fixed top-5 lg:top-10 right-5 lg:right-10 z-[999999] bg-secondary rounded-[80px] shadow-[0_1px_2px_0_rgba(0,0,0,0.15)] p-2 lg:p-4 flex items-center justify-center cursor-pointer border-6 lg:border-8 border-white"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="stroke-white"
-    >
-      <path d="M18 6 6 18" />
-      <path d="m6 6 12 12" />
-    </svg>
-  </button>
 
-  <div
-    class="fixed top-0 left-0 w-full h-screen overflow-y-auto bg-background-12 pt-14 pb-16"
-    style="touch-action: pan-y; -webkit-overflow-scrolling: touch; overscroll-behavior: contain"
-  >
-    <div class="max-w-[1560px] md:px-4 min-[1880px]:!px-0 mx-auto">
-      <div class="mb-12 text-center">
-        <h2 class="font-normal text-center text-secondary">38+ Pre-built websites</h2>
-      </div>
-
-      <div id="demo-showcase-list" class="grid grid-cols-12 xl:gap-6 sm:gap-3 gap-y-5"></div>
-    </div>
-  </div>
-</div>
-
-<style>
-  .demo-showcase-container {
-    transform-origin: center center;
-    backface-visibility: hidden;
-    will-change: transform, opacity, filter;
-    transition:
-      transform 0.9s cubic-bezier(0.23, 1, 0.32, 1),
-      opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
-      filter 0.9s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .demo-showcase-closed {
-    transform: translateX(100%) scale(0.65) rotateY(20deg);
-    opacity: 0;
-    filter: blur(22px);
-  }
-
-  .demo-showcase-open {
-    transform: translateX(0) scale(1) rotateY(0deg);
-    opacity: 1;
-    filter: blur(0px);
-  }
-</style>
-
-<script>
-  const demoShowcaseList = [
-    {
-      title: 'AI Applications',
-      href: './index.html',
-      image: 'https://images.prismic.io/staticmania/aRQlJrpReVYa4XSY_AI-Application.jpg',
-      newRelease: true,
-    },
-    {
-      title: 'AI Gadget',
-      href: './ai-gadgets.html',
-      image: 'https://images.prismic.io/staticmania/aRQlKLpReVYa4XSa_AI-Gadget.jpg',
-      newRelease: true,
-    },
-    {
-      title: 'AI Resume Builder',
-      href: './ai-resume-builder.html',
-      image: 'https://images.prismic.io/staticmania/aRQlKbpReVYa4XSb_AI-ResumeBuilder.jpg',
-      newRelease: true,
-    },
-    {
-      title: 'Crypto Marketing',
-      href: './crypto-marketing.html',
-      image: 'https://images.prismic.io/staticmania/aRQlMLpReVYa4XSi_Crypto-Marketing.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'AI Software',
-      href: './ai-software.html',
-      image: 'https://images.prismic.io/staticmania/aRQlKrpReVYa4XSc_AI-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'AI Chatbot',
-      href: './ai-chatbot.html',
-      image: 'https://images.prismic.io/staticmania/aRQlJ7pReVYa4XSZ_AI-Chatbot.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Web Hosting',
-      href: './web-hosting.html',
-      image: 'https://images.prismic.io/staticmania/aRQlSrpReVYa4XS8_Web-Hosting.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Analytics & Reporting',
-      href: './analytics-and-reporting.html',
-      image: 'https://images.prismic.io/staticmania/aRQlK7pReVYa4XSd_Analytics-Reporting.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Financial Application',
-      href: './financial-application.html',
-      image: 'https://images.prismic.io/staticmania/aRQlNrpReVYa4XSo_Financial-Application.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Payment Solutions',
-      href: './payment-solution.html',
-      image: 'https://images.prismic.io/staticmania/aRQlQLpReVYa4XSy_Payment-Solutions.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Online Banking',
-      href: './online-banking.html',
-      image: 'https://images.prismic.io/staticmania/aRQlP7pReVYa4XSx_Online-Banking.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Cloud Based Software',
-      href: './cloud-software.html',
-      image: 'https://images.prismic.io/staticmania/aRQlLrpReVYa4XSg_Cloud-Based-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Cyber Security',
-      href: './cyber-security.html',
-      image: 'https://images.prismic.io/staticmania/aRQlMbpReVYa4XSj_Cyber-Security.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Email Marketing',
-      href: './email-marketing.html',
-      image: 'https://images.prismic.io/staticmania/aRQlNbpReVYa4XSn_Email-Marketing.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Lead Capture',
-      href: './lead-capture.html',
-      image: 'https://images.prismic.io/staticmania/aRQlOrpReVYa4XSs_Lead-Capture.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Messaging Platform',
-      href: './messaging-platform.html',
-      image: 'https://images.prismic.io/staticmania/aRQlO7pReVYa4XSt_Messaging-Platform.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Mortgage Services',
-      href: './mortgage-services.html',
-      image: 'https://images.prismic.io/staticmania/aRQlPbpReVYa4XSv_Mortgage-Services.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Creative Portfolio',
-      href: './creative-portfolio.html',
-      image: 'https://images.prismic.io/staticmania/aRQlL7pReVYa4XSh_Creative-Portfolio.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'App Builder',
-      href: './app-builder.html',
-      image: 'https://images.prismic.io/staticmania/aRQlLLpReVYa4XSe_App-Builder.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'App Development',
-      href: './app-development.html',
-      image: 'https://images.prismic.io/staticmania/aRQlLbpReVYa4XSf_App-Development.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'AI Agency',
-      href: './ai-agency.html',
-      image: 'https://images.prismic.io/staticmania/aRQlJrpReVYa4XSX_AI-Agency.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Smart Solutions',
-      href: './smart-solutions.html',
-      image: 'https://images.prismic.io/staticmania/aRQlRrpReVYa4XS4_Smart-Solutions.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Risk Management Software',
-      href: './risk-management-software.html',
-      image: 'https://images.prismic.io/staticmania/aRQlRLpReVYa4XS2_Risk-Management-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Personal Finance',
-      href: './personal-finance.html',
-      image: 'https://images.prismic.io/staticmania/aRQlQbpReVYa4XSz_Personal-Finance.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Mobile Management Software',
-      href: './mobile-management-software.html',
-      image:
-        'https://images.prismic.io/staticmania/aRQlPLpReVYa4XSu_Mobile-Management-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Investment Management',
-      href: './investment-management.html',
-      image: 'https://images.prismic.io/staticmania/aRQlObpReVYa4XSr_Investment-Management.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Insurance Software',
-      href: './insurance.html',
-      image: 'https://images.prismic.io/staticmania/aRQlOLpReVYa4XSq_Insurance.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Property Management',
-      href: './property-management-software.html',
-      image:
-        'https://images.prismic.io/staticmania/aRQlQ7pReVYa4XS1_Property-Management-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'POS System',
-      href: './pos-system.html',
-      image: 'https://images.prismic.io/staticmania/aRQlQrpReVYa4XS0_POS-System.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Social Media Management',
-      href: './social-media-management.html',
-      image: 'https://images.prismic.io/staticmania/aRQlR7pReVYa4XS5_Social-Media-Management.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Nuvexa CRM',
-      href: './nuvexa-crm.html',
-      image: 'https://images.prismic.io/staticmania/aRQlPrpReVYa4XSw_Nuvexa-CRM.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Wealth Management',
-      href: './wealth-management.html',
-      image: 'https://images.prismic.io/staticmania/aRQlSbpReVYa4XS7_Wealth-Management.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Security Software',
-      href: './security-software.html',
-      image: 'https://images.prismic.io/staticmania/aRQlRbpReVYa4XS3_Security-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Time Tracking',
-      href: './time-tracking.html',
-      image: 'https://images.prismic.io/staticmania/aRQlSLpReVYa4XS6_Time-Tracking.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Data Visualization',
-      href: './data-visualization.html',
-      image:
-        'https://images.prismic.io/staticmania/aRQlMrpReVYa4XSk_Data-Visualization-Software.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Digital Marketing Agency',
-      href: './digital-marketing.html',
-      image: 'https://images.prismic.io/staticmania/aRQlNLpReVYa4XSm_Digital-Marketing-Agency.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Forex Trading',
-      href: './forex-trading.html',
-      image: 'https://images.prismic.io/staticmania/aRQlOLpReVYa4XSp_Forex-Trading.jpg',
-      newRelease: false,
-    },
-    {
-      title: 'Decentralized Finance',
-      href: './decentralized-finance.html',
-      image: 'https://images.prismic.io/staticmania/aRQlM7pReVYa4XSl_Decentralized-Finance.jpg',
-      newRelease: false,
-    },
-  ];
-
-  const demoShowcaseAnimation = {
-    init() {
-      const demoShowcase = document.querySelector('#demo-showcase');
-      const demoShowcaseClose = document.querySelector('#demo-showcase-close');
-      const demoShowcaseListContainer = document.querySelector('#demo-showcase-list');
-
-      if (demoShowcaseListContainer && demoShowcaseList) {
-        demoShowcaseListContainer.innerHTML = demoShowcaseList
-          .map(
-            (item, index) =>
-              `
-      <div class="col-span-12 md:col-span-6 xl:col-span-4">
-        <a href="${item.href}" data-card-index="${index}"
-          class="demo-card block border cursor-pointer border-stroke-3 group hover:border-primary-400  transition-all duration-300 ease-in-out  max-w-[500px] mx-auto rounded-[36px] p-2"
-        >
-          <div
-            class="p-2 bg-white  rounded-[28px] shadow-[0_1px_4px_0_rgba(16,24,40,0.10)] group-hover:shadow-[0_8px_6px_0_rgba(16,24,40,0.16)] transition-all duration-400 ease-in-out"
-          >
-            <figure class="max-h-[351px] rounded-[20px] overflow-hidden">
-              <img
-                src="${item.image}"
-                alt="Demo Showcase"
-                class="w-full h-full object-cover "
-              />
-            </figure>
-
-            <h2
-              class="text-lg text-center font-medium text-secondary  leading-[150%] flex items-center justify-center gap-2 py-4"
-            >
-              ${item.title} ${item.newRelease ? '<span class="text-secondary bg-ns-green rounded-full px-5 py-[5px] rounded-[35px] text-tagline-2">New</span>' : ''}
-            </h2>
-          </div>
-        </a>
-      </div>
-    `
-          )
-          .join('');
-
-        const setActiveCard = (card) => {
-          const allCards = demoShowcaseListContainer.querySelectorAll('.demo-card');
-          allCards.forEach((c) => {
-            c.classList.remove('active');
-            c.classList.remove('border-primary-500');
-            c.classList.remove('border-2');
-            c.classList.add('border-stroke-3');
-          });
-
-          if (card) {
-            card.classList.add('active');
-            card.classList.remove('border-stroke-3');
-            card.classList.add('border-primary-500');
-            card.classList.add('border-2');
-          }
-        };
-
-        // Restore active state from localStorage on page load, or set first card as default
-        const activeCardHref = localStorage.getItem('activeDemoCard');
-        if (activeCardHref) {
-          const activeCard = demoShowcaseListContainer.querySelector(
-            `.demo-card[href="${activeCardHref}"]`
-          );
-          if (activeCard) {
-            setActiveCard(activeCard);
-          } else {
-            const firstCard = demoShowcaseListContainer.querySelector('.demo-card');
-            if (firstCard) {
-              setActiveCard(firstCard);
-              localStorage.setItem('activeDemoCard', firstCard.getAttribute('href'));
-            }
-          }
-        } else {
-          //  set first card as active by default
-          const firstCard = demoShowcaseListContainer.querySelector('.demo-card');
-          if (firstCard) {
-            setActiveCard(firstCard);
-            localStorage.setItem('activeDemoCard', firstCard.getAttribute('href'));
-          }
-        }
-
-        const demoCards = demoShowcaseListContainer.querySelectorAll('.demo-card');
-        demoCards.forEach((card) => {
-          card.addEventListener('click', (e) => {
-            const cardHref = card.getAttribute('href');
-
-            localStorage.setItem('activeDemoCard', cardHref);
-
-            setActiveCard(card);
-          });
-        });
-      }
-      if (demoShowcaseClose) {
-        demoShowcaseClose.addEventListener('click', () => {
-          // Remove open class first
-          demoShowcase.classList.remove('demo-showcase-open');
-          // Use requestAnimationFrame to ensure smooth transition
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              // Add closed class for reverse animation
-              demoShowcase.classList.add('demo-showcase-closed');
-            });
-          });
-          document.body.style.overflow = 'auto';
-        });
-      }
-    },
-  };
-
-  if (typeof window !== 'undefined') {
-    demoShowcaseAnimation.init();
-  }
-</script>
 
   <script src="vendor/swiper.min.js"></script>
 <script src="vendor/leaflet.min.js"></script>
