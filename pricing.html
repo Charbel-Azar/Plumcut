@@ -786,6 +786,7 @@ Pricing section
     --plum-primary: #4B1D6A;
     --plum-secondary: #481D52;
     --orange-primary: #E65E04;
+    --background-LP: #4B1D6A;
   }
 
   /* Mobile: show cards, hide table */
@@ -856,6 +857,41 @@ Pricing section
     color: var(--plum-secondary);
   }
 
+  /* Highlight Custom Solutions column */
+  .pricing-table thead th:nth-child(3) {
+    background: var(--orange-primary);
+    color: white;
+  }
+
+  .pricing-table thead th:nth-child(3) .plan-price,
+  .pricing-table thead th:nth-child(3) .plan-desc {
+    color: white;
+  }
+
+  .pricing-table thead th:nth-child(3) .plan-desc {
+    opacity: 1;
+  }
+
+  .pricing-table tbody td:nth-child(3),
+  .pricing-table tfoot td:nth-child(3) {
+    background: var(--background-LP);
+    color: white;
+  }
+
+  .pricing-table tbody td:nth-child(3) .pricing-text {
+    color: white;
+  }
+
+  .pricing-table tbody td:nth-child(3) .pricing-check,
+  .pricing-table tbody td:nth-child(3) .pricing-no {
+    background: white;
+  }
+
+  .pricing-table tbody td:nth-child(3) .pricing-check svg,
+  .pricing-table tbody td:nth-child(3) .pricing-no svg {
+    fill: var(--background-LP);
+  }
+
   .pricing-table tbody tr {
     transition: background-color 0.2s ease;
   }
@@ -869,6 +905,10 @@ Pricing section
     border-bottom: 1px solid rgba(75, 29, 106, 0.1);
     text-align: center;
     vertical-align: middle;
+  }
+
+  .pricing-table tbody td:nth-child(3) {
+    border-bottom-color: rgba(255, 255, 255, 0.35);
   }
 
   .pricing-table tbody td:first-child {
@@ -886,7 +926,8 @@ Pricing section
   }
 
   .pricing-table tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    border-bottom-right-radius: 0;
   }
 
   /* Check/X icons */
