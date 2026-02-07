@@ -991,6 +991,45 @@ Pricing section
     background: white;
   }
 
+  .pricing-card-custom {
+    background: var(--background-LP);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+
+  .pricing-card-custom .pricing-card-header {
+    background: var(--orange-primary);
+  }
+
+  .pricing-card-custom .pricing-card-label,
+  .pricing-card-custom .pricing-card-title,
+  .pricing-card-custom .pricing-card-subtitle {
+    color: white;
+    opacity: 1;
+  }
+
+  .pricing-card-custom .pricing-feature-text {
+    color: white;
+  }
+
+  .pricing-card-custom .pricing-feature-item {
+    border-bottom-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .pricing-card-custom .pricing-feature-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .pricing-card-custom .pricing-feature-icon.pricing-check,
+  .pricing-card-custom .pricing-feature-icon.pricing-no {
+    background: white;
+  }
+
+  .pricing-card-custom .pricing-feature-icon.pricing-check svg,
+  .pricing-card-custom .pricing-feature-icon.pricing-no svg {
+    fill: var(--background-LP);
+  }
+
   .pricing-card-header {
     padding: 28px 24px;
     text-align: center;
@@ -1289,7 +1328,7 @@ Pricing section
       </div>
 
       <!-- Custom Solutions Card -->
-      <div class="pricing-card">
+      <div class="pricing-card pricing-card-custom">
         <div class="pricing-card-header">
           <p class="pricing-card-label">Custom Solutions</p>
           <h3 class="pricing-card-title">Book a strategy call</h3>
