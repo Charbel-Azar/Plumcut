@@ -1273,7 +1273,7 @@ Head links
   </head>
   <body class="bg-white home-bw-buttons is-loading">
     <div class="site-loader" aria-hidden="true">
-      <video class="site-loader__video" autoplay muted playsinline loop>
+      <video class="site-loader__video" autoplay muted playsinline loop preload="metadata">
         <source src="images/loader.mp4" type="video/mp4">
       </video>
     </div>
@@ -1300,7 +1300,7 @@ Header
 <header class="pc-navbar pc-navbar--sticky" aria-hidden="true">
   <div class="pc-navbar-inner">
     <a class="pc-nav-logo" href="index.html" aria-label="plumcut home">
-      <img src="images/index/logo%20with%20wordmark.png" alt="plumcut" />
+      <img src="images/index/logo%20with%20wordmark.png" alt="plumcut" fetchpriority="high">
     </a>
     <nav class="pc-nav" aria-label="Primary">
       <a class="pc-nav-link is-active" href="index.html">Home</a>
@@ -1324,7 +1324,9 @@ Header
         alt=""
         aria-hidden="true"
         class="absolute inset-0 w-full h-full object-cover select-none"
-      />
+        loading="eager"
+        fetchpriority="high"
+        decoding="async">
         <div class="absolute inset-0 pointer-events-none hero-beans" aria-hidden="true">
           <div
             class="hero-bean"
@@ -1336,7 +1338,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Back-B%2010.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1350,7 +1352,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Back-B%2011.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1364,7 +1366,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Back-B%2012.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1378,7 +1380,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Back-B%2013.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1392,7 +1394,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Back-B%2014.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1406,7 +1408,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Front-B%2001.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1420,7 +1422,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Front-B%2002.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1434,7 +1436,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Front-B%2003.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1448,7 +1450,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Front-B%2004.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1462,7 +1464,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Middle-B%2005.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1476,7 +1478,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Middle-B%2006.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1490,7 +1492,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Middle-B%2007.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1504,7 +1506,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Middle-B%2008.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1518,7 +1520,7 @@ Header
                   src="images/index/LP-Beans-All/LP-Beans-Middle-B%2009.svg"
                   alt=""
                   class="select-none"
-                />
+                loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -1533,7 +1535,7 @@ Header
             alt="plumcut"
             class="hero-wordmark"
             loading="lazy"
-          />
+          decoding="async">
       
       </div>
       <div class="mt-10 grid grid-cols-1 gap-7 lg:mt-16 lg:grid-cols-12  px-[clamp(1rem,2vw,2rem)]">
@@ -1566,7 +1568,7 @@ Header
                   aria-hidden="true"
                   class="size-10"
                   loading="lazy"
-                />
+                decoding="async">
               </span>
               <span>Chat with plum</span>
             </a>
@@ -1602,7 +1604,7 @@ Features section
     <div class="main-container">
       <div class="space-y-4 mb-10 md:mb-14 text-center lg:max-w-[740px] lg:mx-auto">
         <span data-ns-animate data-delay="0.1" class="section-title-label">
-          <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+          <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
           <span class="section-title-text">Features</span>
         </span>
         <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
@@ -1633,7 +1635,7 @@ Features section
                 src="images/ns-img-310.png"
                 alt="feature-1"
                 class="w-full h-full object-cover"
-              />
+              loading="lazy" decoding="async">
             </figure>
             <div
               data-ns-animate
@@ -1670,7 +1672,7 @@ Features section
                       alt="WhatsApp"
                       loading="lazy"
                       class="opacity-30 grayscale h-8 md:h-10"
-                    />
+                    decoding="async">
                   </figure>
                   <figure class="min-w-[140px] md:min-w-[201px]">
                     <img
@@ -1678,7 +1680,7 @@ Features section
                       alt="Shopify"
                       loading="lazy"
                       class="opacity-30 grayscale h-8 md:h-10"
-                    />
+                    decoding="async">
                   </figure>
                   <figure class="min-w-[140px] md:min-w-[201px]">
                     <img
@@ -1686,7 +1688,7 @@ Features section
                       alt="WooCommerce"
                       loading="lazy"
                       class="opacity-30 grayscale h-8 md:h-10"
-                    />
+                    decoding="async">
                   </figure>
                   <figure class="min-w-[140px] md:min-w-[201px]">
                     <img
@@ -1694,7 +1696,7 @@ Features section
                       alt="HubSpot"
                       loading="lazy"
                       class="opacity-30 grayscale h-8 md:h-10"
-                    />
+                    decoding="async">
                   </figure>
                 </div>
               </aside>
@@ -1707,7 +1709,7 @@ Features section
                       alt="Google"
                       loading="lazy"
                       class="opacity-30 grayscale h-8 md:h-10"
-                    />
+                    decoding="async">
                   </figure>
                   <figure class="min-w-[140px] md:min-w-[201px]">
                     <img
@@ -1715,7 +1717,7 @@ Features section
                       alt="Zapier"
                       loading="lazy"
                       class="opacity-30 grayscale h-8 md:h-10"
-                    />
+                    decoding="async">
                   </figure>
                   <figure class="min-w-[140px] md:min-w-[201px]">
                     <img
@@ -1723,7 +1725,7 @@ Features section
                       alt="n8n"
                       loading="lazy"
                       class="opacity-30 grayscale h-8 md:h-10"
-                    />
+                    decoding="async">
                   </figure>
                   <figure class="min-w-[140px] md:min-w-[201px]">
                     <img
@@ -1731,7 +1733,7 @@ Features section
                       alt="Meta"
                       loading="lazy"
                       class="opacity-30 grayscale h-8 md:h-10"
-                    />
+                    decoding="async">
                   </figure>
                 </div>
               </aside>
@@ -1759,7 +1761,7 @@ Features section
                   src="images/ns-img-311.png"
                   alt="feature-1"
                   class="w-full h-full object-cover"
-                />
+                loading="lazy" decoding="async">
               </figure>
               <figure
                 class="max-w-[214px] w-full overflow-hidden relative z-10 rounded-b-[15px] feature-card-2"
@@ -1768,7 +1770,7 @@ Features section
                   src="images/ns-img-312.png"
                   alt="feature-1"
                   class="w-full h-full object-cover"
-                />
+                loading="lazy" decoding="async">
               </figure>
               <figure
                 class="max-w-[214px] w-full overflow-hidden rounded-b-[15px] relative z-10 -rotate-[12deg] shadow-13 feature-card-3"
@@ -1777,7 +1779,7 @@ Features section
                   src="images/ns-img-313.png"
                   alt="feature-1"
                   class="w-full h-full object-cover"
-                />
+                loading="lazy" decoding="async">
               </figure>
             </div>
             <div
@@ -1805,7 +1807,7 @@ Services section
   <div class="main-container edge-safe max-w-[1880px]">
     <div class="mb-11 lg:mb-9 text-center lg:max-w-[730px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
-        <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" />
+        <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <span class="section-title-text">Our Services</span>
       </span>
       <h2 data-ns-animate data-delay="0.2" class="section-title-heading md:mb-3 mb-1">
@@ -1846,7 +1848,7 @@ Services section
               src="images/index/customer service.png"
               alt="AI-powered customer service chatbot"
               class="w-full h-full object-cover"
-            />
+            loading="lazy" decoding="async">
           </figure>
         </div>
       </div>
@@ -1876,7 +1878,7 @@ Services section
               src="images/index/order management.jpg"
               alt="Automated order management system"
               class="w-full h-full object-cover"
-            />
+            loading="lazy" decoding="async">
           </figure>
         </div>
       </div>
@@ -1906,7 +1908,7 @@ Services section
               src="images/index/ai conversations.jpg"
               alt="AI chatbot natural conversations"
               class="w-full h-full object-cover object-center"
-            />
+            loading="lazy" decoding="async">
           </figure>
         </div>
       </div>
@@ -1940,7 +1942,7 @@ Services section
               src="images/index/appointment booking.jpg"
               alt="Automated appointment booking"
               class="w-full h-full object-cover"
-            />
+            loading="lazy" decoding="async">
           </figure>
         </div>
       </div>
@@ -1971,7 +1973,7 @@ Services section
               src="images/index/payment and billing.jpg"
               alt="Automated payment and billing"
               class="w-full h-full object-cover"
-            />
+            loading="lazy" decoding="async">
           </figure>
         </div>
       </div>
@@ -2001,7 +2003,7 @@ Services section
         src="images/index/data analytics.jpg"
         alt="Business analytics dashboard"
         class="w-full h-full object-cover"
-      />
+      loading="lazy" decoding="async">
     </figure>
   </div>
 </div>
@@ -2024,7 +2026,7 @@ Services section
                   alt="arrow"
                   class="size-full object-cover"
                   loading="lazy"
-                />
+                decoding="async">
               </span>
 
               <span
@@ -2035,7 +2037,7 @@ Services section
                   alt="arrow"
                   class="size-full object-cover"
                   loading="lazy"
-                />
+                decoding="async">
               </span>
             </div>
           </a>
@@ -2054,7 +2056,7 @@ How It's Work section
   <div class="main-container max-w-[1880px]">
     <div class="mb-0 sm:mb-10 md:mb-11 text-center lg:max-w-[730px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="section-title-label mb-4">
-        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <span class="section-title-text">How It Works</span>
       </span>
       <h2 data-ns-animate data-delay="0.2" class="section-title-heading mb-3">From chaos to system <br>in three steps</h2>
@@ -2075,7 +2077,7 @@ How It's Work section
           src="images/index/3 Steps - Cards/3steps-A-updated.svg"
           alt="Step A: Capture & Qualify"
           class="w-full h-auto block"
-        />
+        loading="lazy" decoding="async">
       </div>
 
       <div
@@ -2090,7 +2092,7 @@ How It's Work section
           src="images/index/3 Steps - Cards/3steps-B-updated.svg"
           alt="Step B: Engage & Support"
           class="w-full h-auto block"
-        />
+        loading="lazy" decoding="async">
       </div>
 
       <div
@@ -2105,7 +2107,7 @@ How It's Work section
           src="images/index/3 Steps - Cards/3steps-C-updated.svg"
           alt="Step C: Convert & Scale"
           class="w-full h-auto block"
-        />
+        loading="lazy" decoding="async">
       </div>
     </div>
     <div data-ns-animate data-delay="0.5" class="text-center mt-14 lg:mt-0">
@@ -2127,7 +2129,7 @@ Case Study section
     <div class="text-center mb-10 lg:mb-[70px]">
       <div class="space-y-3">
         <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
-          <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" />
+          <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
           <span class="section-title-text">Case Study</span>
         </span>
         <h2 data-ns-animate data-delay="0.1" class="section-title-heading">Designed to Scale With Your Business</h2>
@@ -2147,7 +2149,7 @@ Case Study section
                 src="images/ns-img-323.png"
                 class="w-full h-full object-cover rounded-[20px]"
                 alt="portfolio"
-              />
+              loading="lazy" decoding="async">
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
@@ -2168,7 +2170,7 @@ Case Study section
                 src="images/ns-img-324.png"
                 class="w-full h-full object-cover rounded-[20px]"
                 alt="portfolio"
-              />
+              loading="lazy" decoding="async">
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
@@ -2188,7 +2190,7 @@ Case Study section
                 src="images/ns-img-325.png"
                 alt="portfolio"
                 class="w-full h-full object-cover rounded-[20px]"
-              />
+              loading="lazy" decoding="async">
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
@@ -2209,7 +2211,7 @@ Case Study section
                 src="images/ns-img-326.png"
                 class="w-full h-full object-cover rounded-[20px]"
                 alt="portfolio"
-              />
+              loading="lazy" decoding="async">
             </div>
             <div class="flex flex-col items-start gap-2 text-left">
               <h3 class="text-heading-6 sm:text-heading-5 case-study-title">
@@ -2236,7 +2238,7 @@ Testimonail section
   <div class="main-container">
     <div class="text-center mb-14 md:mb-[70px]">
       <span data-ns-animate data-delay="0.1" class="section-title-label mb-3.5 md:mb-5">
-        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <span class="section-title-text">Testimonials</span>
       </span>
       <h2 data-ns-animate data-delay="0.2" class="section-title-heading xl:max-w-[906px] xl:mx-auto">
@@ -2357,7 +2359,7 @@ Testimonail section
             width="44"
             height="44"
             loading="lazy"
-          />
+          decoding="async">
 
           <h3 class="text-tagline-1 sm:text-lg font-semibold leading-[1.5]">Rami K.</h3>
         </figure>
@@ -2475,7 +2477,7 @@ Testimonail section
             width="44"
             height="44"
             loading="lazy"
-          />
+          decoding="async">
 
           <h3 class="text-tagline-1 sm:text-lg font-semibold leading-[1.5]">Sarah M.</h3>
         </figure>
@@ -2593,7 +2595,7 @@ Testimonail section
             width="44"
             height="44"
             loading="lazy"
-          />
+          decoding="async">
 
           <h3 class="text-tagline-1 sm:text-lg font-semibold leading-[1.5]">Nadia S.</h3>
         </figure>
@@ -2615,7 +2617,7 @@ Testimonail section
     <div class="main-container edge-safe relative z-30">
       <div class="faq-intro text-center space-y-3 md:space-y-5 max-w-[720px] mx-auto lg:mb-[70px] mb-12">
         <span data-ns-animate data-delay="0.1" class="section-title-label">
-          <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+          <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
           <span class="section-title-text">FAQ</span>
         </span>
         <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
@@ -2644,7 +2646,7 @@ Testimonail section
               aria-hidden="true"
               class="size-10"
               loading="lazy"
-            />
+            decoding="async">
           </span>
           <span>Chat with plum</span>
         </a>
@@ -2669,7 +2671,7 @@ Footer
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
             <figure>
-              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop>
+              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop preload="metadata">
   <source src="images/loader compressed.mp4" type="video/mp4" />
 </video>
             </figure>
@@ -2815,13 +2817,11 @@ Footer
 
 
   <script src="vendor/swiper.min.js"></script>
-<script src="vendor/leaflet.min.js"></script>
 <script src="vendor/vanilla-infinite-marquee.min.js"></script>
 <script src="vendor/split-text.min.js"></script>
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/scroll-trigger.min.js"></script>
 <script src="vendor/draw-svg.min.js"></script>
-<script src="vendor/scroll-trigger.min.js"></script>
 <script src="vendor/motionpathplugin.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
 <script src="vendor/springer.min.js"></script>

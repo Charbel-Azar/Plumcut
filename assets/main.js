@@ -803,155 +803,107 @@ document.addEventListener("DOMContentLoaded", function() {
   window.gradientAnimation = gradientAnimation;
 });
 const headerAnimation = {
-  headerOne() {
-    const header = document.querySelector(".header-one");
+  init() {
+    const headerOne = document.querySelector(".header-one");
     const whatsappLink = document.querySelector(".whatsapp-link");
     const nav = document.querySelector(".header-one nav");
     const hamburgerContainer = document.querySelector(".hamburger-container");
     const getStartedContainer = document.querySelector(".get-started-container");
-
-    if (header) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 200) {
-          
-          // Scrolling down past threshold
-          header.classList.add("scroll-header");
-          header.classList.add("header-scrolled");
-          header.classList.add("scrolling-down");
-          header.classList.remove("scrolling-up");
-
-          // Fade out the navigation menu immediately
+    const headerTwo = document.querySelector(".header-two");
+    const headerThree = document.querySelector(".header-three");
+    const headerFour = document.querySelector(".header-four");
+    const headerFive = document.querySelector(".header-five");
+    const headerSix = document.querySelector(".header-six");
+    if (!headerOne && !headerTwo && !headerThree && !headerFour && !headerFive && !headerSix) {
+      return;
+    }
+    [headerTwo, headerThree, headerFour, headerFive, headerSix].forEach((header) => {
+      if (header) {
+        header.style.transition = "all 0.5s ease-in-out";
+      }
+    });
+    const update = () => {
+      const scrollY = window.scrollY;
+      if (headerOne) {
+        if (scrollY > 200) {
+          headerOne.classList.add("scroll-header", "header-scrolled", "scrolling-down");
+          headerOne.classList.remove("scrolling-up");
           if (nav) {
             nav.style.opacity = "0";
             nav.style.pointerEvents = "none";
           }
-
-          // Fade out "Get started" button immediately
           if (getStartedContainer) {
             getStartedContainer.style.opacity = "0";
             getStartedContainer.style.pointerEvents = "none";
           }
-
-          // Fade out hamburger on mobile immediately
           if (hamburgerContainer) {
             hamburgerContainer.style.opacity = "0";
             hamburgerContainer.style.pointerEvents = "none";
           }
-
-          // WhatsApp link and border fade in after menu fades out (via CSS transition delay)
           if (whatsappLink) {
             whatsappLink.style.opacity = "1";
             whatsappLink.style.pointerEvents = "auto";
           }
         } else {
-          // Scrolling up past threshold
-          header.classList.remove("scroll-header");
-          header.classList.remove("header-scrolled");
-          header.classList.remove("scrolling-down");
-          header.classList.add("scrolling-up");
-
-          // Fade out WhatsApp link immediately
+          headerOne.classList.remove("scroll-header", "header-scrolled", "scrolling-down");
+          headerOne.classList.add("scrolling-up");
           if (whatsappLink) {
             whatsappLink.style.opacity = "0";
             whatsappLink.style.pointerEvents = "none";
           }
-
-          // Navigation menu fades in after WhatsApp fades out (via CSS transition delay)
           if (nav) {
             nav.style.opacity = "1";
             nav.style.pointerEvents = "auto";
           }
-
-          // Fade in "Get started" button after WhatsApp fades out
           if (getStartedContainer) {
             getStartedContainer.style.opacity = "1";
             getStartedContainer.style.pointerEvents = "auto";
           }
-
-          // Fade in hamburger on mobile after WhatsApp fades out
           if (hamburgerContainer) {
             hamburgerContainer.style.opacity = "1";
             hamburgerContainer.style.pointerEvents = "auto";
           }
         }
-      });
-    }
-  },
-  headerTwo() {
-    const header = document.querySelector(".header-two");
-    if (header) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 150) {
-          header.style.transition = "all 0.5s ease-in-out";
-          header.style.top = "20px";
-          header.classList.add("header-two-scroll");
+      }
+      if (headerTwo) {
+        if (scrollY > 150) {
+          headerTwo.style.top = "20px";
+          headerTwo.classList.add("header-two-scroll");
         } else {
-          header.classList.remove("header-two-scroll");
-          header.style.top = "50px";
+          headerTwo.classList.remove("header-two-scroll");
+          headerTwo.style.top = "50px";
         }
+      }
+      if (headerThree) {
+        headerThree.classList.toggle("header-three-scroll", scrollY > 100);
+      }
+      if (headerFour) {
+        headerFour.classList.toggle("header-four-scroll", scrollY > 100);
+      }
+      if (headerFive) {
+        headerFive.classList.toggle("header-five-scroll", scrollY > 25);
+      }
+      if (headerSix) {
+        headerSix.classList.toggle("header-six-scroll", scrollY > 100);
+      }
+    };
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) {
+        return;
+      }
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        ticking = false;
+        update();
       });
-    }
-  },
-  headerThree() {
-    const header = document.querySelector(".header-three");
-    if (header) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-          header.style.transition = "all 0.5s ease-in-out";
-          header.classList.add("header-three-scroll");
-        } else {
-          header.classList.remove("header-three-scroll");
-        }
-      });
-    }
-  },
-  headerFour() {
-    const header = document.querySelector(".header-four");
-    if (header) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-          header.style.transition = "all 0.5s ease-in-out";
-          header.classList.add("header-four-scroll");
-        } else {
-          header.classList.remove("header-four-scroll");
-        }
-      });
-    }
-  },
-  headerFive() {
-    const header = document.querySelector(".header-five");
-    if (header) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 25) {
-          header.style.transition = "all 0.5s ease-in-out";
-          header.classList.add("header-five-scroll");
-        } else {
-          header.classList.remove("header-five-scroll");
-        }
-      });
-    }
-  },
-  headerSix() {
-    const header = document.querySelector(".header-six");
-    if (header) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-          header.style.transition = "all 0.5s ease-in-out";
-          header.classList.add("header-six-scroll");
-        } else {
-          header.classList.remove("header-six-scroll");
-        }
-      });
-    }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
   }
 };
 if (typeof window !== "undefined") {
-  headerAnimation.headerOne();
-  headerAnimation.headerTwo();
-  headerAnimation.headerThree();
-  headerAnimation.headerFour();
-  headerAnimation.headerFive();
-  headerAnimation.headerSix();
+  headerAnimation.init();
 }
 document.addEventListener("DOMContentLoaded", function() {
   if (typeof InfiniteMarquee === "undefined") {
@@ -3686,26 +3638,6 @@ document.addEventListener("DOMContentLoaded", function() {
   handle.setAttribute("aria-valuemin", "0");
   handle.setAttribute("aria-valuemax", "100");
   handle.setAttribute("aria-valuenow", "50");
-});
-const leaflet = {
-  init() {
-    const mapContainer = document.getElementById("map");
-    if (!mapContainer) {
-      return;
-    }
-    const leafletMap = L.map("map").setView([39.8283, -98.5795], 6);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 18,
-      minZoom: 3
-    }).addTo(leafletMap);
-    window.addEventListener("resize", () => {
-      leafletMap.invalidateSize();
-    });
-    leafletMap.zoomControl.setPosition("bottomright");
-  }
-};
-document.addEventListener("DOMContentLoaded", () => {
-  leaflet.init();
 });
 const themeSwitcher = {
   elements: null,

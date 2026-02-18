@@ -1767,7 +1767,7 @@ Head links
 
     <div class="site-loader" aria-hidden="true">
 
-      <video class="site-loader__video" autoplay muted playsinline loop>
+      <video class="site-loader__video" autoplay muted playsinline loop preload="metadata">
 
         <source src="images/loader.mp4" type="video/mp4">
 
@@ -1797,7 +1797,7 @@ Header
 
     <a class="pc-nav-logo" href="index.html" aria-label="plumcut home">
 
-      <img src="images/index/logo%20with%20wordmark.png" alt="plumcut" />
+      <img src="images/index/logo%20with%20wordmark.png" alt="plumcut" fetchpriority="high">
 
     </a>
 
@@ -1850,7 +1850,7 @@ Service section
 
           aria-hidden="true"
 
-        />
+        loading="lazy" decoding="async">
 
         <span class="section-title-text" style="color:#E65E04;">Integrations</span>
 
@@ -1881,7 +1881,7 @@ CONNECTS WITH THE TOOLS<br> YOU ALREADY USE
 
         class="w-auto object-contain services-plum-image"
 
-      />
+      loading="lazy" decoding="async">
 
     </div>
 
@@ -1920,8 +1920,8 @@ them.</p>
         <button class="integration-filter-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="integration-filter-label" aria-controls="integration-filter-menu">
           <span class="integration-filter-label">All Tools</span>
           <span class="integration-filter-arrow" aria-hidden="true">
-            <img src="images/icons/new-arrow-white.svg" alt="" class="arrow-front" />
-            <img src="images/icons/new-arrow-white.svg" alt="" class="arrow-back" />
+            <img src="images/icons/new-arrow-white.svg" alt="" class="arrow-front" loading="lazy" decoding="async">
+            <img src="images/icons/new-arrow-white.svg" alt="" class="arrow-back" loading="lazy" decoding="async">
           </span>
         </button>
         <ul class="integration-filter-menu" role="listbox" tabindex="-1" id="integration-filter-menu">
@@ -1965,7 +1965,7 @@ them.</p>
         <!-- Communication & Messaging -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="communication-messaging" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/whatsapp" alt="WhatsApp Business" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/whatsapp" alt="WhatsApp Business" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Your customers are already on WhatsApp. Automate order confirmations, shipping updates, appointment reminders, and support replies directly where they chat every day. No app downloads, no friction ,  just instant conversations that convert.</p>
@@ -1974,7 +1974,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="communication-messaging" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/telegram" alt="Telegram" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/telegram" alt="Telegram" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Reach tech-savvy audiences and international customers through Telegram bots. Automate alerts, push updates, handle support queries, and send rich media ,  all inside one of the fastest-growing messaging platforms worldwide.</p>
@@ -1983,7 +1983,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="communication-messaging" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Slack_Logo_Icon.svg" alt="Slack" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Slack_Logo_Icon.svg" alt="Slack" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Bring your internal team into the loop instantly. Get real-time notifications when a lead comes in, an order ships, or a customer escalates ,  all pushed directly to the Slack channels your team already lives in.</p>
@@ -1992,7 +1992,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="communication-messaging" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg" alt="Microsoft Teams" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg" alt="Microsoft Teams" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Keep your operations team synced without switching tabs. Automated alerts for new orders, support tickets, and booking confirmations flow straight into Teams, so nothing falls through the cracks.</p>
@@ -2001,7 +2001,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="communication-messaging" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/twilio" alt="Twilio (SMS)" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/twilio" alt="Twilio (SMS)" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Not every customer is on WhatsApp. Automate SMS appointment reminders, order status updates, OTP verifications, and follow-up messages. Direct, reliable, and works on every phone ,  no internet needed.</p>
@@ -2010,7 +2010,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="communication-messaging" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Google_Workspace_Logo.svg" alt="Gmail / Google Workspace" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Google_Workspace_Logo.svg" alt="Gmail / Google Workspace" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Automate follow-up emails after a purchase, send invoice receipts, trigger drip sequences for new leads, and route incoming emails to the right team member ,  all without lifting a finger.</p>
@@ -2019,7 +2019,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="communication-messaging" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_Outlook_logo_%282024%E2%80%932025%29.svg" alt="Microsoft Outlook" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_Outlook_logo_%282024%E2%80%932025%29.svg" alt="Microsoft Outlook" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">For businesses running on Microsoft, automate email workflows just like Gmail ,  confirmations, follow-ups, lead nurture sequences, and internal notifications, all synced with your calendar and contacts.</p>
@@ -2029,7 +2029,7 @@ them.</p>
         <!-- CRM & Sales -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="crm-sales" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/hubspot" alt="HubSpot" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/hubspot" alt="HubSpot" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Every chatbot conversation becomes a CRM record. Automatically create contacts, update deal stages, log interactions, and trigger follow-up sequences ,  so your sales pipeline fills itself while you sleep.</p>
@@ -2038,7 +2038,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="crm-sales" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salesforce.com_logo.svg" alt="Salesforce" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salesforce.com_logo.svg" alt="Salesforce" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">For growing teams that need enterprise-grade CRM. Sync leads captured by your chatbot directly into Salesforce, update opportunity stages in real time, and trigger automated workflows based on customer actions.</p>
@@ -2047,7 +2047,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="crm-sales" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pipedrive_logo.svg" alt="Pipedrive" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pipedrive_logo.svg" alt="Pipedrive" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Built for sales teams that move fast. Every qualified lead from your chatbot lands in the right pipeline stage automatically. Track deals, set follow-up reminders, and never let a hot lead go cold again.</p>
@@ -2056,7 +2056,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="crm-sales" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ZOHO_logo_2023.svg" alt="Zoho CRM" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ZOHO_logo_2023.svg" alt="Zoho CRM" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Affordable CRM for growing businesses that want everything in one place. Auto-sync chatbot leads, update customer records, trigger email campaigns, and get a unified view of every customer interaction.</p>
@@ -2066,7 +2066,7 @@ them.</p>
         <!-- E-Commerce & Payments -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="ecommerce-payments" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/shopify" alt="Shopify" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/shopify" alt="Shopify" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Your chatbot and your store, fully connected. Automate order status lookups, inventory checks, abandoned cart recovery, and post-purchase follow-ups ,  all happening in real time without manual work.</p>
@@ -2075,7 +2075,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="ecommerce-payments" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/woocommerce" alt="WooCommerce" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/woocommerce" alt="WooCommerce" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">For WordPress-based stores, sync every order, product update, and customer interaction. Automate shipping notifications, return processing, and re-engagement campaigns that bring customers back.</p>
@@ -2084,7 +2084,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="ecommerce-payments" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/stripe" alt="Stripe" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/stripe" alt="Stripe" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Send payment links right inside the chat conversation. Automate invoice generation, payment confirmations, subscription management, and refund processing ,  fewer clicks, faster revenue.</p>
@@ -2093,7 +2093,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="ecommerce-payments" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/paypal" alt="PayPal" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/paypal" alt="PayPal" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Give customers the payment flexibility they expect. Automate payment requests, confirm transactions instantly, process refunds, and sync everything with your accounting ,  all from the chat window.</p>
@@ -2102,7 +2102,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="ecommerce-payments" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/square" alt="Square" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/square" alt="Square" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Perfect for businesses with both online and in-store operations. Sync transactions, manage inventory across channels, automate receipts, and unify your customer data in one place.</p>
@@ -2112,7 +2112,7 @@ them.</p>
         <!-- Scheduling & Appointments -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="scheduling-appointments" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/googlecalendar" alt="Google Calendar" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/googlecalendar" alt="Google Calendar" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Your chatbot checks availability, books the slot, and adds it to your Google Calendar ,  automatically. Customers get instant confirmations, you get zero scheduling headaches.</p>
@@ -2121,7 +2121,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="scheduling-appointments" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/calendly" alt="Calendly" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/calendly" alt="Calendly" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Let your chatbot hand off to Calendly for seamless self-service booking. Customers pick a time, get confirmed, and receive reminders ,  no back-and-forth messages, no double bookings.</p>
@@ -2130,7 +2130,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="scheduling-appointments" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/caldotcom" alt="Cal.com" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/caldotcom" alt="Cal.com" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">The open-source scheduling alternative. Automate appointment booking, send reminders, handle reschedules, and sync with your calendar ,  full control, no per-seat pricing surprises.</p>
@@ -2140,7 +2140,7 @@ them.</p>
         <!-- Marketing & Email -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="marketing-email" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/mailchimp" alt="Mailchimp" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/mailchimp" alt="Mailchimp" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Turn chatbot conversations into email subscribers automatically. Segment audiences based on what they asked about, trigger targeted campaigns, and track engagement ,  your lead gen runs on autopilot.</p>
@@ -2149,7 +2149,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="marketing-email" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ActiveCampaign_logo.svg" alt="ActiveCampaign" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ActiveCampaign_logo.svg" alt="ActiveCampaign" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Go beyond email. Automate entire customer journeys ,  from first chatbot interaction to purchase to re-engagement ,  with behavior-based triggers, lead scoring, and multi-channel follow-ups.</p>
@@ -2158,7 +2158,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="marketing-email" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/brevo" alt="Brevo (Sendinblue)" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/brevo" alt="Brevo (Sendinblue)" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Email, SMS, and WhatsApp marketing in one platform. Sync your chatbot leads, trigger automated campaigns across channels, and track conversions ,  built for teams who want results without enterprise pricing.</p>
@@ -2167,7 +2167,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="marketing-email" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/meta" alt="Meta (Facebook &amp; Instagram)" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/meta" alt="Meta (Facebook &amp; Instagram)" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Capture leads from Facebook and Instagram ads and funnel them straight into your chatbot. Automate DM responses, comment replies, and ad lead follow-ups ,  every click becomes a conversation.</p>
@@ -2177,7 +2177,7 @@ them.</p>
         <!-- AI & Intelligence -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="ai-intelligence" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/OpenAI_logo_2025.svg" alt="OpenAI (ChatGPT)" class="w-full h-full object-contain" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/OpenAI_logo_2025.svg" alt="OpenAI (ChatGPT)" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Supercharge your chatbot with GPT-powered intelligence. Generate natural responses, summarize customer conversations, extract intent from messages, and create personalized product recommendations ,  your bot doesn't just reply, it thinks.</p>
@@ -2186,7 +2186,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="ai-intelligence" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/googlegemini" alt="Google Gemini" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/googlegemini" alt="Google Gemini" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Leverage Google's AI for multilingual understanding, image recognition, and complex reasoning. Your chatbot handles nuanced questions, processes images customers send, and responds in their language ,  naturally.</p>
@@ -2195,7 +2195,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="ai-intelligence" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/anthropic" alt="Anthropic (Claude)" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/anthropic" alt="Anthropic (Claude)" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Add advanced reasoning and long-context understanding to your workflows. Perfect for analyzing lengthy customer histories, generating detailed reports, and handling complex multi-step support cases.</p>
@@ -2205,7 +2205,7 @@ them.</p>
         <!-- Productivity & Project Management -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="productivity-project-management" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/googlesheets" alt="Google Sheets" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/googlesheets" alt="Google Sheets" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Your lightweight database for everything. Log every lead, track every order, record every support interaction ,  all automatically pushed to a spreadsheet your entire team can access and analyze.</p>
@@ -2214,7 +2214,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="productivity-project-management" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/airtable" alt="Airtable" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/airtable" alt="Airtable" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">More powerful than a spreadsheet, simpler than a database. Automate lead tracking, order management, content calendars, and customer feedback collection ,  with views your team actually wants to use.</p>
@@ -2223,7 +2223,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="productivity-project-management" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/notion" alt="Notion" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/notion" alt="Notion" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Turn your chatbot data into actionable knowledge. Auto-create customer profiles, log meeting notes, update project boards, and build a living wiki your whole team can search and reference.</p>
@@ -2232,7 +2232,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="productivity-project-management" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/trello" alt="Trello" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/trello" alt="Trello" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Every new support ticket or customer request becomes a Trello card automatically. Assign team members, set due dates, and track progress visually ,  nothing gets lost, everything gets done.</p>
@@ -2241,7 +2241,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="productivity-project-management" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/asana" alt="Asana" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/asana" alt="Asana" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">For teams managing complex projects alongside customer operations. Automate task creation from chatbot interactions, assign follow-ups, and track delivery ,  your bot feeds your project board directly.</p>
@@ -2251,7 +2251,7 @@ them.</p>
         <!-- Finance & Accounting -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="finance-accounting" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/quickbooks" alt="QuickBooks" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/quickbooks" alt="QuickBooks" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Every payment your chatbot processes syncs to QuickBooks automatically. Invoices, receipts, refunds, and expense tracking ,  your books stay clean without manual data entry.</p>
@@ -2260,7 +2260,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="finance-accounting" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/xero" alt="Xero" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/xero" alt="Xero" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">For businesses that run on Xero, automate invoice creation, payment reconciliation, and expense categorization. Your chatbot handles the transaction, Xero handles the accounting ,  zero manual work.</p>
@@ -2269,7 +2269,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="finance-accounting" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/wise" alt="Wise (TransferWise)" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/wise" alt="Wise (TransferWise)" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Serving international customers? Automate cross-border payment tracking, currency conversion notifications, and transfer confirmations ,  your global operations run smoothly without timezone headaches.</p>
@@ -2279,7 +2279,7 @@ them.</p>
         <!-- Customer Support & Helpdesk -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="customer-support-helpdesk" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/zendesk" alt="Zendesk" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/zendesk" alt="Zendesk" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">When your chatbot can't resolve it, Zendesk catches it. Auto-create support tickets with full conversation history, route to the right agent, and track resolution times ,  seamless escalation, zero context loss.</p>
@@ -2288,7 +2288,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="customer-support-helpdesk" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://www.vectorlogo.zone/logos/freshdesk/freshdesk-icon.svg" alt="Freshdesk" class="w-full h-full object-contain" />
+            <img src="https://www.vectorlogo.zone/logos/freshdesk/freshdesk-icon.svg" alt="Freshdesk" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Affordable helpdesk for growing teams. Your chatbot handles the easy stuff, Freshdesk manages the complex cases ,  with automated ticket creation, priority tagging, and SLA tracking built in.</p>
@@ -2297,7 +2297,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="customer-support-helpdesk" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/intercom" alt="Intercom" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/intercom" alt="Intercom" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Blend AI chatbot power with human support. Auto-qualify leads, route conversations to the right team, trigger product tours, and track customer health scores ,  all from one unified inbox.</p>
@@ -2307,7 +2307,7 @@ them.</p>
         <!-- Data & Storage -->
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="data-storage" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/googledrive" alt="Google Drive" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/googledrive" alt="Google Drive" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Automatically store invoices, contracts, chat transcripts, and customer documents in organized Google Drive folders. Your team finds what they need instantly, and nothing gets lost in the chaos.</p>
@@ -2316,7 +2316,7 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="data-storage" data-ns-animate>
           <figure class="w-[123px]">
-            <img src="https://cdn.simpleicons.org/dropbox" alt="Dropbox" class="w-full h-full object-contain" />
+            <img src="https://cdn.simpleicons.org/dropbox" alt="Dropbox" class="w-full h-full object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">Automate file sharing with customers and team members. Order confirmations, signed documents, product catalogs ,  sent and stored automatically, accessible from anywhere.</p>
@@ -2325,8 +2325,8 @@ them.</p>
 
         <div class="story-card integration-card space-y-6 p-8 rounded-[20px] bg-white dark:bg-background-5" data-industry="data-storage" data-ns-animate>
           <figure class="w-[123px] flex items-center gap-3">
-            <img src="https://cdn.simpleicons.org/mysql" alt="MySQL" class="w-10 h-10 object-contain" />
-            <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" class="w-10 h-10 object-contain" />
+            <img src="https://cdn.simpleicons.org/mysql" alt="MySQL" class="w-10 h-10 object-contain" loading="lazy" decoding="async">
+            <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" class="w-10 h-10 object-contain" loading="lazy" decoding="async">
           </figure>
           <div class="space-y-3">
             <p class="text-tagline-1">For businesses that need full control over their data. Store every customer interaction, order detail, and analytics metric in your own database ,  structured, searchable, and completely yours.</p>
@@ -2392,7 +2392,7 @@ Integration section
 
                 aria-hidden="true"
 
-              />
+              loading="lazy" decoding="async">
 
               <span class="section-title-text">Our Services</span>
 
@@ -2553,7 +2553,7 @@ Integration section
 
             aria-hidden="true"
 
-          />
+          loading="lazy" decoding="async">
 
           <span class="section-title-text" style="color:#ffffff;">Let's Talk</span>
 
@@ -2585,7 +2585,7 @@ Integration section
                 aria-hidden="true"
                 class="size-10"
                 loading="lazy"
-              />
+              decoding="async">
             </span>
             <span>Chat with plum</span>
           </a>
@@ -2621,7 +2621,7 @@ Footer
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
             <figure>
-              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop>
+              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop preload="metadata">
   <source src="images/loader compressed.mp4" type="video/mp4" />
 </video>
             </figure>
@@ -2767,13 +2767,11 @@ Footer
 
 
   <script src="vendor/swiper.min.js"></script>
-<script src="vendor/leaflet.min.js"></script>
 <script src="vendor/vanilla-infinite-marquee.min.js"></script>
 <script src="vendor/split-text.min.js"></script>
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/scroll-trigger.min.js"></script>
 <script src="vendor/draw-svg.min.js"></script>
-<script src="vendor/scroll-trigger.min.js"></script>
 <script src="vendor/motionpathplugin.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
 <script src="vendor/springer.min.js"></script>
@@ -3093,14 +3091,12 @@ Footer
 
 
 
-          const footerTop = footer, footer.getBoundingClientRect().top : Number.POSITIVE_INFINITY;
+          const footerTop = footer ? footer.getBoundingClientRect().top : Number.POSITIVE_INFINITY;
 
           const footerVisible = footerTop <= window.innerHeight;
 
           const headerActive = header
-
-           , header.classList.contains("scrolling-down") || header.classList.contains("scroll-header") || scrollY > 200
-
+            ? header.classList.contains("scrolling-down") || header.classList.contains("scroll-header") || scrollY > 200
             : scrollY > 200;
 
           const shouldShow = headerActive && scrollY > 200 && !footerVisible && !locked;
