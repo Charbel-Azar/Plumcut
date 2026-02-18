@@ -30734,11 +30734,11 @@ p.text-secondary\/60 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: radial-gradient(circle at 50% 35%, #2a1539 0%, #140b1f 55%, #0f0817 100%);
   z-index: 9999;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+  transition: opacity 0.45s ease, visibility 0s linear 0.45s;
 }
 
 .site-loader--hidden {

@@ -206,7 +206,8 @@ Head links
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
 <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
-<link rel="preload" href="assets/main.css" as="style" />
+<link rel="preload" href="assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" href="images/loader.mp4" as="video" type="video/mp4" />
 <link
   href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&amp;display=swap"
   rel="stylesheet"
@@ -222,7 +223,13 @@ Head links
 
     <title>Pricing | Plumcut - AI Chatbots & Business Automation</title>
     
-    <link rel="stylesheet" href="assets/main.css">
+    <noscript><link rel="stylesheet" href="assets/main.css"></noscript>
+    <style id="critical-loader-style">
+  .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #140b1f; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
+  .site-loader--hidden { opacity: 0; visibility: hidden; }
+  .site-loader__video { width: clamp(160px, 40vw, 420px); max-height: 60vh; height: auto; display: block; }
+  body.is-loading { overflow: hidden; }
+</style>
     
     <style>
       /* Apply Alan Sans across the page while allowing weight overrides */
@@ -746,7 +753,7 @@ Head links
   </head>
   <body class="bg-background-1 dark:bg-background-6 is-loading">
     <div class="site-loader" aria-hidden="true">
-      <video class="site-loader__video" autoplay muted playsinline loop preload="metadata">
+      <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
         <source src="images/loader.mp4" type="video/mp4">
       </video>
     </div>
