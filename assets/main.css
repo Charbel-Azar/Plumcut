@@ -30734,7 +30734,7 @@ p.text-secondary\/60 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 50% 35%, #2a1539 0%, #140b1f 55%, #0f0817 100%);
+  background: #fff;
   z-index: 9999;
   opacity: 1;
   visibility: visible;
