@@ -2352,9 +2352,6 @@ const commonAnimation = {
     const splitTextTeamTitle = document.querySelector(".split-text-team-title");
     const heroPerspective = document.querySelector(".hero-perspective");
     const heroLines = document.querySelectorAll("[data-hero-line]");
-    const featureCard1 = document.querySelector(".feature-card-1");
-    const featureCard2 = document.querySelector(".feature-card-2");
-    const featureCard3 = document.querySelector(".feature-card-3");
     const monthCards = document.querySelectorAll(".month-card");
     const monthLinks = document.querySelectorAll(".month-link");
     if (divider) {
@@ -2493,50 +2490,6 @@ const commonAnimation = {
           delay: 0.7,
           ease: "power2.out"
         });
-      });
-    }
-    if (featureCard1) {
-      gsap.from(featureCard1, {
-        x: 100,
-        rotation: 0,
-        duration: 0.8,
-        delay: 0.7,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: featureCard1,
-          start: "top 90%",
-          end: "bottom 20%",
-          scrub: 2
-        }
-      });
-    }
-    if (featureCard2) {
-      gsap.from(featureCard2, {
-        rotation: 10,
-        duration: 0.8,
-        delay: 0.7,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: featureCard1,
-          start: "top 90%",
-          end: "bottom 20%",
-          scrub: 2
-        }
-      });
-    }
-    if (featureCard3) {
-      gsap.from(featureCard3, {
-        x: -100,
-        rotation: 0,
-        duration: 0.8,
-        delay: 0.7,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: featureCard1,
-          start: "top 90%",
-          end: "bottom 20%",
-          scrub: 2
-        }
       });
     }
     if (monthCards.length > 0 && monthLinks.length > 0) {
