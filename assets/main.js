@@ -3676,17 +3676,13 @@ if (typeof window !== "undefined") {
   const HIDDEN_CLASS = "site-loader--hidden";
   const BODY_LOADING_CLASS = "is-loading";
   const MIN_DISPLAY_MS = 700;
-  const MAX_WAIT_FOR_VIDEO_MS = 2500;
+  const MAX_TOTAL_WAIT_MS = 10000;
 
   const body = document.body;
   const loader = document.querySelector(`.${LOADER_CLASS}`);
   const loaderVideo = loader ? loader.querySelector("video") : null;
-  const mainStylesheet = document.querySelector("link[data-main-styles]");
   const startTime = typeof performance !== "undefined" ? performance.now() : Date.now();
   let hasHidden = false;
-  let domReady = document.readyState !== "loading";
-  let videoReady = !loaderVideo;
-  let cssReady = !mainStylesheet || mainStylesheet.rel === "stylesheet";
 
   const removeLoader = () => {
     if (loader && loader.parentNode) {
@@ -3710,8 +3706,8 @@ if (typeof window !== "undefined") {
     setTimeout(removeLoader, 900);
   };
 
-  const maybeHideLoader = () => {
-    if (!domReady || !videoReady || !cssReady) {
+  const scheduleHide = () => {
+    if (hasHidden) {
       return;
     }
     const now = typeof performance !== "undefined" ? performance.now() : Date.now();
@@ -3724,44 +3720,19 @@ if (typeof window !== "undefined") {
     body.classList.add(BODY_LOADING_CLASS);
   }
 
-  if (mainStylesheet && !cssReady) {
-    const onStylesheetReady = () => {
-      cssReady = true;
-      maybeHideLoader();
-    };
-    mainStylesheet.addEventListener("load", onStylesheetReady, { once: true });
-    setTimeout(onStylesheetReady, 3000);
-  }
-
   if (loaderVideo) {
     loaderVideo.preload = "auto";
-    if (loaderVideo.readyState >= 2) {
-      videoReady = true;
-    } else {
-      const onVideoReady = () => {
-        videoReady = true;
-        maybeHideLoader();
-      };
-      loaderVideo.addEventListener("loadeddata", onVideoReady, { once: true });
-      loaderVideo.addEventListener("canplay", onVideoReady, { once: true });
-      setTimeout(() => {
-        videoReady = true;
-        maybeHideLoader();
-      }, MAX_WAIT_FOR_VIDEO_MS);
-    }
     const playPromise = loaderVideo.play();
     if (playPromise && typeof playPromise.catch === "function") {
-      playPromise.catch(() => {
-      });
+      playPromise.catch(() => {});
     }
   }
 
-  if (domReady) {
-    maybeHideLoader();
+  setTimeout(hideLoader, MAX_TOTAL_WAIT_MS);
+
+  if (document.readyState === "complete") {
+    scheduleHide();
   } else {
-    document.addEventListener("DOMContentLoaded", () => {
-      domReady = true;
-      maybeHideLoader();
-    }, { once: true });
+    window.addEventListener("load", scheduleHide, { once: true });
   }
 })();
