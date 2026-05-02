@@ -4,22 +4,64 @@
 // Google tag (gtag.js) - Configured for G-5HBN957GV9
 (function() {
   const GA_MEASUREMENT_ID = 'G-5HBN957GV9';
-  
+
   // Load Google Analytics script dynamically
   const script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
   document.head.appendChild(script);
-  
+
   // Initialize Google Analytics
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', GA_MEASUREMENT_ID);
+  window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+  window.gtag('js', new Date());
+  window.gtag('config', GA_MEASUREMENT_ID);
 })();
 
 // =========================
 // End Google Analytics Configuration
+// =========================
+
+// =========================
+// Meta Pixel + "Chat with plum" click tracking
+// =========================
+(function() {
+  // Meta Pixel base code
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  window.fbq('init', '1684475959252850');
+  window.fbq('track', 'PageView');
+
+  // Track every "Chat with plum" click (any wa.me link or button with that label)
+  const isChatWithPlum = (el) => {
+    const href = el.getAttribute('href') || '';
+    if (/(^|\/\/)(wa\.me|api\.whatsapp\.com|chat\.whatsapp\.com)/i.test(href)) return true;
+    const text = (el.innerText || el.textContent || '').trim();
+    return /chat with plum/i.test(text);
+  };
+
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('a, button');
+    if (!el || !isChatWithPlum(el)) return;
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'chat_with_plum_click', {
+        page: (location.pathname.split('/').pop() || 'index.html').replace('.html', '') || 'index'
+      });
+    }
+    if (typeof window.fbq === 'function') {
+      window.fbq('trackCustom', 'Chat with plum');
+    }
+  }, true);
+})();
+// =========================
+// End tracking
 // =========================
 
 const accordionAnimation = {
