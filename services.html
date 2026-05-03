@@ -2840,7 +2840,22 @@ Footer
         card.style.transform = "";
       };
 
-      const applyFilter = (category) => {
+      const releaseGsapHold = (card) => {
+        if (window.gsap && typeof window.gsap.killTweensOf === "function") {
+          window.gsap.killTweensOf(card);
+        }
+        if (window.ScrollTrigger && typeof window.ScrollTrigger.getAll === "function") {
+          window.ScrollTrigger.getAll().forEach((trigger) => {
+            if (trigger.trigger === card || trigger.vars?.trigger === card) {
+              trigger.kill();
+            }
+          });
+        }
+        card.removeAttribute("data-ns-animate");
+      };
+
+      const applyFilter = (category, options) => {
+        const releaseGsap = !options || options.releaseGsap !== false;
         const normalized = (category || "all").toLowerCase().trim();
         cards.forEach((card) => {
           if (!card.classList.contains("is-hidden")) {
@@ -2855,10 +2870,17 @@ Footer
             card.classList.toggle("is-hidden", !matches);
             card.classList.remove("is-fading");
             if (matches) {
+              if (releaseGsap) {
+                releaseGsapHold(card);
+              }
               normalizeCard(card);
               card.classList.add("is-entering");
             }
           });
+
+          if (releaseGsap && window.ScrollTrigger && typeof window.ScrollTrigger.refresh === "function") {
+            window.ScrollTrigger.refresh();
+          }
 
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
@@ -2912,7 +2934,7 @@ Footer
       const initialCategory = defaultButton?.getAttribute("data-category") || "all";
       syncActiveState(initialCategory);
       cards.forEach(normalizeCard);
-      applyFilter(initialCategory);
+      applyFilter(initialCategory, { releaseGsap: false });
     })();
   </script>
   <script>
