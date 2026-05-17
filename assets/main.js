@@ -44,7 +44,7 @@
       });
     }
     if (typeof window.fbq === 'function') {
-      window.fbq('trackCustom', 'Chat with plum');
+      window.fbq('trackCustom', 'ChatWithPlum');
     }
   }, true);
 })();
