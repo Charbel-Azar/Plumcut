@@ -213,7 +213,7 @@ Head links
   rel="stylesheet"
 />
 <link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@400&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap"
   rel="stylesheet"
 />
 <link
@@ -234,7 +234,7 @@ Head links
     <style>
       /* Apply Alan Sans across the page while allowing weight overrides */
       body {
-        font-weight: 400;
+        font-weight: 300;
       }
 
       body * {
@@ -608,6 +608,33 @@ Head links
         transform: translateX(-50%) scaleX(1);
       }
 
+      /* Home link: text on desktop, plum icon on phone */
+      .pc-nav-home-icon {
+        display: none;
+      }
+
+      @media (max-width: 640px) {
+        .pc-nav-home-text {
+          display: none;
+        }
+
+        .pc-nav-home-icon {
+          display: block;
+          height: 2.1rem;
+          width: auto;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon) {
+          padding-bottom: 0;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon)::after {
+          display: none;
+        }
+      }
+
       @media (max-width: 1024px) {
         .pc-nav-logo {
           display: none;
@@ -617,24 +644,31 @@ Head links
       @media (max-width: 640px) {
         .pc-navbar {
           top: 0;
-          --pc-nav-font-size: 0.85rem;
-          --pc-nav-font-size-active: 0.95rem;
-          --pc-nav-letter-spacing: 0.015em;
-          --pc-nav-gap: 0.85rem;
+          --pc-nav-font-size: 0.82rem;
+          --pc-nav-font-size-active: 0.88rem;
+          --pc-nav-letter-spacing: 0.005em;
+          --pc-nav-gap: 0.4rem;
+        }
+
+        .pc-navbar-inner {
+          display: flex;
+          padding: 0.6rem 12px;
         }
 
         .pc-nav {
           width: 100%;
-          justify-content: space-around;
+          grid-column: auto;
+          justify-self: auto;
+          justify-content: space-evenly;
           gap: var(--pc-nav-gap);
           flex-wrap: nowrap;
-          padding: 0.5rem 0.75rem;
+          padding: 0.5rem 0.25rem;
         }
 
         .pc-nav-link {
           font-size: var(--pc-nav-font-size);
           letter-spacing: var(--pc-nav-letter-spacing);
-          padding: 0.35rem 0.35rem 0.4rem;
+          padding: 0.35rem 0.1rem 0.4rem;
         }
 
         .pc-nav-link.is-active {
@@ -643,7 +677,15 @@ Head links
       }
 
       .footer.footer-three {
+        background-color: transparent;
+      }
+
+      .footer-ribbon {
         background-color: #E65E04;
+      }
+
+      .footer-copyright {
+        color: #481D52;
       }
 
       .footer-brand-card {
@@ -789,9 +831,12 @@ Header
       <img src="images/index/logo%20with%20wordmark.png" alt="plumcut" fetchpriority="high">
     </a>
     <nav class="pc-nav" aria-label="Primary">
-      <a class="pc-nav-link" href="index.html">Home</a>
+      <a class="pc-nav-link" href="index.html" aria-label="Home">
+        <span class="pc-nav-home-text">Home</span>
+        <img class="pc-nav-home-icon" src="images/shared/new%20icon.png" alt="plumcut home">
+      </a>
       <a class="pc-nav-link" href="how-it-works.html">How it works</a>
-      <a class="pc-nav-link" href="services.html">Solutions</a>
+      <a class="pc-nav-link" href="solutions.html">Solutions</a>
       <a class="pc-nav-link is-active" href="pricing.html">Pricing</a>
       <a class="pc-nav-link" href="about.html">About</a>
     </nav>
@@ -1246,63 +1291,202 @@ Pricing section
         <span class="section-title-text">Pricing</span>
       </span>
       <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
-        Priced to your real <br>volume, not a guess
+        Do you want to understand <br>your customers?
       </h2>
       <p data-ns-animate data-delay="0.3" class="text-tagline-1 mx-auto max-w-[760px] mt-4" style="color:#4B1D6A;">
-        Your price is sized to how much your brand actually talks to its customers, so it's fair, and so we can stand behind it. Here's exactly how it works. Tell plum about your brand and we'll put a real number in front of you on a 15-minute call.
+        Why they buy, why they don't, and the demand you can't see, delivered through AI chat and automation we build and run. Priced to your real volume, never a guess. Tell plum about your brand and we'll put a real number in front of you on a 15-minute call.
       </p>
     </div>
 
-    <div class="grid grid-cols-12 gap-6 lg:gap-8 max-w-[1120px] mx-auto">
-      <!-- main monthly plan -->
-      <div data-ns-animate data-delay="0.4" class="col-span-12 lg:col-span-7">
-        <div class="rounded-3xl h-full p-8 md:p-10 space-y-5" style="background:#481D52;">
-          <span class="inline-block text-sm uppercase rounded-full px-3 py-1" style="background:#E65E04;color:#fff;">One simple monthly plan</span>
-          <h3 class="text-heading-5 md:text-heading-4 text-white">Everything plum does, bundled into one number</h3>
-          <p class="text-tagline-1 text-white">plum answering, selling, booking, and tracking, plus us running and improving it, and a normal month of conversations included. One price. It only grows when you add solutions.</p>
-          <ul class="space-y-3 text-tagline-1 text-white">
-            <li>✓ &nbsp;plum answers, sells, and books in your DMs</li>
-            <li>✓ &nbsp;We build, run, and improve it, you operate nothing</li>
-            <li>✓ &nbsp;A generous, normal volume of conversations included</li>
-            <li>✓ &nbsp;You own your data and your customer understanding</li>
-          </ul>
-          <a href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary">
-            Book a 15-min call
-            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-          </a>
+    <!-- ========================= FINAL PRICING STRUCTURE =========================
+         Customer insight is the hero. Two paths share the insight core; only the
+         "do we also build the chatbot/automation" part differs. -->
+    <style>
+      /* three-step "how the insight happens" strip */
+      .pf-steps { display:flex; flex-wrap:wrap; justify-content:center; align-items:stretch; gap:14px; }
+      .pf-step { flex:1 1 230px; max-width:340px; background:#fff; border:1px solid rgba(75,29,106,0.12); border-radius:24px; padding:26px 22px; text-align:center; box-shadow:0 4px 20px rgba(75,29,106,0.06); }
+      .pf-step-num { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#E65E04; color:#fff; font-weight:600; font-size:1rem; margin-bottom:14px; }
+      .pf-step h4 { color:#481D52; font-size:1.15rem; font-weight:600; margin-bottom:6px; }
+      .pf-step p { color:#4B1D6A; font-size:0.95rem; opacity:0.85; }
+      .pf-step-arrow { display:flex; align-items:center; justify-content:center; color:#E65E04; font-size:1.7rem; line-height:1; align-self:center; }
+      @media (max-width:767px){ .pf-step-arrow { transform:rotate(90deg); } }
+
+      /* path cards */
+      .pf-card { border-radius:28px; padding:34px 30px; height:100%; display:flex; flex-direction:column; }
+      .pf-card-featured { position:relative; isolation:isolate; overflow:hidden; background-color:#2d1342; box-shadow:0 10px 40px rgba(75,29,106,0.25); }
+      .pf-card-featured::before { content:""; position:absolute; inset:-8px; background-image:var(--strategy-hero-surface); background-repeat:no-repeat; background-position:center; background-size:cover; z-index:0; }
+      .pf-card-featured > * { position:relative; z-index:1; }
+      .pf-card-secondary { background:#fff; border:2px solid #E65E04; box-shadow:0 4px 24px rgba(75,29,106,0.10); }
+
+      .pf-badge { align-self:flex-start; display:inline-block; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:600; border-radius:999px; padding:6px 14px; margin-bottom:18px; }
+      .pf-badge-pop { background:#E65E04; color:#fff; }
+      .pf-badge-alt { background:rgba(75,29,106,0.08); color:#4B1D6A; }
+
+      .pf-card-title { font-size:1.7rem; font-weight:600; line-height:1.15; }
+      .pf-card-featured .pf-card-title { color:#fff; }
+      .pf-card-secondary .pf-card-title { color:#481D52; }
+      .pf-card .pf-card-sub { font-size:1rem; margin-top:10px; line-height:1.5; text-align:left !important; }
+      .pf-card-featured .pf-card-sub { color:#fff; opacity:0.9; }
+      .pf-card-secondary .pf-card-sub { color:#4B1D6A; }
+
+      /* flagship customer-insight panel: first, bold, louder than anything else */
+      .pf-flagship { border-radius:20px; padding:22px; margin:22px 0; }
+      .pf-card-featured .pf-flagship { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.28); }
+      .pf-card-secondary .pf-flagship { background:rgba(75,29,106,0.05); border:1px solid rgba(75,29,106,0.12); }
+      .pf-flagship-label { display:inline-block; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:600; margin-bottom:12px; }
+      .pf-card-featured .pf-flagship-label { color:#FFD9BF; }
+      .pf-card-secondary .pf-flagship-label { color:#E65E04; }
+      .pf-flagship ul { list-style:none; margin:0; padding:0; }
+      .pf-flagship li { display:flex; align-items:flex-start; gap:12px; font-size:1.08rem; font-weight:600; line-height:1.35; padding:8px 0; }
+      .pf-card-featured .pf-flagship li { color:#fff; }
+      .pf-card-secondary .pf-flagship li { color:#481D52; }
+
+      .pf-card .pf-rest-label { font-size:0.95rem; margin-bottom:8px; text-align:left !important; }
+      .pf-card-featured .pf-rest-label { color:#fff; opacity:0.85; }
+      .pf-card-secondary .pf-rest-label { color:#4B1D6A; }
+      .pf-rest { list-style:none; margin:0 0 26px; padding:0; }
+      .pf-rest li { display:flex; align-items:flex-start; gap:12px; font-size:0.98rem; line-height:1.4; padding:7px 0; }
+      .pf-card-featured .pf-rest li { color:#fff; opacity:0.92; }
+      .pf-card-secondary .pf-rest li { color:#4B1D6A; }
+
+      .pf-tick { flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#4B1D6A; margin-top:1px; }
+      .pf-card-featured .pf-tick { background:#fff; }
+      .pf-tick svg { width:12px; height:12px; fill:#fff; }
+      .pf-card-featured .pf-tick svg { fill:#481D52; }
+
+      .pf-card .pricing-btn { margin-top:auto; }
+
+      /* pick-your-solutions checklist (right card) */
+      .pf-card .pf-pick-label { font-size:0.95rem; margin:6px 0 12px; text-align:left !important; color:#4B1D6A; }
+      .pf-pills { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 26px; padding:0; list-style:none; }
+      .pf-pill { display:inline-flex; align-items:center; gap:9px; font-size:0.92rem; color:#481D52; background:rgba(75,29,106,0.05); border:1px solid rgba(75,29,106,0.18); border-radius:999px; padding:9px 15px; line-height:1.2; cursor:pointer; user-select:none; transition:background .15s ease, border-color .15s ease; }
+      .pf-pill input { position:absolute; opacity:0; width:0; height:0; pointer-events:none; }
+      .pf-pill-box { flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; border-radius:5px; border:1.5px solid #E65E04; transition:background .15s ease; }
+      .pf-pill-box svg { width:11px; height:11px; fill:#fff; opacity:0; transition:opacity .15s ease; }
+      .pf-pill input:checked + .pf-pill-box { background:#E65E04; }
+      .pf-pill input:checked + .pf-pill-box svg { opacity:1; }
+      .pf-pill:has(input:checked) { background:rgba(230,94,4,0.10); border-color:#E65E04; }
+      .pf-pill input:focus-visible + .pf-pill-box { outline:2px solid #4B1D6A; outline-offset:2px; }
+
+      /* setup + fair-use reassurance notes */
+      .pf-notes { display:grid; grid-template-columns:1fr; gap:20px; }
+      @media (min-width:768px){ .pf-notes { grid-template-columns:1fr 1fr; } }
+      .pf-note { background:linear-gradient(180deg,#faf7fc 0%,#fbf6f2 100%); border:1px solid rgba(75,29,106,0.10); border-radius:28px; padding:clamp(28px,4vw,38px); display:flex; gap:18px; align-items:flex-start; box-shadow:0 6px 24px rgba(75,29,106,0.05); }
+      .pf-note-icon { flex-shrink:0; width:52px; height:52px; border-radius:16px; display:inline-flex; align-items:center; justify-content:center; background:#fff; box-shadow:0 4px 12px rgba(75,29,106,0.08); }
+      .pf-note-icon svg { width:26px; height:26px; stroke:#E65E04; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+      .pf-note h3 { color:#481D52; font-size:1.2rem; font-weight:600; margin-bottom:8px; text-align:left !important; }
+      .pf-note p { color:#4B1D6A; font-size:0.98rem; line-height:1.55; text-align:left !important; opacity:0.9; }
+    </style>
+
+    <!-- two paths, one shared insight core -->
+    <div class="max-w-[1240px] mx-auto">
+      <div class="grid grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        <!-- Path 1: we build it for you (featured / most popular) -->
+        <div class="col-span-12 lg:col-span-7">
+          <div class="pf-card pf-card-featured">
+            <span class="pf-badge pf-badge-pop">Most popular</span>
+            <h3 class="pf-card-title">We build it for you</h3>
+            <p class="pf-card-sub">No chatbot or automation yet? We build and run the whole system, then hand you the understanding of why your customers buy, why they don't, and the demand you can't see.</p>
+            <div class="pf-flagship">
+              <span class="pf-flagship-label">customer insight, the core you get</span>
+              <ul>
+                <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>insight collection from every conversation</li>
+                <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>weekly insight reporting</li>
+                <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>a monthly business analysis &amp; consultation</li>
+              </ul>
+            </div>
+            <p class="pf-rest-label">and because you don't have it yet, we also build and run:</p>
+            <ul class="pf-rest">
+              <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>the AI chatbot, answering, selling, booking 24/7</li>
+              <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>automations connected to your CRM and tools</li>
+              <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>built, run, and improved by us, you operate nothing and own everything</li>
+            </ul>
+            <a href="https://wa.me/17744970802?text=Hi%20plum!%20I%20don't%20have%20a%20chatbot%20yet,%20build%20the%20whole%20system%20and%20give%20me%20the%20customer%20insight.%20Can%20we%20book%20a%2015-min%20call%3F" target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary">
+              Book a 15-min call
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </a>
+          </div>
+        </div>
+        <!-- Path 2: pick what you need, we build it (secondary) -->
+        <div class="col-span-12 lg:col-span-5">
+          <div class="pf-card pf-card-secondary">
+            <span class="pf-badge pf-badge-alt">Build your own</span>
+            <h3 class="pf-card-title">Pick what you need, we build it</h3>
+            <p class="pf-card-sub">you choose the pieces that fit your business, we build and run them for you. customer insight comes built into whatever you pick.</p>
+            <div class="pf-flagship">
+              <span class="pf-flagship-label">always included, whatever you pick</span>
+              <ul>
+                <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>insight collection from every conversation</li>
+                <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>weekly insight reporting</li>
+                <li><span class="pf-tick"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>a monthly business analysis &amp; consultation</li>
+              </ul>
+            </div>
+            <p class="pf-pick-label">then pick the solutions you want:</p>
+            <div class="pf-pills" id="pf-pick-list">
+              <label class="pf-pill"><input type="checkbox" value="booking &amp; appointments"><span class="pf-pill-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>booking &amp; appointments</label>
+              <label class="pf-pill"><input type="checkbox" value="virtual try-on"><span class="pf-pill-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>virtual try-on</label>
+              <label class="pf-pill"><input type="checkbox" value="sales agent (recommend &amp; upsell)"><span class="pf-pill-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>sales agent, recommend &amp; upsell</label>
+              <label class="pf-pill"><input type="checkbox" value="instant answers / 24-7 support"><span class="pf-pill-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>instant answers, 24/7 support</label>
+              <label class="pf-pill"><input type="checkbox" value="order tracking"><span class="pf-pill-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>order tracking</label>
+              <label class="pf-pill"><input type="checkbox" value="pay in chat"><span class="pf-pill-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/></svg></span>pay in chat</label>
+            </div>
+            <a href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20build%20my%20own%20setup,%20here's%20what%20I%20want%E2%80%A6" target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-primary" id="pf-build-cta">
+              Build my setup
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
+    </div>
 
-      <!-- side stack -->
-      <div class="col-span-12 lg:col-span-5 space-y-6">
-        <div data-ns-animate data-delay="0.5" class="bg-background-12 rounded-3xl p-7 space-y-2">
-          <h3 class="text-heading-6" style="color:#481D52;">A one-time setup</h3>
-          <p class="text-tagline-2" style="color:#4B1D6A;">Upfront, so nothing is hidden. It pays for learning your brand and building &amp; launching plum around your voice, products, and policies. You pay it once.</p>
+    <script>
+      (function () {
+        var cta = document.getElementById('pf-build-cta');
+        var list = document.getElementById('pf-pick-list');
+        if (!cta || !list) return;
+        var base = 'https://wa.me/17744970802?text=';
+        function buildHref() {
+          var picked = [];
+          var boxes = list.querySelectorAll('input[type="checkbox"]');
+          for (var i = 0; i < boxes.length; i++) {
+            if (boxes[i].checked) picked.push(boxes[i].value);
+          }
+          var msg = picked.length
+            ? "Hi plum! I would like to build my own setup with the following solutions: " + picked.join(', ') + "."
+            : "Hi plum! I'd like to build my own setup, here's what I want…";
+          cta.setAttribute('href', base + encodeURIComponent(msg));
+        }
+        list.addEventListener('change', buildHref);
+        cta.addEventListener('click', buildHref);
+        buildHref();
+      })();
+    </script>
+
+    <!-- supporting notes: setup + fair use -->
+    <div class="pf-notes max-w-[1240px] mx-auto">
+      <div data-ns-animate data-delay="0.7" class="pf-note">
+        <span class="pf-note-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a1.5 1.5 0 0 0 2.1 2.1l6-6a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2 2.2-2.4z"/></svg>
+        </span>
+        <div>
+          <h3>A one-time setup</h3>
+          <p>Upfront, so nothing is hidden. It pays for learning your brand and building &amp; launching plum around your voice, products, and policies. You pay it once.</p>
         </div>
-        <div data-ns-animate data-delay="0.6" class="bg-background-12 rounded-3xl p-7 space-y-2">
-          <h3 class="text-heading-6" style="color:#481D52;">Fair use, not surprise bills</h3>
-          <p class="text-tagline-2" style="color:#4B1D6A;">Your plan includes a generous monthly allowance. If a campaign spikes volume way past it, there's a clear, fair per-use rate, and we always flag you first. Protection, never a gotcha.</p>
-        </div>
-        <div data-ns-animate data-delay="0.7" class="rounded-3xl p-7 space-y-2" style="background:#ffffff;border:2px solid #E65E04;">
-          <h3 class="text-heading-6" style="color:#E65E04;">Customer insights add-on</h3>
-          <p class="text-tagline-2" style="color:#4B1D6A;">The owned dashboard that shows you why customers buy, what they keep asking for, and what to stock next. Available as part of your plan, or as a standalone add-on.</p>
+      </div>
+      <div data-ns-animate data-delay="0.8" class="pf-note">
+        <span class="pf-note-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
+        </span>
+        <div>
+          <h3>Fair use, not surprise bills</h3>
+          <p>Your plan includes a generous monthly allowance. If a campaign spikes volume way past it, there's a clear, fair per-use rate, and we always flag you first. Protection, never a gotcha.</p>
         </div>
       </div>
     </div>
 
     <div class="text-center mt-12 space-y-6 max-w-[820px] mx-auto">
-      <p class="text-tagline-1 font-semibold" style="color:#481D52;">You own your data. Always. It's your brand, your customers, your insight, never locked inside a platform.</p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-primary">
-          Book a 15-min call
-          <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-        </a>
-        <a href="https://wa.me/17744970802?text=Hi%20plum!" target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary">
-          Talk to plum
-          <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-        </a>
-      </div>
-      <p class="text-tagline-2" style="color:#4B1D6A;">Final numbers, setup, monthly, and allowances, are sized from your real volume on the call. <!-- TODO: publish setup amount, monthly bundle, allowance, and overage rate once sized from the first client/trial --></p>
+      <p data-ns-animate data-delay="0.9" class="text-tagline-1 font-semibold" style="color:#481D52;">You own your data. Always. It's your brand, your customers, your insight, never locked inside a platform.</p>
+      <!-- TODO: publish setup amount, monthly bundle, allowance, and overage rate once sized from the first client/trial -->
     </div>
 
   </div>
@@ -1314,6 +1498,8 @@ Pricing section
 FAQ section
 ===========================-->
 <section
+  data-ns-animate
+  data-delay="0.1"
   class="faq-section py-[50px] md:py-[70px] lg:py-[85px] xl:pb-[100px] xl:pt-[200px]"
   aria-label="Frequently Asked Questions"
 >
@@ -1734,7 +1920,7 @@ Accordian Icon
   </div>
 </section>
 
-
+<div aria-hidden="true" class="bg-white h-14 md:h-20"></div>
 
     </main>
     <!-- =========================
@@ -1743,13 +1929,11 @@ Footer
     <!-- =========================
 Footer
 ===========================-->
-<footer class="footer footer-three dark:bg-background-8 relative bg-background-2 overflow-hidden">
-  <div class="main-container">
-    <!-- footer bg-img  -->
- 
-
+<footer class="footer footer-three relative overflow-hidden">
+  <div class="footer-ribbon">
+    <div class="main-container">
     <div
-      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[100px] pt-16 pb-16 justify-between"
+      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[80px] xl:pb-[80px] pt-14 pb-14 justify-between"
     >
       <div class="lg:col-span-4 col-span-12">
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
@@ -1759,13 +1943,9 @@ Footer
   <source src="images/loader compressed.mp4" type="video/mp4" />
 </video>
             </figure>
-            <p class="mt-4 mb-5 text-secondary dark:text-accent">
+            <p class="mt-4 text-secondary dark:text-accent">
               plumcut builds and runs the AI that sells in your DMs, answering, booking, and turning every conversation into insight you own. Built in Lebanon, made for the brands of the region.
             </p>
-            <a href="https://wa.me/17744970802?text=Hi%20plum!" class="inline-flex items-center gap-2 font-semibold" style="color:#481D52;">
-              <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" class="size-5" loading="lazy" decoding="async">
-              <span class="underline underline-offset-4">Talk to plum</span>
-            </a>
           </div>
         </div>
       </div>
@@ -1783,7 +1963,7 @@ Footer
                 <a href="how-it-works.html" class="footer-link-v2"> How it works </a>
               </li>
               <li>
-                <a href="services.html" class="footer-link-v2"> Solutions </a>
+                <a href="solutions.html" class="footer-link-v2"> Solutions </a>
               </li>
               <li>
                 <a href="pricing.html" class="footer-link-v2"> Pricing </a>
@@ -1889,16 +2069,16 @@ Footer
         </div>
       </div>
     </div>
-    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
-      <div
-        class="footer-divider absolute top-0 left-0 right-0 w-0 origin-center mx-auto h-px bg-stroke-2 dark:bg-accent/5"
-      ></div>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="pt-8 pb-12 text-center">
       <p
         data-ns-animate
         data-delay="0.7"
         data-offset="10"
         data-start="top 105%"
-        class="text-white"
+        class="footer-copyright"
       >
         &copy; 2026 plumcut. All rights reserved.
       </p>

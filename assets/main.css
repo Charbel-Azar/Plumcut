@@ -30803,12 +30803,6 @@ p.text-secondary\/60 {
   }
 }
 
-@media (max-width: 768px) {
-  .services-integrations {
-    display: none;
-  }
-}
-
 @media (min-width: 1280px) {
   .about-video {
     max-width: 960px;

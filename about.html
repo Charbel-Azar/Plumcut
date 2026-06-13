@@ -168,7 +168,7 @@ Head links
   rel="stylesheet"
 />
 <link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@400&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap"
   rel="stylesheet"
 />
 <link
@@ -189,7 +189,7 @@ Head links
     <style>
       /* Apply Alan Sans across the page while allowing weight overrides */
       body {
-        font-weight: 400;
+        font-weight: 300;
       }
 
       body * {
@@ -700,6 +700,33 @@ Head links
         transform: translateX(-50%) scaleX(1);
       }
 
+      /* Home link: text on desktop, plum icon on phone */
+      .pc-nav-home-icon {
+        display: none;
+      }
+
+      @media (max-width: 640px) {
+        .pc-nav-home-text {
+          display: none;
+        }
+
+        .pc-nav-home-icon {
+          display: block;
+          height: 2.1rem;
+          width: auto;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon) {
+          padding-bottom: 0;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon)::after {
+          display: none;
+        }
+      }
+
       @media (max-width: 1024px) {
         .pc-nav-logo {
           display: none;
@@ -709,24 +736,31 @@ Head links
       @media (max-width: 640px) {
         .pc-navbar {
           top: 0;
-          --pc-nav-font-size: 0.85rem;
-          --pc-nav-font-size-active: 0.95rem;
-          --pc-nav-letter-spacing: 0.015em;
-          --pc-nav-gap: 0.85rem;
+          --pc-nav-font-size: 0.82rem;
+          --pc-nav-font-size-active: 0.88rem;
+          --pc-nav-letter-spacing: 0.005em;
+          --pc-nav-gap: 0.4rem;
+        }
+
+        .pc-navbar-inner {
+          display: flex;
+          padding: 0.6rem 12px;
         }
 
         .pc-nav {
           width: 100%;
-          justify-content: space-around;
+          grid-column: auto;
+          justify-self: auto;
+          justify-content: space-evenly;
           gap: var(--pc-nav-gap);
           flex-wrap: nowrap;
-          padding: 0.5rem 0.75rem;
+          padding: 0.5rem 0.25rem;
         }
 
         .pc-nav-link {
           font-size: var(--pc-nav-font-size);
           letter-spacing: var(--pc-nav-letter-spacing);
-          padding: 0.35rem 0.35rem 0.4rem;
+          padding: 0.35rem 0.1rem 0.4rem;
         }
 
         .pc-nav-link.is-active {
@@ -735,7 +769,15 @@ Head links
       }
 
       .footer.footer-three {
+        background-color: transparent;
+      }
+
+      .footer-ribbon {
         background-color: #E65E04;
+      }
+
+      .footer-copyright {
+        color: #481D52;
       }
 
       .footer-brand-card {
@@ -885,9 +927,12 @@ Header
       <img src="images/index/logo%20with%20wordmark.png" alt="plumcut" fetchpriority="high">
     </a>
     <nav class="pc-nav" aria-label="Primary">
-      <a class="pc-nav-link" href="index.html">Home</a>
+      <a class="pc-nav-link" href="index.html" aria-label="Home">
+        <span class="pc-nav-home-text">Home</span>
+        <img class="pc-nav-home-icon" src="images/shared/new%20icon.png" alt="plumcut home">
+      </a>
       <a class="pc-nav-link" href="how-it-works.html">How it works</a>
-      <a class="pc-nav-link" href="services.html">Solutions</a>
+      <a class="pc-nav-link" href="solutions.html">Solutions</a>
       <a class="pc-nav-link" href="pricing.html">Pricing</a>
       <a class="pc-nav-link is-active" href="about.html">About</a>
     </nav>
@@ -997,7 +1042,7 @@ Header
       <div data-ns-animate data-delay="0.4" class="col-span-12 md:col-span-4">
         <div class="rounded-2xl p-8 h-full text-center" style="background:#ffffff;border:2px solid #E65E04;">
           <!-- TODO: replace placeholder initial-avatar with a real founder photo -->
-          <div class="mx-auto rounded-full flex items-center justify-center font-bold text-heading-4" style="width:5.5rem;height:5.5rem;background:linear-gradient(145deg,#E65E04 0%,#481D52 100%);color:#ffffff;box-shadow:0 10px 24px rgba(72,29,82,0.28);">N</div>
+          <div class="mx-auto rounded-full flex items-center justify-center font-bold text-heading-4" style="width:9rem;height:9rem;background:linear-gradient(145deg,#E65E04 0%,#481D52 100%);color:#ffffff;box-shadow:0 10px 24px rgba(72,29,82,0.28);">N</div>
           <h3 class="text-heading-5 mt-4" style="color:#481D52;">Nour</h3>
           <p class="text-tagline-2 font-semibold" style="color:#E65E04;">The intelligence</p>
           <p class="text-tagline-1 mt-2" style="color:#4B1D6A;">Builds and runs what makes plum smart, and the infrastructure behind it.</p>
@@ -1006,8 +1051,7 @@ Header
       <!-- Charbel -->
       <div data-ns-animate data-delay="0.5" class="col-span-12 md:col-span-4">
         <div class="rounded-2xl p-8 h-full text-center" style="background:#ffffff;border:2px solid #E65E04;">
-          <!-- TODO: replace placeholder initial-avatar with a real founder photo -->
-          <div class="mx-auto rounded-full flex items-center justify-center font-bold text-heading-4" style="width:5.5rem;height:5.5rem;background:linear-gradient(145deg,#E65E04 0%,#481D52 100%);color:#ffffff;box-shadow:0 10px 24px rgba(72,29,82,0.28);">C</div>
+          <img src="images/team/charbel.png" alt="Charbel" class="mx-auto rounded-full object-cover" style="width:9rem;height:9rem;box-shadow:0 10px 24px rgba(72,29,82,0.28);" loading="lazy" decoding="async">
           <h3 class="text-heading-5 mt-4" style="color:#481D52;">Charbel</h3>
           <p class="text-tagline-2 font-semibold" style="color:#E65E04;">The product &amp; the business</p>
           <p class="text-tagline-1 mt-2" style="color:#4B1D6A;">Full-stack, the dashboard you own, and the people side of plumcut.</p>
@@ -1017,7 +1061,7 @@ Header
       <div data-ns-animate data-delay="0.6" class="col-span-12 md:col-span-4">
         <div class="rounded-2xl p-8 h-full text-center" style="background:#ffffff;border:2px solid #E65E04;">
           <!-- TODO: replace placeholder initial-avatar with a real founder photo -->
-          <div class="mx-auto rounded-full flex items-center justify-center font-bold text-heading-4" style="width:5.5rem;height:5.5rem;background:linear-gradient(145deg,#E65E04 0%,#481D52 100%);color:#ffffff;box-shadow:0 10px 24px rgba(72,29,82,0.28);">M</div>
+          <div class="mx-auto rounded-full flex items-center justify-center font-bold text-heading-4" style="width:9rem;height:9rem;background:linear-gradient(145deg,#E65E04 0%,#481D52 100%);color:#ffffff;box-shadow:0 10px 24px rgba(72,29,82,0.28);">M</div>
           <h3 class="text-heading-5 mt-4" style="color:#481D52;">Michael</h3>
           <p class="text-tagline-2 font-semibold" style="color:#E65E04;">Design, brand &amp; growth</p>
           <p class="text-tagline-1 mt-2" style="color:#4B1D6A;">How plum looks, sounds, and reaches you.</p>
@@ -1196,7 +1240,7 @@ Header
               loading="lazy"
             decoding="async">
           </span>
-          <span>Talk to plum</span>
+          <span>Chat with plum</span>
         </a>
       </div>
     </div>
@@ -1208,13 +1252,11 @@ Header
     <!-- =========================
 Footer
 ===========================-->
-<footer class="footer footer-three dark:bg-background-8 relative bg-background-2 overflow-hidden">
-  <div class="main-container">
-    <!-- footer bg-img  -->
- 
-
+<footer class="footer footer-three relative overflow-hidden">
+  <div class="footer-ribbon">
+    <div class="main-container">
     <div
-      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[100px] pt-16 pb-16 justify-between"
+      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[80px] xl:pb-[80px] pt-14 pb-14 justify-between"
     >
       <div class="lg:col-span-4 col-span-12">
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
@@ -1224,13 +1266,9 @@ Footer
   <source src="images/loader compressed.mp4" type="video/mp4" />
 </video>
             </figure>
-            <p class="mt-4 mb-5 text-secondary dark:text-accent">
+            <p class="mt-4 text-secondary dark:text-accent">
               plumcut builds and runs the AI that sells in your DMs, answering, booking, and turning every conversation into insight you own. Built in Lebanon, made for the brands of the region.
             </p>
-            <a href="https://wa.me/17744970802?text=Hi%20plum!" class="inline-flex items-center gap-2 font-semibold" style="color:#481D52;">
-              <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" class="size-5" loading="lazy" decoding="async">
-              <span class="underline underline-offset-4">Talk to plum</span>
-            </a>
           </div>
         </div>
       </div>
@@ -1248,7 +1286,7 @@ Footer
                 <a href="how-it-works.html" class="footer-link-v2"> How it works </a>
               </li>
               <li>
-                <a href="services.html" class="footer-link-v2"> Solutions </a>
+                <a href="solutions.html" class="footer-link-v2"> Solutions </a>
               </li>
               <li>
                 <a href="pricing.html" class="footer-link-v2"> Pricing </a>
@@ -1354,16 +1392,16 @@ Footer
         </div>
       </div>
     </div>
-    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
-      <div
-        class="footer-divider absolute top-0 left-0 right-0 w-0 origin-center mx-auto h-px bg-stroke-2 dark:bg-accent/5"
-      ></div>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="pt-8 pb-12 text-center">
       <p
         data-ns-animate
         data-delay="0.7"
         data-offset="10"
         data-start="top 105%"
-        class="text-white"
+        class="footer-copyright"
       >
         &copy; 2026 plumcut. All rights reserved.
       </p>

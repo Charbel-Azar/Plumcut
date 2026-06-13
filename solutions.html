@@ -56,9 +56,9 @@ Head links
 
 
 
-<link rel="canonical" href="https://plumcut.com/services.html" />
-<link rel="alternate" hreflang="en" href="https://plumcut.com/services.html" />
-<link rel="alternate" hreflang="x-default" href="https://plumcut.com/services.html" />
+<link rel="canonical" href="https://plumcut.com/solutions.html" />
+<link rel="alternate" hreflang="en" href="https://plumcut.com/solutions.html" />
+<link rel="alternate" hreflang="x-default" href="https://plumcut.com/solutions.html" />
 
 
 
@@ -72,7 +72,7 @@ Head links
 
 <meta property="og:type" content="website" />
 
-<meta property="og:url" content="https://plumcut.com/services.html" />
+<meta property="og:url" content="https://plumcut.com/solutions.html" />
 
 <meta property="og:title" content="Solutions, plumcut | the AI that sells in your DMs" />
 
@@ -118,7 +118,7 @@ Head links
 
 <meta name="twitter:creator" content="@plumcut" />
 
-<meta name="twitter:url" content="https://plumcut.com/services.html" />
+<meta name="twitter:url" content="https://plumcut.com/solutions.html" />
 
 <meta name="twitter:title" content="Solutions, plumcut | the AI that sells in your DMs" />
 
@@ -156,7 +156,7 @@ Head links
       "@type": "ListItem",
       "position": 2,
       "name": "Services",
-      "item": "https://plumcut.com/services.html"
+      "item": "https://plumcut.com/solutions.html"
     }
   ]
 }
@@ -271,7 +271,7 @@ Head links
 
 <link
 
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@500&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400;500&display=swap"
 
   rel="stylesheet"
 
@@ -299,7 +299,7 @@ Head links
 
       body {
 
-        font-weight: 400;
+        font-weight: 300;
 
       }
 
@@ -965,6 +965,33 @@ Head links
 
       }
 
+      /* Home link: text on desktop, plum icon on phone */
+      .pc-nav-home-icon {
+        display: none;
+      }
+
+      @media (max-width: 640px) {
+        .pc-nav-home-text {
+          display: none;
+        }
+
+        .pc-nav-home-icon {
+          display: block;
+          height: 2.1rem;
+          width: auto;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon) {
+          padding-bottom: 0;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon)::after {
+          display: none;
+        }
+      }
+
 
 
       @media (max-width: 1024px) {
@@ -985,13 +1012,23 @@ Head links
 
           top: 0;
 
-          --pc-nav-font-size: 0.85rem;
+          --pc-nav-font-size: 0.82rem;
 
-          --pc-nav-font-size-active: 0.95rem;
+          --pc-nav-font-size-active: 0.88rem;
 
-          --pc-nav-letter-spacing: 0.015em;
+          --pc-nav-letter-spacing: 0.005em;
 
-          --pc-nav-gap: 0.85rem;
+          --pc-nav-gap: 0.4rem;
+
+        }
+
+
+
+        .pc-navbar-inner {
+
+          display: flex;
+
+          padding: 0.6rem 12px;
 
         }
 
@@ -1001,13 +1038,17 @@ Head links
 
           width: 100%;
 
-          justify-content: space-around;
+          grid-column: auto;
+
+          justify-self: auto;
+
+          justify-content: space-evenly;
 
           gap: var(--pc-nav-gap);
 
           flex-wrap: nowrap;
 
-          padding: 0.5rem 0.75rem;
+          padding: 0.5rem 0.25rem;
 
         }
 
@@ -1019,7 +1060,7 @@ Head links
 
           letter-spacing: var(--pc-nav-letter-spacing);
 
-          padding: 0.35rem 0.35rem 0.4rem;
+          padding: 0.35rem 0.1rem 0.4rem;
 
         }
 
@@ -1037,7 +1078,23 @@ Head links
 
       .footer.footer-three {
 
+        background-color: transparent;
+
+      }
+
+
+
+      .footer-ribbon {
+
         background-color: #E65E04;
+
+      }
+
+
+
+      .footer-copyright {
+
+        color: #481D52;
 
       }
 
@@ -1821,11 +1878,14 @@ Header
 
     <nav class="pc-nav" aria-label="Primary">
 
-      <a class="pc-nav-link" href="index.html">Home</a>
+      <a class="pc-nav-link" href="index.html" aria-label="Home">
+        <span class="pc-nav-home-text">Home</span>
+        <img class="pc-nav-home-icon" src="images/shared/new%20icon.png" alt="plumcut home">
+      </a>
 
       <a class="pc-nav-link" href="how-it-works.html">How it works</a>
 
-      <a class="pc-nav-link is-active" href="services.html">Solutions</a>
+      <a class="pc-nav-link is-active" href="solutions.html">Solutions</a>
 
       <a class="pc-nav-link" href="pricing.html">Pricing</a>
 
@@ -1847,16 +1907,101 @@ Service section
 
 ===========================-->
 
+<style>
+  .solutions-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(158deg, #E65E04 0%, #D43A1C 34%, #8C2350 66%, #481D52 100%);
+  }
+  .solutions-hero__stage {
+    position: relative;
+    width: min(820px, 90vw);
+    margin: 0 auto;
+    z-index: 0;
+  }
+  .solutions-hero__stage > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .solutions-hero__content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 19%;
+  }
+  /* fade plum + section into white at the bottom */
+  .solutions-hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40%;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 68%, #ffffff 100%);
+  }
+  /* Phone: hero fills the screen so only it shows on open (matches how-it-works) */
+  @media (max-width: 640px) {
+    .solutions-hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 5rem;
+      padding-bottom: 0;
+    }
+    .solutions-hero__stage {
+      position: static;
+      width: 100%;
+      margin: 0;
+    }
+    .solutions-hero__stage > img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 150vw;
+      max-width: none;
+      height: auto;
+      z-index: 0;
+    }
+    .solutions-hero__content {
+      position: relative;
+      inset: auto;
+      z-index: 2;
+      width: 100%;
+      padding-top: 0;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .solutions-hero::after {
+      height: 24%;
+    }
+  }
+</style>
+
 <section
-  class="pb-10 pt-31 md:pb-12 md:pt-16 lg:pb-[60px] lg:pt-[120px] xl:pb-[70px] xl:pt-[160px]"
-
-  style="background:linear-gradient(180deg, #ffffff 30%, #E65E04 60%, #481D52 100%); color:#481D52;"
-
+  class="solutions-hero pb-8 pt-31 md:pt-16 lg:pt-[120px] xl:pt-[150px]"
 >
 
-  <div class="main-container edge-safe">
+  <div class="solutions-hero__stage">
 
-    <div class="text-center space-y-3 mb-[70px]">
+    <img
+      src="images/services/solutions-hero-plum.png"
+      alt=""
+      aria-hidden="true"
+    loading="eager" decoding="async">
+
+    <div class="solutions-hero__content edge-safe">
 
       <span data-ns-animate data-delay="0.2" class="section-title-label mb-5">
 
@@ -1872,7 +2017,7 @@ Service section
 
         loading="lazy" decoding="async">
 
-        <span class="section-title-text" style="color:#E65E04;">Solutions</span>
+        <span class="section-title-text" style="color:#ffffff;">Solutions</span>
 
       </span>
 
@@ -1882,29 +2027,17 @@ Service section
 
         data-delay="0.3"
 
-        class="section-title-heading xl:max-w-[878px] max-w-[600px] mx-auto"
+        class="section-title-heading max-w-[600px] mx-auto"
+
+        style="color:#ffffff;"
 
       >
 
 Everything plum does,<br> working as one
       </h2>
-      <p data-ns-animate data-delay="0.4" class="text-tagline-1 mx-auto max-w-[660px]" style="color:#481D52;">
+      <p data-ns-animate data-delay="0.4" class="text-tagline-1 mx-auto max-w-[520px] mt-4" style="color:rgba(255,255,255,0.92);">
         Not a price-list of separate parts. One connected layer that answers, sells, and books, and reads every conversation so you finally understand your customers, and own what you learn.
       </p>
-
-    </div>
-
-    <div class="flex justify-center mb-14">
-
-      <img
-
-        src="images/services/plum transparent.png"
-
-        alt="Plum badge"
-
-        class="w-auto object-contain services-plum-image"
-
-      loading="lazy" decoding="async">
 
     </div>
 
@@ -1922,17 +2055,170 @@ Everything plum does,<br> working as one
 
 
       <!-- =========================
-Reassurance strip (replaces the integrations directory)
+Flagship: Customer understanding (insight) — the hero of this page
 ===========================-->
-<section class="py-12 md:py-16">
-  <div class="main-container max-w-[1100px]">
-    <div data-ns-animate data-delay="0.1" class="rounded-3xl p-8 md:p-10 text-center" style="background:#481D52;">
-      <p class="text-tagline-1 text-white">
-        Already works with what you use, <span style="color:#E65E04;">WhatsApp, Instagram, your store, your calendar, your payment links.</span> We handle every connection. You don't touch the wiring.
+<style>
+  .insight-flagship {
+    background-color: #481D52;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(4.5rem, 9vw, 8.5rem);
+  }
+  .insight-flagship__head {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .insight-flagship .section-title-label { justify-content: center; }
+  .insight-headline {
+    font-family: 'Alan Sans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.04;
+    font-size: clamp(2.7rem, 6.2vw, 5.75rem);
+    color: #ffffff;
+    margin-top: clamp(2rem, 4vw, 3rem);
+    margin-bottom: clamp(1.6rem, 3vw, 2.5rem);
+  }
+  .insight-headline .accent { color: #ffffff; }
+  .insight-supporting {
+    font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    margin-top: 0;
+  }
+  /* dashboard cluster — no box, sits directly on the plum background */
+  .insight-dashboard {
+    margin-top: clamp(4rem, 7.5vw, 7rem);
+    text-align: center;
+  }
+  .insight-dashboard__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .insight-dashboard__dot {
+    width: 0.5rem; height: 0.5rem; border-radius: 999px;
+    background: #E65E04; flex-shrink: 0;
+  }
+  .insight-dashboard__title {
+    font-weight: 500;
+    font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+    color: #ffffff;
+  }
+  .insight-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .insight-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.3rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+    font-weight: 500;
+    transition: background 0.2s ease;
+  }
+  .insight-chip:hover { background: rgba(255, 255, 255, 0.16); }
+  .insight-cta-wrap { text-align: center; margin-top: clamp(3.5rem, 6vw, 5rem); }
+  .insight-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: #E65E04;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: clamp(1.1rem, 1.6vw, 1.55rem);
+    padding: 1rem 2.35rem;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .insight-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3); }
+  .insight-cta img { width: 1.65rem; height: 1.65rem; }
+</style>
+
+<section class="insight-flagship" aria-label="Customer understanding">
+  <div class="main-container">
+
+    <div class="insight-flagship__head">
+      <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
+        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <span class="section-title-text">Customer understanding</span>
+      </span>
+      <h2 data-ns-animate data-delay="0.2" class="insight-headline">
+        Know why they buy.<br><span class="accent">And why they don't.</span>
+      </h2>
+      <p data-ns-animate data-delay="0.3" class="insight-supporting">
+        the AI that sells, and tells you why.
       </p>
     </div>
+
+    <!-- DASHBOARD SURFACE -->
+    <div data-ns-animate data-delay="0.45" class="insight-dashboard">
+
+      <!-- =========================
+           PLACEHOLDER: real dashboard screenshot drops in here.
+           Replace this comment with the image once provided, e.g.
+           <img src="images/services/insight-dashboard.png" alt="plum's customer-insight dashboard" class="insight-dashboard__shot" loading="lazy" decoding="async">
+      ===========================-->
+
+      <div class="insight-chips">
+        <span class="insight-chip">who's ready to buy</span>
+        <span class="insight-chip">qualified leads</span>
+        <span class="insight-chip">hot leads</span>
+        <span class="insight-chip">why they didn't book</span>
+        <span class="insight-chip">what they keep asking for</span>
+        <span class="insight-chip">booking conversion</span>
+        <span class="insight-chip">conversion funnel</span>
+        <span class="insight-chip">where conversations drop off</span>
+        <span class="insight-chip">lead temperature</span>
+        <span class="insight-chip">sentiment</span>
+        <span class="insight-chip">sentiment trajectory</span>
+        <span class="insight-chip">objections raised</span>
+        <span class="insight-chip">how objections were handled</span>
+        <span class="insight-chip">buying signals</span>
+        <span class="insight-chip">urgency level</span>
+        <span class="insight-chip">budget posture</span>
+        <span class="insight-chip">top pain points</span>
+        <span class="insight-chip">feature demand</span>
+        <span class="insight-chip">languages used</span>
+        <span class="insight-chip">tools they already use</span>
+        <span class="insight-chip">preferred booking time</span>
+        <span class="insight-chip">preferred booking day</span>
+        <span class="insight-chip">recommended action</span>
+        <span class="insight-chip">priority queue</span>
+        <span class="insight-chip">risk &amp; safety flags</span>
+      </div>
+
+    </div>
+
+    <div class="insight-cta-wrap">
+      <a
+        href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20see%20the%20insight%20dashboard."
+        data-ns-animate
+        data-delay="0.5"
+        class="insight-cta"
+      >
+        <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <span>See the insight dashboard</span>
+      </a>
+    </div>
+
   </div>
 </section>
+
 
       <!-- =========================
 Solutions bundle section
@@ -1985,6 +2271,9 @@ Solutions bundle section
               <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
                 Six solutions, one plum
               </h2>
+              <p data-ns-animate data-delay="0.3" class="text-tagline-1 mx-auto max-w-[620px]" style="color:#4B1D6A;">
+                every solution is a conversation, and every conversation feeds the understanding above.
+              </p>
 </div>
 
           </div>
@@ -2019,9 +2308,9 @@ Solutions bundle section
         <div class="space-y-4 text-left">
           <div class="flex items-center gap-4">
             <span class="ns-shape-4 text-[52px] shrink-0" style="color:#E65E04;"></span>
-            <h3 class="text-heading-6 sm:text-heading-5" style="color:#E65E04;">Customer understanding</h3>
+            <h3 class="text-heading-6 sm:text-heading-5" style="color:#E65E04;">Virtual try-on</h3>
           </div>
-          <p class="text-tagline-2" style="color:#4B1D6A;">The premium layer, and your best upsell. Because plum is in every conversation, it shows you what your customers actually want, why they buy, why they don't, what they keep asking for, and the demand you can't even see. A dashboard that turns thousands of chats into decisions: what to stock, what to drop, what to make next. Your data, your customers, yours to keep.</p>
+          <p class="text-tagline-2" style="color:#4B1D6A;">She sees the piece on her own body before she buys, not on a model. She sends a photo, plum shows her the look, and the "how will this look on me?" hesitation that kills the sale goes away. She buys with confidence instead of clicking away to think about it.</p>
         </div>
       </div>
 
@@ -2073,55 +2362,7 @@ Solutions bundle section
 
 
 
-<!-- =========================
-How we work (done-for-you)
-===========================-->
-<section class="py-16 md:py-20 lg:py-24" style="background:#481D52;">
-  <div class="main-container max-w-[1880px]">
-    <div class="mb-10 md:mb-14 text-center lg:max-w-[760px] lg:mx-auto">
-      <span data-ns-animate data-delay="0.1" class="section-title-label" style="color:#ffffff;">
-        <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-        <span class="section-title-text">How we work</span>
-      </span>
-      <h2 data-ns-animate data-delay="0.2" class="section-title-heading" style="color:#E65E04;">
-        Done for you. You operate nothing.
-      </h2>
-      <p data-ns-animate data-delay="0.3" class="text-tagline-1 text-white mt-4 max-w-[680px] mx-auto">
-        This is what separates plumcut from every self-serve tool. You don't wire anything up, learn any software, or manage a single conversation. We build plum, run it, and improve it, you read the results.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-12 gap-6 lg:gap-8">
-      <div data-ns-animate data-delay="0.2" class="col-span-12 md:col-span-4">
-        <div class="rounded-3xl h-full p-8 space-y-3" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
-          <span class="text-heading-4 font-bold" style="color:#E65E04;">01</span>
-          <h3 class="text-heading-6 md:text-heading-5 text-white">We build</h3>
-          <p class="text-tagline-1 text-white">We learn your brand, your products, your policies, and the questions you get a hundred times a week, then build plum around your voice and connect your channels.</p>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-4">
-        <div class="rounded-3xl h-full p-8 space-y-3" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
-          <span class="text-heading-4 font-bold" style="color:#E65E04;">02</span>
-          <h3 class="text-heading-6 md:text-heading-5 text-white">We run</h3>
-          <p class="text-tagline-1 text-white">plum goes live in your DMs in about two weeks, answering, selling, and booking day and night. You don't touch a tool or write a flow.</p>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.4" class="col-span-12 md:col-span-4">
-        <div class="rounded-3xl h-full p-8 space-y-3" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
-          <span class="text-heading-4 font-bold" style="color:#E65E04;">03</span>
-          <h3 class="text-heading-6 md:text-heading-5 text-white">We improve</h3>
-          <p class="text-tagline-1 text-white">We monitor and tune plum daily as it learns your customers. It gets sharper every week, and the understanding it builds is yours to keep.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-10">
-      <a href="how-it-works.html" class="inline-flex items-center gap-2 font-semibold underline underline-offset-4" style="color:#E65E04;">
-        See exactly how it works →
-      </a>
-    </div>
-  </div>
-</section>
+<!-- "How we work / Done for you. You operate nothing." section removed (now lives on how-it-works.html); flagship insight section above carries the page. -->
 
 <section
   class="customer-stories-hero max-[1920px]:px-5 pb-10"
@@ -2188,7 +2429,7 @@ How we work (done-for-you)
                 loading="lazy"
               decoding="async">
             </span>
-            <span>Talk to plum</span>
+            <span>Chat with plum</span>
           </a>
           <a
             href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call."
@@ -2206,7 +2447,7 @@ How we work (done-for-you)
 
 </section>
 
-
+<div aria-hidden="true" class="bg-white h-14 md:h-20"></div>
 
     </main>
 
@@ -2219,13 +2460,11 @@ Footer
     <!-- =========================
 Footer
 ===========================-->
-<footer class="footer footer-three dark:bg-background-8 relative bg-background-2 overflow-hidden">
-  <div class="main-container">
-    <!-- footer bg-img  -->
- 
-
+<footer class="footer footer-three relative overflow-hidden">
+  <div class="footer-ribbon">
+    <div class="main-container">
     <div
-      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[100px] pt-16 pb-16 justify-between"
+      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[80px] xl:pb-[80px] pt-14 pb-14 justify-between"
     >
       <div class="lg:col-span-4 col-span-12">
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
@@ -2235,13 +2474,9 @@ Footer
   <source src="images/loader compressed.mp4" type="video/mp4" />
 </video>
             </figure>
-            <p class="mt-4 mb-5 text-secondary dark:text-accent">
+            <p class="mt-4 text-secondary dark:text-accent">
               plumcut builds and runs the AI that sells in your DMs, answering, booking, and turning every conversation into insight you own. Built in Lebanon, made for the brands of the region.
             </p>
-            <a href="https://wa.me/17744970802?text=Hi%20plum!" class="inline-flex items-center gap-2 font-semibold" style="color:#481D52;">
-              <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" class="size-5" loading="lazy" decoding="async">
-              <span class="underline underline-offset-4">Talk to plum</span>
-            </a>
           </div>
         </div>
       </div>
@@ -2259,7 +2494,7 @@ Footer
                 <a href="how-it-works.html" class="footer-link-v2"> How it works </a>
               </li>
               <li>
-                <a href="services.html" class="footer-link-v2"> Solutions </a>
+                <a href="solutions.html" class="footer-link-v2"> Solutions </a>
               </li>
               <li>
                 <a href="pricing.html" class="footer-link-v2"> Pricing </a>
@@ -2365,16 +2600,16 @@ Footer
         </div>
       </div>
     </div>
-    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
-      <div
-        class="footer-divider absolute top-0 left-0 right-0 w-0 origin-center mx-auto h-px bg-stroke-2 dark:bg-accent/5"
-      ></div>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="pt-8 pb-12 text-center">
       <p
         data-ns-animate
         data-delay="0.7"
         data-offset="10"
         data-start="top 105%"
-        class="text-white"
+        class="footer-copyright"
       >
         &copy; 2026 plumcut. All rights reserved.
       </p>

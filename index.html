@@ -198,13 +198,13 @@ Head links
 <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
 <link rel="preload" href="assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
 <link rel="preload" href="images/loader.mp4" as="video" type="video/mp4" />
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@400&display=swap" as="style" />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap" as="style" />
 <link
   href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&amp;display=swap"
   rel="stylesheet"
 />
 <link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@400&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap"
   rel="stylesheet"
 />
 <link
@@ -225,7 +225,7 @@ Head links
     <style>
       /* Apply Alan Sans Regular across the index page while allowing weight overrides */
       body {
-        font-weight: 400;
+        font-weight: 300;
       }
 
       body * {
@@ -265,16 +265,24 @@ Head links
         font-weight: 500 !important;
       }
 
+      /* Prevent horizontal scroll/white bar on mobile:
+         entrance animations (data-ns-animate left/right) start elements
+         off-screen sideways; clip that at the page root. */
+      html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
       .services-section {
         background: #481D52;
       }
 
       .services-section .section-title-label {
-        color: #ffffff;
+        color: #E65E04;
       }
 
       .services-section .section-title-heading {
-        color: #E65E04;
+        color: #ffffff;
       }
 
       .services-section .services-intro {
@@ -646,24 +654,31 @@ Head links
         }
 
         .pc-navbar--sticky {
-          --pc-nav-font-size: 0.85rem;
-          --pc-nav-font-size-active: 0.95rem;
-          --pc-nav-letter-spacing: 0.015em;
-          --pc-nav-gap: 0.85rem;
+          --pc-nav-font-size: 0.82rem;
+          --pc-nav-font-size-active: 0.88rem;
+          --pc-nav-letter-spacing: 0.005em;
+          --pc-nav-gap: 0.4rem;
+        }
+
+        .pc-navbar--sticky .pc-navbar-inner {
+          display: flex;
+          padding: 0.6rem 12px;
         }
 
         .pc-navbar--sticky .pc-nav {
           width: 100%;
-          justify-content: space-around;
+          grid-column: auto;
+          justify-self: auto;
+          justify-content: space-evenly;
           gap: var(--pc-nav-gap);
           flex-wrap: nowrap;
-          padding: 0.5rem 0.75rem;
+          padding: 0.5rem 0.25rem;
         }
 
         .pc-navbar--sticky .pc-nav-link {
           font-size: var(--pc-nav-font-size);
           letter-spacing: var(--pc-nav-letter-spacing);
-          padding: 0.35rem 0.35rem 0.4rem;
+          padding: 0.35rem 0.1rem 0.4rem;
         }
 
         .pc-navbar--sticky .pc-nav-link.is-active {
@@ -739,6 +754,33 @@ Head links
         height: 3px;
         opacity: 1;
         transform: translateX(-50%) scaleX(1);
+      }
+
+      /* Home link: text on desktop, plum icon on phone */
+      .pc-nav-home-icon {
+        display: none;
+      }
+
+      @media (max-width: 640px) {
+        .pc-nav-home-text {
+          display: none;
+        }
+
+        .pc-nav-home-icon {
+          display: block;
+          height: 2.1rem;
+          width: auto;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon) {
+          padding-bottom: 0;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon)::after {
+          display: none;
+        }
       }
 
       .hero-wordmark {
@@ -1000,20 +1042,20 @@ Head links
 
         .pc-nav {
           width: 100%;
-          justify-content: space-around;
-          gap: 1.25rem;
+          justify-content: space-evenly;
+          gap: 0.4rem;
           flex-wrap: nowrap;
-          padding: 0.5rem 0.75rem;
+          padding: 0.5rem 0.25rem;
         }
 
         .pc-nav-link {
-          font-size: 0.95rem;
-          letter-spacing: 0.02em;
-          padding: 0.35rem 0.35rem 0.4rem;
+          font-size: 0.82rem;
+          letter-spacing: 0.005em;
+          padding: 0.35rem 0.1rem 0.4rem;
         }
 
         .pc-nav-link.is-active {
-          font-size: 1rem;
+          font-size: 0.88rem;
         }
       }
 
@@ -1281,6 +1323,66 @@ Head links
           }
         }
 
+        /* ===== Combined final CTA + proof (purple) ===== */
+        .final-combined .combined-card {
+          background: #481D52;
+        }
+        .final-combined .section-title-label {
+          color: #E65E04;
+        }
+        .final-combined .section-title-heading {
+          color: #ffffff;
+        }
+        .final-combined .combined-lede {
+          color: rgba(255, 255, 255, 0.78);
+        }
+
+        .combined-subpill {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border: 1.5px solid rgba(255, 255, 255, 0.55);
+          color: #ffffff;
+          border-radius: 999px;
+          padding: 0.55rem 1.6rem;
+          font-size: 1.05rem;
+          font-weight: 500;
+          transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+        .combined-subpill:hover {
+          background: #ffffff;
+          color: #481D52;
+          border-color: #ffffff;
+        }
+
+        .final-combined .proof-card {
+          border-radius: 1.5rem;
+          height: 100%;
+        }
+        .final-combined .proof-card--orange {
+          background: #E65E04;
+        }
+        .final-combined .proof-card--muted {
+          background: #1d1d1d;
+        }
+        .final-combined .proof-card .case-study-title {
+          color: #ffffff;
+        }
+        .final-combined .proof-card .case-study-description {
+          color: rgba(255, 255, 255, 0.92);
+        }
+
+        /* ===== Footer ribbon (orange band on white) ===== */
+        .footer.footer-three {
+          background-color: transparent;
+        }
+        .footer-ribbon {
+          background-color: #E65E04;
+        }
+        .footer-copyright {
+          color: #481D52;
+        }
+
       </style>
     
     <!-- Google Analytics is configured in assets/main.js -->
@@ -1320,9 +1422,12 @@ Header
 <header class="pc-navbar">
   <div class="pc-navbar-inner">
     <nav class="pc-nav" aria-label="Primary">
-      <a class="pc-nav-link is-active" href="index.html">Home</a>
+      <a class="pc-nav-link is-active" href="index.html" aria-label="Home">
+        <span class="pc-nav-home-text">Home</span>
+        <img class="pc-nav-home-icon" src="images/shared/21-%20icon%20white.png" alt="plumcut home">
+      </a>
       <a class="pc-nav-link" href="how-it-works.html">How it works</a>
-      <a class="pc-nav-link" href="services.html">Solutions</a>
+      <a class="pc-nav-link" href="solutions.html">Solutions</a>
       <a class="pc-nav-link" href="pricing.html">Pricing</a>
       <a class="pc-nav-link" href="about.html">About</a>
     </nav>
@@ -1336,9 +1441,12 @@ Header
       <img src="images/index/logo%20with%20wordmark.png" alt="plumcut" fetchpriority="high">
     </a>
     <nav class="pc-nav" aria-label="Primary">
-      <a class="pc-nav-link is-active" href="index.html">Home</a>
+      <a class="pc-nav-link is-active" href="index.html" aria-label="Home">
+        <span class="pc-nav-home-text">Home</span>
+        <img class="pc-nav-home-icon" src="images/shared/new%20icon.png" alt="plumcut home">
+      </a>
       <a class="pc-nav-link" href="how-it-works.html">How it works</a>
-      <a class="pc-nav-link" href="services.html">Solutions</a>
+      <a class="pc-nav-link" href="solutions.html">Solutions</a>
       <a class="pc-nav-link" href="pricing.html">Pricing</a>
       <a class="pc-nav-link" href="about.html">About</a>
     </nav>
@@ -1361,204 +1469,6 @@ Header
         loading="eager"
         fetchpriority="high"
         decoding="async">
-        <div class="absolute inset-0 pointer-events-none hero-beans" aria-hidden="true">
-          <div
-            class="hero-bean"
-            style="--bean-x: 12%; --bean-y: 22%; --bean-size: clamp(140px, 16vw, 300px); --bean-opacity: 0.4;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2010.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 26%; --bean-y: 62%; --bean-size: clamp(150px, 18vw, 320px); --bean-opacity: 0.45;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2011.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 46%; --bean-y: 18%; --bean-size: clamp(160px, 18vw, 340px); --bean-opacity: 0.5;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2012.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 64%; --bean-y: 36%; --bean-size: clamp(150px, 17vw, 320px); --bean-opacity: 0.45;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2013.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 82%; --bean-y: 20%; --bean-size: clamp(140px, 16vw, 300px); --bean-opacity: 0.4;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Back-B%2014.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 18%; --bean-y: 40%; --bean-size: clamp(170px, 19vw, 360px); --bean-opacity: 0.55;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Front-B%2001.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 34%; --bean-y: 30%; --bean-size: clamp(160px, 18vw, 340px); --bean-opacity: 0.55;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Front-B%2002.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 52%; --bean-y: 52%; --bean-size: clamp(170px, 20vw, 380px); --bean-opacity: 0.6;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Front-B%2003.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 74%; --bean-y: 62%; --bean-size: clamp(170px, 19vw, 360px); --bean-opacity: 0.6;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Front-B%2004.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 10%; --bean-y: 72%; --bean-size: clamp(160px, 18vw, 340px); --bean-opacity: 0.5;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2005.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 30%; --bean-y: 82%; --bean-size: clamp(150px, 17vw, 320px); --bean-opacity: 0.5;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2006.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 50%; --bean-y: 74%; --bean-size: clamp(160px, 18vw, 340px); --bean-opacity: 0.55;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2007.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 68%; --bean-y: 82%; --bean-size: clamp(150px, 17vw, 320px); --bean-opacity: 0.5;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2008.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-          <div
-            class="hero-bean"
-            style="--bean-x: 90%; --bean-y: 74%; --bean-size: clamp(140px, 16vw, 300px); --bean-opacity: 0.45;"
-          >
-            <div class="hero-bean-parallax" data-parallax-layer>
-              <div class="hero-bean-float">
-                <img
-                  src="images/index/LP-Beans-All/LP-Beans-Middle-B%2009.svg"
-                  alt=""
-                  class="select-none"
-                loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
     <div class="main-container hero-content relative z-20 pt-10 pb-14 sm:pt-12 lg:pt-14 lg:pb-20">
@@ -1577,12 +1487,12 @@ Header
         <div class="hero-copy hero-copy-right lg:col-span-6 flex flex-col gap-4 lg:gap-6 lg:pt-4 lg:mt-2">
           <div class="flex w-full items-center justify-end gap-3">
             <p class="text-brand-orange text-xl sm:text-2xl font-semibold max-w-[600px] text-right">
-              the AI that sells &amp; understands
+              Intelligence, personalized<br>and helpful
             </p>
             <span class="hero-mantra-line"></span>
           </div>
           <h1 class="w-full text-left text-white text-lg sm:text-xl lg:text-2xl font-bold leading-tight">
-            <span class="block">Sell every DM.<br>Know every customer.</span>
+            <span class="block">Automate your business.<br>Know every customer.</span>
           </h1>
           
         </div>
@@ -1602,7 +1512,7 @@ Header
                   loading="lazy"
                 decoding="async">
               </span>
-              <span>Talk to plum</span>
+              <span>Chat with plum</span>
             </a>
             <a
               href="how-it-works.html"
@@ -1616,10 +1526,10 @@ Header
 
       <div class="mt-12 text-center lg:mt-16">
         <h2 class="text-brand-orange hero-copy-size-match font-semibold">
-          plum answers. plum sells. plum understands.
+          we automate it. you grow from it.
         </h2>
         <p class="mt-3 text-white text-base sm:text-lg max-w-[900px] mx-auto">
-plumcut builds and runs the AI that answers your customers, sells to them, and books them, on Instagram and WhatsApp, day and night. Then it reads every conversation and shows you what your customers actually want: why they buy, why they don't, what they keep asking for, and the demand you can't even see. Insight you own. </p>
+Every business runs on the same repetitive tasks and conversations. We build automation that handles all of it… automation that answers like a human, sells like a pro, and never sleeps. And while it works, it listens, so every conversation becomes insight into what your customers actually want.</p>
       </div>
 
       <div class="mt-8 lg:mt-10">
@@ -1635,7 +1545,26 @@ plumcut builds and runs the AI that answers your customers, sells to them, and b
       <!-- =========================
 The Problem section
 ===========================-->
-<section class="py-16 md:py-20 lg:py-24">
+<style>
+  /* Portrait image cards — stay tall/extended at any width, fully responsive */
+  .problem-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;           /* phones: stacked, comfortable portrait */
+  }
+  @media (min-width: 768px) {
+    .problem-card {
+      aspect-ratio: 4 / 5;        /* tablet/desktop: locked portrait, never goes wide */
+      min-height: 640px;          /* floor so text always has room */
+    }
+  }
+  @media (min-width: 1280px) {
+    .problem-card {
+      min-height: 760px;
+    }
+  }
+</style>
+<section class="py-16 md:py-20 lg:py-24" style="overflow-x: clip;">
   <div class="main-container max-w-[1880px]">
     <div class="mb-10 md:mb-14 text-center lg:max-w-[760px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="section-title-label">
@@ -1649,103 +1578,96 @@ The Problem section
 
     <div class="grid grid-cols-12 gap-6 lg:gap-8">
       <div data-ns-animate data-delay="0.2" data-direction="left" class="col-span-12 md:col-span-6">
-        <div class="bg-background-12 rounded-3xl h-full p-8 md:p-10 space-y-3">
-          <h3 class="text-heading-6 md:text-heading-5">The sales you can see slipping</h3>
-          <p class="text-tagline-1 text-secondary/60">
-            A reply that comes six hours late is a sale you never see. Conversion drops sharply within minutes, and your customers message at midnight, when no one's there to answer. The ready-to-buy ones don't wait. They move on.
-          </p>
+        <div class="problem-card relative rounded-3xl overflow-hidden">
+          <img
+            src="images/index/problem-sales-slipping.png"
+            alt="A customer's phone lighting up with unanswered shop messages at midnight"
+            class="absolute inset-0 w-full h-full object-cover select-none"
+            loading="lazy"
+            decoding="async">
+          <div class="absolute inset-0" style="background: linear-gradient(to top, #2b0c3c 0%, rgba(43,12,60,0.95) 15%, rgba(43,12,60,0.45) 38%, rgba(43,12,60,0.3) 100%);"></div>
+          <div class="absolute inset-x-0 bottom-0 p-8 md:p-10 space-y-3">
+            <h3 class="text-heading-6 md:text-heading-5 text-white">The sales you can see slipping</h3>
+            <p class="text-tagline-1" style="color: rgba(255,255,255,0.85);">
+              A reply that comes six hours late is a sale you never see. Conversion drops sharply within minutes, and your customers message at midnight, when no one's there to answer. The ready-to-buy ones don't wait. They move on.
+            </p>
+          </div>
         </div>
       </div>
       <div data-ns-animate data-delay="0.3" data-direction="right" class="col-span-12 md:col-span-6">
-        <div class="bg-background-12 rounded-3xl h-full p-8 md:p-10 space-y-3">
-          <h3 class="text-heading-6 md:text-heading-5">The customers you can't see</h3>
-          <p class="text-tagline-1 text-secondary/60">
-            Every DM is full of signal, what they want, what they hesitate on, what they keep asking for that you don't even sell. It disappears, because no one can read thousands of conversations. So you guess at what to stock, and why people buy.
-          </p>
+        <div class="problem-card relative rounded-3xl overflow-hidden">
+          <img
+            src="images/index/problem-customers-unseen.png"
+            alt="A busy city street full of people, the demand you can't see"
+            class="absolute inset-0 w-full h-full object-cover select-none"
+            loading="lazy"
+            decoding="async">
+          <div class="absolute inset-0" style="background: linear-gradient(to top, #E65E04 0%, rgba(230,94,4,0.95) 14%, rgba(230,94,4,0.12) 34%, transparent 55%);"></div>
+          <div class="absolute inset-x-0 bottom-0 p-8 md:p-10 space-y-3">
+            <h3 class="text-heading-6 md:text-heading-5 text-white">The customers you can't see</h3>
+            <p class="text-tagline-1" style="color: rgba(255,255,255,0.9);">
+              Every DM is full of signal, what they want, what they hesitate on, what they keep asking for that you don't even sell. It disappears, because no one can read thousands of conversations. So you guess at what to stock, and why people buy.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <p data-ns-animate data-delay="0.4" class="mt-8 text-center text-tagline-1 text-secondary/60">
-      plum reads every message, so you don't have to.
-    </p>
   </div>
 </section>
 
       <!-- =========================
 How plum sells section
 ===========================-->
-<section class="py-16 md:py-20 lg:py-24 overflow-hidden">
+<section class="py-16 md:py-20 lg:py-24 overflow-hidden" style="background:#3d1545;">
   <div class="main-container max-w-[1880px]">
     <div class="mb-10 md:mb-14 text-center lg:max-w-[760px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="section-title-label">
         <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <span class="section-title-text">How plum sells</span>
       </span>
-      <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
+      <h2 data-ns-animate data-delay="0.2" class="section-title-heading" style="color:#fff;">
         From "is this available?" <br>to a confirmed order
       </h2>
     </div>
 
-    <div class="grid grid-cols-12 gap-10 lg:gap-14 items-center">
-      <!-- the three moments -->
+    <div class="grid grid-cols-12 gap-x-0 gap-y-10 lg:gap-x-14 items-center">
+      <!-- chat card image (left) -->
+      <div data-ns-animate data-delay="0.2" data-direction="left" class="col-span-12 lg:col-span-6">
+        <img
+          src="images/index/how-plum-sells-chat.png"
+          alt="Sample plum chat: a customer asks if the beige linen set is available; plum confirms, adds the matching pillow covers, and closes the order"
+          class="mx-auto w-full max-w-[520px] h-auto select-none"
+          loading="lazy"
+          decoding="async">
+      </div>
+
+      <!-- the three moments (right) -->
       <div class="col-span-12 lg:col-span-6 space-y-6">
-        <div data-ns-animate data-delay="0.2" data-direction="left" class="flex gap-4">
+        <div data-ns-animate data-delay="0.3" data-direction="right" class="flex gap-4">
           <span class="hero-mantra-line shrink-0" style="height:2.4rem;"></span>
           <div class="space-y-1">
-            <h3 class="text-heading-6 md:text-heading-5">Answers instantly, in your voice</h3>
-            <p class="text-tagline-1 text-secondary/60 max-w-[520px]">
+            <h3 class="text-heading-6 md:text-heading-5 text-white">Answers instantly, in your voice</h3>
+            <p class="text-tagline-1 max-w-[520px]" style="color:rgba(255,255,255,0.75);">
               Availability, shipping, returns, the same question for the hundredth time, answered in seconds, the way you'd answer it.
             </p>
           </div>
         </div>
-        <div data-ns-animate data-delay="0.3" data-direction="left" class="flex gap-4">
+        <div data-ns-animate data-delay="0.4" data-direction="right" class="flex gap-4">
           <span class="hero-mantra-line shrink-0" style="height:2.4rem;"></span>
           <div class="space-y-1">
-            <h3 class="text-heading-6 md:text-heading-5">Sells, doesn't just reply</h3>
-            <p class="text-tagline-1 text-secondary/60 max-w-[520px]">
+            <h3 class="text-heading-6 md:text-heading-5 text-white">Sells, doesn't just reply</h3>
+            <p class="text-tagline-1 max-w-[520px]" style="color:rgba(255,255,255,0.75);">
               Recommends the right product, suggests the matching add-on, nudges the hesitant buyer, and recovers the cart before it's gone.
             </p>
           </div>
         </div>
-        <div data-ns-animate data-delay="0.4" data-direction="left" class="flex gap-4">
+        <div data-ns-animate data-delay="0.5" data-direction="right" class="flex gap-4">
           <span class="hero-mantra-line shrink-0" style="height:2.4rem;"></span>
           <div class="space-y-1">
-            <h3 class="text-heading-6 md:text-heading-5">Books and closes</h3>
-            <p class="text-tagline-1 text-secondary/60 max-w-[520px]">
+            <h3 class="text-heading-6 md:text-heading-5 text-white">Books and closes</h3>
+            <p class="text-tagline-1 max-w-[520px]" style="color:rgba(255,255,255,0.75);">
               From "do you have this?" to a confirmed order or appointment, without you touching a single message.
             </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- chat thread mock (sample) -->
-      <div data-ns-animate data-delay="0.3" data-direction="right" class="col-span-12 lg:col-span-6">
-        <div class="mx-auto max-w-[420px] rounded-[24px] p-4 shadow-13" style="background:#2b0c3c;">
-          <div class="rounded-[24px] overflow-hidden" style="background:#0f0717;">
-            <div class="flex items-center gap-3 px-5 py-4" style="background:#481D52;">
-              <span class="flex size-9 items-center justify-center rounded-full" style="background:#E65E04;">
-                <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" class="size-5" loading="lazy" decoding="async">
-              </span>
-              <span class="text-white font-semibold">plum</span>
-              <span class="ml-auto text-sm uppercase tracking-wide text-white/60">sample chat</span>
-            </div>
-            <div class="px-4 py-5 space-y-3">
-              <div class="max-w-[80%] rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm" style="background:#241430;color:#fff;">
-                hey is the linen set still available in beige? 👀
-              </div>
-              <div class="max-w-[80%] ml-auto rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm" style="background:#E65E04;color:#fff;">
-                It is! The beige linen set is in stock. It's our softest weave, pairs perfectly with the matching pillow covers. Want me to add those too?
-              </div>
-              <div class="max-w-[80%] rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm" style="background:#241430;color:#fff;">
-                go on then, add the pillow covers
-              </div>
-              <div class="max-w-[80%] ml-auto rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm" style="background:#E65E04;color:#fff;">
-                Done ✅ Set + covers reserved for you. Here's your secure checkout link, you'll have it by Thursday.
-              </div>
-              <div class="max-w-[80%] rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm" style="background:#241430;color:#fff;">
-                just paid, thank you!! 🙌
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -1763,48 +1685,22 @@ The Insight Layer section
         <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <span class="section-title-text">The insight layer</span>
       </span>
-      <h2 data-ns-animate data-delay="0.2" class="section-title-heading" style="color:#E65E04;">
-        plum doesn't just sell. <br>It tells you why.
+      <h2 data-ns-animate data-delay="0.2" class="section-title-heading uppercase" style="color:#4B1D6A;">
+        plum sell to them, <br>then tells you about them
       </h2>
       <p data-ns-animate data-delay="0.3" class="text-tagline-1 mt-4 max-w-[760px] mx-auto" style="color:#4B1D6A;">
         Because plum is in every conversation, it sees what no dashboard can: why people buy, why they don't, the things they keep asking for, the demand you can't even see. You get a clear picture that turns thousands of chats into decisions, and it's yours. Your data, your customers, not locked inside a platform.
       </p>
     </div>
 
-    <!-- dashboard mock (sample) -->
-    <div data-ns-animate data-delay="0.3" class="max-w-[1080px] mx-auto rounded-[24px] p-5 md:p-7" style="background:#0f0717;border:1px solid rgba(255,255,255,0.08);">
-      <div class="flex items-center justify-between mb-5">
-        <span class="text-white font-semibold">What your customers are telling you</span>
-        <span class="text-sm uppercase tracking-wide text-white/60">sample dashboard</span>
-      </div>
-      <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-12 md:col-span-6 rounded-2xl p-5 space-y-1" style="background:#241430;">
-          <p class="text-sm uppercase tracking-wide text-white/60">Most-asked-for thing you don't sell</p>
-          <p class="text-heading-6 text-white">Matching kids' sizes</p>
-          <p class="text-sm" style="color:#E65E04;">▲ asked in 1 of every 9 chats</p>
-        </div>
-        <div class="col-span-12 md:col-span-6 rounded-2xl p-5 space-y-1" style="background:#241430;">
-          <p class="text-sm uppercase tracking-wide text-white/60">Top reason carts stall</p>
-          <p class="text-heading-6 text-white">Unsure about shipping time</p>
-          <p class="text-sm text-white/60">a clear delivery line recovers most</p>
-        </div>
-        <div class="col-span-12 md:col-span-4 rounded-2xl p-5 space-y-1" style="background:#241430;">
-          <p class="text-sm uppercase tracking-wide text-white/60">Your busiest buying hour</p>
-          <p class="text-heading-6 text-white">9–11pm</p>
-          <p class="text-sm text-white/60">long after you've closed</p>
-        </div>
-        <div class="col-span-12 md:col-span-4 rounded-2xl p-5 space-y-1" style="background:#241430;">
-          <p class="text-sm uppercase tracking-wide text-white/60">What buyers ask before yes</p>
-          <p class="text-heading-6 text-white">"Is it true to size?"</p>
-          <p class="text-sm text-white/60">answer it early, sell more</p>
-        </div>
-        <div class="col-span-12 md:col-span-4 rounded-2xl p-5 space-y-1" style="background:#241430;">
-          <p class="text-sm uppercase tracking-wide text-white/60">Repeat buyers this month</p>
-          <p class="text-heading-6 text-white">Up, week on week</p>
-          <p class="text-sm" style="color:#E65E04;">plum follows up so you don't</p>
-        </div>
-      </div>
-    </div>
+    <!-- dashboard laptop (sample) -->
+    <figure data-ns-animate data-delay="0.3" class="max-w-[1080px] mx-auto">
+      <img
+        src="images/index/insights-dashboard-laptop.png"
+        alt="plum's SaaS analytics dashboard shown on a laptop: sales closed in chat, top questions customers ask, and busiest buying hour"
+        class="w-full h-auto rounded-3xl"
+        loading="lazy" decoding="async">
+    </figure>
   </div>
 </section>
 
@@ -1815,14 +1711,14 @@ Services section
   <div class="main-container edge-safe max-w-[1880px]">
     <div class="mb-11 lg:mb-9 text-center lg:max-w-[730px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
-        <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <span class="section-title-text">What plum does</span>
       </span>
       <h2 data-ns-animate data-delay="0.2" class="section-title-heading md:mb-3 mb-1">
         Solutions that work together
       </h2>
       <p data-ns-animate data-delay="0.3" class="text-tagline-1 text-secondary/60 text-white">
-        Not a price-list of separate parts, one connected layer that answers, sells, books, and learns from every conversation.
+        From the first "hello" to the final receipt: not a stack of separate tools, but one connected layer that answers, sells, books, and learns from every conversation.
       </p>
     </div>
 
@@ -1853,8 +1749,8 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/customer service.png"
-              alt="AI-powered customer service chatbot"
+              src="images/index/services-answers.png"
+              alt="A customer relaxing at home with a coffee while plum answers her questions"
               class="w-full h-full object-cover"
             loading="lazy" decoding="async">
           </figure>
@@ -1883,8 +1779,8 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/order management.jpg"
-              alt="Automated order management system"
+              src="images/index/services-order-tracking.png"
+              alt="A delivery being handed to a happy customer at her door"
               class="w-full h-full object-cover"
             loading="lazy" decoding="async">
           </figure>
@@ -1913,8 +1809,8 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/ai conversations.jpg"
-              alt="AI chatbot natural conversations"
+              src="images/index/services-sells.png"
+              alt="A neatly styled linen bed set, the kind of product plum recommends and upsells"
               class="w-full h-full object-cover object-center"
             loading="lazy" decoding="async">
           </figure>
@@ -1947,8 +1843,8 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/appointment booking.jpg"
-              alt="Automated appointment booking"
+              src="images/index/services-books.png"
+              alt="A hand writing appointments in a planner while plum fills the calendar"
               class="w-full h-full object-cover"
             loading="lazy" decoding="async">
           </figure>
@@ -1978,8 +1874,8 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/payment and billing.jpg"
-              alt="Automated payment and billing"
+              src="images/index/services-payments.png"
+              alt="A phone showing a confirmed in-chat payment beside a card reader"
               class="w-full h-full object-cover"
             loading="lazy" decoding="async">
           </figure>
@@ -2008,8 +1904,8 @@ Services section
       class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
     >
       <img
-        src="images/index/data analytics.jpg"
-        alt="Business analytics dashboard"
+        src="images/index/services-insights.png"
+        alt="A business owner reviewing plum's customer insights on a tablet at home"
         class="w-full h-full object-cover"
       loading="lazy" decoding="async">
     </figure>
@@ -2020,7 +1916,7 @@ Services section
           class="group/btn-v2 inline-block w-[85%] rounded-full md:w-auto mx-auto duration-500 transition-transform ease-in-out"
         >
           <a
-            href="services.html#services"
+            href="solutions.html#services"
             class="inline-flex items-center justify-center rounded-full cursor-pointer gap-1.5 btn-xl-v2 btn-gray-v2 btn-orange-v2 text-center transition-all duration-500 ease-in-out font-medium text-nowrap w-full md:w-auto mx-auto h-14 md:h-16 px-12 md:px-14"
           >
             <span class="inline-block transition-transform duration-300 ease-in-out">See all solutions</span>
@@ -2060,7 +1956,7 @@ Services section
       <!-- =========================
 How It's Work section
 ===========================-->
-<section class="py-20 max-sm:py-10">
+<section class="py-20 max-sm:py-10" style="overflow-x: clip;">
   <div class="main-container max-w-[1880px]">
     <div class="mb-0 sm:mb-10 md:mb-11 text-center lg:max-w-[730px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="section-title-label mb-4">
@@ -2074,7 +1970,7 @@ How It's Work section
     </div>
 
     <div
-      class="grid grid-cols-12 gap-6 lg:gap-8 how-it-works-flow"
+      class="grid grid-cols-12 gap-6 lg:gap-8 justify-items-center how-it-works-flow"
     >
       <div
         data-ns-animate
@@ -2083,13 +1979,8 @@ How It's Work section
         data-offset="80"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <div class="bg-background-12 rounded-3xl h-full p-8 md:p-9 space-y-3">
-          <span class="text-heading-3 font-bold" style="color:#E65E04;">01</span>
-          <h3 class="text-heading-6 md:text-heading-5">We learn your brand</h3>
-          <p class="text-tagline-1 text-secondary/60">
-            Your voice, your products, your policies, and the questions you get asked a hundred times a week. It's the only real time you'll spend.
-          </p>
-        </div>
+        <img src="images/index/how-it-works-card-1.png" class="w-full h-auto rounded-3xl" alt="Step 01 — We learn your brand: your voice, your products, your policies, and the questions you get asked a hundred times a week. It's the only real time you'll spend." loading="lazy" decoding="async">
+
       </div>
 
       <div
@@ -2100,13 +1991,8 @@ How It's Work section
         data-duration="0.5"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <div class="bg-background-12 rounded-3xl h-full p-8 md:p-9 space-y-3">
-          <span class="text-heading-3 font-bold" style="color:#E65E04;">02</span>
-          <h3 class="text-heading-6 md:text-heading-5">We build &amp; launch</h3>
-          <p class="text-tagline-1 text-secondary/60">
-            plum goes live in your DMs in about two weeks, answering, selling, and booking. You don't touch a tool, write a flow, or configure a thing.
-          </p>
-        </div>
+        <img src="images/index/how-it-works-card-2.png" class="w-full h-auto rounded-3xl" alt="Step 02 — We build &amp; launch: plum goes live in your DMs in about two weeks, answering, selling, and booking. You don't touch a tool, write a flow, or configure a thing." loading="lazy" decoding="async">
+
       </div>
 
       <div
@@ -2117,18 +2003,13 @@ How It's Work section
         data-duration="0.7"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <div class="bg-background-12 rounded-3xl h-full p-8 md:p-9 space-y-3">
-          <span class="text-heading-3 font-bold" style="color:#E65E04;">03</span>
-          <h3 class="text-heading-6 md:text-heading-5">We run, sell &amp; improve</h3>
-          <p class="text-tagline-1 text-secondary/60">
-            We monitor and tune plum daily as it learns your customers. You watch the sales, and the insight, grow. It gets sharper every week.
-          </p>
-        </div>
+        <img src="images/index/how-it-works-card-3.png" class="w-full h-auto rounded-3xl" alt="Step 03 — We run, sell &amp; improve: we monitor and tune plum daily as it learns your customers. You watch the sales, and the insight, grow. It gets sharper every week." loading="lazy" decoding="async">
+
       </div>
     </div>
-    <div data-ns-animate data-delay="0.5" class="text-center mt-12 lg:mt-14">
+    <div data-ns-animate data-delay="0.5" class="flex justify-center mt-12 lg:mt-14">
       <div
-        class="group/btn-v2 inline-block w-[85%] rounded-full md:w-auto mx-auto duration-500 transition-transform ease-in-out"
+        class="group/btn-v2 w-[85%] rounded-full md:w-auto duration-500 transition-transform ease-in-out"
       >
         <a
           href="how-it-works.html"
@@ -2150,189 +2031,63 @@ How It's Work section
 </section>
 
       <!-- =========================
-Case Study section
+Combined final CTA + proof section
 ===========================-->
-<section class="pt-16 pb-10 md:pt-20 lg:pt-24 lg:pb-20 xl:pb-25 case-study-section">
-  <div class="main-container edge-safe max-w-[1880px]">
-    <div class="text-center mb-10 lg:mb-[60px]">
-      <div class="space-y-3">
-        <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
-          <img class="section-title-bullet" src="images/index/Bullet-White.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <span class="section-title-text">Proof</span>
-        </span>
-        <h2 data-ns-animate data-delay="0.1" class="section-title-heading">Don't take our word for it.<br>Talk to plum.</h2>
-        <p data-ns-animate data-delay="0.2" class="text-tagline-1 text-secondary/60 text-white max-w-[720px] mx-auto">
-          Most companies can only describe their product. You can message ours. Ask plum about availability, push back on price, try to trip it up, the way one of your customers would.
-        </p>
-      </div>
-    </div>
-
-    <div class="flex flex-col items-center mb-12">
-      <a
-        href="https://wa.me/17744970802?text=Hi%20plum!"
-        data-ns-animate
-        data-delay="0.3"
-        data-direction="up"
-        data-offset="40"
-        class="hero-cta-button hero-cta-button--faq inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
-      >
-        <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
-          <img src="images/shared/21- icon white.png" alt="" aria-hidden="true" class="size-10" loading="lazy" decoding="async">
-        </span>
-        <span>Talk to plum</span>
-      </a>
-    </div>
-
-    <div class="grid grid-cols-12 gap-6 lg:gap-8">
-      <div data-ns-animate data-delay="0.2" class="col-span-12 md:col-span-6">
-        <div class="rounded-3xl h-full p-8 md:p-10 space-y-3" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
-          <h3 class="text-heading-6 sm:text-heading-5 case-study-title">Built by people who lived it</h3>
-          <p class="w-full text-left case-study-description">
-            Before we built plum, we built online stores, over 30 of them. We know the 2am messages, the leads that go cold, the guessing about what to stock. plum is the thing we wished we'd had. <a href="about.html" class="underline underline-offset-4" style="color:#E65E04;">Read our story →</a>
-          </p>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-6">
-        <div class="rounded-3xl h-full p-8 md:p-10 space-y-3" style="background:rgba(255,255,255,0.06);border:1px dashed rgba(255,255,255,0.25);">
-          <span class="inline-block text-sm uppercase tracking-wide rounded-full px-3 py-1" style="background:#E65E04;color:#fff;">First pilot, launching now</span>
-          <h3 class="text-heading-6 sm:text-heading-5 case-study-title">One honest story, coming soon</h3>
-          <p class="w-full text-left case-study-description">
-            Our first client is going live. When we have results we can stand behind, one real story lands right here, with numbers you can trust, not numbers we made up. <!-- TODO: replace with real, possibly anonymized pilot results once client #1 converts -->
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- =========================
-Why plumcut section
-===========================-->
-<section class="py-16 md:py-20 lg:py-24">
-  <div class="main-container max-w-[1880px]">
-    <div class="mb-10 md:mb-14 text-center lg:max-w-[760px] lg:mx-auto">
-      <span data-ns-animate data-delay="0.1" class="section-title-label">
-        <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-        <span class="section-title-text">Why plumcut</span>
-      </span>
-      <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
-        Why plum, honestly
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-12 gap-6 lg:gap-8">
-      <div data-ns-animate data-delay="0.2" class="col-span-12 md:col-span-4">
-        <div class="bg-background-12 rounded-3xl h-full p-8 space-y-4">
-          <h3 class="text-heading-6 md:text-heading-5">More staff</h3>
-          <ul class="space-y-2 text-tagline-1 text-secondary/60">
-            <li>Expensive, and they sleep.</li>
-            <li>Can't answer at 2am or during a rush.</li>
-            <li>No one can read every DM, so the insight is lost.</li>
-          </ul>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-4">
-        <div class="bg-background-12 rounded-3xl h-full p-8 space-y-4">
-          <h3 class="text-heading-6 md:text-heading-5">Free platform bots</h3>
-          <ul class="space-y-2 text-tagline-1 text-secondary/60">
-            <li>Don't sell, they deflect.</li>
-            <li>Don't sound like your brand.</li>
-            <li>Keep your customer data inside their platform.</li>
-          </ul>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.4" class="col-span-12 md:col-span-4">
-        <div class="rounded-3xl h-full p-8 space-y-4" style="background:#481D52;">
-          <h3 class="text-heading-6 md:text-heading-5" style="color:#E65E04;">plumcut</h3>
-          <ul class="space-y-2 text-tagline-1 text-white">
-            <li>Sells, cross-channel, in your voice.</li>
-            <li>Done for you, you operate nothing.</li>
-            <li>You own the insight from every conversation.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- ============================ -->
-<!-- Ask Plum -->
-<!-- ============================ -->
-
-<section class="faq-section max-[1920px]:px-5 pb-10">
-  <div
-    class="faq-card bg-[#1a1a1a] max-w-[1880px] mx-auto lg:py-25 md:py-20 py-18 xl:py-28 rounded-2xl md:rounded-4xl relative overflow-hidden border border-background-ali"
-    data-ns-animate
-    data-delay="0.1"
-  >
-    <div class="main-container edge-safe relative z-30">
-      <div class="faq-intro text-center space-y-3 md:space-y-5 max-w-[720px] mx-auto lg:mb-[70px] mb-12">
+<section class="final-combined pt-10 md:pt-14 pb-14 md:pb-20">
+  <div class="combined-card">
+    <div class="main-container edge-safe relative z-10 pt-14 pb-14 md:pt-20 md:pb-16 lg:pt-24 lg:pb-20">
+      <div class="text-center max-w-[820px] mx-auto space-y-4 md:space-y-5">
         <span data-ns-animate data-delay="0.1" class="section-title-label">
           <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <span class="section-title-text">FAQ</span>
+          <span class="section-title-text">Don't take our word for it</span>
         </span>
         <h2 data-ns-animate data-delay="0.2" class="section-title-heading">
-          Have a question? Ask plum.
+          Have a question? Ask plum.<br>See it for yourself
         </h2>
-        <p data-ns-animate data-delay="0.3" class="faq-tagline text-tagline-1" style="color: #4B1D6A;">
-          Skip the FAQ rabbit hole. plum is right there, message it the way your customer would, and see how it answers.
+        <p data-ns-animate data-delay="0.3" class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
+          Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you're at it. See how it answers, how it sells, and how it sounds. Then we'll build you your own.
         </p>
       </div>
 
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center gap-5 mt-10 mb-12">
         <a
           href="https://wa.me/17744970802?text=Hi%20plum!"
           data-ns-animate
           data-delay="0.4"
           data-direction="up"
           data-offset="40"
-          class="hero-cta-button hero-cta-button--faq inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
+          class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
         >
-          <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
-            <img
-              src="images/shared/21- icon white.png"
-              alt=""
-              aria-hidden="true"
-              class="size-10"
-              loading="lazy"
-            decoding="async">
+          <span class="hero-cta-icon flex items-center justify-center rounded-full">
+            <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </span>
-          <span>Talk to plum</span>
+          <span>Chat with plum</span>
         </a>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/17744970802?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-      <!-- =========================
-Final CTA section
-===========================-->
-<section class="pb-20 md:pb-28 pt-4">
-  <div class="main-container max-w-[1880px]">
-    <div class="text-center max-w-[760px] mx-auto space-y-5">
-      <h2 data-ns-animate data-delay="0.1" class="section-title-heading">
-        See what plum does to your DMs
-      </h2>
-      <p data-ns-animate data-delay="0.2" class="text-tagline-1 text-secondary/60">
-        Message plum the way one of your customers would. See how it answers, how it sells, and how it sounds. Then we'll build you your own.
-      </p>
-      <div data-ns-animate data-delay="0.3" class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-        <a
-          href="https://wa.me/17744970802?text=Hi%20plum!"
-          class="hero-cta-button hero-cta-button--hero inline-flex items-center justify-center gap-4 rounded-full px-8 py-4 text-xl sm:text-2xl font-semibold backdrop-blur-md transition"
-        >
-          <span class="hero-cta-icon flex size-12 items-center justify-center rounded-full">
-            <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" class="size-8" loading="lazy" decoding="async">
-          </span>
-          <span>Talk to plum</span>
-        </a>
-        <a
-          href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call."
-          class="inline-flex items-center justify-center rounded-full px-8 py-4 text-lg sm:text-xl font-semibold border-2 transition hover:bg-[#481D52] hover:text-white"
-          style="border-color:#481D52;color:#481D52;"
-        >
-          Book a 15-min call
-        </a>
+      <div class="grid grid-cols-12 gap-6 lg:gap-8 max-w-[1180px] mx-auto">
+        <div data-ns-animate data-delay="0.2" class="col-span-12 md:col-span-6">
+          <div class="proof-card proof-card--orange p-8 md:p-10 space-y-3">
+            <h3 class="text-heading-6 sm:text-heading-5 case-study-title">Built by people who lived it</h3>
+            <p class="case-study-description">
+              We're not describing a problem we read about. We ran online stores ourselves and lived the 2am messages, the leads that went cold, the guessing about what to stock. plum is the fix we wished we'd had, built from inside the problem. <br> <a href="about.html" class="underline underline-offset-4" style="color:#481D52;">Read our story →</a>
+            </p>
+          </div>
+        </div>
+        <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-6">
+          <div class="proof-card proof-card--muted p-8 md:p-10 space-y-3">
+            <a href="https://tiadib.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Tia Dib's store at tiadib.com" class="inline-block">
+              <img src="images/partners/Tia%20Dib.webp" alt="Tia Dib" class="h-20 w-auto mb-1" loading="lazy" decoding="async">
+            </a>
+            <p class="case-study-description">
+              First client: Tia Dib. Done for her, start to finish: plum answers and sells in her DMs, and our virtual try-on lets shoppers tap "See it on you" to try any piece on themselves before they buy.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2342,14 +2097,12 @@ Final CTA section
     <!-- =========================
 Footer
 ===========================-->
-<footer class="footer footer-three dark:bg-background-8 relative bg-background-2 overflow-hidden">
-  <div class="main-container">
-    <!-- footer bg-img  -->
- 
-
-    <div
-      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[100px] pt-16 pb-16 justify-between"
-    >
+<footer class="footer footer-three relative overflow-hidden">
+  <div class="footer-ribbon">
+    <div class="main-container">
+      <div
+        class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[80px] xl:pb-[80px] pt-14 pb-14 justify-between"
+      >
       <div class="lg:col-span-4 col-span-12">
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
@@ -2358,13 +2111,9 @@ Footer
   <source src="images/loader compressed.mp4" type="video/mp4" />
 </video>
             </figure>
-            <p class="mt-4 mb-5 text-secondary dark:text-accent">
+            <p class="mt-4 text-secondary dark:text-accent">
               plumcut builds and runs the AI that sells in your DMs, answering, booking, and turning every conversation into insight you own. Built in Lebanon, made for the brands of the region.
             </p>
-            <a href="https://wa.me/17744970802?text=Hi%20plum!" class="inline-flex items-center gap-2 font-semibold" style="color:#481D52;">
-              <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" class="size-5" loading="lazy" decoding="async">
-              <span class="underline underline-offset-4">Talk to plum</span>
-            </a>
           </div>
         </div>
       </div>
@@ -2382,7 +2131,7 @@ Footer
                 <a href="how-it-works.html" class="footer-link-v2"> How it works </a>
               </li>
               <li>
-                <a href="services.html" class="footer-link-v2"> Solutions </a>
+                <a href="solutions.html" class="footer-link-v2"> Solutions </a>
               </li>
               <li>
                 <a href="pricing.html" class="footer-link-v2"> Pricing </a>
@@ -2488,21 +2237,21 @@ Footer
         </div>
       </div>
     </div>
-    <div class="pt-6 pb-[60px] text-center relative overflow-hidden footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
-      <div
-        class="footer-divider absolute top-0 left-0 right-0 w-0 origin-center mx-auto h-px bg-stroke-2 dark:bg-accent/5"
-      ></div>
-      <p
-        data-ns-animate
-        data-delay="0.7"
-        data-offset="10"
-        data-start="top 105%"
-        class="text-white"
-      >
-        &copy; 2026 plumcut. All rights reserved.
-      </p>
+      </div>
     </div>
-  </div>
+    <div class="main-container">
+      <div class="pt-8 pb-12 text-center">
+        <p
+          data-ns-animate
+          data-delay="0.7"
+          data-offset="10"
+          data-start="top 105%"
+          class="footer-copyright"
+        >
+          &copy; 2026 plumcut. All rights reserved.
+        </p>
+      </div>
+    </div>
 
 
 
