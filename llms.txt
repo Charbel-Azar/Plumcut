@@ -1,0 +1,20 @@
+# plumcut
+> plumcut builds and runs the AI that sells on WhatsApp for high-traffic DTC brands, then turns customer conversations into owned customer insight.
+
+## Core Pages
+- [Home](https://plumcut.com/): The AI that answers, sells, books, and reads customer conversations for insight.
+- [How it works](https://plumcut.com/how-it-works.html): The done-for-you process: learn the brand, build and launch plum, then run and improve it.
+- [Solutions](https://plumcut.com/solutions.html): AI selling, instant answers, booking, order tracking, payments, and customer insights for WhatsApp.
+- [Pricing](https://plumcut.com/pricing.html): Custom pricing based on real message volume, setup scope, and selected solutions.
+- [About](https://plumcut.com/about.html): plumcut's MENA-native founding team and origin story.
+
+## Key Facts
+- plumcut is built in Lebanon for MENA and international commerce brands.
+- plum is a managed AI conversation layer, not a self-serve bot builder.
+- The current beachhead is high-traffic DTC fashion and retail brands.
+- The core promise is revenue recovery plus customer understanding the merchant owns.
+- Founders: Nour, Charbel, and Michael.
+
+## Contact
+- Website: https://plumcut.com/
+- LinkedIn: https://www.linkedin.com/company/plumcut/

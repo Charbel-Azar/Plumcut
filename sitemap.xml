@@ -2,26 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://plumcut.com/</loc>
-    <lastmod>2026-02-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-06-17</lastmod>
   </url>
   <url>
-    <loc>https://plumcut.com/services</loc>
-    <lastmod>2026-02-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://plumcut.com/how-it-works.html</loc>
+    <lastmod>2026-06-17</lastmod>
   </url>
   <url>
-    <loc>https://plumcut.com/pricing</loc>
-    <lastmod>2026-02-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://plumcut.com/solutions.html</loc>
+    <lastmod>2026-06-17</lastmod>
   </url>
   <url>
-    <loc>https://plumcut.com/about</loc>
-    <lastmod>2026-02-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://plumcut.com/pricing.html</loc>
+    <lastmod>2026-06-17</lastmod>
+  </url>
+  <url>
+    <loc>https://plumcut.com/about.html</loc>
+    <lastmod>2026-06-17</lastmod>
   </url>
 </urlset>
