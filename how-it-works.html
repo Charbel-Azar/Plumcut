@@ -126,63 +126,6 @@ Head links
   }
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do I have to operate anything?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We build plum, run it, and improve it. You read the results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long until it's live?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About two weeks from our first conversation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will it sound like a robot?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, that's the whole point. plum is built around your voice and tone, and we keep tuning it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if a question is too tricky for plum?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "plum hands it to you or your team at the right moment, with the full conversation, so nothing gets dropped."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if my message volume suddenly spikes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Your plan includes a generous amount of normal volume. If a campaign sends it way past that, there's a clear, fair rate, and we always flag you first. No surprise bills."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I start small and add more later?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Start with what you need most, add solutions as you grow."
-      }
-    }
-  ]
-}
-</script>
-
 <!-- Additional SEO Meta Tags -->
 <meta name="theme-color" content="#000000" />
 <meta name="msapplication-TileColor" content="#000000" />
@@ -273,6 +216,12 @@ Head links
       .section-title-text {
         display: inline-block;
       }
+
+      /* Unified spacing for every section title block (label -> heading -> text).
+         Overrides per-instance mb-5/mb-4/mt-3 utility classes so the gap is
+         identical across all sections and pages. */
+      .section-title-label { margin-bottom: 0.6rem !important; }
+      .section-title-heading { margin-top: 0 !important; margin-bottom: 0.9rem !important; }
 
       .section-title-heading {
         font-size: var(--text-heading-6);
@@ -855,6 +804,28 @@ Head links
         background-color: #E65E04;
       }
 
+      .footer-three .footer-ribbon {
+        background: linear-gradient(135deg, #F0791F 0%, #E65E04 46%, #C7430A 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-three .footer-ribbon::before {
+        content:"";
+        position:absolute;
+        inset:0;
+        background:
+          radial-gradient(120% 90% at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0) 58%),
+          radial-gradient(120% 90% at 0% 100%, rgba(72,29,82,0.28), rgba(72,29,82,0) 55%);
+        pointer-events:none;
+        z-index:0;
+      }
+
+      .footer-three .footer-ribbon > .main-container {
+        position:relative;
+        z-index:1;
+      }
+
       .footer-copyright {
         color: #481D52;
       }
@@ -1045,6 +1016,10 @@ Head links
           justify-content: center;
           padding-top: 5rem;
           padding-bottom: 0;
+          /* keep the purple gradient showing at the bottom on phone (desktop melts to white) */
+          background:
+            radial-gradient(120% 70% at 88% 0%, rgba(230, 94, 4, 0.95) 0%, rgba(230, 94, 4, 0) 45%),
+            linear-gradient(180deg, #4B1D6A 0%, #5a2470 55%, #6d2e72 100%);
         }
         .hiw-hero__plum {
           width: 185vw;
@@ -1057,7 +1032,7 @@ Head links
           padding-bottom: 0;
         }
         .hiw-hero__fade {
-          height: 24%;
+          height: 20%;
         }
         .hiw-hero__lede {
           color: rgba(255, 255, 255, 0.85);
@@ -1122,7 +1097,7 @@ Hero / intro
 ===========================-->
 <section class="hiw-hero">
   <div class="hiw-hero__plum" aria-hidden="true">
-    <img src="images/index/how-it-works-hero-plum.png" alt="" width="2048" height="2048" loading="eager" fetchpriority="high" decoding="async">
+    <img src="images/index/how-it-works-hero-plum.webp" alt="" width="2048" height="2048" loading="eager" fetchpriority="high" decoding="async">
   </div>
   <div class="hiw-hero__fade" aria-hidden="true"></div>
   <div class="main-container edge-safe hiw-hero__content">
@@ -1186,19 +1161,19 @@ The three steps
     </div>
     <div class="grid grid-cols-12 gap-6 lg:gap-10 hiw-steps">
       <div data-ns-animate data-delay="0.2" class="col-span-12 md:col-span-4 hiw-step">
-        <div class="hiw-step-img"><img src="images/index/how-it-works-step-1.png" alt="We learn your brand" loading="lazy" decoding="async"></div>
+        <div class="hiw-step-img"><img src="images/index/how-it-works-step-1.webp" alt="We learn your brand" loading="lazy" decoding="async"></div>
         <div class="hiw-step-num">01</div>
         <h3 class="hiw-step-title">We learn your brand</h3>
         <p class="hiw-step-desc">We sit down with you once and learn how you talk, what you sell, your policies, your prices, and the questions you get asked a hundred times a week. That's the only real time you'll spend. Everything plum says afterward sounds like you, not a robot.</p>
       </div>
       <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-4 hiw-step">
-        <div class="hiw-step-img"><img src="images/index/how-it-works-step-2.png" alt="We build and launch" loading="lazy" decoding="async"></div>
+        <div class="hiw-step-img"><img src="images/index/how-it-works-step-2.webp" alt="We build and launch" loading="lazy" decoding="async"></div>
         <div class="hiw-step-num">02</div>
         <h3 class="hiw-step-title">We build &amp; launch</h3>
         <p class="hiw-step-desc">We build plum around what we learned and connect it to the channels your customers already use, WhatsApp and your store. In about two weeks plum is live on WhatsApp, answering, selling, and booking. You don't touch a tool, write a flow, or configure anything.</p>
       </div>
       <div data-ns-animate data-delay="0.4" class="col-span-12 md:col-span-4 hiw-step">
-        <div class="hiw-step-img"><img src="images/index/how-it-works-step-3.png" alt="We run, sell and improve" loading="lazy" decoding="async"></div>
+        <div class="hiw-step-img"><img src="images/index/how-it-works-step-3.webp" alt="We run, sell and improve" loading="lazy" decoding="async"></div>
         <div class="hiw-step-num">03</div>
         <h3 class="hiw-step-title">We run, sell &amp; improve</h3>
         <p class="hiw-step-desc">plum keeps working day and night. We watch it, fix what needs fixing, and sharpen how it sells as it learns your customers, week after week. You get the results, and a clear picture of what your customers actually want. It gets better the longer it runs.</p>
@@ -1315,7 +1290,7 @@ You barely lift a finger — split + timeline (purple)
           </ul>
         </div>
         <div data-ns-animate data-delay="0.4" class="liftfng-card liftfng-card-bal flex-1 p-7 md:p-8 flex items-center justify-center">
-          <img class="liftfng-bal-img" src="images/index/how-it-works-imbalance-scale.png" alt="A balance scale tipped to one side" loading="lazy" decoding="async">
+          <img class="liftfng-bal-img" src="images/index/how-it-works-imbalance-scale.webp" alt="A balance scale tipped to one side" loading="lazy" decoding="async">
           <p class="liftfng-bal-text text-xl md:text-2xl text-center">That imbalance<br>is the whole point.</p>
         </div>
       </div>
@@ -1419,7 +1394,7 @@ Where plum works (meets your customer + plugs into tools)
     line-height: 1.6;
     text-align: left !important;
   }
-  .intg-section .intg-card-body strong { color: #481D52; font-weight: 700; }
+  .intg-section .intg-card-body strong { color: #ffffff; font-weight: 800; font-size: 1.08em; }
 
   .intg-section .intg-tools {
     margin-top: clamp(20px, 3vw, 28px);
@@ -1482,7 +1457,7 @@ Where plum works (meets your customer + plugs into tools)
       <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-6">
         <div class="intg-card" style="background:#E65E04;">
           <div class="intg-card-text">
-            <h3 class="intg-card-title">The tools you already run on</h3>
+            <h3 class="intg-card-title">The tools you already use </h3>
             <p class="intg-card-body">Your plum doesn't live in isolation. It plugs into the stack you already work in: <strong>your CRM, your calendar, your store, your payment links, your inbox</strong>…<br>So orders, bookings, leads, and conversations land in the tools your business already runs on.<br>Nothing to rebuild, nothing to migrate.</p>
           </div>
         </div>
@@ -1498,7 +1473,7 @@ Where plum works (meets your customer + plugs into tools)
     <!-- app-icon strip (designer asset: how 6.png) -->
     <figure data-ns-animate data-delay="0.3" class="intg-strip-fig">
       <img
-        src="images/index/how-it-works-integrations.png"
+        src="images/index/how-it-works-integrations.webp"
         alt="The apps your plum connects with: WhatsApp, Shopify, WooCommerce, Stripe, PayPal, Google Calendar, Calendly, HubSpot, Salesforce, Gmail, and Slack"
         class="intg-strip-img"
         loading="lazy"
@@ -1524,6 +1499,9 @@ Two things grow. Both are yours. (what you get back + own your data)
   }
   @media (min-width:768px) {
     .grow-card { aspect-ratio:4 / 5; min-height:600px; }
+    /* Reserve equal text height so both card titles sit on the same level
+       while the bodies stay bottom-anchored (3 lines = 1.6 line-height x 3). */
+    .grow-card__text { min-height:4.8em; }
   }
   @media (min-width:1280px) {
     .grow-card { min-height:680px; }
@@ -1553,7 +1531,7 @@ Two things grow. Both are yours. (what you get back + own your data)
       <!-- More sales -->
       <div data-ns-animate data-delay="0.2" data-direction="left" class="col-span-12 md:col-span-6">
         <div class="grow-card">
-          <img class="grow-card__img" src="images/index/how-it-works-more-sales.png" alt="A shop owner smiling behind the counter with a stack of wrapped orders ready to go out" loading="lazy" decoding="async">
+          <img class="grow-card__img" src="images/index/how-it-works-more-sales.webp" alt="A shop owner smiling behind the counter with a stack of wrapped orders ready to go out" loading="lazy" decoding="async">
           <div class="grow-card__veil" style="background:linear-gradient(to top, #E65E04 0%, rgba(230,94,4,0.92) 16%, rgba(230,94,4,0.2) 42%, transparent 62%);"></div>
           <div class="grow-card__body">
             <h3 class="grow-card__title text-heading-5 md:text-heading-4" style="color:#ffffff;">More sales</h3>
@@ -1565,7 +1543,7 @@ Two things grow. Both are yours. (what you get back + own your data)
       <!-- Real understanding -->
       <div data-ns-animate data-delay="0.3" data-direction="right" class="col-span-12 md:col-span-6">
         <div class="grow-card" style="background:#ffffff;">
-          <img class="grow-card__img" src="images/index/how-it-works-real-understanding.png" alt="A business owner calmly reviewing what plum learned about his customers on a tablet" loading="lazy" decoding="async">
+          <img class="grow-card__img" src="images/index/how-it-works-real-understanding.webp" alt="A business owner calmly reviewing what plum learned about his customers on a tablet" loading="lazy" decoding="async">
           <div class="grow-card__veil" style="background:linear-gradient(to top, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.82) 16%, rgba(255,255,255,0.15) 40%, transparent 60%);"></div>
           <div class="grow-card__body">
             <h3 class="grow-card__title text-heading-5 md:text-heading-4" style="color:#4B1D6A;">Real understanding</h3>
@@ -1586,56 +1564,16 @@ Still have questions? Ask plum (FAQ + talk-to-plum CTA)
 ===========================-->
 <section class="faq-section py-14 md:py-20">
   <div class="main-container edge-safe">
-    <div class="text-center max-w-[760px] mx-auto mb-10 md:mb-14 space-y-3 md:space-y-4">
+    <div class="text-center max-w-[760px] mx-auto mb-10 md:mb-12 space-y-3 md:space-y-4">
       <h2 data-ns-animate data-delay="0.2" class="section-title-heading" style="color:#481D52;">
-        Still have questions?<br>Ask plum
+        That's how plum<br>gets to work
       </h2>
       <p data-ns-animate data-delay="0.3" class="text-tagline-1" style="color:#6e5f76;">
-        The questions we hear most… and the easiest way to get the rest answered.
+        We build it, run it, and keep tuning it, you read the results. The fastest way to see it for your brand is to talk to plum yourself.
       </p>
     </div>
 
-    <div class="grid grid-cols-12 gap-6 lg:gap-8 max-w-[1100px] mx-auto">
-      <div data-ns-animate data-delay="0.2" class="col-span-12 md:col-span-6">
-        <div class="ask-card" style="background:#481D52;">
-          <h3 style="color:#ffffff;">Do I have to operate anything?</h3>
-          <p style="color:rgba(255,255,255,0.85);">No. We build plum, run it, and improve it. You read the results.</p>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.25" class="col-span-12 md:col-span-6">
-        <div class="ask-card" style="background:#6f2a37;">
-          <h3 style="color:#ffffff;">How long until it's live?</h3>
-          <p style="color:rgba(255,255,255,0.85);">About two weeks from our first conversation.</p>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-6">
-        <div class="ask-card" style="background:#E65E04;">
-          <h3 style="color:#ffffff;">Will it sound like a robot?</h3>
-          <p style="color:rgba(255,255,255,0.92);">No, that's the whole point. plum is built around your voice and tone, and we keep tuning it.</p>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.35" class="col-span-12 md:col-span-6">
-        <div class="ask-card" style="background:#E65E04;">
-          <h3 style="color:#ffffff;">What if a question is too tricky for plum?</h3>
-          <p style="color:rgba(255,255,255,0.92);">plum hands it to you (or your team) at the right moment, with the full conversation, so nothing gets dropped.</p>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.4" class="col-span-12 md:col-span-6">
-        <div class="ask-card" style="background:#f0a35a;">
-          <h3 style="color:#481D52;">What if my message volume suddenly spikes?</h3>
-          <p style="color:#481D52;">Your plan includes a generous amount of normal volume. If a campaign sends it way past that, there's a clear, fair <a href="pricing.html" style="color:#481D52;text-decoration:underline;text-underline-offset:2px;">rate</a>, and we always flag you first. No surprise bills.</p>
-        </div>
-      </div>
-      <div data-ns-animate data-delay="0.45" class="col-span-12 md:col-span-6">
-        <div class="ask-card" style="background:#f6bd89;">
-          <h3 style="color:#481D52;">Can I start small and add more later?</h3>
-          <p style="color:#481D52;">Yes. Start with what you need most, add <a href="solutions.html" style="color:#481D52;text-decoration:underline;text-underline-offset:2px;">solutions</a> as you grow.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-12 md:mt-16">
-      <p data-ns-animate data-delay="0.3" class="text-tagline-1 mb-5" style="color:#6e5f76;">or skip all the hassle:</p>
+    <div class="text-center">
       <div class="flex flex-col items-center gap-5">
         <a href="https://wa.me/17744970802?text=Hi%20plum!" data-ns-animate data-delay="0.4" data-direction="up" data-offset="40" class="hero-cta-button hero-cta-button--faq inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition">
           <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">

@@ -238,6 +238,12 @@ Head links
         display: inline-block;
       }
 
+      /* Unified spacing for every section title block (label -> heading -> text).
+         Overrides per-instance mb-5/mb-4/mt-3 utility classes so the gap is
+         identical across all sections and pages. */
+      .section-title-label { margin-bottom: 0.6rem !important; }
+      .section-title-heading { margin-top: 0 !important; margin-bottom: 0.9rem !important; }
+
       .section-title-heading {
         font-size: var(--text-heading-6);
         line-height: var(--tw-leading, var(--text-heading-6--line-height));
@@ -791,6 +797,11 @@ Head links
         border-radius: 999px;
       }
 
+      .hero-mantra-line--inline {
+        height: 1.9rem;
+        align-self: center;
+      }
+
       .hero-cta-button {
         position: relative;
         overflow: hidden;
@@ -977,7 +988,7 @@ Head links
       }
 
       [data-hero-parallax] .hero-copy {
-        gap: clamp(1.25rem, 2.8vw, 2.25rem);
+        gap: clamp(1.25rem, 2.8vw, 2.5rem);
       }
 
       [data-hero-parallax] .hero-copy.hero-copy-right {
@@ -1016,7 +1027,10 @@ Head links
       }
 
       @media (max-width: 640px) {
-      
+
+        [data-hero-parallax] .hero-copy {
+          gap: 3rem;
+        }
 
         .pc-nav {
           width: 100%;
@@ -1083,6 +1097,11 @@ Head links
 
         [data-hero-parallax] .hero-mantra-line {
           height: clamp(2rem, 7vw, 2.8rem);
+        }
+
+        [data-hero-parallax] .hero-mantra-line--inline {
+          height: 2rem;
+          align-self: center;
         }
 
         [data-hero-parallax] .hero-copy {
@@ -1357,6 +1376,25 @@ Head links
         .footer-ribbon {
           background-color: #E65E04;
         }
+        .footer-three .footer-ribbon {
+          background: linear-gradient(135deg, #F0791F 0%, #E65E04 46%, #C7430A 100%);
+          position: relative;
+          overflow: hidden;
+        }
+        .footer-three .footer-ribbon::before {
+          content:"";
+          position:absolute;
+          inset:0;
+          background:
+            radial-gradient(120% 90% at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0) 58%),
+            radial-gradient(120% 90% at 0% 100%, rgba(72,29,82,0.28), rgba(72,29,82,0) 55%);
+          pointer-events:none;
+          z-index:0;
+        }
+        .footer-three .footer-ribbon > .main-container {
+          position:relative;
+          z-index:1;
+        }
         .footer-copyright {
           color: #481D52;
         }
@@ -1464,10 +1502,10 @@ Header
 
         <div class="hero-copy hero-copy-right lg:col-span-6 flex flex-col gap-4 lg:gap-6 lg:pt-4 lg:mt-2">
           <div class="flex w-full items-center justify-end gap-3">
-            <p class="text-brand-orange text-xl sm:text-2xl font-semibold max-w-[600px] text-right">
+            <p class="text-brand-orange text-2xl sm:text-3xl font-semibold max-w-[600px] text-right">
               Beyond the reply
             </p>
-            <span class="hero-mantra-line"></span>
+            <span class="hero-mantra-line hero-mantra-line--inline"></span>
           </div>
           <h1 class="w-full text-left text-white text-lg sm:text-xl lg:text-2xl font-bold leading-tight">
             <span class="block">Automate your business.<br>Know every customer.</span>
@@ -1496,7 +1534,7 @@ Header
               href="how-it-works.html"
               class="hidden text-white/80 hover:text-white text-base sm:text-lg font-medium underline underline-offset-4 transition"
             >
-              See how it works â†’
+              See how it works →
             </a>
           </div>
         </div>
@@ -1505,7 +1543,7 @@ Header
       <div class="mt-12 text-center lg:mt-16">
       
         <p class="mt-3 text-white text-base sm:text-lg max-w-[900px] mx-auto">
-Every business runs on the same repetitive tasks and conversations. We build automation that handles all of itâ€¦ automation that answers like a human, sells like a pro, and never sleeps. And while it works, it listens, so every conversation becomes insight into what your customers actually want.</p>
+Every business runs on the same repetitive tasks and conversations. We build automation that handles all of it… automation that answers like a human, sells like a pro, and never sleeps. And while it works, it listens, so every conversation becomes insight into what your customers actually want.</p>
       </div>
 
       <div class="mt-8 lg:mt-10">
@@ -1522,7 +1560,7 @@ Every business runs on the same repetitive tasks and conversations. We build aut
 The Problem section
 ===========================-->
 <style>
-  /* Portrait image cards â€” stay tall/extended at any width, fully responsive */
+  /* Portrait image cards — stay tall/extended at any width, fully responsive */
   .problem-card {
     position: relative;
     overflow: hidden;
@@ -1552,11 +1590,11 @@ The Problem section
       </h2>
     </div>
 
-    <div class="grid grid-cols-12 gap-6 lg:gap-8">
+    <div class="grid grid-cols-12 gap-6 lg:gap-8 px-6 lg:px-8">
       <div data-ns-animate data-delay="0.2" data-direction="left" class="col-span-12 md:col-span-6">
         <div class="problem-card relative rounded-3xl overflow-hidden">
           <img
-            src="images/index/problem-sales-slipping.png"
+            src="images/index/problem-sales-slipping.webp"
             alt="A customer's phone lighting up with unanswered shop messages at midnight"
             class="absolute inset-0 w-full h-full object-cover select-none"
             loading="lazy"
@@ -1573,7 +1611,7 @@ The Problem section
       <div data-ns-animate data-delay="0.3" data-direction="right" class="col-span-12 md:col-span-6">
         <div class="problem-card relative rounded-3xl overflow-hidden">
           <img
-            src="images/index/problem-customers-unseen.png"
+            src="images/index/problem-customers-unseen.webp"
             alt="A busy city street full of people, the demand you can't see"
             class="absolute inset-0 w-full h-full object-cover select-none"
             loading="lazy"
@@ -1610,7 +1648,7 @@ How plum sells section
       <!-- chat card image (left) -->
       <div data-ns-animate data-delay="0.2" data-direction="left" class="col-span-12 lg:col-span-6">
         <img
-          src="images/index/how-plum-sells-chat.png"
+          src="images/index/how-plum-sells-chat.webp"
           alt="Sample plum chat: a customer asks if the beige linen set is available; plum confirms, adds the matching pillow covers, and closes the order"
           class="mx-auto w-full max-w-[520px] h-auto select-none"
           loading="lazy"
@@ -1672,7 +1710,7 @@ The Insight Layer section
     <!-- dashboard laptop (sample) -->
     <figure data-ns-animate data-delay="0.3" class="max-w-[1080px] mx-auto">
       <img
-        src="images/index/insights-dashboard-laptop.png"
+        src="images/index/insights-dashboard-laptop.webp"
         alt="plum's SaaS analytics dashboard shown on a laptop: sales closed in chat, top questions customers ask, and busiest buying hour"
         class="w-full h-auto rounded-3xl"
         loading="lazy" decoding="async">
@@ -1710,7 +1748,7 @@ Services section
         data-direction="left"
       >
         <div
-          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-6 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -1725,7 +1763,7 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/services-answers.png"
+              src="images/index/services-answers.webp"
               alt="A customer relaxing at home with a coffee while plum answers her questions"
               class="w-full h-full object-cover"
             loading="lazy" decoding="async">
@@ -1740,7 +1778,7 @@ Services section
         data-direction="right"
       >
         <div
-          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-6 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -1755,7 +1793,7 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/services-order-tracking.png"
+              src="images/index/services-order-tracking.webp"
               alt="A delivery being handed to a happy customer at her door"
               class="w-full h-full object-cover"
             loading="lazy" decoding="async">
@@ -1770,7 +1808,7 @@ Services section
         data-direction="right"
       >
         <div
-          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-6 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -1785,7 +1823,7 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/services-sells.png"
+              src="images/index/services-sells.webp"
               alt="A neatly styled linen bed set, the kind of product plum recommends and upsells"
               class="w-full h-full object-cover object-center"
             loading="lazy" decoding="async">
@@ -1804,7 +1842,7 @@ Services section
         data-direction="left"
       >
         <div
-          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-6 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -1819,7 +1857,7 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/services-books.png"
+              src="images/index/services-books.webp"
               alt="A hand writing appointments in a planner while plum fills the calendar"
               class="w-full h-full object-cover"
             loading="lazy" decoding="async">
@@ -1835,7 +1873,7 @@ Services section
         data-direction="left"
       >
         <div
-          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+          class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-6 md:gap-6"
         >
           <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
             <blockquote class="space-y-2">
@@ -1850,7 +1888,7 @@ Services section
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
             <img
-              src="images/index/services-payments.png"
+              src="images/index/services-payments.webp"
               alt="A phone showing a confirmed in-chat payment beside a card reader"
               class="w-full h-full object-cover"
             loading="lazy" decoding="async">
@@ -1865,7 +1903,7 @@ Services section
   data-direction="right"
 >
   <div
-    class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-0 md:gap-6"
+    class="bg-background-12 hover-soft-card h-full rounded-3xl border border-background-12 p-5 md:p-8 grid grid-cols-12 gap-y-6 md:gap-6"
   >
     <aside class="pt-14-desktop col-span-12 flex flex-col justify-between space-y-5 md:col-span-6">
       <blockquote class="space-y-2">
@@ -1880,7 +1918,7 @@ Services section
       class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
     >
       <img
-        src="images/index/services-insights.png"
+        src="images/index/services-insights.webp"
         alt="A business owner reviewing plum's customer insights on a tablet at home"
         class="w-full h-full object-cover"
       loading="lazy" decoding="async">
@@ -1933,7 +1971,7 @@ Services section
 How It's Work section
 ===========================-->
 <section class="py-20 max-sm:py-10" style="overflow-x: clip;">
-  <div class="main-container max-w-[1880px]">
+  <div class="main-container edge-safe max-w-[1880px]">
     <div class="mb-0 sm:mb-10 md:mb-11 text-center lg:max-w-[730px] lg:mx-auto">
       <span data-ns-animate data-delay="0.1" class="section-title-label mb-4">
         <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
@@ -1955,7 +1993,7 @@ How It's Work section
         data-offset="80"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <img src="images/index/how-it-works-card-1.png" class="w-full h-auto rounded-3xl" alt="Step 01 â€” We learn your brand: your voice, your products, your policies, and the questions you get asked a hundred times a week. It's the only real time you'll spend." loading="lazy" decoding="async">
+        <img src="images/index/how-it-works-card-1.webp" class="w-full h-auto rounded-3xl" alt="Step 01 — We learn your brand: your voice, your products, your policies, and the questions you get asked a hundred times a week. It's the only real time you'll spend." loading="lazy" decoding="async">
 
       </div>
 
@@ -1967,7 +2005,7 @@ How It's Work section
         data-duration="0.5"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <img src="images/index/how-it-works-card-2.png" class="w-full h-auto rounded-3xl" alt="Step 02 â€” We build &amp; launch: plum goes live on WhatsApp in about two weeks, answering, selling, and booking. You don't touch a tool, write a flow, or configure a thing." loading="lazy" decoding="async">
+        <img src="images/index/how-it-works-card-2.webp" class="w-full h-auto rounded-3xl" alt="Step 02 — We build &amp; launch: plum goes live on WhatsApp in about two weeks, answering, selling, and booking. You don't touch a tool, write a flow, or configure a thing." loading="lazy" decoding="async">
 
       </div>
 
@@ -1979,7 +2017,7 @@ How It's Work section
         data-duration="0.7"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <img src="images/index/how-it-works-card-3.png" class="w-full h-auto rounded-3xl" alt="Step 03 â€” We run, sell &amp; improve: we monitor and tune plum daily as it learns your customers. You watch the sales, and the insight, grow. It gets sharper every week." loading="lazy" decoding="async">
+        <img src="images/index/how-it-works-card-3.webp" class="w-full h-auto rounded-3xl" alt="Step 03 — We run, sell &amp; improve: we monitor and tune plum daily as it learns your customers. You watch the sales, and the insight, grow. It gets sharper every week." loading="lazy" decoding="async">
 
       </div>
     </div>
@@ -2051,7 +2089,7 @@ Combined final CTA + proof section
           <div class="proof-card proof-card--orange p-8 md:p-10 space-y-3">
             <h3 class="text-heading-6 sm:text-heading-5 case-study-title">Built by people who lived it</h3>
             <p class="case-study-description">
-              We're not describing a problem we read about. We ran online stores ourselves and lived the 2am messages, the leads that went cold, the guessing about what to stock. plum is the fix we wished we'd had, built from inside the problem. <br> <a href="about.html" class="underline underline-offset-4" style="color:#481D52;">Read our story â†’</a>
+              We're not describing a problem we read about. We ran online stores ourselves and lived the 2am messages, the leads that went cold, the guessing about what to stock. plum is the fix we wished we'd had, built from inside the problem. <br> <a href="about.html" class="underline underline-offset-4" style="color:#481D52;">Read our story →</a>
             </p>
           </div>
         </div>

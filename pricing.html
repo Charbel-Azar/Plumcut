@@ -197,10 +197,10 @@ Head links
     },
     {
       "@type": "Question",
-      "name": "Will it sound like a robot, and do I need technical skills?",
+      "name": "How does your pricing model work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, and no. plum is built around your voice and tone, and we keep tuning it, so it sounds like you, not a script. And you need zero technical skill: we handle the entire build, launch, and day-to-day running. You just read the results."
+        "text": "It's two parts. A one-time setup fee covers learning your brand and building and launching plum. After that you're on a single pay-as-you-go monthly plan: you only pay for the conversations plum actually handles, so a quiet month costs little and a zero-usage month costs nothing. Your rate per conversation depends on the mix of solutions you choose."
       }
     },
     {
@@ -213,10 +213,10 @@ Head links
     },
     {
       "@type": "Question",
-      "name": "Does plum reply in Arabic and English?",
+      "name": "Does the rate get cheaper as I use it more?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. plum chats with your customers in Arabic, English, and the mix they actually use, at no extra charge. The pricing is based on conversation volume, not on the language your customers write in."
+        "text": "Yes. The pay-as-you-go rate is tiered: the more you spend within a month, the lower the rate becomes for the rest of that month. You're rewarded for volume, not penalized for it, and we always flag you first before anything unusual changes."
       }
     }
   ]
@@ -316,6 +316,12 @@ Head links
       .section-title-text {
         display: inline-block;
       }
+
+      /* Unified spacing for every section title block (label -> heading -> text).
+         Overrides per-instance mb-5/mb-4/mt-3 utility classes so the gap is
+         identical across all sections and pages. */
+      .section-title-label { margin-bottom: 0.6rem !important; }
+      .section-title-heading { margin-top: 0 !important; margin-bottom: 0.9rem !important; }
 
       .section-title-heading {
         font-size: var(--text-heading-6);
@@ -723,6 +729,28 @@ Head links
         background-color: #E65E04;
       }
 
+      .footer-three .footer-ribbon {
+        background: linear-gradient(135deg, #F0791F 0%, #E65E04 46%, #C7430A 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-three .footer-ribbon::before {
+        content:"";
+        position:absolute;
+        inset:0;
+        background:
+          radial-gradient(120% 90% at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0) 58%),
+          radial-gradient(120% 90% at 0% 100%, rgba(72,29,82,0.28), rgba(72,29,82,0) 55%);
+        pointer-events:none;
+        z-index:0;
+      }
+
+      .footer-three .footer-ribbon > .main-container {
+        position:relative;
+        z-index:1;
+      }
+
       .footer-copyright {
         color: #481D52;
       }
@@ -887,47 +915,64 @@ Header
 Pricing hero
 ===========================-->
 <style>
+  /* Hero mechanism matches how-it-works: absolute plum overlay + content padding sets height */
   .pricing-hero {
     position: relative;
     overflow: hidden;
     isolation: isolate;
     background: linear-gradient(112deg, #4B1D6A 0%, #5a234a 52%, #6f2d3f 100%);
+    padding-top: 6rem;
+    padding-bottom: 0;
   }
-  .pricing-hero__stage {
-    position: relative;
-    width: min(900px, 96vw);
-    margin: 0 auto;
-    z-index: 0;
+  .pricing-hero__plum {
+    position: absolute;
+    left: 50%;
+    top: 8rem;
+    transform: translateX(-50%);
+    /* scaled down vs how-it-works: this PNG has less padding around the plum,
+       so a smaller box yields the same visible plum size */
+    width: min(955px, 57vw);
+    z-index: 1;
+    pointer-events: none;
   }
-  .pricing-hero__stage > img {
+  .pricing-hero__plum img {
     display: block;
     width: 100%;
     height: auto;
   }
-  .pricing-hero__content {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    padding-top: 17%;
-  }
   /* fade plum + section into white at the bottom */
-  .pricing-hero::after {
-    content: "";
+  .pricing-hero__fade {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 42%;
-    z-index: 1;
+    height: 40%;
+    z-index: 2;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 66%, #ffffff 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 55%, #ffffff 100%);
   }
-  /* Phone: hero fills the screen so only it shows on open (matches other pages) */
+  .pricing-hero__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding-top: 15rem;
+    padding-bottom: 18rem;
+    max-width: 1040px;
+  }
+  .pricing-hero__content .section-title-label {
+    justify-content: center;
+  }
+  @media (max-width: 1023px) {
+    .pricing-hero__plum {
+      width: min(693px, 76vw);
+      top: 8rem;
+    }
+    .pricing-hero__content {
+      padding-top: 11rem;
+      padding-bottom: 13rem;
+    }
+  }
+  /* Phone: hero fills the screen so only it shows on open (untouched) */
   @media (max-width: 640px) {
     .pricing-hero {
       min-height: 100vh;
@@ -938,69 +983,58 @@ Pricing hero
       padding-top: 5rem;
       padding-bottom: 0;
     }
-    .pricing-hero__stage {
-      position: static;
-      width: 100%;
-      margin: 0;
-    }
-    .pricing-hero__stage > img {
-      position: absolute;
-      left: 50%;
+    .pricing-hero__plum {
+      width: 168vw;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 168vw;
-      max-width: none;
-      height: auto;
-      z-index: 0;
     }
     .pricing-hero__content {
-      position: relative;
-      inset: auto;
-      z-index: 2;
       width: 100%;
       padding-top: 0;
+      padding-bottom: 0;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
-    .pricing-hero::after {
+    .pricing-hero__fade {
       height: 24%;
     }
   }
 </style>
 
-<section class="pricing-hero pb-8 pt-31 md:pt-16 lg:pt-[120px] xl:pt-[150px]">
-  <div class="pricing-hero__stage">
+<section class="pricing-hero">
+  <div class="pricing-hero__plum" aria-hidden="true">
     <img
-      src="images/index/pricing-hero-plum.png"
+      src="images/index/pricing-hero-plum.webp"
       alt=""
-      aria-hidden="true"
       width="1621"
       height="1495"
       loading="eager"
       fetchpriority="high"
       decoding="async">
-    <div class="pricing-hero__content edge-safe">
-      <span data-ns-animate data-delay="0.2" class="section-title-label mb-5">
-        <img
-          class="section-title-bullet"
-          src="images/index/Bullet-Purple.svg"
-          alt=""
-          aria-hidden="true"
+  </div>
+  <div class="pricing-hero__fade" aria-hidden="true"></div>
+
+  <div class="main-container edge-safe pricing-hero__content">
+    <span data-ns-animate data-delay="0.2" class="section-title-label mb-5">
+      <img
+        class="section-title-bullet"
+        src="images/index/Bullet-Purple.svg"
+        alt=""
+        aria-hidden="true"
         loading="lazy" decoding="async">
-        <span class="section-title-text" style="color:#4B1D6A;">Pricing</span>
-      </span>
-      <h1
-        data-ns-animate
-        data-delay="0.3"
-        class="section-title-heading max-w-[760px] mx-auto"
-        style="color:#4B1D6A;"
-      >
-        Instantaneous service,<br>complete knowledge
-      </h1>
-      <p data-ns-animate data-delay="0.4" class="text-tagline-1 mx-auto max-w-[600px] mt-4" style="color:#4B1D6A;">
-        Let your customers enjoy a fast and continuous service, and add the customer insight dashboard to know everything about your customers quickly and easily.
-      </p>
-    </div>
+      <span class="section-title-text" style="color:#4B1D6A;">Pricing</span>
+    </span>
+    <h1
+      data-ns-animate
+      data-delay="0.3"
+      class="section-title-heading max-w-[760px] mx-auto"
+      style="color:#4B1D6A;"
+    >
+      Instantaneous service,<br>complete knowledge
+    </h1>
+    <p data-ns-animate data-delay="0.4" class="text-tagline-1 mx-auto max-w-[600px] mt-4" style="color:#4B1D6A;">
+      Keep your customers served around the clock.
+Upgrade to the Customer Insight dashboard and stop guessing what they want.   </p>
   </div>
 </section>
 
@@ -1438,7 +1472,7 @@ Pricing section
   }
 </style>
 
-<section data-ns-animate data-delay="0.1" class="pricing-section pt-23">
+<section data-ns-animate data-delay="0.1" class="pricing-section pt-10">
   <div class="max-w-[1440px] w-full mx-auto rounded-2xl space-y-[50px] md:space-y-[70px] bg-background-1 dark:bg-black py-[60px] md:py-[100px] px-5 md:px-6 lg:px-10 xl:px-16">
     <style>
       /* ===== Pricing box (replicated from design) ===== */
@@ -1472,7 +1506,7 @@ Pricing section
       .pcbox-card > .pcbox-vlabel { left: -48px; }
 
       .pcbox-title { color: #E65E04; font-weight: 600; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.1; }
-      .pcbox-lead { color: #4B1D6A; font-size: clamp(0.95rem, 1.3vw, 1.05rem); line-height: 1.55; margin-top: 10px; max-width: 640px; text-align: left !important; }
+      .pcbox-lead { color: #4B1D6A; font-size: clamp(0.95rem, 1.3vw, 1.05rem); line-height: 1.55; margin-top: 10px; max-width: 960px; text-align: left !important; }
 
       .pcbox-monthly-stack { display: flex; flex-direction: column; gap: 22px; margin-top: 26px; }
 
@@ -1487,7 +1521,7 @@ Pricing section
 
       .pcbox-bignum { color: #ffffff; font-weight: 700; font-size: clamp(2rem, 4.5vw, 3rem); text-align: center !important; margin-top: 18px; line-height: 1; }
       .pcbox-bignum-sub { color: rgba(255,255,255,0.92); font-size: clamp(0.85rem, 1.2vw, 0.98rem); text-align: center !important; margin-top: 8px; }
-      .pcbox-goodnews { color: rgba(255,255,255,0.92); font-size: clamp(0.9rem, 1.2vw, 1rem); text-align: center !important; margin-top: 18px; }
+      .pcbox-goodnews { color: rgba(255,255,255,0.92); font-size: clamp(0.9rem, 1.2vw, 1rem); text-align: left !important; margin-top: 18px; }
 
       .pcbox-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
       .pcbox-tier { text-align: center; }
@@ -1519,13 +1553,13 @@ Pricing section
       <div data-ns-animate data-delay="0.1" class="pcbox-card">
         <span class="pcbox-vlabel">Set up</span>
         <h3 class="pcbox-title">One-Time Fee</h3>
-        <p class="pcbox-lead">A one time payment at the beginning of the project for the costs of all set ups. This amount is set after a detailed meeting about your needs.</p>
+        <p class="pcbox-lead">A one-time payment at the start of the project to cover all setup costs. This amount is set after a detailed meeting about your needs.</p>
       </div>
 
       <!-- USAGE RATE + UPGRADE : Monthly Payment -->
       <div data-ns-animate data-delay="0.2" class="pcbox-card">
-        <h3 class="pcbox-title">Monthly Payment</h3>
-        <p class="pcbox-lead">The monthly payment is purely a pay-as-you-go plan, so you DON'T PAY anything for months with 0 usage.</p>
+        <h3 class="pcbox-title">Monthly Subscription</h3>
+        <p class="pcbox-lead">The monthly payment is purely a pay-as-you-go plan, so you DON'T PAY anything for months with zero usage.</p>
 
         <div class="pcbox-monthly-stack">
           <!-- Pay-as-you-go -->
@@ -1542,7 +1576,7 @@ Pricing section
               </div>
               <div class="pcbox-tier">
                 <h4>Tier 2</h4>
-                <p>From the 451<sup>st</sup> conversation to the 1000<sup>th</sup> conversation</p>
+                <p>From the 451<sup>st</sup> to the 1000<sup>th</sup> conversation</p>
               </div>
               <div class="pcbox-tier">
                 <h4>Tier 3</h4>
@@ -1558,7 +1592,7 @@ Pricing section
             <p class="pcbox-sub-lead">Get an analysis of all the conversations, presented to you in detail, so you don't miss anything.</p>
             <p class="pcbox-bignum">+50%</p>
             <p class="pcbox-bignum-sub">on the pay-as-you-go rate</p>
-            <p class="pcbox-note">NOTE: this service is different than the chat dashboard, included by default with the solution, where you can monitor the conversations.</p>
+            <p class="pcbox-note">NOTE: A chat dashboard that allows you to monitor user interactions is included by default with your solution.<br>Customer Insights gives you access to our flagship insights of these interactions.</p>
           </div>
         </div>
       </div>
@@ -1610,13 +1644,13 @@ FAQ section
         >
           <img
             class="size-full object-cover dark:hidden"
-            src="images/services/stamp.png"
+            src="images/services/stamp.webp"
             alt="Business agency services illustration"
             loading="lazy"
           decoding="async">
           <img
             class="size-full object-cover dark:inline-block hidden"
-            src="images/services/stamp.png"
+            src="images/services/stamp.webp"
             alt="Business agency services illustration"
             loading="lazy"
           decoding="async">
@@ -1899,7 +1933,7 @@ Accordian Icon
               <span
                 class="flex-1 text-left xl:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent"
               >
-                Will it sound like a robot, and do I need technical skills?
+                How does your pricing model work?
               </span>
               <!-- =========================
 Accordian Icon
@@ -1928,9 +1962,11 @@ Accordian Icon
             <div class="accordion-content">
               <div class="border-t border-t-stroke-3 dark:border-t-stroke-7 pt-6 pb-6">
                 <p>
-                  No, and no. plum is built around your voice and tone, and we keep tuning it, so
-                  it sounds like you, not a script. And you need zero technical skill: we handle the
-                  entire build, launch, and day-to-day running. You just read the results.
+                  It's two parts. A one-time setup fee covers learning your brand and building and
+                  launching plum. After that you're on a single pay-as-you-go monthly plan: you only
+                  pay for the conversations plum actually handles, so a quiet month costs little and a
+                  zero-usage month costs nothing. Your rate per conversation depends on the mix of
+                  solutions you choose.
                 </p>
               </div>
             </div>
@@ -1986,7 +2022,7 @@ Accordian Icon
               <span
                 class="flex-1 text-left xl:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent"
               >
-                Does plum reply in Arabic and English?
+                Does the rate get cheaper as I use it more?
               </span>
               <!-- =========================
 Accordian Icon
@@ -2015,9 +2051,9 @@ Accordian Icon
             <div class="accordion-content">
               <div class="border-t border-t-stroke-3 dark:border-t-stroke-7 pt-6 pb-6">
                 <p>
-                  Yes. plum chats with your customers in Arabic, English, and the mix they
-                  actually use, at no extra charge. The pricing is based on conversation volume,
-                  not on the language your customers write in.
+                  Yes. The pay-as-you-go rate is tiered: the more you spend within a month, the
+                  lower the rate becomes for the rest of that month. You're rewarded for volume,
+                  not penalized for it, and we always flag you first before anything unusual changes.
                 </p>
               </div>
             </div>
@@ -2033,13 +2069,13 @@ Accordian Icon
       >
         <img
           class="size-full object-cover dark:hidden"
-          src="images/services/stamp.png"
+          src="images/services/stamp.webp"
           alt="Business agency services illustration"
           loading="lazy"
         decoding="async">
         <img
           class="size-full object-cover dark:inline-block hidden"
-          src="images/services/stamp.png"
+          src="images/services/stamp.webp"
           alt="Business agency services illustration"
           loading="lazy"
         decoding="async">

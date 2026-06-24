@@ -377,6 +377,12 @@ Head links
 
       }
 
+      /* Unified spacing for every section title block (label -> heading -> text).
+         Overrides per-instance mb-5/mb-4/mt-3 utility classes so the gap is
+         identical across all sections and pages. */
+      .section-title-label { margin-bottom: 0.6rem !important; }
+      .section-title-heading { margin-top: 0 !important; margin-bottom: 0.9rem !important; }
+
 
 
       .section-title-heading {
@@ -623,6 +629,23 @@ Head links
 
       .hero-cta-button--hero:hover::before {
         opacity: 1;
+      }
+
+      .talk-subpill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid #481D52;
+        color: #481D52;
+        border-radius: 999px;
+        padding: 0.6rem 1.7rem;
+        font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+        font-weight: 500;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+      .talk-subpill:hover {
+        background: #481D52;
+        color: #ffffff;
       }
 
       @keyframes hero-cta-glass {
@@ -1918,47 +1941,64 @@ Service section
 ===========================-->
 
 <style>
+  /* Hero mechanism matches how-it-works: absolute plum overlay + content padding sets height */
   .solutions-hero {
     position: relative;
     overflow: hidden;
     isolation: isolate;
     background: linear-gradient(158deg, #E65E04 0%, #D43A1C 34%, #8C2350 66%, #481D52 100%);
+    padding-top: 6rem;
+    padding-bottom: 0;
   }
-  .solutions-hero__stage {
-    position: relative;
-    width: min(820px, 90vw);
-    margin: 0 auto;
-    z-index: 0;
+  .solutions-hero__plum {
+    position: absolute;
+    left: 50%;
+    top: 8rem;
+    transform: translateX(-50%);
+    /* scaled down vs how-it-works: this PNG has less padding around the plum,
+       so a smaller box yields the same visible plum size */
+    width: min(967px, 58vw);
+    z-index: 1;
+    pointer-events: none;
   }
-  .solutions-hero__stage > img {
+  .solutions-hero__plum img {
     display: block;
     width: 100%;
     height: auto;
   }
-  .solutions-hero__content {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    padding-top: 19%;
-  }
   /* fade plum + section into white at the bottom */
-  .solutions-hero::after {
-    content: "";
+  .solutions-hero__fade {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     height: 40%;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 68%, #ffffff 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 55%, #ffffff 100%);
   }
-  /* Phone: hero fills the screen so only it shows on open (matches how-it-works) */
+  .solutions-hero__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding-top: 15rem;
+    padding-bottom: 18rem;
+    max-width: 1040px;
+  }
+  .solutions-hero__content .section-title-label {
+    justify-content: center;
+  }
+  @media (max-width: 1023px) {
+    .solutions-hero__plum {
+      width: min(702px, 76vw);
+      top: 8rem;
+    }
+    .solutions-hero__content {
+      padding-top: 11rem;
+      padding-bottom: 13rem;
+    }
+  }
+  /* Phone: hero fills the screen so only it shows on open (untouched) */
   @media (max-width: 640px) {
     .solutions-hero {
       min-height: 100vh;
@@ -1969,91 +2009,61 @@ Service section
       padding-top: 5rem;
       padding-bottom: 0;
     }
-    .solutions-hero__stage {
-      position: static;
-      width: 100%;
-      margin: 0;
-    }
-    .solutions-hero__stage > img {
-      position: absolute;
-      left: 50%;
+    .solutions-hero__plum {
+      width: 150vw;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 150vw;
-      max-width: none;
-      height: auto;
-      z-index: 0;
     }
     .solutions-hero__content {
-      position: relative;
-      inset: auto;
-      z-index: 2;
       width: 100%;
       padding-top: 0;
+      padding-bottom: 0;
       padding-left: 2rem;
       padding-right: 2rem;
     }
-    .solutions-hero::after {
+    .solutions-hero__fade {
       height: 24%;
     }
   }
 </style>
 
-<section
-  class="solutions-hero pb-8 pt-31 md:pt-16 lg:pt-[120px] xl:pt-[150px]"
->
+<section class="solutions-hero">
 
-  <div class="solutions-hero__stage">
-
+  <div class="solutions-hero__plum" aria-hidden="true">
     <img
-      src="images/services/solutions-hero-plum.png"
+      src="images/services/solutions-hero-plum.webp"
       alt=""
-      aria-hidden="true"
       width="1200"
       height="1187"
       loading="eager"
       fetchpriority="high"
       decoding="async">
+  </div>
+  <div class="solutions-hero__fade" aria-hidden="true"></div>
 
-    <div class="solutions-hero__content edge-safe">
+  <div class="main-container edge-safe solutions-hero__content">
 
-      <span data-ns-animate data-delay="0.2" class="section-title-label mb-5">
-
-        <img
-
-          class="section-title-bullet"
-
-          src="images/index/Bullet-Orange.svg"
-
-          alt=""
-
-          aria-hidden="true"
-
+    <span data-ns-animate data-delay="0.2" class="section-title-label mb-5">
+      <img
+        class="section-title-bullet"
+        src="images/index/Bullet-Orange.svg"
+        alt=""
+        aria-hidden="true"
         loading="lazy" decoding="async">
+      <span class="section-title-text" style="color:#ffffff;">Solutions</span>
+    </span>
 
-        <span class="section-title-text" style="color:#ffffff;">Solutions</span>
-
-      </span>
-
-      <h1
-
-        data-ns-animate
-
-        data-delay="0.3"
-
-        class="section-title-heading max-w-[600px] mx-auto"
-
-        style="color:#ffffff;"
-
-      >
-
+    <h1
+      data-ns-animate
+      data-delay="0.3"
+      class="section-title-heading max-w-[600px] mx-auto"
+      style="color:#ffffff;"
+    >
 Everything plum does,<br> works on your WhatsApp
-      </h1>
-      <p data-ns-animate data-delay="0.4" class="text-tagline-1 mx-auto max-w-[520px] mt-4" style="color:rgba(255,255,255,0.92);">
-        One connected layer that answers, sells, books, and reads every conversation. Understand your customers, own what you learn.
-      </p>
-
-    </div>
+    </h1>
+    <p data-ns-animate data-delay="0.4" class="text-tagline-1 mx-auto max-w-[720px] mt-4" style="color:rgba(255,255,255,0.92);">
+      One connected layer that answers, sells, books, and reads every conversation.<br> Understand your customers, own what you learn.
+    </p>
 
   </div>
 
@@ -2093,8 +2103,8 @@ Flagship: Customer understanding (insight) â€” the hero of this page
     line-height: 1.04;
     font-size: clamp(2.4rem, 5.4vw, 4.5rem);
     color: #481D52;
-    margin-top: clamp(1.6rem, 3vw, 2.25rem);
-    margin-bottom: clamp(1.4rem, 2.6vw, 2rem);
+    margin-top: 0;
+    margin-bottom: 0.9rem;
   }
   .insight-headline .accent { color: #481D52; }
   .insight-supporting {
@@ -2202,6 +2212,7 @@ Flagship: Customer understanding (insight) â€” the hero of this page
   .ic-card--light  { --card-bg: #F3954B; }
   .ic-card--wine   { --card-bg: #6E2A3E; }
   /* dark (plum) text for cards that need it for contrast */
+  .ic-card--ink { --card-bg: #FFB979; }
   .ic-card--ink .ic-card__label,
   .ic-card--ink .ic-card__desc { color: #481D52; }
 
@@ -2258,7 +2269,7 @@ Flagship: Customer understanding (insight) â€” the hero of this page
   <div class="main-container">
 
     <div class="insight-flagship__head">
-      <span data-ns-animate data-delay="0.1" class="section-title-label mb-5">
+      <span data-ns-animate data-delay="0.1" class="section-title-label">
         <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <span class="section-title-text">Customer understanding</span>
       </span>
@@ -2927,19 +2938,19 @@ Solutions bundle section
       </span>
 
        <h2 data-ns-animate data-delay="0.2" class="section-title-heading" style="color: #481D52;">
-          Ready to see plum sell on WhatsApp?
+          Ready to see plum <br>sell on WhatsApp?
         </h2>
         <p data-ns-animate data-delay="0.3" class="faq-tagline text-tagline-1" style="color: #481D52;">
           Message plum the way your customer would, or book a call and we'll build you your own.
         </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+        <div class="flex flex-col items-center gap-5 mt-6">
           <a
             href="https://wa.me/17744970802?text=Hi%20plum!"
             data-ns-animate
             data-delay="0.4"
             data-direction="up"
             data-offset="40"
-            class="hero-cta-button hero-cta-button--hero inline-flex min-w-[280px] sm:min-w-[300px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
+            class="hero-cta-button hero-cta-button--hero inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
           >
             <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
               <img
@@ -2952,15 +2963,10 @@ Solutions bundle section
             </span>
             <span>Chat with plum</span>
           </a>
-          <a
-            href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call."
-            data-ns-animate
-            data-delay="0.5"
-            class="inline-flex items-center justify-center rounded-full px-8 py-4 text-lg sm:text-xl font-semibold border-2 transition"
-            style="border-color:#481D52;color:#481D52;"
-          >
-            Book a 15-min call
-          </a>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="https://wa.me/17744970802?text=Hi%20plum!%20I%20have%20a%20question." class="talk-subpill">ask a question</a>
+            <a href="https://wa.me/17744970802?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="talk-subpill">book a 15-min call</a>
+          </div>
         </div>
       </div>
     </div>
