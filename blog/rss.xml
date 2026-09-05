@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>plumcut blog</title>
+    <link>https://plumcut.com/blog/</link>
+    <atom:link href="https://plumcut.com/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Practical guides on WhatsApp automation, AI that sells, and customer insight you own.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Sep 2026 20:36:44 GMT</lastBuildDate>
+    <item>
+      <title>How to Automate WhatsApp for Your Business in 2026</title>
+      <link>https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business</link>
+      <guid isPermaLink="true">https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business</guid>
+      <description>A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.</description>
+      <pubDate>Sat, 05 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

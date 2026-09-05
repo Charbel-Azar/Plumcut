@@ -8,6 +8,12 @@
 - [Pricing](https://plumcut.com/pricing.html): Custom pricing based on real message volume, setup scope, and selected solutions.
 - [About](https://plumcut.com/about.html): plumcut's MENA-native founding team and origin story.
 
+## Blog
+- [Blog index](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
+<!-- BLOG:LIST:START -->
+- [How to Automate WhatsApp for Your Business in 2026](https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business): A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.
+<!-- BLOG:LIST:END -->
+
 ## Key Facts
 - plumcut is built in Lebanon for MENA and international commerce brands.
 - plum is a managed AI conversation layer, not a self-serve bot builder.
