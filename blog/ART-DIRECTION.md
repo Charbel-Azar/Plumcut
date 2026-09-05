@@ -34,6 +34,9 @@ Cosmos board to match: <paste your board URL here>
 - Grinning stock models pointing at laptops.
 - Screenshots of real WhatsApp threads containing anyone's actual messages.
 - Anything with legible third-party branding or a recognisable logo.
+- Signage or text in Arabic script. Posts are English, and that includes the
+  imagery. A photo of an Arabic shop sign on an English post reads as a
+  mismatch, even when the post is about Arabic support.
 - AI-generated images. They read as AI, which is the one thing plumcut's own
   marketing cannot afford.
 

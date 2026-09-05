@@ -43,6 +43,11 @@ carries `!important` on its heading rules.
 - **No em dashes or en dashes anywhere.** Commas, full stops, or restructure.
 - **plumcut and plum are always lowercase.** Never "AI agent" or "AI system".
 - **WhatsApp only in public copy.** Never Instagram.
+- **Posts are written in English.** No Arabic script in the body, headings or
+  hero images, even in a post about Arabic. Latin-script Arabizi quoted as an
+  example ("3andkon", "kifak") is fine and often the point; Arabic script is
+  not. Writing *about* Arabic and MENA support is encouraged, it is a real
+  differentiator and a real search term.
 - Lead with selling, not support.
 - Never ship a fabricated statistic, case study or testimonial.
 - Any page with `FAQPage` JSON-LD must have a matching visible FAQ. The blog
