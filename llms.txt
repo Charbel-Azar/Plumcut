@@ -3,10 +3,10 @@
 
 ## Core Pages
 - [Home](https://plumcut.com/): The AI that answers, sells, books, and reads customer conversations for insight.
-- [How it works](https://plumcut.com/how-it-works.html): The done-for-you process: learn the brand, build and launch plum, then run and improve it.
-- [Solutions](https://plumcut.com/solutions.html): AI selling, instant answers, booking, order tracking, payments, and customer insights for WhatsApp.
-- [Pricing](https://plumcut.com/pricing.html): Custom pricing based on real message volume, setup scope, and selected solutions.
-- [About](https://plumcut.com/about.html): plumcut's MENA-native founding team and origin story.
+- [How it works](https://plumcut.com/how-it-works): The done-for-you process: learn the brand, build and launch plum, then run and improve it.
+- [Solutions](https://plumcut.com/solutions): AI selling, instant answers, booking, order tracking, payments, and customer insights for WhatsApp.
+- [Pricing](https://plumcut.com/pricing): Custom pricing based on real message volume, setup scope, and selected solutions.
+- [About](https://plumcut.com/about): plumcut's MENA-native founding team and origin story.
 
 ## Field notes
 - [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.

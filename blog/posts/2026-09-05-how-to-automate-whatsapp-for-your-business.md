@@ -91,4 +91,4 @@ The honest answer for most growing brands is that they need level 3 about six mo
 
 ## Where to start this week
 
-Set up the free Business app today, even if you plan to outgrow it. Then spend a week logging every question you get and sorting it into three piles: questions with one right answer, questions that need a lookup, and questions that need a person. That list is the specification for whatever you build next, and it is the same thing we build from when we set up [what plum handles](/solutions.html) for a brand.
+Set up the free Business app today, even if you plan to outgrow it. Then spend a week logging every question you get and sorting it into three piles: questions with one right answer, questions that need a lookup, and questions that need a person. That list is the specification for whatever you build next, and it is the same thing we build from when we set up [what plum handles](/solutions) for a brand.

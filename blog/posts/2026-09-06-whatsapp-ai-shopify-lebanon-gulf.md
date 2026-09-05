@@ -89,4 +89,4 @@ Export a week of your WhatsApp messages and sort them into three piles: question
 
 The first pile is what you automate first, and it is usually larger than anyone expects. The second is what makes the Shopify connection worth building. The third is what your team should have been spending its whole day on.
 
-That sorted list is the specification, and it is the same thing we start from when we build [what plum handles](/solutions.html) for a store. If you want to see how it behaves before committing to anything, message it and ask it something difficult.
+That sorted list is the specification, and it is the same thing we start from when we build [what plum handles](/solutions) for a store. If you want to see how it behaves before committing to anything, message it and ask it something difficult.

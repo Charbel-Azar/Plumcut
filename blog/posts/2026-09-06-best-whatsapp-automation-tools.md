@@ -107,4 +107,4 @@ Test it with your own real messages before you sign anything, whoever you buy fr
 
 If you get under 30 messages a day, use the free app. If your questions are repetitive and you have people, buy a shared inbox from category two and spend the saving on ads. If you have a developer and volume, go direct to a BSP.
 
-If messages are outpacing your team, the questions are varied, and you want to own what your customers are telling you, that is [what plum is for](/solutions.html), and [how we build it](/how-it-works.html) is deliberately slower than a signup form because that is what makes it work.
+If messages are outpacing your team, the questions are varied, and you want to own what your customers are telling you, that is [what plum is for](/solutions), and [how we build it](/how-it-works) is deliberately slower than a signup form because that is what makes it work.

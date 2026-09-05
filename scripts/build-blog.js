@@ -777,11 +777,11 @@ function renderSitemap(all) {
   const today = new Date().toISOString().slice(0, 10);
   const core = [
     ['/', '2026-06-17'],
-    ['/how-it-works.html', '2026-06-17'],
-    ['/solutions.html', '2026-06-17'],
-    ['/pricing.html', '2026-06-17'],
-    ['/about.html', '2026-06-17'],
-    ['/privacy.html', '2026-09-04'],
+    ['/how-it-works', '2026-06-17'],
+    ['/solutions', '2026-06-17'],
+    ['/pricing', '2026-06-17'],
+    ['/about', '2026-06-17'],
+    ['/privacy', '2026-09-04'],
     ['/blog/', all.length ? all[0].date : today],
   ];
   const urls = core
