@@ -48,13 +48,20 @@ carries `!important` on its heading rules.
 - Any page with `FAQPage` JSON-LD must have a matching visible FAQ. The blog
   builder enforces this; on hand-written pages it is on you.
 
-## The blog
+## Field notes (the blog)
+
+The section is called **Field notes** in the UI. The URL stays `/blog/` because
+that is the structural signal crawlers expect. `SECTION` in
+`scripts/build-blog.js` is the single source of truth for the visible name;
+change it there and every label, title, breadcrumb and feed follows.
 
 ### Building
 
 ```bash
 node scripts/build-blog.js          # build everything
 node scripts/build-blog.js --check  # validate and report, write nothing
+node scripts/serve.js               # preview at localhost:5500
+node scripts/find-image.js "terms"  # ranked, licensed hero candidates
 ```
 
 Zero dependencies. No `npm install` step, ever.
@@ -96,7 +103,7 @@ the template from the updated `privacy.html` rather than patching it by hand.
 Deliberately **not in the top navigation**. Five items is already tight on
 mobile. It is reachable from:
 
-- the footer `Menu` column on all six pages
+- the footer `Menu` column on all six pages, labelled "Field notes"
 - the "Latest from plumcut" strip on the home page
 - `sitemap.xml`, `llms.txt`, `robots.txt`, `blog/rss.xml`
 
@@ -117,7 +124,30 @@ publisher run (3x a week)      approved row  ->  .md  ->  build  ->  push  ->  S
 
 Nothing reaches the site without a human flipping a row to `approved`.
 
+## Hero images
+
+`blog/ART-DIRECTION.md` defines the look and the source order. Run
+`node scripts/find-image.js "search terms"` for ranked candidates with front
+matter ready to paste. It uses Unsplash and Pexels when `UNSPLASH_ACCESS_KEY`
+and `PEXELS_API_KEY` are set, and falls back to Openverse, which needs no key
+but returns far weaker results. **Setting the Unsplash key is the single
+biggest quality upgrade available to this pipeline.**
+
+Two rules the finder cannot enforce:
+
+- **Cosmos is never an image source.** Its images are third-party copyrighted
+  work saved as references, its terms grant no reuse rights to anyone, and its
+  robots.txt disallows `/api/` for every crawler. Use it to decide the look,
+  then match that look on a licensed source.
+- **Verify the URL actually loads.** Some hosts block hotlinking (StockSnap
+  returns 403), so a URL that appears in search results can still be dead on
+  the live site. `curl -I` it before committing.
+
 ## Previewing locally
+
+`node scripts/serve.js` emulates Vercel's `cleanUrls`, so `/blog/<slug>` resolves
+locally the way it does in production. Live Server and most static servers do
+not, which is why extensionless URLs 404 under them.
 
 `assets/main.css` hides every `[data-ns-animate]` element at `opacity: 0` until
 GSAP ScrollTrigger reveals it, and that often does not fire in headless Chrome.

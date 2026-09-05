@@ -103,7 +103,7 @@ Head links
   "isPartOf": {
     "@type": "Blog",
     "@id": "https://plumcut.com/blog/",
-    "name": "plumcut blog"
+    "name": "plumcut field notes"
   }
 }
 </script>
@@ -121,7 +121,7 @@ Head links
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Blog",
+      "name": "Field notes",
       "item": "https://plumcut.com/blog/"
     },
     {
@@ -981,19 +981,25 @@ Head links
       .blog-body { color: #481D52; font-size: clamp(1rem, 1.05vw, 1.12rem); line-height: 1.75; }
       /* main.css ships a "main h2" rule forcing uppercase + centred with
          !important. That suits the section titles but not article prose.
-         These selectors outrank it, so they need !important too. */
-      main .blog-article h2, main .blog-article h3, main .blog-article h4,
-      main .blog-index h2, main .blog-index h3 {
+         These selectors outrank it, so they need !important too. Scoped to the
+         prose containers only: the closing CTA reuses the home page section
+         styling and must keep the centred uppercase treatment. */
+      main .blog-body h2, main .blog-body h3, main .blog-body h4,
+      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
         font-family: 'Alan Sans', sans-serif !important;
         font-weight: 500 !important;
       }
-      main .blog-article .blog-h2, main .blog-index .blog-h2 {
+      main .blog-body .blog-h2, main .blog-faq .blog-h2, main .blog-related .blog-h2 {
         font-size: clamp(1.45rem, 2.2vw, 1.95rem) !important;
         line-height: 1.28 !important;
       }
-      main .blog-article .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem) !important; line-height: 1.35 !important; }
+      main .blog-body .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem) !important; line-height: 1.35 !important; }
+      main .blog-related .blog-card-title, main .blog-index .blog-card-title {
+        font-size: 1.1rem !important; line-height: 1.35 !important;
+      }
       .blog-h2 { font-size: clamp(1.45rem, 2.2vw, 1.95rem); font-weight: 500; color: #481D52; margin: 2.6rem 0 0.9rem; line-height: 1.28; }
       .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); font-weight: 500; color: #481D52; margin: 1.9rem 0 0.6rem; }
       .blog-h4 { font-size: 1.05rem; font-weight: 500; color: #481D52; margin: 1.4rem 0 0.4rem; }
@@ -1024,13 +1030,53 @@ Head links
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
       .blog-faq-answer p:last-child { margin-bottom: 0; }
-      .blog-cta { background: #481D52; border-radius: 26px; padding: clamp(1.6rem, 3vw, 2.4rem); margin: 3rem 0 0; }
-      .blog-cta-kicker { color: #E65E04; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.7rem; }
-      .blog-cta-body { color: #fff; font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.6; margin-bottom: 1.5rem; }
-      .blog-cta-button { display: inline-flex; align-items: center; justify-content: center; background: #E65E04; color: #fff; border-radius: 999px; padding: 0.85rem 1.9rem; font-size: 1.02rem; transition: transform .2s ease, opacity .2s ease; }
-      .blog-cta-button:hover { transform: translateY(-2px); opacity: 0.92; }
-      .blog-cta-links { color: #fff; opacity: 0.72; font-size: 0.9rem; margin-top: 1.2rem; }
-      .blog-cta-links a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+      /* ---- closing CTA: the home page "Don't take our word for it" section.
+         These rules are scoped inside index.html rather than compiled into
+         main.css, so they are duplicated here verbatim. If the home page
+         version changes, change this to match. ---- */
+      .blog-final-cta { margin: 3.5rem 0 0; }
+      .blog-final-cta .combined-card { background: #481D52; border-radius: 26px; overflow: hidden; }
+      .blog-final-cta .section-title-label { color: #E65E04; justify-content: center; }
+      .blog-final-cta .section-title-heading { color: #ffffff; }
+      .blog-final-cta .combined-lede { color: rgba(255, 255, 255, 0.78); }
+      .blog-final-cta .hero-cta-button {
+        position: relative; overflow: hidden; isolation: isolate;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.62) 48%, rgba(255,255,255,0.9) 100%);
+        background-size: 220% 100%; background-position: 0% 50%;
+        color: #4B1D6A;
+        box-shadow: 0 26px 55px rgba(14,6,26,0.35), inset 0 1px 2px rgba(255,255,255,0.8), inset 0 -10px 25px rgba(255,255,255,0.25);
+        font-size: clamp(1.25rem, 1.8vw, 1.75rem); line-height: 1.1;
+        padding: clamp(0.35rem, 0.75vw, 0.6rem) clamp(1.85rem, 3.2vw, 2.25rem);
+        justify-content: center; gap: clamp(0.75rem, 1.4vw, 1rem);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition: color .35s ease, border-color .35s ease, box-shadow .35s ease;
+      }
+      .blog-final-cta .hero-cta-button > * { position: relative; z-index: 2; }
+      .blog-final-cta .hero-cta-button::before {
+        content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.45);
+        opacity: 0; transition: opacity .35s ease; z-index: 1; pointer-events: none;
+      }
+      .blog-final-cta .hero-cta-button:hover { border-color: rgba(255,255,255,0.95); }
+      .blog-final-cta .hero-cta-button:hover::before { opacity: 1; }
+      .blog-final-cta .hero-cta-icon {
+        width: clamp(2.8rem, 4vw, 3.4rem); height: clamp(2.8rem, 4vw, 3.4rem);
+        background: transparent; border: none; box-shadow: none;
+      }
+      .blog-final-cta .hero-cta-icon img { width: clamp(1.9rem, 2.5vw, 2.3rem); height: clamp(1.9rem, 2.5vw, 2.3rem); }
+      .blog-final-cta .combined-subpill {
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1.5px solid rgba(255, 255, 255, 0.55); color: #ffffff;
+        border-radius: 999px; padding: 0.55rem 1.6rem; font-size: 1.05rem; font-weight: 500;
+        transition: background .25s ease, color .25s ease, border-color .25s ease;
+      }
+      .blog-final-cta .combined-subpill:hover { background: #ffffff; color: #481D52; border-color: #ffffff; }
+      @keyframes hero-cta-glass {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
       .blog-related { margin-top: 3.5rem; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
@@ -1088,7 +1134,7 @@ Header
             <div class="space-y-3 mb-8">
               <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
-                <a class="section-title-text" href="/blog/">Blog</a>
+                <a class="section-title-text" href="/blog/">Field notes</a>
               </p>
               <h1 data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4">
                 How to Automate WhatsApp for Your Business in 2026
@@ -1136,9 +1182,9 @@ Header
 <p>This is the level where automation stops being deflection and starts being <strong>selling</strong>. The customer asks a question, gets a real answer, gets shown the product, and checks out without a human touching it.</p>
 <p>It is also the only level that produces something worth keeping: a record of what every customer asked, in their words. That is the part most brands underrate.</p>
 <h2 id="what-it-actually-costs" class="blog-h2">What it actually costs</h2>
-<p>Meta charges per 24 hour conversation window, and prices vary by country and category. Marketing conversations cost the most, service conversations the least, and utility conversations sit in between. As a rough shape for MENA:</p>
-<div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Level</th><th>Setup effort</th><th>Meta cost</th><th>Tooling cost</th></tr></thead><tbody><tr><td>Business app</td><td>An afternoon</td><td>Free</td><td>Free</td></tr><tr><td>Chatbot builder</td><td>Days</td><td>Per conversation</td><td>Monthly SaaS fee</td></tr><tr><td>Managed AI layer</td><td>2 to 4 weeks</td><td>Per conversation</td><td>Setup plus monthly</td></tr></tbody></table></div>
-<p>Meta publishes current rates on its <a href="https://business.whatsapp.com/products/platform-pricing" class="blog-link" target="_blank" rel="noopener nofollow">pricing page</a>, and they change, so check before you budget.</p>
+<p>Meta bills per message delivered, not per conversation, a change that took effect on 1 July 2025. Prices vary by country and by template category: marketing costs the most, utility sits in the middle, and service messages inside the 24 hour window are free. As a rough shape:</p>
+<div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Level</th><th>Setup effort</th><th>Meta cost</th><th>Tooling cost</th></tr></thead><tbody><tr><td>Business app</td><td>An afternoon</td><td>Free</td><td>Free</td></tr><tr><td>Chatbot builder</td><td>Days</td><td>Per message</td><td>Monthly SaaS fee</td></tr><tr><td>Managed AI layer</td><td>2 to 4 weeks</td><td>Per message</td><td>Setup plus monthly</td></tr></tbody></table></div>
+<p>Meta publishes current rates on its <a href="https://whatsappbusiness.com/products/platform-pricing/" class="blog-link" target="_blank" rel="noopener nofollow">platform pricing page</a>, and they change, so check before you budget. We broke the whole bill down in <a href="/blog/whatsapp-business-api-cost" class="blog-link">what the WhatsApp Business API really costs</a>.</p>
 <h2 id="the-five-things-that-break-whatsapp-automation" class="blog-h2">The five things that break WhatsApp automation</h2>
 <p>After building these for commerce brands, the same five failures come up:</p>
 <ol class="blog-list"><li><strong>No handover.</strong> Every automation needs a clean exit to a human, and the customer needs to know it exists. Without it, one bad answer costs you the sale and the trust.</li><li><strong>A stale catalogue.</strong> The bot confidently sells something you stopped stocking in March. Your automation is only as current as the feed behind it.</li><li><strong>Ignoring Arabic.</strong> In MENA a large share of messages arrive in Arabic or Arabizi. An English only bot fails the customers most likely to buy from you.</li><li><strong>No opt in.</strong> Messaging people who never asked is the fastest route to a blocked number, and it is a policy violation regardless of the tool.</li><li><strong>Nobody reads the transcripts.</strong> The conversations are the most honest customer research you will ever own, and almost everyone throws them away.</li></ol>
@@ -1172,18 +1218,80 @@ Header
 </section>
 
             
-<aside class="blog-cta" aria-label="Talk to plum">
-  <p class="blog-cta-kicker">plumcut can do this for you</p>
-  <p class="blog-cta-body">plum is the managed version of level 3. We build it on your catalogue, your policies and your tone, run it on WhatsApp in Arabic and English, and hand you back the patterns hiding in your conversations.</p>
-  <a class="blog-cta-button" href="https://wa.me/96181864662?text=Hi%20plum!" target="_blank" rel="noopener">Talk to plum on WhatsApp</a>
-  <p class="blog-cta-links">
-    See <a href="/solutions.html">what plum handles</a>,
-    <a href="/how-it-works.html">how we build it</a>, or
-    <a href="/pricing.html">what it costs</a>.
-  </p>
-</aside>
+<section class="final-combined blog-final-cta" aria-labelledby="blog-cta-title">
+  <div class="combined-card">
+    <div class="relative z-10 px-6 py-12 md:px-10 md:py-16">
+      <div class="text-center max-w-[820px] mx-auto space-y-4 md:space-y-5">
+        <span class="section-title-label">
+          <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <span class="section-title-text">Don't take our word for it</span>
+        </span>
+        <h2 id="blog-cta-title" class="section-title-heading">
+          Have a question? Ask plum.<br>See it for yourself
+        </h2>
+        <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
+          Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you are at it. See how it answers, how it sells, and how it sounds. Then we will build you your own.
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center gap-5 mt-10">
+        <a
+          href="https://wa.me/96181864662?text=Hi%20plum!"
+          class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
+        >
+          <span class="hero-cta-icon flex items-center justify-center rounded-full">
+            <img src="/images/shared/new%20icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          </span>
+          <span>Chat with plum</span>
+        </a>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
             
+<section class="blog-related" aria-labelledby="blog-related-title">
+  <h2 id="blog-related-title" class="blog-h2">Keep reading</h2>
+  <div class="blog-related-grid">
+    <a class="blog-card" href="/blog/whatsapp-business-api-cost">
+      <div class="blog-card-media">
+        <img src="https://live.staticflickr.com/664/21713977623_7d69d4e6a8_b.jpg" alt="Hands typing on a laptop keyboard on a desk in low light" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Automation guide</span>
+        <h3 class="blog-card-title">What the WhatsApp Business API Really Costs in 2026</h3>
+        <p class="blog-card-desc">Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a>
+    <a class="blog-card" href="/blog/best-whatsapp-automation-tools">
+      <div class="blog-card-media">
+        <img src="https://live.staticflickr.com/838/43461365082_2c79e330a3_b.jpg" alt="A person holding a phone in one hand and typing a message with the other" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Comparison</span>
+        <h3 class="blog-card-title">The Best WhatsApp Automation Tools in 2026, Honestly Compared</h3>
+        <p class="blog-card-desc">There are four kinds of WhatsApp tool and most comparisons mix them up. Here is what each category is actually for, and where each one stops working.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a>
+    <a class="blog-card" href="/blog/whatsapp-ai-shopify-lebanon-gulf">
+      <div class="blog-card-media">
+        <img src="https://live.staticflickr.com/65535/47955063506_9ee4337660_b.jpg" alt="A rail of clothes on hangers inside a bright fashion store" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">plum in practice</span>
+        <h3 class="blog-card-title">WhatsApp AI for Shopify Stores in Lebanon and the Gulf</h3>
+        <p class="blog-card-desc">Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a>
+  </div>
+</section>
 
           </div>
         </div>
@@ -1236,7 +1344,7 @@ Footer
                 <a href="/about.html" class="footer-link-v2"> About </a>
               </li>
               <li>
-                <a href="/blog/" class="footer-link-v2"> Blog </a>
+                <a href="/blog/" class="footer-link-v2"> Field notes </a>
               </li>
             </ul>
           </div>

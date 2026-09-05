@@ -26,6 +26,9 @@ const TEMPLATE = path.join(__dirname, 'templates', 'page.html');
 const SITE = 'https://plumcut.com';
 const OG_FALLBACK = SITE + '/images/shared/plumcut-og-image.jpg';
 const WA = 'https://wa.me/96181864662?text=Hi%20plum!';
+// The visible name of the section. The URL stays /blog/ because that is the
+// structural signal crawlers expect; only the label is branded.
+const SECTION = 'Field notes';
 
 const DRY = process.argv.includes('--check');
 
@@ -298,21 +301,51 @@ function faqBlock(faq) {
 </section>`;
 }
 
+/**
+ * The closing CTA, using the same "Don't take our word for it" section as the
+ * home page. Markup and class names are copied from index.html so the two stay
+ * visually identical; the rules those classes need live in BLOG_CSS, because
+ * they are scoped inside index.html rather than compiled into main.css.
+ */
 function ctaBlock(post) {
   const line =
     post.ctaLine ||
-    'plum answers, sells, books and tracks orders on WhatsApp, in Arabic and English, and hands you back what your customers keep asking for.';
+    'Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you are at it. See how it answers, how it sells, and how it sounds. Then we will build you your own.';
   return `
-<aside class="blog-cta" aria-label="Talk to plum">
-  <p class="blog-cta-kicker">plumcut can do this for you</p>
-  <p class="blog-cta-body">${inline(line)}</p>
-  <a class="blog-cta-button" href="${WA}" target="_blank" rel="noopener">Talk to plum on WhatsApp</a>
-  <p class="blog-cta-links">
-    See <a href="/solutions.html">what plum handles</a>,
-    <a href="/how-it-works.html">how we build it</a>, or
-    <a href="/pricing.html">what it costs</a>.
-  </p>
-</aside>`;
+<section class="final-combined blog-final-cta" aria-labelledby="blog-cta-title">
+  <div class="combined-card">
+    <div class="relative z-10 px-6 py-12 md:px-10 md:py-16">
+      <div class="text-center max-w-[820px] mx-auto space-y-4 md:space-y-5">
+        <span class="section-title-label">
+          <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <span class="section-title-text">Don't take our word for it</span>
+        </span>
+        <h2 id="blog-cta-title" class="section-title-heading">
+          Have a question? Ask plum.<br>See it for yourself
+        </h2>
+        <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
+          ${inline(line)}
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center gap-5 mt-10">
+        <a
+          href="${WA}"
+          class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
+        >
+          <span class="hero-cta-icon flex items-center justify-center rounded-full">
+            <img src="/images/shared/new%20icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          </span>
+          <span>Chat with plum</span>
+        </a>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>`;
 }
 
 function tocBlock(headings) {
@@ -384,19 +417,25 @@ const BLOG_CSS = `    <style>
       .blog-body { color: #481D52; font-size: clamp(1rem, 1.05vw, 1.12rem); line-height: 1.75; }
       /* main.css ships a "main h2" rule forcing uppercase + centred with
          !important. That suits the section titles but not article prose.
-         These selectors outrank it, so they need !important too. */
-      main .blog-article h2, main .blog-article h3, main .blog-article h4,
-      main .blog-index h2, main .blog-index h3 {
+         These selectors outrank it, so they need !important too. Scoped to the
+         prose containers only: the closing CTA reuses the home page section
+         styling and must keep the centred uppercase treatment. */
+      main .blog-body h2, main .blog-body h3, main .blog-body h4,
+      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
         font-family: 'Alan Sans', sans-serif !important;
         font-weight: 500 !important;
       }
-      main .blog-article .blog-h2, main .blog-index .blog-h2 {
+      main .blog-body .blog-h2, main .blog-faq .blog-h2, main .blog-related .blog-h2 {
         font-size: clamp(1.45rem, 2.2vw, 1.95rem) !important;
         line-height: 1.28 !important;
       }
-      main .blog-article .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem) !important; line-height: 1.35 !important; }
+      main .blog-body .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem) !important; line-height: 1.35 !important; }
+      main .blog-related .blog-card-title, main .blog-index .blog-card-title {
+        font-size: 1.1rem !important; line-height: 1.35 !important;
+      }
       .blog-h2 { font-size: clamp(1.45rem, 2.2vw, 1.95rem); font-weight: 500; color: #481D52; margin: 2.6rem 0 0.9rem; line-height: 1.28; }
       .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); font-weight: 500; color: #481D52; margin: 1.9rem 0 0.6rem; }
       .blog-h4 { font-size: 1.05rem; font-weight: 500; color: #481D52; margin: 1.4rem 0 0.4rem; }
@@ -427,13 +466,53 @@ const BLOG_CSS = `    <style>
       .blog-faq-item[open] summary::after { content: "\\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
       .blog-faq-answer p:last-child { margin-bottom: 0; }
-      .blog-cta { background: #481D52; border-radius: 26px; padding: clamp(1.6rem, 3vw, 2.4rem); margin: 3rem 0 0; }
-      .blog-cta-kicker { color: #E65E04; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.7rem; }
-      .blog-cta-body { color: #fff; font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.6; margin-bottom: 1.5rem; }
-      .blog-cta-button { display: inline-flex; align-items: center; justify-content: center; background: #E65E04; color: #fff; border-radius: 999px; padding: 0.85rem 1.9rem; font-size: 1.02rem; transition: transform .2s ease, opacity .2s ease; }
-      .blog-cta-button:hover { transform: translateY(-2px); opacity: 0.92; }
-      .blog-cta-links { color: #fff; opacity: 0.72; font-size: 0.9rem; margin-top: 1.2rem; }
-      .blog-cta-links a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+      /* ---- closing CTA: the home page "Don't take our word for it" section.
+         These rules are scoped inside index.html rather than compiled into
+         main.css, so they are duplicated here verbatim. If the home page
+         version changes, change this to match. ---- */
+      .blog-final-cta { margin: 3.5rem 0 0; }
+      .blog-final-cta .combined-card { background: #481D52; border-radius: 26px; overflow: hidden; }
+      .blog-final-cta .section-title-label { color: #E65E04; justify-content: center; }
+      .blog-final-cta .section-title-heading { color: #ffffff; }
+      .blog-final-cta .combined-lede { color: rgba(255, 255, 255, 0.78); }
+      .blog-final-cta .hero-cta-button {
+        position: relative; overflow: hidden; isolation: isolate;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.62) 48%, rgba(255,255,255,0.9) 100%);
+        background-size: 220% 100%; background-position: 0% 50%;
+        color: #4B1D6A;
+        box-shadow: 0 26px 55px rgba(14,6,26,0.35), inset 0 1px 2px rgba(255,255,255,0.8), inset 0 -10px 25px rgba(255,255,255,0.25);
+        font-size: clamp(1.25rem, 1.8vw, 1.75rem); line-height: 1.1;
+        padding: clamp(0.35rem, 0.75vw, 0.6rem) clamp(1.85rem, 3.2vw, 2.25rem);
+        justify-content: center; gap: clamp(0.75rem, 1.4vw, 1rem);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition: color .35s ease, border-color .35s ease, box-shadow .35s ease;
+      }
+      .blog-final-cta .hero-cta-button > * { position: relative; z-index: 2; }
+      .blog-final-cta .hero-cta-button::before {
+        content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.45);
+        opacity: 0; transition: opacity .35s ease; z-index: 1; pointer-events: none;
+      }
+      .blog-final-cta .hero-cta-button:hover { border-color: rgba(255,255,255,0.95); }
+      .blog-final-cta .hero-cta-button:hover::before { opacity: 1; }
+      .blog-final-cta .hero-cta-icon {
+        width: clamp(2.8rem, 4vw, 3.4rem); height: clamp(2.8rem, 4vw, 3.4rem);
+        background: transparent; border: none; box-shadow: none;
+      }
+      .blog-final-cta .hero-cta-icon img { width: clamp(1.9rem, 2.5vw, 2.3rem); height: clamp(1.9rem, 2.5vw, 2.3rem); }
+      .blog-final-cta .combined-subpill {
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1.5px solid rgba(255, 255, 255, 0.55); color: #ffffff;
+        border-radius: 999px; padding: 0.55rem 1.6rem; font-size: 1.05rem; font-weight: 500;
+        transition: background .25s ease, color .25s ease, border-color .25s ease;
+      }
+      .blog-final-cta .combined-subpill:hover { background: #ffffff; color: #481D52; border-color: #ffffff; }
+      @keyframes hero-cta-glass {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
       .blog-related { margin-top: 3.5rem; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
@@ -479,14 +558,14 @@ function articleJsonLd(post) {
         logo: { '@type': 'ImageObject', url: SITE + '/images/shared/new%20icon.png' },
       },
       mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.slug}` },
-      isPartOf: { '@type': 'Blog', '@id': `${SITE}/blog/`, name: 'plumcut blog' },
+      isPartOf: { '@type': 'Blog', '@id': `${SITE}/blog/`, name: `plumcut ${SECTION.toLowerCase()}` },
     },
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: SITE + '/blog/' },
+        { '@type': 'ListItem', position: 2, name: SECTION, item: SITE + '/blog/' },
         { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE}/blog/${post.slug}` },
       ],
     },
@@ -520,7 +599,15 @@ function renderPost(post, all, tpl) {
         post.heroCredit
           ? `\n      <p class="blog-hero-credit">Photo by <a href="${esc(
               post.heroCreditUrl || '#'
-            )}" target="_blank" rel="noopener nofollow">${esc(post.heroCredit)}</a> on Unsplash</p>`
+            )}" target="_blank" rel="noopener nofollow">${esc(post.heroCredit)}</a> on ${esc(
+              post.heroSource || 'Unsplash'
+            )}${
+              post.heroLicense
+                ? `, <a href="${esc(post.heroLicenseUrl || '#')}" target="_blank" rel="noopener nofollow">${esc(
+                    post.heroLicense
+                  )}</a>`
+                : ''
+            }</p>`
           : ''
       }`
     : '';
@@ -532,7 +619,7 @@ function renderPost(post, all, tpl) {
             <div class="space-y-3 mb-8">
               <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
-                <a class="section-title-text" href="/blog/">Blog</a>
+                <a class="section-title-text" href="/blog/">${SECTION}</a>
               </p>
               <h1 data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4">
                 ${esc(post.title)}
@@ -587,7 +674,7 @@ function renderHub(all, tpl) {
       '@context': 'https://schema.org',
       '@type': 'Blog',
       '@id': SITE + '/blog/',
-      name: 'plumcut blog',
+      name: 'plumcut ' + SECTION.toLowerCase(),
       description:
         'Practical guides on WhatsApp automation, AI customer conversations and customer insight for commerce brands in MENA and beyond.',
       url: SITE + '/blog/',
@@ -606,7 +693,7 @@ function renderHub(all, tpl) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: SITE + '/blog/' },
+        { '@type': 'ListItem', position: 2, name: SECTION, item: SITE + '/blog/' },
       ],
     },
   ]
@@ -620,7 +707,7 @@ function renderHub(all, tpl) {
             <div class="space-y-3 mb-10 md:mb-14">
               <h1 data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
-                <span class="section-title-text">Blog</span>
+                <span class="section-title-text">${SECTION}</span>
               </h1>
               <p data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4 max-w-[820px]">
                 How brands actually automate WhatsApp, and what they learn about their customers when they do.
@@ -639,7 +726,7 @@ function renderHub(all, tpl) {
       </section>`;
 
   return render(tpl, {
-    TITLE: 'Blog | plumcut',
+    TITLE: SECTION + ' | plumcut',
     DESC: esc(
       'Practical guides on WhatsApp automation, AI that sells, and turning customer conversations into insight you own. From the team building plum.'
     ),
@@ -672,7 +759,7 @@ function renderRss(all) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>plumcut blog</title>
+    <title>plumcut ${SECTION.toLowerCase()}</title>
     <link>${SITE}/blog/</link>
     <atom:link href="${SITE}/blog/rss.xml" rel="self" type="application/rss+xml" />
     <description>Practical guides on WhatsApp automation, AI that sells, and customer insight you own.</description>
@@ -745,7 +832,7 @@ ${stripCss}
       <div class="space-y-3 mb-8 md:mb-12">
         <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
           <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
-          <span class="section-title-text">Blog</span>
+          <span class="section-title-text">${SECTION}</span>
         </p>
         <h2 id="home-latest-title" data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4 max-w-[820px]">
           Latest from plumcut
@@ -854,6 +941,9 @@ function main() {
       heroAlt: d.heroAlt || '',
       heroCredit: d.heroCredit || '',
       heroCreditUrl: d.heroCreditUrl || '',
+      heroSource: d.heroSource || '',
+      heroLicense: d.heroLicense || '',
+      heroLicenseUrl: d.heroLicenseUrl || '',
       faq: d.faq || [],
       related: d.related || [],
       ctaLine: d.ctaLine || '',

@@ -8,9 +8,12 @@
 - [Pricing](https://plumcut.com/pricing.html): Custom pricing based on real message volume, setup scope, and selected solutions.
 - [About](https://plumcut.com/about.html): plumcut's MENA-native founding team and origin story.
 
-## Blog
-- [Blog index](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
+## Field notes
+- [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
 <!-- BLOG:LIST:START -->
+- [What the WhatsApp Business API Really Costs in 2026](https://plumcut.com/blog/whatsapp-business-api-cost): Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.
+- [WhatsApp AI for Shopify Stores in Lebanon and the Gulf](https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf): Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.
+- [The Best WhatsApp Automation Tools in 2026, Honestly Compared](https://plumcut.com/blog/best-whatsapp-automation-tools): There are four kinds of WhatsApp tool and most comparisons mix them up. Here is what each category is actually for, and where each one stops working.
 - [How to Automate WhatsApp for Your Business in 2026](https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business): A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.
 <!-- BLOG:LIST:END -->
 

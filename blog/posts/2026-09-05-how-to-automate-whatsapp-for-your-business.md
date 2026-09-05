@@ -9,7 +9,7 @@ hero: https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.1.
 heroAlt: A phone showing a messaging app on a desk beside a laptop
 heroCredit: Christian Wiediger
 heroCreditUrl: https://unsplash.com/@christianw
-ctaLine: plum is the managed version of level 3. We build it on your catalogue, your policies and your tone, run it on WhatsApp in Arabic and English, and hand you back the patterns hiding in your conversations.
+related: [whatsapp-business-api-cost, best-whatsapp-automation-tools]
 faq:
   - q: Can I automate WhatsApp for free?
     a: Partly. The free WhatsApp Business app gives you greetings, away messages and up to 50 quick replies, which covers a shop doing a handful of messages a day. It cannot answer questions, take an order or look anything up. For that you need the WhatsApp Cloud API, which is free to access but charges per conversation.
@@ -59,15 +59,15 @@ It is also the only level that produces something worth keeping: a record of wha
 
 ## What it actually costs
 
-Meta charges per 24 hour conversation window, and prices vary by country and category. Marketing conversations cost the most, service conversations the least, and utility conversations sit in between. As a rough shape for MENA:
+Meta bills per message delivered, not per conversation, a change that took effect on 1 July 2025. Prices vary by country and by template category: marketing costs the most, utility sits in the middle, and service messages inside the 24 hour window are free. As a rough shape:
 
 | Level | Setup effort | Meta cost | Tooling cost |
 | --- | --- | --- | --- |
 | Business app | An afternoon | Free | Free |
-| Chatbot builder | Days | Per conversation | Monthly SaaS fee |
-| Managed AI layer | 2 to 4 weeks | Per conversation | Setup plus monthly |
+| Chatbot builder | Days | Per message | Monthly SaaS fee |
+| Managed AI layer | 2 to 4 weeks | Per message | Setup plus monthly |
 
-Meta publishes current rates on its [pricing page](https://business.whatsapp.com/products/platform-pricing), and they change, so check before you budget.
+Meta publishes current rates on its [platform pricing page](https://whatsappbusiness.com/products/platform-pricing/), and they change, so check before you budget. We broke the whole bill down in [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost).
 
 ## The five things that break WhatsApp automation
 

@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>plumcut blog</title>
+    <title>plumcut field notes</title>
     <link>https://plumcut.com/blog/</link>
     <atom:link href="https://plumcut.com/blog/rss.xml" rel="self" type="application/rss+xml" />
     <description>Practical guides on WhatsApp automation, AI that sells, and customer insight you own.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 20:36:44 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 21:15:57 GMT</lastBuildDate>
+    <item>
+      <title>What the WhatsApp Business API Really Costs in 2026</title>
+      <link>https://plumcut.com/blog/whatsapp-business-api-cost</link>
+      <guid isPermaLink="true">https://plumcut.com/blog/whatsapp-business-api-cost</guid>
+      <description>Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.</description>
+      <pubDate>Sun, 06 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WhatsApp AI for Shopify Stores in Lebanon and the Gulf</title>
+      <link>https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf</link>
+      <guid isPermaLink="true">https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf</guid>
+      <description>Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.</description>
+      <pubDate>Sun, 06 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Best WhatsApp Automation Tools in 2026, Honestly Compared</title>
+      <link>https://plumcut.com/blog/best-whatsapp-automation-tools</link>
+      <guid isPermaLink="true">https://plumcut.com/blog/best-whatsapp-automation-tools</guid>
+      <description>There are four kinds of WhatsApp tool and most comparisons mix them up. Here is what each category is actually for, and where each one stops working.</description>
+      <pubDate>Sun, 06 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>How to Automate WhatsApp for Your Business in 2026</title>
       <link>https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business</link>
