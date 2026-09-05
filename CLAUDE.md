@@ -72,11 +72,15 @@ Reads `blog/posts/*.md` (files starting with `_` are ignored) and writes:
 - `blog/index.html`, the hub
 - `blog/rss.xml`
 - `sitemap.xml`, regenerated whole
-- the `<!-- BLOG:LATEST:START -->` block in `index.html`
+- the blog listing inside `llms.txt`
 
 It deletes and rewrites every `blog/*.html` on each run, so **the generated HTML
 is disposable**. Fix problems in the `.md` source or in the builder, never in
 the output.
+
+`RELATED_COUNT` (default 3) sets how many cards the "Keep reading" strip shows
+at the foot of a post. A post's `related:` slugs are used first, then the newest
+posts top it up.
 
 Front matter is documented in `blog/posts/_TEMPLATE.md`. The parser is a small
 YAML subset, so stay inside the shapes shown there.
@@ -104,8 +108,11 @@ Deliberately **not in the top navigation**. Five items is already tight on
 mobile. It is reachable from:
 
 - the footer `Menu` column on all six pages, labelled "Field notes"
-- the "Latest from plumcut" strip on the home page
 - `sitemap.xml`, `llms.txt`, `robots.txt`, `blog/rss.xml`
+- in-body links between posts, and from posts back to solutions / how-it-works / pricing
+
+There is deliberately **no blog strip on the home page**. It was built and then
+removed on request. Do not add one back without asking.
 
 That is enough for crawlers and for AI search without cluttering the nav. Do not
 add a Blog item to `.pc-nav`.

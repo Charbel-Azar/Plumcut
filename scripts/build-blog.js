@@ -29,6 +29,8 @@ const WA = 'https://wa.me/96181864662?text=Hi%20plum!';
 // The visible name of the section. The URL stays /blog/ because that is the
 // structural signal crawlers expect; only the label is branded.
 const SECTION = 'Field notes';
+// How many cards the "Keep reading" strip shows at the foot of a post.
+const RELATED_COUNT = 3;
 
 const DRY = process.argv.includes('--check');
 
@@ -364,14 +366,14 @@ function relatedBlock(post, all) {
   if (post.related && post.related.length) {
     picks = post.related.map((s) => all.find((p) => p.slug === s)).filter(Boolean);
   }
-  if (picks.length < 3) {
+  if (picks.length < RELATED_COUNT) {
     for (const p of all) {
       if (p.slug === post.slug || picks.includes(p)) continue;
       picks.push(p);
-      if (picks.length >= 3) break;
+      if (picks.length >= RELATED_COUNT) break;
     }
   }
-  picks = picks.slice(0, 3);
+  picks = picks.slice(0, RELATED_COUNT);
   if (!picks.length) return '';
   return `
 <section class="blog-related" aria-labelledby="blog-related-title">
@@ -796,68 +798,6 @@ function renderSitemap(all) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
-/* -------------------------------------------------- homepage "Latest" strip */
-
-function updateHomeLatest(all) {
-  const file = path.join(ROOT, 'index.html');
-  let html = fs.readFileSync(file, 'utf8');
-  const START = '<!-- BLOG:LATEST:START -->';
-  const END = '<!-- BLOG:LATEST:END -->';
-  if (!html.includes(START)) return false;
-
-  const picks = all.slice(0, 3);
-  // index.html does not carry BLOG_CSS, so the strip ships the card rules it needs.
-  const stripCss = `<style>
-  .home-latest .blog-wide { max-width: 1180px; margin: 0 auto; }
-  .home-latest .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
-  .home-latest .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
-  .home-latest .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
-  .home-latest .blog-card-media { background: #f2ecf4; }
-  .home-latest .blog-card-media img { width: 100%; height: 190px; object-fit: cover; display: block; }
-  .home-latest .blog-card-body { padding: 1.15rem 1.3rem 1.45rem; display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
-  .home-latest .blog-card-tag { color: #E65E04; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .home-latest .blog-card-title { color: #481D52; font-size: 1.1rem; font-weight: 500; line-height: 1.35; }
-  .home-latest .blog-card-desc { color: #481D52; opacity: 0.72; font-size: 0.92rem; line-height: 1.55; flex: 1; }
-  .home-latest .blog-card-date { color: #481D52; opacity: 0.5; font-size: 0.8rem; }
-  .home-latest .blog-link { color: #E65E04; text-decoration: underline; text-underline-offset: 3px; }
-  main .home-latest h2, main .home-latest h3 { text-align: left !important; text-transform: none !important; font-weight: 500 !important; }
-  main .home-latest .blog-card-title { font-size: 1.1rem !important; line-height: 1.35 !important; }
-</style>`;
-  const inner = picks.length
-    ? `
-${stripCss}
-<section class="home-latest lg:py-[90px] py-14" aria-labelledby="home-latest-title">
-  <div class="main-container edge-safe max-w-[1880px]">
-    <div class="blog-wide">
-      <div class="space-y-3 mb-8 md:mb-12">
-        <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
-          <img class="section-title-bullet" src="images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
-          <span class="section-title-text">${SECTION}</span>
-        </p>
-        <h2 id="home-latest-title" data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4 max-w-[820px]">
-          Latest from plumcut
-        </h2>
-      </div>
-      <div class="blog-grid" data-ns-animate data-delay="0.3">
-        ${picks.map((p) => card(p)).join('\n        ')}
-      </div>
-      <p class="mt-8" style="color:#481D52;">
-        <a href="blog/" class="blog-link">Read everything on the plumcut blog</a>
-      </p>
-    </div>
-  </div>
-</section>`
-    : '';
-
-  const next = html.replace(
-    new RegExp(START.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\\s\\S]*?' + END.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
-    START + inner + '\n' + END
-  );
-  if (next === html) return false;
-  if (!DRY) fs.writeFileSync(file, next);
-  return true;
-}
-
 /* ------------------------------------------------ llms.txt blog listing */
 
 function updateLlmsTxt(all) {
@@ -983,15 +923,12 @@ function main() {
     fs.writeFileSync(path.join(OUT_DIR, 'rss.xml'), renderRss(posts));
     fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), renderSitemap(posts));
   }
-  const homeTouched = updateHomeLatest(posts);
   const llmsTouched = updateLlmsTxt(posts);
 
   console.log(`${DRY ? '[check] ' : ''}built ${posts.length} post(s)`);
   for (const p of posts) console.log(`  /blog/${p.slug}  (${p.words}w, ${p.readingTime}min)`);
   console.log(
-    `  /blog/  hub + rss.xml + sitemap.xml${homeTouched ? ' + homepage strip' : ''}${
-      llmsTouched ? ' + llms.txt' : ''
-    }`
+    `  /blog/  hub + rss.xml + sitemap.xml${llmsTouched ? ' + llms.txt' : ''}`
   );
   if (warnings.length) {
     console.log('\nwarnings:');
