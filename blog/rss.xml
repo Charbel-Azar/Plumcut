@@ -6,7 +6,7 @@
     <atom:link href="https://plumcut.com/blog/rss.xml" rel="self" type="application/rss+xml" />
     <description>Practical guides on WhatsApp automation, AI that sells, and customer insight you own.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 22:01:09 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 22:17:58 GMT</lastBuildDate>
     <item>
       <title>What the WhatsApp Business API Really Costs in 2026</title>
       <link>https://plumcut.com/blog/whatsapp-business-api-cost</link>
@@ -26,6 +26,13 @@
       <link>https://plumcut.com/blog/best-whatsapp-automation-tools</link>
       <guid isPermaLink="true">https://plumcut.com/blog/best-whatsapp-automation-tools</guid>
       <description>There are four kinds of WhatsApp tool and most comparisons mix them up. Here is what each category is actually for, and where each one stops working.</description>
+      <pubDate>Sun, 06 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Does AI Customer Service Really Work in Arabic in 2026?</title>
+      <link>https://plumcut.com/blog/ai-customer-service-arabic</link>
+      <guid isPermaLink="true">https://plumcut.com/blog/ai-customer-service-arabic</guid>
+      <description>Dialect, Arabizi and code switching break most Arabic automation. What works for Gulf and Levant brands, and why templates are a separate job.</description>
       <pubDate>Sun, 06 Sep 2026 09:00:00 GMT</pubDate>
     </item>
     <item>
