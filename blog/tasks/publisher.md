@@ -1,123 +1,99 @@
 # Task: blog publisher
 
-**Run by:** the scheduled cloud routine `plumcut blog, publisher`, Mon / Wed / Fri / Sat at 10:00 UTC.
-**Job:** publish exactly one approved post, then stop.
-**Never:** write new content. That is the writer's job.
+**Run by:** `plumcut blog, publisher`, Mon / Wed / Fri / Sat at 10:00 UTC.
+**Job:** publish at most one approved post and verify it reached production.
+**Source:** Notion `collection://0f269a5b-550b-4e9e-b34d-f4c4837be033`.
+**Branch:** main, deployed by Vercel. Never force push or approve your own draft.
 
-This file is the procedure. The routine prompt is only a pointer to it, so
-changing this file changes what the run does on its next fire. Commit a change
-here and it is live.
+Read CLAUDE.md, blog/tasks/editorial.md and blog/posts/_TEMPLATE.md first. Use
+available Git, web and Notion tools; do not assume a particular agent's tool names.
+The scheduler must serialize publisher runs so two runs cannot claim the same row.
 
----
+## 1. Synchronize and select
 
-## Constants
+Start in a clean checkout of main, fetch origin and fast-forward only. On detached
+HEAD, use a dedicated clean branch based on origin/main. Do not reset or overwrite
+other work. If unable to synchronize safely, stop and report it.
 
-| | |
-| --- | --- |
-| Notion Blog data source | `collection://0f269a5b-550b-4e9e-b34d-f4c4837be033` |
-| Branch | `main`, pushed directly, Vercel deploys automatically |
-| Posts per run | exactly 1, even if several are approved |
+Query Status = approved, oldest Created first. Status is a Notion **select**,
+not status. No rows means nothing approved, a normal successful exit. Choose one,
+read its properties and full body, and recheck approval before committing.
+For a manually specified slug, select only that approved row.
 
----
+## 2. Check for a retry
 
-## Step 1. Find the work
+After synchronizing, look for blog/posts/*-<slug>.md. If it exists, verify that
+its notionUrl identifies this row and its content matches the approved version.
+Do not create a duplicate. Build and continue to production verification. File
+existence or a Git commit alone does not mean publication succeeded. If the slug
+belongs to another row or approved copy differs, report the conflict.
 
-Query for rows with `Status = approved`, **oldest `Created` first**.
+## 3. Convert approved content
 
-> `Status` is a Notion **select** property, not a **status** property. Filtering
-> it as `status` silently returns zero rows, and the run will wrongly report
-> "nothing approved" while work is waiting.
+Create blog/posts/YYYY-MM-DD-<slug>.md with today's initial publication date.
+Copy title, slug, description, type, keywords, hero, heroAlt, heroCredit,
+heroCreditUrl, heroSource, heroLicense, heroLicenseUrl and notionUrl from the row.
+Keywords must be a YAML list. Omit empty optional fields.
 
-No approved rows? Do nothing, report `nothing approved`, exit. Normal outcome.
+Read the fenced JSON under `## Publishing metadata` before the article separator.
+Carry related, ctaLine, author, authorUrl, reviewedBy and reviewerUrl into front
+matter. Existing rows without this block remain supported using builder defaults.
+Do not invent names or treat automated review as a named human review.
+For an explicitly approved refresh, preserve slug, original date and source file;
+set updated to the actual material revision date. Never refresh dates alone.
 
-Otherwise take the **oldest one only**. Read its properties and its full page body.
+Strip metadata/review notes, hero, photo credit, callouts and leading separator
+from the public body. Content before ## FAQ is the article. Convert each FAQ pair
+to faq front matter, preserving wording. Convert Notion tables to Markdown.
 
-## Step 2. The already-published guard
+Notion can rewrite relative links into app.notion.com URLs. Restore only known
+destinations to /solutions, /how-it-works, /pricing or an existing /blog/<slug>;
+do not guess ambiguous links. Strip Markdown links from plain-text credit/name
+fields. Use clean internal URLs without .html.
 
-Run `ls blog/posts/` and look for a file ending `-<slug>.md`.
+## 4. Review and validate
 
-If one exists, this row was already published by an earlier run that could not
-update Notion. **Do not write it again.** A second file with the same slug makes
-the build fail on a duplicate slug. Skip straight to Step 6, set the row to
-published, and exit.
+Check the review record and follow editorial.md. If approved material contains
+substantive factual problems, leave it approved, flag the correction, and stop
+for editorial review. Do not silently publish rewritten claims.
 
-## Step 3. Convert the row to markdown
+Run `node scripts/build-blog.js --check`, then `node scripts/build-blog.js`.
+Both render and validate pages; check mode writes nothing. Fix conversion errors,
+broken internal links, invalid metadata or FAQ mismatches before proceeding.
+Read warnings; short complete answers are acceptable without padding. Check that
+related posts and the CTA fit this article and no private review notes leaked.
 
-Read `blog/posts/_TEMPLATE.md` and `CLAUDE.md` first. Then `git pull`, and write
-`blog/posts/YYYY-MM-DD-<slug>.md` using today's date.
+## 5. Commit and push
 
-**Front matter, from the row's properties:**
+Vercel runs the builder using vercel.json. Commit the Markdown source. Generated
+outputs already tracked in Git must be kept consistent and committed; do not start
+tracking new generated article HTML unnecessarily. Inspect the staged diff and
+include no unrelated files. Name the article in the commit message.
 
-`title`, `slug`, `description`, `date` (today), `type`, `keywords` (split the
-comma-separated string into a `[a, b, c]` list), `hero`, `heroAlt`, `heroCredit`,
-`heroCreditUrl`, `heroSource`, `heroLicense`, `heroLicenseUrl`, `notionUrl`.
+Push normally to main. If rejected, fetch and rebase only this run's own commit
+onto origin/main in the clean task checkout, then rebuild and revalidate. Resolve
+only mechanical conflicts; stop on an editorial conflict. Retry once, never force
+push. Confirm the commit is on remote main (it may have newer descendants).
 
-Omit any hero field that is empty rather than writing a blank value.
+## 6. Verify production
 
-**Strip markdown link syntax out of plain-text fields.** Notion autolinks bare
-names, so `[freestocks.org](http://freestocks.org)` must become `freestocks.org`.
-`heroCredit` has to be the bare name or the rendered credit line breaks.
+Run `node scripts/verify-blog.js <slug>` against production. This checks HTTP 200,
+the canonical URL, the generated content-version marker against the local build,
+and the sitemap entry. A stale 200 page is not sufficient.
 
-**Body conversion.** Notion rewrites the site's relative links into absolute
-`app.notion.com/...` URLs on the way out. Restore them to real site paths:
-`/solutions`, `/how-it-works`, `/pricing`, `/blog/<slug>`. Then:
+If deployment is pending, retry with brief intervals for up to two minutes.
+If this environment blocks plumcut.com, use an available Vercel connector/API
+to verify a successful production deployment of the commit and its generated
+article artifact. Do not interpret a network block as a failed deployment.
+If neither route is available, report `pushed, deployment unverified`, leave the
+row approved, and let a later run verify it without republishing.
 
-- Drop everything before the post itself: the image block, the photo credit line,
-  any `---` separator, and any Notion callout. Callouts are notes to humans, not
-  part of the post.
-- Everything up to `## FAQ` becomes the markdown body. The builder renders the
-  hero from front matter, so the body must never repeat it.
-- Each FAQ pair becomes a `- q:` / `a:` entry under `faq:`. Keep the wording
-  identical to the visible text. The builder emits FAQPage schema from these and
-  the schema must match what a reader sees, or the page violates Google's
-  structured data guidelines.
-- Convert Notion tables to markdown tables.
+## 7. Close and report
 
-## Step 4. Build
+Only after verification set Status = published, Published on to the original
+publication date, and Live URL = https://plumcut.com/blog/<slug>.
+If the Notion update fails, report it; the next run uses the retry path above.
 
-```bash
-node scripts/build-blog.js
-```
-
-Zero dependencies, no install needed. If it errors, fix the markdown and run it
-again. **Never commit a failing build.**
-
-Read the warnings it prints. Fix a thin post or an over-length description before
-committing rather than shipping it and warning about it.
-
-## Step 5. Commit and push
-
-Commit the generated `blog/*.html`, `blog/rss.xml`, `sitemap.xml` and `llms.txt`
-together with the new `.md` source. Name the post in the commit message. Push to
-`main`.
-
-**The sandbox may start on a detached HEAD.** If the push is rejected as
-non-fast-forward: `git fetch origin main`, confirm your commit descends from
-`origin/main`, then `git checkout -B main HEAD` and push. **Never force push.**
-
-## Step 6. Verify the push, not the website
-
-> The sandbox's egress proxy blocks `plumcut.com`. Curling the live URL always
-> fails and proves nothing. Do not try; it will make you report a false failure
-> on a post that actually shipped.
-
-Success is: `git ls-remote origin refs/heads/main` equals your local HEAD.
-Vercel deploys from `main` on its own.
-
-## Step 7. Close the row
-
-Once the push is confirmed on the remote, update the Notion row:
-
-- `Status = published`
-- `Published on` = today
-- `Live URL` = `https://plumcut.com/blog/<slug>`
-
-**If and only if the push never landed**, leave the row as `approved` so the next
-run retries it, and report the failure clearly.
-
-## Never
-
-- Hand-write HTML. The builder owns the template. If the design needs to change,
-  change `scripts/templates/page.html` or `BLOG_CSS` and every post re-renders.
-- Publish more than one post per run.
-- Force push.
+Report title, URL, commit, verification result and remaining warnings. Never
+publish more than one row, force push, hand-edit generated HTML, or claim a
+verified deployment based solely on a Git push.

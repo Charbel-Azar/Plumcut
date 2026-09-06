@@ -4,6 +4,8 @@ slug: where-is-my-order-whatsapp
 description: The most common message in commerce is a tracking question. What it takes to answer it automatically on WhatsApp, what it costs, and where it breaks.
 type: general
 date: 2026-09-06
+related: [whatsapp-ai-shopify-lebanon-gulf, whatsapp-business-api-cost, how-to-automate-whatsapp-for-your-business]
+ctaLine: Spending too much time answering delivery questions? Ask plum how a managed WhatsApp workflow can connect customers to the right order information.
 keywords: [WhatsApp order status updates, where is my order automation, WhatsApp shipping notification, WhatsApp utility template, Shopify WhatsApp order tracking]
 hero: /blog/heroes/sealed-box.jpg
 heroAlt: A sealed cardboard box ready to ship

@@ -33,7 +33,8 @@ If the count is **7 or more**: stop. Write nothing. Report that the backlog is
 full. That is a success, not a failure. It means the human has not caught up,
 and writing more would be waste.
 
-Otherwise write exactly `min(3, 7 - count)` posts this run.
+Otherwise write up to `min(3, 7 - count)` posts this run. This is a maximum;
+stop short rather than invent demand or duplicate an existing answer.
 
 ## Step 2. Read before writing
 
@@ -44,9 +45,10 @@ The repo is checked out for you. Read all of these first:
 - `CLAUDE.md` for the house copy rules.
 - `blog/posts/_TEMPLATE.md` for the exact front matter shape.
 - `blog/ART-DIRECTION.md` for what a hero may and may not show.
-- `.claude/skills/seo-geo/SKILL.md`. This governs the citable answer block,
-  which is the single highest-value paragraph in any post. Read it properly.
-- `.claude/skills/seo-content/SKILL.md` for E-E-A-T.
+- `blog/tasks/editorial.md` for topic selection, promotion, factual review and
+  measurement. These maintained project rules override imported SEO heuristics.
+  The Notion manual supplements them; if inaccessible, report that and continue
+  with the repo rules, provided the database is accessible.
 
 ## Step 3. Pick topics
 
@@ -65,26 +67,31 @@ when you need a primary source.
 
 Set `Source` to what genuinely worked. If it was WebSearch, that is `web search`.
 
-Roughly **two in three** posts should be `type: general`.
+Use the long-term mix in editorial.md. Record each topic's reader, evidence of
+interest, added value, overlap check and plumcut destination. Propose a refresh
+in the report when an existing article already answers the question.
 
 ## Step 4. Write
 
-900 to 1600 words each.
+Use the length needed to answer the question. Do not pad a complete answer.
 
 1. **Opening**, 2 to 4 sentences naming the reader's real problem. No throat
    clearing.
-2. **The citable answer block**, a markdown blockquote immediately after the
-   opening. 130 to 170 words, fully self-contained, answering the title question
-   for someone who reads nothing else. This is what AI search lifts and cites.
-3. **Body** in `##` sections. At least one table. Concrete numbers, named tools,
-   real limits.
+2. **A direct answer**, optionally a markdown blockquote after the opening,
+   answering the question independently. No fixed length or citation guarantee.
+3. **Body** in `##` sections. Tables when useful, verified specifics and practical
+   examples. Label hypothetical examples.
 4. **A closing section** telling the reader what to do this week.
-5. **4 to 6 FAQ questions**, each answered in 40 to 80 words.
+5. **FAQ questions** only when they add useful answers, with no fixed count.
 
 Verify every factual claim against a primary source. Meta and Google docs beat
 blog posts, and third-party blogs contradict each other constantly. Include 2 to
 4 in-body internal links to `/solutions`, `/how-it-works`, `/pricing`, or blog
 posts that already exist.
+
+Follow editorial.md for contextual plumcut mentions. Choose related post slugs
+and a specific ctaLine. Perform the separate factual review pass and resolve
+contradictions before creating the row. Preserve the human approval gate.
 
 ## Step 5. The hero image
 
@@ -115,12 +122,18 @@ One Notion row per post. `Status = drafted`. Every property filled.
 
 Page body, in this order, because the publisher parses exactly this shape:
 
-1. The image as `![alt](https://plumcut.com/blog/heroes/<file>.jpg)`, absolute
+1. `## Publishing metadata` and a fenced JSON object containing `related`
+   (array of existing slugs), `ctaLine` (plain text), and any verified `author`,
+   `authorUrl`, `reviewedBy`, `reviewerUrl`. Omit unknown fields. This requires
+   no database schema change.
+2. An editorial review note: topic brief, checked sources/date, automated versus
+   human review and any unresolved issues.
+3. The image as `![alt](https://plumcut.com/blog/heroes/<file>.jpg)`, absolute
    so Notion renders it
-2. A photo credit line
-3. `---`
-4. The post
-5. `## FAQ`, then each question in bold with its answer beneath
+4. A photo credit line
+5. `---`
+6. The post
+7. `## FAQ`, if used, then each question in bold with its answer beneath
 
 Set the page cover to the same absolute URL so the row reads properly when a
 human opens it.

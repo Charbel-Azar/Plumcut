@@ -79,9 +79,9 @@ Reads `blog/posts/*.md` (files starting with `_` are ignored) and writes:
 - `sitemap.xml`, regenerated whole
 - the blog listing inside `llms.txt`
 
-It deletes and rewrites every `blog/*.html` on each run, so **the generated HTML
-is disposable**. Fix problems in the `.md` source or in the builder, never in
-the output.
+The builder renders and validates all pages before writing. It rewrites generated
+articles and removes stale pages carrying its content-version marker; unrelated
+HTML is left alone. Fix problems in Markdown or the builder, never the output.
 
 `RELATED_COUNT` (default 3) sets how many cards the "Keep reading" strip shows
 at the foot of a post. A post's `related:` slugs are used first, then the newest
@@ -90,9 +90,16 @@ posts top it up.
 Front matter is documented in `blog/posts/_TEMPLATE.md`. The parser is a small
 YAML subset, so stay inside the shapes shown there.
 
-The build warns (does not fail) on: thin posts under 500 words, meta
-descriptions over 165 characters, a missing hero image, and em dashes it had to
-replace. Read the warnings before committing.
+The build warns on posts under 500 words (review completeness, do not pad), long
+descriptions, missing heroes and normalized dashes. It fails on invalid dates or
+slugs, malformed FAQs, missing related posts/internal destinations, unresolved
+template tokens and FAQ/schema mismatches. Check mode renders without writing.
+Run `node --test scripts/blog.test.js` after builder changes.
+
+Optional author/authorUrl and reviewedBy/reviewerUrl fields render real attribution.
+Never invent a name or claim a person reviewed an automated draft. updated is only
+for a material revision. ctaLine and related are carried through Notion's publishing
+metadata block. WhatsApp events include article_slug, page_path and cta.
 
 ### Changing the design
 
@@ -137,15 +144,18 @@ run does. No API call, no routine edit. Fix a bug in a commit.
 Content lives in Notion, under **plumcut - HQ / Brand & Identity / Branding /
 cowork - Blog**, in the `Blog` database. That page holds the editorial
 standards: archetypes, voice, what a good post looks like. The runbooks hold the
-procedure. Both scheduled runs read both.
+procedure. Both scheduled runs read both. `blog/tasks/editorial.md` keeps essential
+topic, promotion and review rules in GitHub, with Notion as supplemental guidance.
 
 ```
-writer run (every 2 days)      research a question, write it, Status = drafted
+writer run (Tue / Fri)        research, write, review, Status = drafted
 you, in Notion                 read it, edit it, Status = approved
-publisher run (3x a week)      approved row  ->  .md  ->  build  ->  push  ->  Status = published
+publisher (Mon/Wed/Fri/Sat)   approved -> .md -> build -> push -> verify -> published
 ```
 
 Nothing reaches the site without a human flipping a row to `approved`.
+After pushing, run `node scripts/verify-blog.js <slug>` to check the deployed
+content version, canonical and sitemap. A push alone is not publication proof.
 
 ## Hero images
 

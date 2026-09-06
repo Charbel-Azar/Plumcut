@@ -5,7 +5,7 @@
  * Reads every post in blog/posts/*.md, renders each one into the site shell
  * (scripts/templates/page.html, extracted verbatim from privacy.html so the
  * chrome can never drift), then regenerates the hub, the RSS feed, the
- * sitemap and the homepage "Latest" strip.
+ * sitemap and llms.txt listing.
  *
  * Zero dependencies on purpose: the scheduled cowork agent runs `node
  * scripts/build-blog.js` with no npm install step.
@@ -18,6 +18,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = path.join(__dirname, '..');
 const POSTS_DIR = path.join(ROOT, 'blog', 'posts');
@@ -158,9 +159,12 @@ function inline(s) {
     (_, alt, src) => `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async">`
   );
   out = out.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, text, href) => {
-    const ext = /^https?:\/\//.test(href) && !href.includes('plumcut.com');
-    return `<a href="${esc(href)}" class="blog-link"${
-      ext ? ' target="_blank" rel="noopener nofollow"' : ''
+    const url = href.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+    if (!/^(https?:\/\/|mailto:|tel:|\/(?!\/)|#)/i.test(url))
+      throw new Error('unsupported link URL: ' + url);
+    const ext = /^https?:\/\//i.test(url) && new URL(url).origin !== SITE;
+    return `<a href="${esc(url)}" class="blog-link"${
+      ext ? ' target="_blank" rel="noopener"' : ''
     }>${text}</a>`;
   });
   out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -336,7 +340,7 @@ function ctaBlock(post) {
 
       <div class="flex flex-col items-center gap-5 mt-10">
         <a
-          href="${WA}"
+          href="${WA}" data-cta="article-demo" data-article="${esc(post.slug)}"
           class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
         >
           <span class="hero-cta-icon flex items-center justify-center rounded-full">
@@ -345,8 +349,8 @@ function ctaBlock(post) {
           <span>Chat with plum</span>
         </a>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." data-cta="article-question" data-article="${esc(post.slug)}" class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." data-cta="article-meeting" data-article="${esc(post.slug)}" class="combined-subpill">book a meeting</a>
         </div>
       </div>
     </div>
@@ -520,6 +524,10 @@ const BLOG_CSS = `    <style>
         50% { background-position: 100% 50%; }
       }
       .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
       .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
@@ -556,7 +564,9 @@ function articleJsonLd(post) {
       datePublished: post.date,
       dateModified: post.updated || post.date,
       inLanguage: 'en',
-      author: { '@type': 'Organization', name: 'plumcut', url: SITE + '/' },
+      author: post.author
+        ? { '@type': 'Person', name: post.author, ...(post.authorUrl ? { url: absUrl(post.authorUrl) } : {}) }
+        : { '@type': 'Organization', '@id': SITE + '/#organization', name: 'plumcut', url: SITE + '/about' },
       publisher: {
         '@type': 'Organization',
         name: 'plumcut',
@@ -585,18 +595,24 @@ function articleJsonLd(post) {
       mainEntity: post.faq.map((f) => ({
         '@type': 'Question',
         name: f.q,
-        acceptedAnswer: { '@type': 'Answer', text: f.a },
+        acceptedAnswer: { '@type': 'Answer', text: markdown(f.a).html },
       })),
     });
   }
 
   return blocks
-    .map((b) => `<script type="application/ld+json">\n${JSON.stringify(b, null, 2)}\n</script>`)
+    .map((b) => `<script type="application/ld+json">\n${JSON.stringify(b, null, 2).replace(/</g, '\\u003c')}\n</script>`)
     .join('\n');
 }
 
 function renderPost(post, all, tpl) {
   const { html, headings } = markdown(post.body);
+  const byline = post.author
+    ? (post.authorUrl ? `<a href="${esc(post.authorUrl)}">${esc(post.author)}</a>` : esc(post.author))
+    : '<a href="/about">plumcut</a>';
+  const reviewer = post.reviewedBy
+    ? `<span>Reviewed by ${post.reviewerUrl ? `<a href="${esc(post.reviewerUrl)}">${esc(post.reviewedBy)}</a>` : esc(post.reviewedBy)}</span>`
+    : '';
 
   const hero = post.hero
     ? `<figure class="blog-hero-media">
@@ -623,16 +639,19 @@ function renderPost(post, all, tpl) {
           <div class="blog-shell">
 
             <div class="space-y-3 mb-8">
-              <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
+              <p class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
                 <a class="section-title-text" href="/blog/">${SECTION}</a>
               </p>
-              <h1 data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4">
+              <h1 style="color: #481D52;" class="text-heading-4">
                 ${esc(post.title)}
               </h1>
-              <div data-ns-animate data-delay="0.25" class="blog-meta">
+              <div class="blog-meta">
                 <span class="blog-tag">${esc(TYPE_LABEL[post.type] || 'Guide')}</span>
-                <time datetime="${esc(post.date)}">${fmtDate(post.date)}</time>
+                <span>By ${byline}</span>
+                <span>Published <time datetime="${esc(post.date)}">${fmtDate(post.date)}</time></span>
+${post.updated ? `<span>Updated <time datetime="${esc(post.updated)}">${fmtDate(post.updated)}</time></span>` : ''}
+${reviewer}
                 <span>${post.readingTime} min read</span>
               </div>
             </div>
@@ -656,6 +675,7 @@ ${html}
       </article>`;
 
   return render(tpl, {
+    AUTHOR: esc(post.author || 'plumcut'),
     TITLE: esc(post.title + ' | plumcut'),
     DESC: esc(post.description),
     KEYWORDS: esc((post.keywords || []).join(', ')),
@@ -671,8 +691,15 @@ ${html}
 }
 
 function renderHub(all, tpl) {
-  const cards = all.length
-    ? all.map((p) => card(p)).join('\n      ')
+  const groups = [
+    ['general', 'Automation guides'],
+    ['comparison', 'Comparisons'],
+    ['direct', 'plum in practice'],
+  ].map(([type, label]) => ({ type, label, posts: all.filter(p => p.type === type) }))
+    .filter(group => group.posts.length);
+  const cards = groups.length
+    ? `<nav class="blog-topic-nav" aria-label="Browse field notes">${groups.map(g => `<a href="#${g.type}">${g.label}</a>`).join('')}</nav>` +
+      groups.map(g => `<section id="${g.type}" class="blog-topic-section" aria-labelledby="${g.type}-title"><h2 id="${g.type}-title" class="blog-h2">${g.label}</h2><div class="blog-grid">${g.posts.map(card).join('\n')}</div></section>`).join('\n')
     : '<p class="blog-empty">The first posts are on their way.</p>';
 
   const jsonld = [
@@ -711,19 +738,19 @@ function renderHub(all, tpl) {
           <div class="blog-wide">
 
             <div class="space-y-3 mb-10 md:mb-14">
-              <h1 data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
+              <h1 class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
                 <span class="section-title-text">${SECTION}</span>
               </h1>
-              <p data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4 max-w-[820px]">
+              <p style="color: #481D52;" class="text-heading-4 max-w-[820px]">
                 How brands actually automate WhatsApp, and what they learn about their customers when they do.
               </p>
-              <p data-ns-animate data-delay="0.3" style="color: #481D52; opacity: 0.7;" class="text-tagline-1 max-w-[720px]">
-                Written by the team building plum. No theory we have not shipped.
+              <p style="color: #481D52; opacity: 0.7;" class="text-tagline-1 max-w-[720px]">
+                Practical guides, sourced comparisons and implementation notes from the team building plum.
               </p>
             </div>
 
-            <div class="blog-grid" data-ns-animate data-delay="0.4">
+            <div class="blog-topics">
       ${cards}
             </div>
 
@@ -732,6 +759,7 @@ function renderHub(all, tpl) {
       </section>`;
 
   return render(tpl, {
+    AUTHOR: 'plumcut',
     TITLE: SECTION + ' | plumcut',
     DESC: esc(
       'Practical guides on WhatsApp automation, AI that sells, and turning customer conversations into insight you own. From the team building plum.'
@@ -786,18 +814,13 @@ ${items}
 }
 
 function renderSitemap(all) {
-  const today = new Date().toISOString().slice(0, 10);
+  // Unknown core-page dates are omitted rather than fabricated or rolled forward.
   const core = [
-    ['/', '2026-06-17'],
-    ['/how-it-works', '2026-06-17'],
-    ['/solutions', '2026-06-17'],
-    ['/pricing', '2026-06-17'],
-    ['/about', '2026-06-17'],
-    ['/privacy', '2026-09-04'],
-    ['/blog/', all.length ? all[0].date : today],
+    ['/'], ['/how-it-works'], ['/solutions'], ['/pricing'], ['/about'], ['/privacy'],
+    ['/blog/', all.map(p => p.updated || p.date).sort().pop()],
   ];
   const urls = core
-    .map(([loc, mod]) => `  <url>\n    <loc>${SITE}${loc}</loc>\n    <lastmod>${mod}</lastmod>\n  </url>`)
+    .map(([loc, mod]) => `  <url>\n    <loc>${SITE}${loc}</loc>${mod ? `\n    <lastmod>${mod}</lastmod>` : ''}\n  </url>`)
     .concat(
       all.map(
         (p) =>
@@ -843,7 +866,7 @@ function updateLlmsTxt(all) {
 function main() {
   const tpl = fs.readFileSync(TEMPLATE, 'utf8');
 
-  if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
+  if (!fs.existsSync(POSTS_DIR)) throw new Error('missing blog/posts directory');
 
   const files = fs
     .readdirSync(POSTS_DIR)
@@ -865,9 +888,33 @@ function main() {
     for (const req of ['title', 'description', 'date']) {
       if (!d[req]) throw new Error(`${f}: front matter is missing "${req}"`);
     }
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(d.date)) {
+    const validDate = value => /^\d{4}-\d{2}-\d{2}$/.test(value) &&
+      Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+    if (!validDate(d.date)) {
       throw new Error(`${f}: date must be YYYY-MM-DD, got "${d.date}"`);
     }
+    if (d.updated && (!validDate(d.updated) || d.updated < d.date))
+      throw new Error(`${f}: updated must be a real date on or after publication`);
+    for (const key of ['title', 'description', 'author', 'authorUrl', 'reviewedBy', 'reviewerUrl', 'ctaLine']) {
+      if (d[key] != null && typeof d[key] !== 'string') throw new Error(`${f}: ${key} must be text`);
+    }
+    for (const key of ['keywords', 'related', 'faq']) {
+      if (d[key] != null && !Array.isArray(d[key])) throw new Error(`${f}: ${key} must be a list`);
+    }
+    for (const key of ['keywords', 'related']) {
+      if ((d[key] || []).some(v => typeof v !== 'string')) throw new Error(`${f}: ${key} entries must be text`);
+    }
+    for (const key of ['authorUrl', 'reviewerUrl']) {
+      if (d[key] && !/^(https?:\/\/|\/(?!\/))/i.test(d[key])) throw new Error(`${f}: invalid ${key}`);
+    }
+    if (d.authorUrl && !d.author) throw new Error(`${f}: authorUrl requires author`);
+    if (d.reviewerUrl && !d.reviewedBy) throw new Error(`${f}: reviewerUrl requires reviewedBy`);
+    for (const faq of d.faq || []) {
+      if (!faq || typeof faq.q !== 'string' || !faq.q.trim() || typeof faq.a !== 'string' || !faq.a.trim())
+        throw new Error(`${f}: each FAQ requires a nonempty q and a`);
+    }
+    if (/^## Publishing metadata\s*$/m.test(parsed.body) || /https?:\/\/app\.notion\.com/i.test(parsed.body))
+      throw new Error(`${f}: private publishing metadata or a Notion link leaked into the body`);
 
     let body = parsed.body;
     const dashes = (body.match(DASH_RE) || []).length + (String(d.title).match(DASH_RE) || []).length;
@@ -887,6 +934,10 @@ function main() {
       description: d.description,
       date: d.date,
       updated: d.updated || null,
+      author: d.author || '',
+      authorUrl: d.authorUrl || '',
+      reviewedBy: d.reviewedBy || '',
+      reviewerUrl: d.reviewerUrl || '',
       type: d.type || 'general',
       keywords: d.keywords || [],
       hero: d.hero || '',
@@ -911,29 +962,45 @@ function main() {
 
   const seen = new Set();
   for (const p of posts) {
+    if (!Object.prototype.hasOwnProperty.call(TYPE_LABEL, p.type)) throw new Error(`${p.file}: invalid type ${p.type}`);
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(p.slug) || p.slug === 'index')
+      throw new Error(`invalid or reserved slug "${p.slug}" (${p.file})`);
     if (seen.has(p.slug)) throw new Error(`duplicate slug "${p.slug}" (${p.file})`);
     seen.add(p.slug);
-    if (p.words < 500) warnings.push(`${p.file}: only ${p.words} words, thin for ranking`);
+    if (p.words < 500) warnings.push(`${p.file}: ${p.words} words; review completeness, do not pad for length`);
     if (p.description.length > 165)
       warnings.push(`${p.file}: description is ${p.description.length} chars, over 165`);
     if (!p.hero) warnings.push(`${p.file}: no hero image`);
   }
 
-  if (!DRY) {
-    for (const f of fs.readdirSync(OUT_DIR)) {
-      if (f.endsWith('.html')) fs.unlinkSync(path.join(OUT_DIR, f));
-    }
-  }
-
+  const outputs = new Map();
   for (const p of posts) {
-    const out = path.join(OUT_DIR, p.slug + '.html');
-    if (!DRY) fs.writeFileSync(out, renderPost(p, posts, tpl));
+    for (const related of p.related) {
+      if (!seen.has(related) || related === p.slug) throw new Error(`${p.file}: invalid related slug ${related}`);
+    }
+    const html = renderPost(p, posts, tpl);
+    const version = crypto.createHash('sha256').update(html).digest('hex');
+    outputs.set(`/blog/${p.slug}`, html.replace('</head>', `<meta name="plumcut-content-version" content="${version}">\n</head>`));
   }
+  outputs.set('/blog/', renderHub(posts, tpl));
+
+  // Render and validate everything before replacing any output, including --check.
+  for (const [url, html] of outputs) validatePage(url, html, outputs);
+  const sitemap = renderSitemap(posts);
+  const rss = renderRss(posts);
 
   if (!DRY) {
-    fs.writeFileSync(path.join(OUT_DIR, 'index.html'), renderHub(posts, tpl));
-    fs.writeFileSync(path.join(OUT_DIR, 'rss.xml'), renderRss(posts));
-    fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), renderSitemap(posts));
+    for (const [url, html] of outputs) {
+      fs.writeFileSync(path.join(ROOT, url === '/blog/' ? 'blog/index.html' : url.slice(1) + '.html'), html);
+    }
+    // Only remove stale builder-owned articles; leave unrelated HTML alone.
+    for (const file of fs.readdirSync(OUT_DIR)) {
+      if (!file.endsWith('.html') || file === 'index.html' || seen.has(file.slice(0, -5))) continue;
+      const target = path.join(OUT_DIR, file);
+      if (fs.readFileSync(target, 'utf8').includes('name="plumcut-content-version"')) fs.unlinkSync(target);
+    }
+    fs.writeFileSync(path.join(OUT_DIR, 'rss.xml'), rss);
+    fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
   }
   const llmsTouched = updateLlmsTxt(posts);
 
@@ -948,4 +1015,30 @@ function main() {
   }
 }
 
-main();
+function validatePage(url, html, outputs) {
+  if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error(`${url}: unresolved template token`);
+  if ((html.match(/<h1\b/g) || []).length !== 1) throw new Error(`${url}: expected exactly one h1`);
+  if (!html.includes(`rel="canonical" href="${SITE}${url}"`)) throw new Error(`${url}: invalid canonical`);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+  const faq = schemas.find(s => s['@type'] === 'FAQPage');
+  const answers = [...html.matchAll(/<summary>([\s\S]*?)<\/summary>\s*<div class="blog-faq-answer">([\s\S]*?)<\/div>/g)];
+  if ((faq?.mainEntity.length || 0) !== answers.length) throw new Error(`${url}: FAQ count mismatch`);
+  answers.forEach((answer, i) => {
+    if (esc(faq.mainEntity[i].name) !== answer[1] || faq.mainEntity[i].acceptedAnswer.text !== answer[2])
+      throw new Error(`${url}: FAQ text mismatch`);
+  });
+  for (const match of html.matchAll(/(?:href|src)="(\/[^"?#]*)(?:[?#][^"]*)?"/g)) {
+    const target = decodeURIComponent(match[1]);
+    if (outputs.has(target)) continue;
+    const base = path.resolve(ROOT, target.replace(/^\/+/, ''));
+    if (!base.startsWith(ROOT + path.sep) && base !== ROOT) throw new Error(`${url}: invalid internal path ${target}`);
+    if (/^\/blog\/[^/.]+\/?$/.test(target) && target !== '/blog/') throw new Error(`${url}: missing blog destination ${target}`);
+    if (![base, base + '.html', path.join(base, 'index.html')].some(p => fs.existsSync(p) && fs.statSync(p).isFile()))
+      throw new Error(`${url}: missing internal destination ${target}`);
+  }
+}
+
+if (require.main === module) {
+  try { main(); } catch (error) { console.error(error.message); process.exitCode = 1; }
+}
+module.exports = { parseFrontMatter, markdown, articleJsonLd, renderSitemap, validatePage };

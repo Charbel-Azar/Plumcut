@@ -12,7 +12,8 @@ heroCreditUrl: https://www.flickr.com/photos/67408512@N03
 heroSource: Flickr
 heroLicense: CC BY 2.0
 heroLicenseUrl: https://creativecommons.org/licenses/by/2.0/
-related: [whatsapp-business-api-cost, whatsapp-template-rejected, how-to-automate-whatsapp-for-your-business]
+related: [whatsapp-business-api-cost, whatsapp-ai-shopify-lebanon-gulf, how-to-automate-whatsapp-for-your-business]
+ctaLine: Planning a WhatsApp cart-recovery workflow? Ask plum how your store data, approved templates and customer replies can work together.
 notionUrl: https://app.notion.com/p/3d38d6e734f481c4a9cfd149277b9443
 faq:
   - q: Is an abandoned cart message marketing or utility on WhatsApp?

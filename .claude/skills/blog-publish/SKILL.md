@@ -31,20 +31,19 @@ Do not work from this page alone.
 yet; do not approve it on their behalf. Approval is the human's gate and the
 whole point of the pipeline.
 
-## Running locally rather than in the sandbox
+## Verify publication
 
-The runbook is written for the cloud sandbox, where `plumcut.com` is blocked, so
-Step 6 defines success as the push landing on `origin`.
-
-**On a local machine that check is weaker than it needs to be.** After confirming
-the push, also poll `https://plumcut.com/blog/<slug>` until it returns 200, for
-up to two minutes. Only then update Notion. If it never comes up, say so and
-leave the row `approved` so the next run retries.
+Follow Step 6 in the publisher runbook in every environment. Run
+`node scripts/verify-blog.js <slug>` after building and pushing. A stale HTTP 200
+or a landed commit is insufficient. If network restrictions prevent verification,
+use the documented deployment API fallback or leave the row approved and report
+`pushed, deployment unverified`.
 
 ## Before you push
 
-Say what you are about to do and wait for the user to confirm, since this puts a
-page on a live public site:
+Report the following before pushing. An explicit request to publish an approved
+row authorizes that publication; do not ask again. If publication has not been
+requested or authorized by the scheduled workflow, ask before pushing:
 
 - The title, the slug, and the URL it will land on
 - Any build warnings, quoted
@@ -64,4 +63,4 @@ the row `approved`.
 - Hand-write HTML. The builder owns the template; if the design is wrong, fix
   `scripts/templates/page.html` or `BLOG_CSS` and rebuild every post.
 - Commit a failing build.
-- Mark a row published when the push did not land.
+- Mark a row published before the deployment is verified.

@@ -13,6 +13,7 @@ heroSource: Flickr
 heroLicense: CC0 1.0
 heroLicenseUrl: https://creativecommons.org/publicdomain/zero/1.0/
 related: [whatsapp-business-api-cost, whatsapp-ai-shopify-lebanon-gulf]
+ctaLine: Bring an Arabic or Arabizi product question to plum and see how it replies. Ask how we would test your brand's own language and handover needs.
 notionUrl: https://app.notion.com/p/3d28d6e734f481fb945cf25b285d898c
 faq:
   - q: Can AI actually understand Gulf and Levantine dialects, or only Modern Standard Arabic?

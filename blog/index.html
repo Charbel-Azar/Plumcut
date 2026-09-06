@@ -97,7 +97,7 @@ Head links
     {
       "@type": "BlogPosting",
       "headline": "What the WhatsApp Business API Really Costs in 2026",
-      "description": "Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.",
+      "description": "Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.",
       "datePublished": "2026-09-06",
       "url": "https://plumcut.com/blog/whatsapp-business-api-cost"
     },
@@ -118,7 +118,7 @@ Head links
     {
       "@type": "BlogPosting",
       "headline": "The Best WhatsApp Automation Tools in 2026, Honestly Compared",
-      "description": "There are four kinds of WhatsApp tool and most comparisons mix them up. Here is what each category is actually for, and where each one stops working.",
+      "description": "Compare WhatsApp platforms and managed services by AI capability, setup responsibility, integration needs and cost, with current vendor sources.",
       "datePublished": "2026-09-06",
       "url": "https://plumcut.com/blog/best-whatsapp-automation-tools"
     },
@@ -198,7 +198,11 @@ Head links
 
     <title>Field notes | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"></noscript>
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
     <style id="critical-loader-style">
   .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
   .site-loader--hidden { opacity: 0; visibility: hidden; }
@@ -1064,6 +1068,10 @@ Head links
         50% { background-position: 100% 50%; }
       }
       .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
       .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
@@ -1082,6 +1090,14 @@ Head links
     </style>
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
         <source src="/images/loader.mp4" type="video/mp4">
@@ -1118,20 +1134,20 @@ Header
           <div class="blog-wide">
 
             <div class="space-y-3 mb-10 md:mb-14">
-              <h1 data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
+              <h1 class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
                 <span class="section-title-text">Field notes</span>
               </h1>
-              <p data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4 max-w-[820px]">
+              <p style="color: #481D52;" class="text-heading-4 max-w-[820px]">
                 How brands actually automate WhatsApp, and what they learn about their customers when they do.
               </p>
-              <p data-ns-animate data-delay="0.3" style="color: #481D52; opacity: 0.7;" class="text-tagline-1 max-w-[720px]">
-                Written by the team building plum. No theory we have not shipped.
+              <p style="color: #481D52; opacity: 0.7;" class="text-tagline-1 max-w-[720px]">
+                Practical guides, sourced comparisons and implementation notes from the team building plum.
               </p>
             </div>
 
-            <div class="blog-grid" data-ns-animate data-delay="0.4">
-      <a class="blog-card" href="/blog/where-is-my-order-whatsapp">
+            <div class="blog-topics">
+      <nav class="blog-topic-nav" aria-label="Browse field notes"><a href="#general">Automation guides</a><a href="#comparison">Comparisons</a><a href="#direct">plum in practice</a></nav><section id="general" class="blog-topic-section" aria-labelledby="general-title"><h2 id="general-title" class="blog-h2">Automation guides</h2><div class="blog-grid"><a class="blog-card" href="/blog/where-is-my-order-whatsapp">
       <div class="blog-card-media">
         <img src="/blog/heroes/sealed-box.jpg" alt="A sealed cardboard box ready to ship" loading="lazy" decoding="async">
       </div>
@@ -1142,29 +1158,18 @@ Header
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>
-      <a class="blog-card" href="/blog/whatsapp-business-api-cost">
+<a class="blog-card" href="/blog/whatsapp-business-api-cost">
       <div class="blog-card-media">
         <img src="https://live.staticflickr.com/664/21713977623_7d69d4e6a8_b.jpg" alt="Hands typing on a laptop keyboard on a desk in low light" loading="lazy" decoding="async">
       </div>
       <div class="blog-card-body">
         <span class="blog-card-tag">Automation guide</span>
         <h3 class="blog-card-title">What the WhatsApp Business API Really Costs in 2026</h3>
-        <p class="blog-card-desc">Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.</p>
+        <p class="blog-card-desc">Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.</p>
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>
-      <a class="blog-card" href="/blog/whatsapp-ai-shopify-lebanon-gulf">
-      <div class="blog-card-media">
-        <img src="https://live.staticflickr.com/65535/47955063506_9ee4337660_b.jpg" alt="A rail of clothes on hangers inside a bright fashion store" loading="lazy" decoding="async">
-      </div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">plum in practice</span>
-        <h3 class="blog-card-title">WhatsApp AI for Shopify Stores in Lebanon and the Gulf</h3>
-        <p class="blog-card-desc">Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.</p>
-        <span class="blog-card-date">6 September 2026</span>
-      </div>
-    </a>
-      <a class="blog-card" href="/blog/whatsapp-abandoned-cart-rules">
+<a class="blog-card" href="/blog/whatsapp-abandoned-cart-rules">
       <div class="blog-card-media">
         <img src="/blog/heroes/clothing-rail-store.jpg" alt="A rail of clothes inside a retail store" loading="lazy" decoding="async">
       </div>
@@ -1175,29 +1180,7 @@ Header
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>
-      <a class="blog-card" href="/blog/best-whatsapp-automation-tools">
-      <div class="blog-card-media">
-        <img src="https://live.staticflickr.com/838/43461365082_2c79e330a3_b.jpg" alt="A person holding a phone in one hand and typing a message with the other" loading="lazy" decoding="async">
-      </div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">Comparison</span>
-        <h3 class="blog-card-title">The Best WhatsApp Automation Tools in 2026, Honestly Compared</h3>
-        <p class="blog-card-desc">There are four kinds of WhatsApp tool and most comparisons mix them up. Here is what each category is actually for, and where each one stops working.</p>
-        <span class="blog-card-date">6 September 2026</span>
-      </div>
-    </a>
-      <a class="blog-card" href="/blog/ai-customer-service-arabic">
-      <div class="blog-card-media">
-        <img src="https://live.staticflickr.com/5800/22679666946_6659a345dc_b.jpg" alt="A hand holding a smartphone above a plain white desk" loading="lazy" decoding="async">
-      </div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">plum in practice</span>
-        <h3 class="blog-card-title">Does AI Customer Service Really Work in Arabic in 2026?</h3>
-        <p class="blog-card-desc">Dialect, Arabizi and code switching break most Arabic automation. What works for Gulf and Levant brands, and why templates are a separate job.</p>
-        <span class="blog-card-date">6 September 2026</span>
-      </div>
-    </a>
-      <a class="blog-card" href="/blog/how-to-automate-whatsapp-for-your-business">
+<a class="blog-card" href="/blog/how-to-automate-whatsapp-for-your-business">
       <div class="blog-card-media">
         <img src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.1.0&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600" alt="A phone showing a messaging app on a desk beside a laptop" loading="lazy" decoding="async">
       </div>
@@ -1207,7 +1190,40 @@ Header
         <p class="blog-card-desc">A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.</p>
         <span class="blog-card-date">5 September 2026</span>
       </div>
+    </a></div></section>
+<section id="comparison" class="blog-topic-section" aria-labelledby="comparison-title"><h2 id="comparison-title" class="blog-h2">Comparisons</h2><div class="blog-grid"><a class="blog-card" href="/blog/best-whatsapp-automation-tools">
+      <div class="blog-card-media">
+        <img src="https://live.staticflickr.com/838/43461365082_2c79e330a3_b.jpg" alt="A person holding a phone in one hand and typing a message with the other" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Comparison</span>
+        <h3 class="blog-card-title">The Best WhatsApp Automation Tools in 2026, Honestly Compared</h3>
+        <p class="blog-card-desc">Compare WhatsApp platforms and managed services by AI capability, setup responsibility, integration needs and cost, with current vendor sources.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a></div></section>
+<section id="direct" class="blog-topic-section" aria-labelledby="direct-title"><h2 id="direct-title" class="blog-h2">plum in practice</h2><div class="blog-grid"><a class="blog-card" href="/blog/whatsapp-ai-shopify-lebanon-gulf">
+      <div class="blog-card-media">
+        <img src="https://live.staticflickr.com/65535/47955063506_9ee4337660_b.jpg" alt="A rail of clothes on hangers inside a bright fashion store" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">plum in practice</span>
+        <h3 class="blog-card-title">WhatsApp AI for Shopify Stores in Lebanon and the Gulf</h3>
+        <p class="blog-card-desc">Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
     </a>
+<a class="blog-card" href="/blog/ai-customer-service-arabic">
+      <div class="blog-card-media">
+        <img src="https://live.staticflickr.com/5800/22679666946_6659a345dc_b.jpg" alt="A hand holding a smartphone above a plain white desk" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">plum in practice</span>
+        <h3 class="blog-card-title">Does AI Customer Service Really Work in Arabic in 2026?</h3>
+        <p class="blog-card-desc">Dialect, Arabizi and code switching break most Arabic automation. What works for Gulf and Levant brands, and why templates are a separate job.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a></div></section>
             </div>
 
           </div>

@@ -4,6 +4,8 @@ slug: how-to-automate-whatsapp-for-your-business
 description: A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.
 type: general
 date: 2026-09-05
+updated: 2026-09-07
+ctaLine: Want help choosing and running the right WhatsApp setup? Ask plum about your message workload, store connections and customer questions.
 keywords: [how to automate WhatsApp, WhatsApp Business API, WhatsApp automation, WhatsApp chatbot, automate customer messages]
 hero: https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=srgb&w=1600
 heroAlt: A phone showing a messaging app on a desk beside a laptop
@@ -12,9 +14,9 @@ heroCreditUrl: https://unsplash.com/@christianw
 related: [whatsapp-business-api-cost, best-whatsapp-automation-tools]
 faq:
   - q: Can I automate WhatsApp for free?
-    a: Partly. The free WhatsApp Business app gives you greetings, away messages and up to 50 quick replies, which covers a shop doing a handful of messages a day. It cannot answer questions, take an order or look anything up. For that you need the WhatsApp Cloud API, which is free to access but charges per conversation.
+    a: Partly. The free WhatsApp Business app offers greetings, away messages and saved replies for a person to use. More integrated automation can use the Cloud API. Meta charges for eligible delivered template messages, with specified free messaging conditions; your software or provider may charge separately.
   - q: Will automating WhatsApp get my number banned?
-    a: Not if you use official tools. Bans come from unofficial automation built on WhatsApp Web scraping, and from messaging people who never opted in. The Cloud API is Meta's sanctioned route, and staying inside it plus real opt-in keeps your number safe.
+    a: Official tools do not guarantee that an account will never be restricted. Your messaging must still follow Meta's policies, including consent and applicable content rules. Check the current WhatsApp Business Messaging Policy before launching outbound campaigns and monitor account quality after launch.
   - q: Does WhatsApp automation work in Arabic?
     a: Yes. The Cloud API is language agnostic, and modern language models handle Arabic, English and the mixed Arabizi that MENA shoppers actually type. What breaks is usually the product catalogue and the policy text behind the bot, not the language itself. plum is built for Arabic and English side by side.
   - q: How long does it take to set up?
@@ -23,7 +25,7 @@ faq:
 
 Most brands do not have a WhatsApp problem. They have a first reply problem. The messages arrive, someone answers them eventually, and by then the customer has bought elsewhere. Automation is how you close that gap, and there are exactly three levels of it worth knowing.
 
-> To automate WhatsApp for your business, pick one of three levels. The free WhatsApp Business app handles greetings, away messages and quick replies, and takes an afternoon to set up. A no code chatbot builder on top of the WhatsApp Cloud API handles menu driven flows like order status and FAQs, and takes a few days. A managed AI layer on the Cloud API answers open questions, sells from your catalogue and books appointments in natural language, and takes two to four weeks. The right level depends on message volume: under roughly 30 a day the free app is enough, and past a few hundred a day you need the API.
+> Start with the tasks you want to automate and who will maintain them. The WhatsApp Business app offers greetings, away messages and saved replies. An API-based platform can add store connections, structured flows and, depending on the product, AI conversations. A managed service adds implementation and ongoing operation. Choose from your workload, required actions and team capacity. There is no universal messages-per-day threshold, and AI selling is not exclusive to managed services.
 
 ## The three levels, and who each one is for
 
@@ -35,17 +37,17 @@ This is the green app you download on a phone. It is free, it takes an afternoon
 - **An away message** for outside working hours
 - **Up to 50 quick replies**, saved answers you fire with a shortcut
 
-That is the whole feature set. There is no logic, no branching, no lookups. A customer asking "do you have this in medium" gets a greeting, then silence until a human reads it.
+Those basic messaging features help a person handle repeated inquiries. They do not, by themselves, retrieve live stock from your store. Check the current [Business app features](https://business.whatsapp.com/products/business-app) for your account and market before deciding what extra integration is needed.
 
-**Use it if** you get fewer than about 30 messages a day and one person can genuinely keep up.
+**Use it if** a person can keep up and you do not yet need automated store lookups or more complex workflows.
 
 ### Level 2: a chatbot builder on the Cloud API
 
-The [WhatsApp Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api) is Meta's official programmatic access to WhatsApp. Access is free. You pay Meta per conversation, and separately for whatever tool you build on top.
+The [WhatsApp Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api) is Meta's official programmatic access to WhatsApp. Meta charges for eligible delivered messages under its current pricing rules, and your provider or software may charge separately.
 
 At this level you get button and menu driven flows. Customer taps "Track my order", the bot asks for an order number, calls your store, returns a status. Real automation, and a large jump from level 1.
 
-The ceiling is that it only knows the paths you drew. Anything off the menu falls through to a human or a dead end, and shoppers do not type in menus. They type "hey is the beige one still available in 38".
+With a rules-only flow, an unexpected question needs another route, often a person. However, some platforms combine flows with AI conversations. [Respond.io documents AI product recommendations and escalation](https://respond.io/ai-agents), for example. Test the actual plan and configuration; a self-serve product is not necessarily limited to menus.
 
 **Use it if** your incoming messages are genuinely repetitive and mostly transactional.
 
@@ -55,11 +57,11 @@ Same official plumbing, different brain. Instead of a decision tree, a language 
 
 This is the level where automation stops being deflection and starts being **selling**. The customer asks a question, gets a real answer, gets shown the product, and checks out without a human touching it.
 
-It is also the only level that produces something worth keeping: a record of what every customer asked, in their words. That is the part most brands underrate.
+A conversation record and useful reporting can exist in either a platform or a custom build. For a managed service, agree what insight you receive, how you can act on it and how you can export your data.
 
 ## What it actually costs
 
-Meta bills per message delivered, not per conversation, a change that took effect on 1 July 2025. Prices vary by country and by template category: marketing costs the most, utility sits in the middle, and service messages inside the 24 hour window are free. As a rough shape:
+Meta moved from conversation pricing to per-message pricing on 1 July 2025. Rates and free messaging conditions depend on category and market. Service replies inside an open 24 hour customer service window are free of Meta messaging charges. Provider or software fees are separate. The planning ranges below are illustrative, not vendor commitments:
 
 | Level | Setup effort | Meta cost | Tooling cost |
 | --- | --- | --- | --- |
@@ -71,23 +73,23 @@ Meta publishes current rates on its [platform pricing page](https://whatsappbusi
 
 ## The five things that break WhatsApp automation
 
-After building these for commerce brands, the same five failures come up:
+These are five practical issues to check before launching a commerce workflow:
 
 1. **No handover.** Every automation needs a clean exit to a human, and the customer needs to know it exists. Without it, one bad answer costs you the sale and the trust.
 2. **A stale catalogue.** The bot confidently sells something you stopped stocking in March. Your automation is only as current as the feed behind it.
 3. **Ignoring Arabic.** In MENA a large share of messages arrive in Arabic or Arabizi. An English only bot fails the customers most likely to buy from you.
-4. **No opt in.** Messaging people who never asked is the fastest route to a blocked number, and it is a policy violation regardless of the tool.
+4. **No opt in.** Review consent and outbound messages against the current [WhatsApp Business Messaging Policy](https://business.whatsapp.com/policy). Using the official API does not remove those obligations.
 5. **Nobody reads the transcripts.** The conversations are the most honest customer research you will ever own, and almost everyone throws them away.
 
 ## Choosing your level in one question
 
-How many messages do you get a day?
+Who will keep the workflow working as your store changes?
 
-- **Under 30:** the free Business app. Do not overbuild.
-- **30 to a few hundred:** a builder on the Cloud API, if your questions are repetitive. A managed AI layer if they are not.
-- **Past a few hundred:** a managed AI layer. At that volume the humans are the bottleneck and the lost sales are real money.
+- **You can keep up manually:** start with the Business app and measure where replies are missed.
+- **Your team wants to configure automation:** evaluate an API platform and its actual integration and AI capabilities.
+- **You want implementation and ongoing operation included:** compare managed services against the cost and time of doing that work internally.
 
-The honest answer for most growing brands is that they need level 3 about six months before they admit it. The tell is simple: if your team is copy pasting the same three answers all day, and messages still sit unanswered overnight, you are already past level 1.
+Message volume matters, but complexity, staffing and missed selling opportunities matter too. Use a week of real workload data to decide what is worth automating rather than treating a fixed volume threshold as a rule.
 
 ## Where to start this week
 

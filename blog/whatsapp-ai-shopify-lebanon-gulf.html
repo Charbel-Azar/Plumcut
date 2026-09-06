@@ -84,8 +84,9 @@ Head links
   "inLanguage": "en",
   "author": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
-    "url": "https://plumcut.com/"
+    "url": "https://plumcut.com/about"
   },
   "publisher": {
     "@type": "Organization",
@@ -143,7 +144,7 @@ Head links
       "name": "Does WhatsApp automation work with Shopify?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Shopify exposes products, inventory, orders and fulfilment through its API, so an automation layer can check real stock, show a real product and return a real order status. The quality of the setup depends far more on how clean your catalogue is than on the integration itself."
+        "text": "\u003cp>Yes. Shopify exposes products, inventory, orders and fulfilment through its API, so an automation layer can check real stock, show a real product and return a real order status. The quality of the setup depends far more on how clean your catalogue is than on the integration itself.\u003c/p>"
       }
     },
     {
@@ -151,7 +152,7 @@ Head links
       "name": "Will it understand Arabic and Arabizi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A modern language model handles Arabic, English and the Latin-script Arabizi that Gulf and Lebanese shoppers actually type, including the number substitutions like 3 for ain and 7 for haa. Keyword and menu based bots do not, because the same word gets spelled six different ways."
+        "text": "\u003cp>A modern language model handles Arabic, English and the Latin-script Arabizi that Gulf and Lebanese shoppers actually type, including the number substitutions like 3 for ain and 7 for haa. Keyword and menu based bots do not, because the same word gets spelled six different ways.\u003c/p>"
       }
     },
     {
@@ -159,7 +160,7 @@ Head links
       "name": "Can it take payment inside the chat?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on your market and payment provider. In much of the region cash on delivery is still dominant, so a good setup confirms the order in chat and hands off to your existing fulfilment rather than forcing a card payment the customer did not want."
+        "text": "\u003cp>It depends on your market and payment provider. In much of the region cash on delivery is still dominant, so a good setup confirms the order in chat and hands off to your existing fulfilment rather than forcing a card payment the customer did not want.\u003c/p>"
       }
     },
     {
@@ -167,7 +168,7 @@ Head links
       "name": "What about customers who want a human?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "They get one. Every setup needs a clean handover to a person, and the customer should be able to trigger it at any time. An automation that traps someone is worse than no automation, because it costs you the sale and the trust at the same time."
+        "text": "\u003cp>They get one. Every setup needs a clean handover to a person, and the customer should be able to trigger it at any time. An automation that traps someone is worse than no automation, because it costs you the sale and the trust at the same time.\u003c/p>"
       }
     },
     {
@@ -175,7 +176,7 @@ Head links
       "name": "How long does setup take for a Shopify store?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two to four weeks in practice. The connection is quick. What takes the time is auditing the catalogue, writing down the policies your team knows but has never documented, getting templates approved, and testing what happens when the AI does not know something."
+        "text": "\u003cp>Two to four weeks in practice. The connection is quick. What takes the time is auditing the catalogue, writing down the policies your team knows but has never documented, getting templates approved, and testing what happens when the AI does not know something.\u003c/p>"
       }
     }
   ]
@@ -220,7 +221,11 @@ Head links
 
     <title>WhatsApp AI for Shopify Stores in Lebanon and the Gulf | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"></noscript>
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
     <style id="critical-loader-style">
   .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
   .site-loader--hidden { opacity: 0; visibility: hidden; }
@@ -1086,6 +1091,10 @@ Head links
         50% { background-position: 100% 50%; }
       }
       .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
       .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
@@ -1102,8 +1111,17 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
+<meta name="plumcut-content-version" content="214e507a80c5002622cacfce7fa06acd43ff99af4f3d41c2dd61b5f096d41c40">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
         <source src="/images/loader.mp4" type="video/mp4">
@@ -1140,16 +1158,19 @@ Header
           <div class="blog-shell">
 
             <div class="space-y-3 mb-8">
-              <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
+              <p class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
                 <a class="section-title-text" href="/blog/">Field notes</a>
               </p>
-              <h1 data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4">
+              <h1 style="color: #481D52;" class="text-heading-4">
                 WhatsApp AI for Shopify Stores in Lebanon and the Gulf
               </h1>
-              <div data-ns-animate data-delay="0.25" class="blog-meta">
+              <div class="blog-meta">
                 <span class="blog-tag">plum in practice</span>
-                <time datetime="2026-09-06">6 September 2026</time>
+                <span>By <a href="/about">plumcut</a></span>
+                <span>Published <time datetime="2026-09-06">6 September 2026</time></span>
+
+
                 <span>5 min read</span>
               </div>
             </div>
@@ -1239,13 +1260,13 @@ Header
           Have a question? Ask plum.<br>See it for yourself
         </h2>
         <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
-          Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you are at it. See how it answers, how it sells, and how it sounds. Then we will build you your own.
+          Want WhatsApp selling connected to your Shopify store? Ask plum about the catalogue, stock and order workflows your brand needs.
         </p>
       </div>
 
       <div class="flex flex-col items-center gap-5 mt-10">
         <a
-          href="https://wa.me/96181864662?text=Hi%20plum!"
+          href="https://wa.me/96181864662?text=Hi%20plum!" data-cta="article-demo" data-article="whatsapp-ai-shopify-lebanon-gulf"
           class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
         >
           <span class="hero-cta-icon flex items-center justify-center rounded-full">
@@ -1254,8 +1275,8 @@ Header
           <span>Chat with plum</span>
         </a>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." data-cta="article-question" data-article="whatsapp-ai-shopify-lebanon-gulf" class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." data-cta="article-meeting" data-article="whatsapp-ai-shopify-lebanon-gulf" class="combined-subpill">book a meeting</a>
         </div>
       </div>
     </div>
@@ -1273,7 +1294,7 @@ Header
       <div class="blog-card-body">
         <span class="blog-card-tag">Comparison</span>
         <h3 class="blog-card-title">The Best WhatsApp Automation Tools in 2026, Honestly Compared</h3>
-        <p class="blog-card-desc">There are four kinds of WhatsApp tool and most comparisons mix them up. Here is what each category is actually for, and where each one stops working.</p>
+        <p class="blog-card-desc">Compare WhatsApp platforms and managed services by AI capability, setup responsibility, integration needs and cost, with current vendor sources.</p>
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>

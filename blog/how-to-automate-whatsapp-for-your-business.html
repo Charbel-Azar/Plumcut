@@ -80,12 +80,13 @@ Head links
   "description": "A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.",
   "image": "https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=srgb&w=1600",
   "datePublished": "2026-09-05",
-  "dateModified": "2026-09-05",
+  "dateModified": "2026-09-07",
   "inLanguage": "en",
   "author": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
-    "url": "https://plumcut.com/"
+    "url": "https://plumcut.com/about"
   },
   "publisher": {
     "@type": "Organization",
@@ -143,7 +144,7 @@ Head links
       "name": "Can I automate WhatsApp for free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Partly. The free WhatsApp Business app gives you greetings, away messages and up to 50 quick replies, which covers a shop doing a handful of messages a day. It cannot answer questions, take an order or look anything up. For that you need the WhatsApp Cloud API, which is free to access but charges per conversation."
+        "text": "\u003cp>Partly. The free WhatsApp Business app offers greetings, away messages and saved replies for a person to use. More integrated automation can use the Cloud API. Meta charges for eligible delivered template messages, with specified free messaging conditions; your software or provider may charge separately.\u003c/p>"
       }
     },
     {
@@ -151,7 +152,7 @@ Head links
       "name": "Will automating WhatsApp get my number banned?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not if you use official tools. Bans come from unofficial automation built on WhatsApp Web scraping, and from messaging people who never opted in. The Cloud API is Meta's sanctioned route, and staying inside it plus real opt-in keeps your number safe."
+        "text": "\u003cp>Official tools do not guarantee that an account will never be restricted. Your messaging must still follow Meta's policies, including consent and applicable content rules. Check the current WhatsApp Business Messaging Policy before launching outbound campaigns and monitor account quality after launch.\u003c/p>"
       }
     },
     {
@@ -159,7 +160,7 @@ Head links
       "name": "Does WhatsApp automation work in Arabic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The Cloud API is language agnostic, and modern language models handle Arabic, English and the mixed Arabizi that MENA shoppers actually type. What breaks is usually the product catalogue and the policy text behind the bot, not the language itself. plum is built for Arabic and English side by side."
+        "text": "\u003cp>Yes. The Cloud API is language agnostic, and modern language models handle Arabic, English and the mixed Arabizi that MENA shoppers actually type. What breaks is usually the product catalogue and the policy text behind the bot, not the language itself. plum is built for Arabic and English side by side.\u003c/p>"
       }
     },
     {
@@ -167,7 +168,7 @@ Head links
       "name": "How long does it take to set up?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The free Business app takes an afternoon. A working Cloud API setup with a real catalogue, order lookups and a tested handover to a human is closer to two to four weeks, most of which is writing down what your team already knows. See how we run that in our build process."
+        "text": "\u003cp>The free Business app takes an afternoon. A working Cloud API setup with a real catalogue, order lookups and a tested handover to a human is closer to two to four weeks, most of which is writing down what your team already knows. See how we run that in our build process.\u003c/p>"
       }
     }
   ]
@@ -212,7 +213,11 @@ Head links
 
     <title>How to Automate WhatsApp for Your Business in 2026 | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"></noscript>
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
     <style id="critical-loader-style">
   .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
   .site-loader--hidden { opacity: 0; visibility: hidden; }
@@ -1078,6 +1083,10 @@ Head links
         50% { background-position: 100% 50%; }
       }
       .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
       .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
@@ -1094,8 +1103,17 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
+<meta name="plumcut-content-version" content="3588413d735160987c176123739fc8b81fc60e7a30a246dbe85fbac8dc571a3a">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
         <source src="/images/loader.mp4" type="video/mp4">
@@ -1132,16 +1150,19 @@ Header
           <div class="blog-shell">
 
             <div class="space-y-3 mb-8">
-              <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
+              <p class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
                 <a class="section-title-text" href="/blog/">Field notes</a>
               </p>
-              <h1 data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4">
+              <h1 style="color: #481D52;" class="text-heading-4">
                 How to Automate WhatsApp for Your Business in 2026
               </h1>
-              <div data-ns-animate data-delay="0.25" class="blog-meta">
+              <div class="blog-meta">
                 <span class="blog-tag">Automation guide</span>
-                <time datetime="2026-09-05">5 September 2026</time>
+                <span>By <a href="/about">plumcut</a></span>
+                <span>Published <time datetime="2026-09-05">5 September 2026</time></span>
+<span>Updated <time datetime="2026-09-07">7 September 2026</time></span>
+
                 <span>5 min read</span>
               </div>
             </div>
@@ -1165,33 +1186,33 @@ Header
 
             <div class="blog-body">
 <p>Most brands do not have a WhatsApp problem. They have a first reply problem. The messages arrive, someone answers them eventually, and by then the customer has bought elsewhere. Automation is how you close that gap, and there are exactly three levels of it worth knowing.</p>
-<blockquote class="blog-quote"><p>To automate WhatsApp for your business, pick one of three levels. The free WhatsApp Business app handles greetings, away messages and quick replies, and takes an afternoon to set up. A no code chatbot builder on top of the WhatsApp Cloud API handles menu driven flows like order status and FAQs, and takes a few days. A managed AI layer on the Cloud API answers open questions, sells from your catalogue and books appointments in natural language, and takes two to four weeks. The right level depends on message volume: under roughly 30 a day the free app is enough, and past a few hundred a day you need the API.</p></blockquote>
+<blockquote class="blog-quote"><p>Start with the tasks you want to automate and who will maintain them. The WhatsApp Business app offers greetings, away messages and saved replies. An API-based platform can add store connections, structured flows and, depending on the product, AI conversations. A managed service adds implementation and ongoing operation. Choose from your workload, required actions and team capacity. There is no universal messages-per-day threshold, and AI selling is not exclusive to managed services.</p></blockquote>
 <h2 id="the-three-levels-and-who-each-one-is-for" class="blog-h2">The three levels, and who each one is for</h2>
 <h3 id="level-1-the-free-whatsapp-business-app" class="blog-h3">Level 1: the free WhatsApp Business app</h3>
 <p>This is the green app you download on a phone. It is free, it takes an afternoon, and it gives you three real things:</p>
 <ul class="blog-list"><li><strong>A greeting message</strong> that fires the first time someone messages you</li><li><strong>An away message</strong> for outside working hours</li><li><strong>Up to 50 quick replies</strong>, saved answers you fire with a shortcut</li></ul>
-<p>That is the whole feature set. There is no logic, no branching, no lookups. A customer asking &quot;do you have this in medium&quot; gets a greeting, then silence until a human reads it.</p>
-<p><strong>Use it if</strong> you get fewer than about 30 messages a day and one person can genuinely keep up.</p>
+<p>Those basic messaging features help a person handle repeated inquiries. They do not, by themselves, retrieve live stock from your store. Check the current <a href="https://business.whatsapp.com/products/business-app" class="blog-link" target="_blank" rel="noopener">Business app features</a> for your account and market before deciding what extra integration is needed.</p>
+<p><strong>Use it if</strong> a person can keep up and you do not yet need automated store lookups or more complex workflows.</p>
 <h3 id="level-2-a-chatbot-builder-on-the-cloud-api" class="blog-h3">Level 2: a chatbot builder on the Cloud API</h3>
-<p>The <a href="https://developers.facebook.com/docs/whatsapp/cloud-api" class="blog-link" target="_blank" rel="noopener nofollow">WhatsApp Cloud API</a> is Meta's official programmatic access to WhatsApp. Access is free. You pay Meta per conversation, and separately for whatever tool you build on top.</p>
+<p>The <a href="https://developers.facebook.com/docs/whatsapp/cloud-api" class="blog-link" target="_blank" rel="noopener">WhatsApp Cloud API</a> is Meta's official programmatic access to WhatsApp. Meta charges for eligible delivered messages under its current pricing rules, and your provider or software may charge separately.</p>
 <p>At this level you get button and menu driven flows. Customer taps &quot;Track my order&quot;, the bot asks for an order number, calls your store, returns a status. Real automation, and a large jump from level 1.</p>
-<p>The ceiling is that it only knows the paths you drew. Anything off the menu falls through to a human or a dead end, and shoppers do not type in menus. They type &quot;hey is the beige one still available in 38&quot;.</p>
+<p>With a rules-only flow, an unexpected question needs another route, often a person. However, some platforms combine flows with AI conversations. <a href="https://respond.io/ai-agents" class="blog-link" target="_blank" rel="noopener">Respond.io documents AI product recommendations and escalation</a>, for example. Test the actual plan and configuration; a self-serve product is not necessarily limited to menus.</p>
 <p><strong>Use it if</strong> your incoming messages are genuinely repetitive and mostly transactional.</p>
 <h3 id="level-3-a-managed-ai-layer-on-the-cloud-api" class="blog-h3">Level 3: a managed AI layer on the Cloud API</h3>
 <p>Same official plumbing, different brain. Instead of a decision tree, a language model reads the message, understands intent, and has real tools behind it: your catalogue, your stock, your order system, your booking calendar.</p>
 <p>This is the level where automation stops being deflection and starts being <strong>selling</strong>. The customer asks a question, gets a real answer, gets shown the product, and checks out without a human touching it.</p>
-<p>It is also the only level that produces something worth keeping: a record of what every customer asked, in their words. That is the part most brands underrate.</p>
+<p>A conversation record and useful reporting can exist in either a platform or a custom build. For a managed service, agree what insight you receive, how you can act on it and how you can export your data.</p>
 <h2 id="what-it-actually-costs" class="blog-h2">What it actually costs</h2>
-<p>Meta bills per message delivered, not per conversation, a change that took effect on 1 July 2025. Prices vary by country and by template category: marketing costs the most, utility sits in the middle, and service messages inside the 24 hour window are free. As a rough shape:</p>
+<p>Meta moved from conversation pricing to per-message pricing on 1 July 2025. Rates and free messaging conditions depend on category and market. Service replies inside an open 24 hour customer service window are free of Meta messaging charges. Provider or software fees are separate. The planning ranges below are illustrative, not vendor commitments:</p>
 <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Level</th><th>Setup effort</th><th>Meta cost</th><th>Tooling cost</th></tr></thead><tbody><tr><td>Business app</td><td>An afternoon</td><td>Free</td><td>Free</td></tr><tr><td>Chatbot builder</td><td>Days</td><td>Per message</td><td>Monthly SaaS fee</td></tr><tr><td>Managed AI layer</td><td>2 to 4 weeks</td><td>Per message</td><td>Setup plus monthly</td></tr></tbody></table></div>
-<p>Meta publishes current rates on its <a href="https://whatsappbusiness.com/products/platform-pricing/" class="blog-link" target="_blank" rel="noopener nofollow">platform pricing page</a>, and they change, so check before you budget. We broke the whole bill down in <a href="/blog/whatsapp-business-api-cost" class="blog-link">what the WhatsApp Business API really costs</a>.</p>
+<p>Meta publishes current rates on its <a href="https://whatsappbusiness.com/products/platform-pricing/" class="blog-link" target="_blank" rel="noopener">platform pricing page</a>, and they change, so check before you budget. We broke the whole bill down in <a href="/blog/whatsapp-business-api-cost" class="blog-link">what the WhatsApp Business API really costs</a>.</p>
 <h2 id="the-five-things-that-break-whatsapp-automation" class="blog-h2">The five things that break WhatsApp automation</h2>
-<p>After building these for commerce brands, the same five failures come up:</p>
-<ol class="blog-list"><li><strong>No handover.</strong> Every automation needs a clean exit to a human, and the customer needs to know it exists. Without it, one bad answer costs you the sale and the trust.</li><li><strong>A stale catalogue.</strong> The bot confidently sells something you stopped stocking in March. Your automation is only as current as the feed behind it.</li><li><strong>Ignoring Arabic.</strong> In MENA a large share of messages arrive in Arabic or Arabizi. An English only bot fails the customers most likely to buy from you.</li><li><strong>No opt in.</strong> Messaging people who never asked is the fastest route to a blocked number, and it is a policy violation regardless of the tool.</li><li><strong>Nobody reads the transcripts.</strong> The conversations are the most honest customer research you will ever own, and almost everyone throws them away.</li></ol>
+<p>These are five practical issues to check before launching a commerce workflow:</p>
+<ol class="blog-list"><li><strong>No handover.</strong> Every automation needs a clean exit to a human, and the customer needs to know it exists. Without it, one bad answer costs you the sale and the trust.</li><li><strong>A stale catalogue.</strong> The bot confidently sells something you stopped stocking in March. Your automation is only as current as the feed behind it.</li><li><strong>Ignoring Arabic.</strong> In MENA a large share of messages arrive in Arabic or Arabizi. An English only bot fails the customers most likely to buy from you.</li><li><strong>No opt in.</strong> Review consent and outbound messages against the current <a href="https://business.whatsapp.com/policy" class="blog-link" target="_blank" rel="noopener">WhatsApp Business Messaging Policy</a>. Using the official API does not remove those obligations.</li><li><strong>Nobody reads the transcripts.</strong> The conversations are the most honest customer research you will ever own, and almost everyone throws them away.</li></ol>
 <h2 id="choosing-your-level-in-one-question" class="blog-h2">Choosing your level in one question</h2>
-<p>How many messages do you get a day?</p>
-<ul class="blog-list"><li><strong>Under 30:</strong> the free Business app. Do not overbuild.</li><li><strong>30 to a few hundred:</strong> a builder on the Cloud API, if your questions are repetitive. A managed AI layer if they are not.</li><li><strong>Past a few hundred:</strong> a managed AI layer. At that volume the humans are the bottleneck and the lost sales are real money.</li></ul>
-<p>The honest answer for most growing brands is that they need level 3 about six months before they admit it. The tell is simple: if your team is copy pasting the same three answers all day, and messages still sit unanswered overnight, you are already past level 1.</p>
+<p>Who will keep the workflow working as your store changes?</p>
+<ul class="blog-list"><li><strong>You can keep up manually:</strong> start with the Business app and measure where replies are missed.</li><li><strong>Your team wants to configure automation:</strong> evaluate an API platform and its actual integration and AI capabilities.</li><li><strong>You want implementation and ongoing operation included:</strong> compare managed services against the cost and time of doing that work internally.</li></ul>
+<p>Message volume matters, but complexity, staffing and missed selling opportunities matter too. Use a week of real workload data to decide what is worth automating rather than treating a fixed volume threshold as a rule.</p>
 <h2 id="where-to-start-this-week" class="blog-h2">Where to start this week</h2>
 <p>Set up the free Business app today, even if you plan to outgrow it. Then spend a week logging every question you get and sorting it into three piles: questions with one right answer, questions that need a lookup, and questions that need a person. That list is the specification for whatever you build next, and it is the same thing we build from when we set up <a href="/solutions" class="blog-link">what plum handles</a> for a brand.</p>
             </div>
@@ -1201,11 +1222,11 @@ Header
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
     <summary>Can I automate WhatsApp for free?</summary>
-    <div class="blog-faq-answer"><p>Partly. The free WhatsApp Business app gives you greetings, away messages and up to 50 quick replies, which covers a shop doing a handful of messages a day. It cannot answer questions, take an order or look anything up. For that you need the WhatsApp Cloud API, which is free to access but charges per conversation.</p></div>
+    <div class="blog-faq-answer"><p>Partly. The free WhatsApp Business app offers greetings, away messages and saved replies for a person to use. More integrated automation can use the Cloud API. Meta charges for eligible delivered template messages, with specified free messaging conditions; your software or provider may charge separately.</p></div>
   </details>
   <details class="blog-faq-item">
     <summary>Will automating WhatsApp get my number banned?</summary>
-    <div class="blog-faq-answer"><p>Not if you use official tools. Bans come from unofficial automation built on WhatsApp Web scraping, and from messaging people who never opted in. The Cloud API is Meta's sanctioned route, and staying inside it plus real opt-in keeps your number safe.</p></div>
+    <div class="blog-faq-answer"><p>Official tools do not guarantee that an account will never be restricted. Your messaging must still follow Meta's policies, including consent and applicable content rules. Check the current WhatsApp Business Messaging Policy before launching outbound campaigns and monitor account quality after launch.</p></div>
   </details>
   <details class="blog-faq-item">
     <summary>Does WhatsApp automation work in Arabic?</summary>
@@ -1230,13 +1251,13 @@ Header
           Have a question? Ask plum.<br>See it for yourself
         </h2>
         <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
-          Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you are at it. See how it answers, how it sells, and how it sounds. Then we will build you your own.
+          Want help choosing and running the right WhatsApp setup? Ask plum about your message workload, store connections and customer questions.
         </p>
       </div>
 
       <div class="flex flex-col items-center gap-5 mt-10">
         <a
-          href="https://wa.me/96181864662?text=Hi%20plum!"
+          href="https://wa.me/96181864662?text=Hi%20plum!" data-cta="article-demo" data-article="how-to-automate-whatsapp-for-your-business"
           class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
         >
           <span class="hero-cta-icon flex items-center justify-center rounded-full">
@@ -1245,8 +1266,8 @@ Header
           <span>Chat with plum</span>
         </a>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." data-cta="article-question" data-article="how-to-automate-whatsapp-for-your-business" class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." data-cta="article-meeting" data-article="how-to-automate-whatsapp-for-your-business" class="combined-subpill">book a meeting</a>
         </div>
       </div>
     </div>
@@ -1264,7 +1285,7 @@ Header
       <div class="blog-card-body">
         <span class="blog-card-tag">Automation guide</span>
         <h3 class="blog-card-title">What the WhatsApp Business API Really Costs in 2026</h3>
-        <p class="blog-card-desc">Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.</p>
+        <p class="blog-card-desc">Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.</p>
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>
@@ -1275,7 +1296,7 @@ Header
       <div class="blog-card-body">
         <span class="blog-card-tag">Comparison</span>
         <h3 class="blog-card-title">The Best WhatsApp Automation Tools in 2026, Honestly Compared</h3>
-        <p class="blog-card-desc">There are four kinds of WhatsApp tool and most comparisons mix them up. Here is what each category is actually for, and where each one stops working.</p>
+        <p class="blog-card-desc">Compare WhatsApp platforms and managed services by AI capability, setup responsibility, integration needs and cost, with current vendor sources.</p>
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>

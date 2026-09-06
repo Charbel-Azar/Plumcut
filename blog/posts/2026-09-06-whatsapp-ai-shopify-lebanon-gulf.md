@@ -13,6 +13,7 @@ heroSource: Flickr
 heroLicense: CC BY 2.0
 heroLicenseUrl: https://creativecommons.org/licenses/by/2.0/
 related: [best-whatsapp-automation-tools, how-to-automate-whatsapp-for-your-business]
+ctaLine: Want WhatsApp selling connected to your Shopify store? Ask plum about the catalogue, stock and order workflows your brand needs.
 faq:
   - q: Does WhatsApp automation work with Shopify?
     a: Yes. Shopify exposes products, inventory, orders and fulfilment through its API, so an automation layer can check real stock, show a real product and return a real order status. The quality of the setup depends far more on how clean your catalogue is than on the integration itself.

@@ -18,7 +18,7 @@ invoked by a human instead of a cron.
 
 ## The procedure lives in the repo, not here
 
-**Read `blog/tasks/writer.md` and follow it.** That file is the single source of
+**Read `blog/tasks/writer.md` and `blog/tasks/editorial.md`.** The writer is the single source of
 truth for how a draft gets written, and the scheduled run reads the same file.
 Do not work from this page alone; it only describes how manual invocation
 differs.
@@ -33,7 +33,8 @@ user gives no number, because a human invoking this by hand usually wants one
 they can read now, not three. The scheduled run defaults to 3; you do not.
 
 **`$2` onward, an optional topic or question.** If the user names a subject,
-skip Step 3's research entirely and write about what they asked. Still check
+skip topic discovery and write about what they asked. Still research factual
+claims and perform the editorial review pass. Still check
 existing rows so you do not duplicate a question the pipeline already covered,
 and still set `Question` to the actual question the post answers and `Source` to
 `manual`.
@@ -54,8 +55,8 @@ that you are exceeding it and why, then proceed.
 Show the user, in the chat, for each post you wrote:
 
 - The title and the slug
-- The **citable answer block** in full. It is the highest-value paragraph in the
-  post and the thing most worth a human's eye before approval.
+- The direct answer, relevant plumcut mention and article-specific CTA
+- The review outcome, checked sources and any unresolved issues
 - Which hero you picked from `blog/heroes/manifest.json` and why that tag matched
 - The Notion row URL
 

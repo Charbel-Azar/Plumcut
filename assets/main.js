@@ -40,7 +40,10 @@
 
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'chat_with_plum_click', {
-        page: (location.pathname.split('/').pop() || 'index.html').replace('.html', '') || 'index'
+        page: (location.pathname.split('/').pop() || 'index.html').replace('.html', '') || 'index',
+        page_path: location.pathname,
+        article_slug: el.dataset.article || (location.pathname.startsWith('/blog/') ? (location.pathname.split('/')[2] || '').replace(/\.html$/, '') : ''),
+        cta: el.dataset.cta || 'site-chat'
       });
     }
     if (typeof window.fbq === 'function') {

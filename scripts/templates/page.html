@@ -17,7 +17,7 @@ Head links
   name="keywords"
   content="{{KEYWORDS}}"
 />
-<meta name="author" content="plumcut" />
+<meta name="author" content="{{AUTHOR}}" />
 <meta
   name="robots"
   content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
@@ -52,7 +52,7 @@ Head links
 <meta property="og:image:alt" content="{{IMAGEALT}}" />
 <meta property="og:site_name" content="plumcut" />
 <meta property="og:locale" content="en_US" />
-<meta property="article:author" content="plumcut" />
+<meta property="article:author" content="{{AUTHOR}}" />
 <meta property="article:publisher" content="plumcut" />
 
 <!-- Twitter -->
@@ -112,7 +112,11 @@ Head links
 
     <title>{{TITLE}}</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"></noscript>
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
     <style id="critical-loader-style">
   .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
   .site-loader--hidden { opacity: 0; visibility: hidden; }
@@ -871,6 +875,14 @@ Head links
 {{PAGECSS}}
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
         <source src="/images/loader.mp4" type="video/mp4">

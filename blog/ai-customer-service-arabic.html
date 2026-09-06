@@ -84,8 +84,9 @@ Head links
   "inLanguage": "en",
   "author": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
-    "url": "https://plumcut.com/"
+    "url": "https://plumcut.com/about"
   },
   "publisher": {
     "@type": "Organization",
@@ -143,7 +144,7 @@ Head links
       "name": "Can AI actually understand Gulf and Levantine dialects, or only Modern Standard Arabic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Modern systems handle dialect far better than they did, but capability varies a lot by vendor and by dialect, and no vendor's marketing page will tell you where its limits are. The only reliable answer comes from testing with your own customers' messages, in dialect and Arabizi, with the typos left in. Twenty real messages will tell you more than any demo."
+        "text": "\u003cp>Modern systems handle dialect far better than they did, but capability varies a lot by vendor and by dialect, and no vendor's marketing page will tell you where its limits are. The only reliable answer comes from testing with your own customers' messages, in dialect and Arabizi, with the typos left in. Twenty real messages will tell you more than any demo.\u003c/p>"
       }
     },
     {
@@ -151,7 +152,7 @@ Head links
       "name": "Do I need separate WhatsApp templates for Arabic and English?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Meta requires you to assign a language code when creating a template and does not translate template strings or variables for you, so each language is a separate template you submit and get approved. You can give templates in different languages the same name, which keeps them organised, but each one goes through review independently and can be approved or rejected on its own."
+        "text": "\u003cp>Yes. Meta requires you to assign a language code when creating a template and does not translate template strings or variables for you, so each language is a separate template you submit and get approved. You can give templates in different languages the same name, which keeps them organised, but each one goes through review independently and can be approved or rejected on its own.\u003c/p>"
       }
     },
     {
@@ -159,7 +160,7 @@ Head links
       "name": "What is Arabizi and does it matter for customer service?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Arabizi is Arabic written in Latin characters, using numerals for sounds with no Latin equivalent, as in \"3andkon\" or \"kifak\". It is extremely common in messaging across the Levant and the Gulf, particularly among younger customers. It matters because systems that only parse Arabic script or English words treat it as noise, which means a real share of your inbound messages get misunderstood."
+        "text": "\u003cp>Arabizi is Arabic written in Latin characters, using numerals for sounds with no Latin equivalent, as in &quot;3andkon&quot; or &quot;kifak&quot;. It is extremely common in messaging across the Levant and the Gulf, particularly among younger customers. It matters because systems that only parse Arabic script or English words treat it as noise, which means a real share of your inbound messages get misunderstood.\u003c/p>"
       }
     },
     {
@@ -167,7 +168,7 @@ Head links
       "name": "Should our automated messages use dialect or Modern Standard Arabic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For templates you send first, plain Modern Standard Arabic is the safer default, because it is understood across every market and does not sound out of place in any of them. Dialect is warmer but localises you, so Levantine phrasing reads as foreign in the Gulf. In live conversation, matching how the customer writes is better than either default."
+        "text": "\u003cp>For templates you send first, plain Modern Standard Arabic is the safer default, because it is understood across every market and does not sound out of place in any of them. Dialect is warmer but localises you, so Levantine phrasing reads as foreign in the Gulf. In live conversation, matching how the customer writes is better than either default.\u003c/p>"
       }
     },
     {
@@ -175,7 +176,7 @@ Head links
       "name": "Does replying in Arabic cost more than replying in English?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Meta's rates depend on the template category and the recipient's country calling code, not on the language of the message. What does change your costs is where your customers are, since a campaign spanning Saudi Arabia, the UAE and Lebanon crosses several rate cards. Replies inside the 24 hour customer service window are a different matter and are not template sends."
+        "text": "\u003cp>No. Meta's rates depend on the template category and the recipient's country calling code, not on the language of the message. What does change your costs is where your customers are, since a campaign spanning Saudi Arabia, the UAE and Lebanon crosses several rate cards. Replies inside the 24 hour customer service window are a different matter and are not template sends.\u003c/p>"
       }
     }
   ]
@@ -220,7 +221,11 @@ Head links
 
     <title>Does AI Customer Service Really Work in Arabic in 2026? | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"></noscript>
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
     <style id="critical-loader-style">
   .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
   .site-loader--hidden { opacity: 0; visibility: hidden; }
@@ -1086,6 +1091,10 @@ Head links
         50% { background-position: 100% 50%; }
       }
       .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
       .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
@@ -1102,8 +1111,17 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
+<meta name="plumcut-content-version" content="1dfbc56a07e70cab275d8e3589b5c6dbbbebe9c313c63681eb61d03f3a1caa4d">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
         <source src="/images/loader.mp4" type="video/mp4">
@@ -1140,16 +1158,19 @@ Header
           <div class="blog-shell">
 
             <div class="space-y-3 mb-8">
-              <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
+              <p class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
                 <a class="section-title-text" href="/blog/">Field notes</a>
               </p>
-              <h1 data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4">
+              <h1 style="color: #481D52;" class="text-heading-4">
                 Does AI Customer Service Really Work in Arabic in 2026?
               </h1>
-              <div data-ns-animate data-delay="0.25" class="blog-meta">
+              <div class="blog-meta">
                 <span class="blog-tag">plum in practice</span>
-                <time datetime="2026-09-06">6 September 2026</time>
+                <span>By <a href="/about">plumcut</a></span>
+                <span>Published <time datetime="2026-09-06">6 September 2026</time></span>
+
+
                 <span>6 min read</span>
               </div>
             </div>
@@ -1200,7 +1221,7 @@ Header
 <p>Meta charges per message delivered on a rate that depends on the template category and the country calling code of the recipient. A single Arabic campaign that spans Saudi Arabia, the UAE and Lebanon is spanning several different rate cards, so budget by market rather than by campaign. We break the pricing model down in <a href="/blog/whatsapp-business-api-cost" class="blog-link">what the WhatsApp Business API really costs</a>.</p>
 <p>And the free part of the channel is language-agnostic. When a customer messages you, a 24 hour customer service window opens, and inside it you can reply without a template at all. That is where dialect handling earns its money, and where a fast, natural Arabic reply converts. Everything outside that window is a template you had to get approved in advance.</p>
 <h2 id="what-to-do-this-week" class="blog-h2">What to do this week</h2>
-<ol class="blog-list"><li>Pull twenty real Arabic customer messages from your own WhatsApp and build the test set described above. Do not clean them up.</li><li>Count how many of your existing templates exist in Arabic. If the answer is none, that is your first project, not your Arabic chatbot.</li><li>Have a native speaker from your main market read your Arabic templates out loud. Anything that makes them pause is costing you.</li><li>Check Meta's <a href="https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/supported-languages/" class="blog-link" target="_blank" rel="noopener nofollow">supported template languages</a> and <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview" class="blog-link" target="_blank" rel="noopener nofollow">template fundamentals</a> before you plan a multi-market rollout.</li></ol>
+<ol class="blog-list"><li>Pull twenty real Arabic customer messages from your own WhatsApp and build the test set described above. Do not clean them up.</li><li>Count how many of your existing templates exist in Arabic. If the answer is none, that is your first project, not your Arabic chatbot.</li><li>Have a native speaker from your main market read your Arabic templates out loud. Anything that makes them pause is costing you.</li><li>Check Meta's <a href="https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/supported-languages/" class="blog-link" target="_blank" rel="noopener">supported template languages</a> and <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview" class="blog-link" target="_blank" rel="noopener">template fundamentals</a> before you plan a multi-market rollout.</li></ol>
 <p>Arabic support is not a feature you switch on. It is a test set, a second template library, and a decision about register. <a href="/solutions" class="blog-link">plum</a> is the AI that sells on WhatsApp, and it works in Arabic and English natively because MENA brands are who it was built for. If you want to see the setup end to end, read <a href="/how-it-works" class="blog-link">how it works</a>, or start with our guide to <a href="/blog/whatsapp-ai-shopify-lebanon-gulf" class="blog-link">WhatsApp AI for Shopify stores in Lebanon and the Gulf</a>.</p>
             </div>
 
@@ -1242,13 +1263,13 @@ Header
           Have a question? Ask plum.<br>See it for yourself
         </h2>
         <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
-          Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you are at it. See how it answers, how it sells, and how it sounds. Then we will build you your own.
+          Bring an Arabic or Arabizi product question to plum and see how it replies. Ask how we would test your brand's own language and handover needs.
         </p>
       </div>
 
       <div class="flex flex-col items-center gap-5 mt-10">
         <a
-          href="https://wa.me/96181864662?text=Hi%20plum!"
+          href="https://wa.me/96181864662?text=Hi%20plum!" data-cta="article-demo" data-article="ai-customer-service-arabic"
           class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
         >
           <span class="hero-cta-icon flex items-center justify-center rounded-full">
@@ -1257,8 +1278,8 @@ Header
           <span>Chat with plum</span>
         </a>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." data-cta="article-question" data-article="ai-customer-service-arabic" class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." data-cta="article-meeting" data-article="ai-customer-service-arabic" class="combined-subpill">book a meeting</a>
         </div>
       </div>
     </div>
@@ -1276,7 +1297,7 @@ Header
       <div class="blog-card-body">
         <span class="blog-card-tag">Automation guide</span>
         <h3 class="blog-card-title">What the WhatsApp Business API Really Costs in 2026</h3>
-        <p class="blog-card-desc">Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.</p>
+        <p class="blog-card-desc">Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.</p>
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>

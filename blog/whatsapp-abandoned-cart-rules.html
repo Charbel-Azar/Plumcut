@@ -84,8 +84,9 @@ Head links
   "inLanguage": "en",
   "author": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
-    "url": "https://plumcut.com/"
+    "url": "https://plumcut.com/about"
   },
   "publisher": {
     "@type": "Organization",
@@ -143,7 +144,7 @@ Head links
       "name": "Is an abandoned cart message marketing or utility on WhatsApp?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Marketing. Meta's template categorization documentation lists cart abandonment reminders under Marketing examples, alongside promotions and retargeting. Utility is for following up on a user action, such as an order or delivery update. Filing a cart reminder as utility is a misclassification, not a cost saving, and category is reviewed rather than taken on trust."
+        "text": "\u003cp>Marketing. Meta's template categorization documentation lists cart abandonment reminders under Marketing examples, alongside promotions and retargeting. Utility is for following up on a user action, such as an order or delivery update. Filing a cart reminder as utility is a misclassification, not a cost saving, and category is reviewed rather than taken on trust.\u003c/p>"
       }
     },
     {
@@ -151,7 +152,7 @@ Head links
       "name": "Do I need opt in to send a cart reminder?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Meta requires opt in before you message anyone on WhatsApp. It does not have to be WhatsApp specific, a general marketing consent is acceptable where local law allows, but it must clearly name your business so the person knows who they agreed to hear from. Having their number from a past order is not opt in."
+        "text": "\u003cp>Yes. Meta requires opt in before you message anyone on WhatsApp. It does not have to be WhatsApp specific, a general marketing consent is acceptable where local law allows, but it must clearly name your business so the person knows who they agreed to hear from. Having their number from a past order is not opt in.\u003c/p>"
       }
     },
     {
@@ -159,7 +160,7 @@ Head links
       "name": "Can I use the same opt in for order updates and marketing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, and this is the most common mistake. They are separate permissions. Someone consenting to delivery updates has not consented to promotional messages, and treating one as the other is what generates blocks and reports. Use two checkboxes at checkout."
+        "text": "\u003cp>No, and this is the most common mistake. They are separate permissions. Someone consenting to delivery updates has not consented to promotional messages, and treating one as the other is what generates blocks and reports. Use two checkboxes at checkout.\u003c/p>"
       }
     },
     {
@@ -167,7 +168,7 @@ Head links
       "name": "How many reminders can I send?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Meta does not publish a number, but the practical answer is one. Repeatedly messaging someone who has not replied is what gets you blocked, and blocks lower your quality rating, which in turn limits how many messages you are allowed to send at all. The cost of over sending is not the message fee, it is your capacity."
+        "text": "\u003cp>Meta does not publish a number, but the practical answer is one. Repeatedly messaging someone who has not replied is what gets you blocked, and blocks lower your quality rating, which in turn limits how many messages you are allowed to send at all. The cost of over sending is not the message fee, it is your capacity.\u003c/p>"
       }
     },
     {
@@ -175,7 +176,7 @@ Head links
       "name": "Is there a cheaper way to recover carts on WhatsApp?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, and it is not misclassifying templates. Replies inside the 24 hour customer service window are free, and a customer arriving from a click to WhatsApp ad opens a 72 hour free window. Conversations you are invited into cost nothing; conversations you start cost the marketing rate. Design for the first."
+        "text": "\u003cp>Yes, and it is not misclassifying templates. Replies inside the 24 hour customer service window are free, and a customer arriving from a click to WhatsApp ad opens a 72 hour free window. Conversations you are invited into cost nothing; conversations you start cost the marketing rate. Design for the first.\u003c/p>"
       }
     },
     {
@@ -183,7 +184,7 @@ Head links
       "name": "Does a discount have to be in the message?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, and adding one does not change the category. A reminder is marketing either way, because the objective is commercial. Whether a discount improves recovery is a margin question for your business, not a compliance or pricing one."
+        "text": "\u003cp>No, and adding one does not change the category. A reminder is marketing either way, because the objective is commercial. Whether a discount improves recovery is a margin question for your business, not a compliance or pricing one.\u003c/p>"
       }
     }
   ]
@@ -228,7 +229,11 @@ Head links
 
     <title>Can You Send Abandoned Cart Messages on WhatsApp? | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"></noscript>
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
     <style id="critical-loader-style">
   .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
   .site-loader--hidden { opacity: 0; visibility: hidden; }
@@ -1094,6 +1099,10 @@ Head links
         50% { background-position: 100% 50%; }
       }
       .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
       .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
@@ -1110,8 +1119,17 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
+<meta name="plumcut-content-version" content="80e7e72a02e87143c050ca319a2b14a5c175279f008dc0005e63dcbbb9e7fd85">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
         <source src="/images/loader.mp4" type="video/mp4">
@@ -1148,16 +1166,19 @@ Header
           <div class="blog-shell">
 
             <div class="space-y-3 mb-8">
-              <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
+              <p class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
                 <a class="section-title-text" href="/blog/">Field notes</a>
               </p>
-              <h1 data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4">
+              <h1 style="color: #481D52;" class="text-heading-4">
                 Can You Send Abandoned Cart Messages on WhatsApp?
               </h1>
-              <div data-ns-animate data-delay="0.25" class="blog-meta">
+              <div class="blog-meta">
                 <span class="blog-tag">Automation guide</span>
-                <time datetime="2026-09-06">6 September 2026</time>
+                <span>By <a href="/about">plumcut</a></span>
+                <span>Published <time datetime="2026-09-06">6 September 2026</time></span>
+
+
                 <span>5 min read</span>
               </div>
             </div>
@@ -1190,7 +1211,7 @@ Header
 <p>What is not opt in: having the number from a past order, a pre-ticked box, scraping, or a list someone sold you. Every one of those is how numbers get reported and blocked.</p>
 <h3 id="2-a-cart-reminder-is-a-marketing-template" class="blog-h3">2. A cart reminder is a marketing template</h3>
 <p>This is where most of the internet gets it wrong, including several guides published this year.</p>
-<p>Meta's own <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-categorization" class="blog-link" target="_blank" rel="noopener nofollow">template categorization documentation</a> lists the categories like this:</p>
+<p>Meta's own <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-categorization" class="blog-link" target="_blank" rel="noopener">template categorization documentation</a> lists the categories like this:</p>
 <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Category</th><th>What it covers</th><th>Meta's own examples</th></tr></thead><tbody><tr><td><strong>Marketing</strong></td><td>Awareness, sales, retargeting</td><td>New product announcements, targeted promotions and offers, <strong>cart abandonment reminders</strong></td></tr><tr><td><strong>Utility</strong></td><td>Following up on a user action or request</td><td>Opt in confirmation, order and delivery updates, payment reminders, feedback surveys</td></tr><tr><td><strong>Authentication</strong></td><td>Verifying identity</td><td>One time passcodes, login verification</td></tr></tbody></table></div>
 <p>Cart abandonment is named explicitly under Marketing. Not implied, listed.</p>
 <p>So when a guide tells you to send the first reminder without a discount so it stays Utility and costs less, it is advising you to misclassify a template. That is not a clever optimisation. It is a category dispute waiting to happen, and template categorisation is reviewed rather than taken on trust.</p>
@@ -1254,13 +1275,13 @@ Header
           Have a question? Ask plum.<br>See it for yourself
         </h2>
         <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
-          Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you are at it. See how it answers, how it sells, and how it sounds. Then we will build you your own.
+          Planning a WhatsApp cart-recovery workflow? Ask plum how your store data, approved templates and customer replies can work together.
         </p>
       </div>
 
       <div class="flex flex-col items-center gap-5 mt-10">
         <a
-          href="https://wa.me/96181864662?text=Hi%20plum!"
+          href="https://wa.me/96181864662?text=Hi%20plum!" data-cta="article-demo" data-article="whatsapp-abandoned-cart-rules"
           class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
         >
           <span class="hero-cta-icon flex items-center justify-center rounded-full">
@@ -1269,8 +1290,8 @@ Header
           <span>Chat with plum</span>
         </a>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." data-cta="article-question" data-article="whatsapp-abandoned-cart-rules" class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." data-cta="article-meeting" data-article="whatsapp-abandoned-cart-rules" class="combined-subpill">book a meeting</a>
         </div>
       </div>
     </div>
@@ -1288,7 +1309,18 @@ Header
       <div class="blog-card-body">
         <span class="blog-card-tag">Automation guide</span>
         <h3 class="blog-card-title">What the WhatsApp Business API Really Costs in 2026</h3>
-        <p class="blog-card-desc">Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.</p>
+        <p class="blog-card-desc">Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a>
+    <a class="blog-card" href="/blog/whatsapp-ai-shopify-lebanon-gulf">
+      <div class="blog-card-media">
+        <img src="https://live.staticflickr.com/65535/47955063506_9ee4337660_b.jpg" alt="A rail of clothes on hangers inside a bright fashion store" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">plum in practice</span>
+        <h3 class="blog-card-title">WhatsApp AI for Shopify Stores in Lebanon and the Gulf</h3>
+        <p class="blog-card-desc">Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.</p>
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>
@@ -1301,17 +1333,6 @@ Header
         <h3 class="blog-card-title">How to Automate WhatsApp for Your Business in 2026</h3>
         <p class="blog-card-desc">A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.</p>
         <span class="blog-card-date">5 September 2026</span>
-      </div>
-    </a>
-    <a class="blog-card" href="/blog/where-is-my-order-whatsapp">
-      <div class="blog-card-media">
-        <img src="/blog/heroes/sealed-box.jpg" alt="A sealed cardboard box ready to ship" loading="lazy" decoding="async">
-      </div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">Automation guide</span>
-        <h3 class="blog-card-title">Can AI Answer Where Is My Order on WhatsApp in 2026?</h3>
-        <p class="blog-card-desc">The most common message in commerce is a tracking question. What it takes to answer it automatically on WhatsApp, what it costs, and where it breaks.</p>
-        <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>
   </div>

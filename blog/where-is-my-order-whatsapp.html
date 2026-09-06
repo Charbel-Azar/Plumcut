@@ -84,8 +84,9 @@ Head links
   "inLanguage": "en",
   "author": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
-    "url": "https://plumcut.com/"
+    "url": "https://plumcut.com/about"
   },
   "publisher": {
     "@type": "Organization",
@@ -143,7 +144,7 @@ Head links
       "name": "Does answering \"where is my order\" on WhatsApp cost anything?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, not when you are replying. A customer message opens a 24 hour customer service window, and Meta does not charge for service messages sent inside it. What costs money is messaging first, for example a dispatch notification sent when no window is open, which is billed as a utility template at the rate for that customer's country."
+        "text": "\u003cp>No, not when you are replying. A customer message opens a 24 hour customer service window, and Meta does not charge for service messages sent inside it. What costs money is messaging first, for example a dispatch notification sent when no window is open, which is billed as a utility template at the rate for that customer's country.\u003c/p>"
       }
     },
     {
@@ -151,7 +152,7 @@ Head links
       "name": "Can I send tracking updates before the customer asks?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, with an approved utility template and the customer's opt in. Sent outside an open customer service window it is charged at the utility rate. Sent inside one it has been free since 1 July 2025. Most brands find that one dispatch notification per order pays for itself by removing the question entirely."
+        "text": "\u003cp>Yes, with an approved utility template and the customer's opt in. Sent outside an open customer service window it is charged at the utility rate. Sent inside one it has been free since 1 July 2025. Most brands find that one dispatch notification per order pays for itself by removing the question entirely.\u003c/p>"
       }
     },
     {
@@ -159,7 +160,7 @@ Head links
       "name": "What happens when one order ships in two boxes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A Shopify fulfilment carries a single tracking number, so a split shipment is two fulfilments and two events, while your customer is still thinking about one order. Decide the wording in advance. Say which items have shipped and which are still coming, because a plain \"your order is on its way\" gets discovered at the door."
+        "text": "\u003cp>A Shopify fulfilment carries a single tracking number, so a split shipment is two fulfilments and two events, while your customer is still thinking about one order. Decide the wording in advance. Say which items have shipped and which are still coming, because a plain &quot;your order is on its way&quot; gets discovered at the door.\u003c/p>"
       }
     },
     {
@@ -167,7 +168,7 @@ Head links
       "name": "Do I need the WhatsApp Business API to automate order status?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For reactive answers to customers who message you, not necessarily. For proactive updates you send first, yes. The free WhatsApp Business app cannot send a template to a customer outside the 24 hour window and cannot read your store data, so anything that fires automatically on a fulfilment event needs the WhatsApp Business Platform."
+        "text": "\u003cp>For reactive answers to customers who message you, not necessarily. For proactive updates you send first, yes. The free WhatsApp Business app cannot send a template to a customer outside the 24 hour window and cannot read your store data, so anything that fires automatically on a fulfilment event needs the WhatsApp Business Platform.\u003c/p>"
       }
     },
     {
@@ -175,7 +176,7 @@ Head links
       "name": "How quickly does an order status reply need to arrive?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Fast enough to land while the customer is still in the app, which in practice means seconds rather than minutes. Speed is also what keeps the reply free, since it happens inside the customer service window the customer just opened. A reply that arrives the next morning costs you the same as no reply."
+        "text": "\u003cp>Fast enough to land while the customer is still in the app, which in practice means seconds rather than minutes. Speed is also what keeps the reply free, since it happens inside the customer service window the customer just opened. A reply that arrives the next morning costs you the same as no reply.\u003c/p>"
       }
     }
   ]
@@ -220,7 +221,11 @@ Head links
 
     <title>Can AI Answer Where Is My Order on WhatsApp in 2026? | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"></noscript>
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
     <style id="critical-loader-style">
   .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
   .site-loader--hidden { opacity: 0; visibility: hidden; }
@@ -1086,6 +1091,10 @@ Head links
         50% { background-position: 100% 50%; }
       }
       .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
       .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
       .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
       .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
@@ -1102,8 +1111,17 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
+<meta name="plumcut-content-version" content="399b940c51b9e79fd51964974701db37e5316822abd14a7d14110d5140f461db">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
         <source src="/images/loader.mp4" type="video/mp4">
@@ -1140,16 +1158,19 @@ Header
           <div class="blog-shell">
 
             <div class="space-y-3 mb-8">
-              <p data-ns-animate data-delay="0.1" class="section-title-label sm:justify-start justify-center">
+              <p class="section-title-label sm:justify-start justify-center">
                 <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
                 <a class="section-title-text" href="/blog/">Field notes</a>
               </p>
-              <h1 data-ns-animate data-delay="0.2" style="color: #481D52;" class="text-heading-4">
+              <h1 style="color: #481D52;" class="text-heading-4">
                 Can AI Answer Where Is My Order on WhatsApp in 2026?
               </h1>
-              <div data-ns-animate data-delay="0.25" class="blog-meta">
+              <div class="blog-meta">
                 <span class="blog-tag">Automation guide</span>
-                <time datetime="2026-09-06">6 September 2026</time>
+                <span>By <a href="/about">plumcut</a></span>
+                <span>Published <time datetime="2026-09-06">6 September 2026</time></span>
+
+
                 <span>7 min read</span>
               </div>
             </div>
@@ -1188,7 +1209,7 @@ Header
 <p>Meta bills per message delivered, not per conversation, since 1 July 2025. Two rules matter more than the rate card:</p>
 <ul class="blog-list"><li><strong>Service messages are free.</strong> When a customer messages you, a 24 hour customer service window opens. Replies inside that window are not templates and Meta does not charge for them. A customer asking &quot;where is my order&quot; has just opened that window themselves.</li><li><strong>Utility templates sent inside an open customer service window are free too</strong>, as of 1 July 2025. Sent outside a window, they are charged at the utility rate for the recipient's country.</li></ul>
 <p>So a reactive answer costs nothing. A proactive shipping notification, the one you send at three in the afternoon when the courier scans the parcel, costs the utility rate, because no window is open. That is still usually the better trade, since the notification you send prevents the question you would otherwise answer, but price it deliberately rather than by accident.</p>
-<p>Rates move, and they move regionally. Meta's 1 August 2026 pricing update raised utility and authentication rates in several markets including Kuwait, Morocco and Oman, and a further update to service and utility pricing is scheduled for 1 October 2026. Check the <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" class="blog-link" target="_blank" rel="noopener nofollow">current rate card</a> for your markets before you model anything, and read our breakdown of <a href="/blog/whatsapp-business-api-cost" class="blog-link">what the WhatsApp Business API really costs</a> for the four line items nobody warns you about.</p>
+<p>Rates move, and they move regionally. Meta's 1 August 2026 pricing update raised utility and authentication rates in several markets including Kuwait, Morocco and Oman, and a further update to service and utility pricing is scheduled for 1 October 2026. Check the <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" class="blog-link" target="_blank" rel="noopener">current rate card</a> for your markets before you model anything, and read our breakdown of <a href="/blog/whatsapp-business-api-cost" class="blog-link">what the WhatsApp Business API really costs</a> for the four line items nobody warns you about.</p>
 <h3 id="a-rough-shape-of-the-trade" class="blog-h3">A rough shape of the trade</h3>
 <p>For a store shipping 600 orders a month, the arithmetic below is an illustration of the structure of the cost, not a benchmark. Put your own volumes and your own market rate into it.</p>
 <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Approach</th><th>Messages Meta bills</th><th>What the customer experiences</th></tr></thead><tbody><tr><td>Answer only when asked</td><td>Zero, all replies fall inside the window</td><td>Fast answers, but every customer still has to ask</td></tr><tr><td>Notify on dispatch, then answer</td><td>One utility template per order</td><td>Most people never ask, the rest get a free reply</td></tr><tr><td>Notify on dispatch, out for delivery, and delivered</td><td>Up to three utility templates per order</td><td>Fewer questions again, and a real risk of feeling like spam</td></tr></tbody></table></div>
@@ -1241,13 +1262,13 @@ Header
           Have a question? Ask plum.<br>See it for yourself
         </h2>
         <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
-          Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you are at it. See how it answers, how it sells, and how it sounds. Then we will build you your own.
+          Spending too much time answering delivery questions? Ask plum how a managed WhatsApp workflow can connect customers to the right order information.
         </p>
       </div>
 
       <div class="flex flex-col items-center gap-5 mt-10">
         <a
-          href="https://wa.me/96181864662?text=Hi%20plum!"
+          href="https://wa.me/96181864662?text=Hi%20plum!" data-cta="article-demo" data-article="where-is-my-order-whatsapp"
           class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
         >
           <span class="hero-cta-icon flex items-center justify-center rounded-full">
@@ -1256,8 +1277,8 @@ Header
           <span>Chat with plum</span>
         </a>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." class="combined-subpill">ask a question</a>
-          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." class="combined-subpill">book a meeting</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." data-cta="article-question" data-article="where-is-my-order-whatsapp" class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." data-cta="article-meeting" data-article="where-is-my-order-whatsapp" class="combined-subpill">book a meeting</a>
         </div>
       </div>
     </div>
@@ -1268,17 +1289,6 @@ Header
 <section class="blog-related" aria-labelledby="blog-related-title">
   <h2 id="blog-related-title" class="blog-h2">Keep reading</h2>
   <div class="blog-related-grid">
-    <a class="blog-card" href="/blog/whatsapp-business-api-cost">
-      <div class="blog-card-media">
-        <img src="https://live.staticflickr.com/664/21713977623_7d69d4e6a8_b.jpg" alt="Hands typing on a laptop keyboard on a desk in low light" loading="lazy" decoding="async">
-      </div>
-      <div class="blog-card-body">
-        <span class="blog-card-tag">Automation guide</span>
-        <h3 class="blog-card-title">What the WhatsApp Business API Really Costs in 2026</h3>
-        <p class="blog-card-desc">Meta bills per message now, not per conversation. Here is what you actually pay for, what is free, and the four line items nobody warns you about.</p>
-        <span class="blog-card-date">6 September 2026</span>
-      </div>
-    </a>
     <a class="blog-card" href="/blog/whatsapp-ai-shopify-lebanon-gulf">
       <div class="blog-card-media">
         <img src="https://live.staticflickr.com/65535/47955063506_9ee4337660_b.jpg" alt="A rail of clothes on hangers inside a bright fashion store" loading="lazy" decoding="async">
@@ -1290,15 +1300,26 @@ Header
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>
-    <a class="blog-card" href="/blog/whatsapp-abandoned-cart-rules">
+    <a class="blog-card" href="/blog/whatsapp-business-api-cost">
       <div class="blog-card-media">
-        <img src="/blog/heroes/clothing-rail-store.jpg" alt="A rail of clothes inside a retail store" loading="lazy" decoding="async">
+        <img src="https://live.staticflickr.com/664/21713977623_7d69d4e6a8_b.jpg" alt="Hands typing on a laptop keyboard on a desk in low light" loading="lazy" decoding="async">
       </div>
       <div class="blog-card-body">
         <span class="blog-card-tag">Automation guide</span>
-        <h3 class="blog-card-title">Can You Send Abandoned Cart Messages on WhatsApp?</h3>
-        <p class="blog-card-desc">Yes, with opt in and an approved marketing template. Meta lists cart reminders as marketing, so the advice to file them as utility is wrong and costly.</p>
+        <h3 class="blog-card-title">What the WhatsApp Business API Really Costs in 2026</h3>
+        <p class="blog-card-desc">Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.</p>
         <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a>
+    <a class="blog-card" href="/blog/how-to-automate-whatsapp-for-your-business">
+      <div class="blog-card-media">
+        <img src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.1.0&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600" alt="A phone showing a messaging app on a desk beside a laptop" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Automation guide</span>
+        <h3 class="blog-card-title">How to Automate WhatsApp for Your Business in 2026</h3>
+        <p class="blog-card-desc">A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.</p>
+        <span class="blog-card-date">5 September 2026</span>
       </div>
     </a>
   </div>
