@@ -124,9 +124,15 @@ add a Blog item to `.pc-nav`.
 
 ### The publishing pipeline
 
+**The runbooks live in this repo**, at `blog/tasks/writer.md` and
+`blog/tasks/publisher.md`. Each scheduled cloud routine is a three-line pointer
+that reads its file and follows it, so changing a runbook changes what the next
+run does. No API call, no routine edit. Fix a bug in a commit.
+
 Content lives in Notion, under **plumcut - HQ / Brand & Identity / Branding /
-cowork - Blog**, in the `Blog` database. That page is the operating manual for
-both scheduled runs; read it before touching this pipeline.
+cowork - Blog**, in the `Blog` database. That page holds the editorial
+standards: archetypes, voice, what a good post looks like. The runbooks hold the
+procedure. Both scheduled runs read both.
 
 ```
 writer run (every 2 days)      research a question, write it, Status = drafted
