@@ -1,10 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "**",
-      "use": "@vercel/static"
-    }
-  ],
+  "buildCommand": "node scripts/build-blog.js",
+  "outputDirectory": ".",
   "cleanUrls": true
 }
