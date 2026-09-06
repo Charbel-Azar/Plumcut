@@ -1,2 +1,15 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Generated output and the tooling that writes it use LF in the working tree
+# too. The builder writes LF on any platform, so without this every local build
+# marks these files modified on Windows and `git status` stops being a useful
+# check that the committed output matches its sources.
+blog/*.html   text eol=lf
+blog/rss.xml  text eol=lf
+sitemap.xml   text eol=lf
+llms.txt      text eol=lf
+scripts/*.js  text eol=lf
+scripts/templates/*.html text eol=lf
+blog/posts/*.md text eol=lf
+blog/tasks/*.md text eol=lf

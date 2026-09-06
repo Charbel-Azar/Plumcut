@@ -748,6 +748,12 @@ function renderHub(all, tpl) {
   });
 }
 
+/**
+ * The feed is byte-for-byte deterministic on purpose: lastBuildDate tracks the
+ * newest post rather than the clock. Using Date.now() here dirtied rss.xml on
+ * every build even when no content changed, which made a clean `git status`
+ * useless as a check that the committed HTML matches its sources.
+ */
 function renderRss(all) {
   const items = all
     .slice(0, 30)
@@ -770,7 +776,9 @@ function renderRss(all) {
     <atom:link href="${SITE}/blog/rss.xml" rel="self" type="application/rss+xml" />
     <description>Practical guides on WhatsApp automation, AI that sells, and customer insight you own.</description>
     <language>en</language>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <lastBuildDate>${
+      all.length ? new Date(all[0].date + 'T09:00:00Z').toUTCString() : new Date(0).toUTCString()
+    }</lastBuildDate>
 ${items}
   </channel>
 </rss>
