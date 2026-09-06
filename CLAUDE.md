@@ -124,6 +124,11 @@ add a Blog item to `.pc-nav`.
 
 ### The publishing pipeline
 
+Run either job by hand with the project skills: **`/blog-draft [count] [topic]`**
+writes drafts into Notion, **`/blog-publish [slug]`** ships an approved one. Both
+are thin wrappers that read the same runbooks the scheduled routines read, so
+manual and scheduled runs can never drift apart.
+
 **The runbooks live in this repo**, at `blog/tasks/writer.md` and
 `blog/tasks/publisher.md`. Each scheduled cloud routine is a three-line pointer
 that reads its file and follows it, so changing a runbook changes what the next
