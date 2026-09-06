@@ -1,0 +1,167 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>plumcut hero library</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; margin: 2rem; background: #faf6fb; color: #481D52; }
+  h1 { font-size: 1.4rem; margin: 0 0 .3rem; }
+  p.lede { opacity: .7; margin: 0 0 2rem; max-width: 60ch; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+  figure { margin: 0; background: #fff; border: 1px solid rgba(72,29,82,.14); border-radius: 14px; overflow: hidden; }
+  /* same crop the hero uses: object-fit cover in a wide band */
+  .crop { height: 190px; background: #f2ecf4; }
+  .crop img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  figcaption { padding: .8rem 1rem 1rem; display: flex; flex-direction: column; gap: .3rem; }
+  code { font-size: .78rem; color: #E65E04; }
+  .alt { font-size: .9rem; }
+  .tags { font-size: .75rem; opacity: .6; }
+  .cred { font-size: .72rem; opacity: .5; }
+</style>
+<h1>plumcut hero library</h1>
+<p class="lede">Every image cropped exactly the way a blog hero renders, so this is what actually ships.
+Delete anything that does not look right, then remove its entry from <code>manifest.json</code>.</p>
+<div class="grid">
+  <figure>
+    <div class="crop"><img src="hands-keyboard-close.jpg" alt="Close view of hands typing on a keyboard"></div>
+    <figcaption>
+      <code>/blog/heroes/hands-keyboard-close.jpg</code>
+      <span class="alt">Close view of hands typing on a keyboard</span>
+      <span class="tags">writing · work · setup · getting started</span>
+      <span class="cred">Unknown / Rawpixel / CC0 1.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="hands-keyboard-desk.jpg" alt="Hands typing on a keyboard at a desk"></div>
+    <figcaption>
+      <code>/blog/heroes/hands-keyboard-desk.jpg</code>
+      <span class="alt">Hands typing on a keyboard at a desk</span>
+      <span class="tags">work · admin · templates · setup</span>
+      <span class="cred">Unknown / Rawpixel / CC0 1.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="hands-keyboard-overhead.jpg" alt="Overhead view of hands typing on a laptop"></div>
+    <figcaption>
+      <code>/blog/heroes/hands-keyboard-overhead.jpg</code>
+      <span class="alt">Overhead view of hands typing on a laptop</span>
+      <span class="tags">work · planning · research</span>
+      <span class="cred">Unknown / Rawpixel / CC0 1.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="hand-keyboard-single.jpg" alt="One hand resting on a keyboard"></div>
+    <figcaption>
+      <code>/blog/heroes/hand-keyboard-single.jpg</code>
+      <span class="alt">One hand resting on a keyboard</span>
+      <span class="tags">work · waiting · slow reply</span>
+      <span class="cred">Unknown / Rawpixel / CC0 1.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="workspace-desk-overhead.jpg" alt="An overhead view of a tidy desk workspace"></div>
+    <figcaption>
+      <code>/blog/heroes/workspace-desk-overhead.jpg</code>
+      <span class="alt">An overhead view of a tidy desk workspace</span>
+      <span class="tags">planning · setup · tools · comparison</span>
+      <span class="cred">Unknown / Rawpixel / CC0 1.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="team-meeting-table.jpg" alt="A small team working together around a table"></div>
+    <figcaption>
+      <code>/blog/heroes/team-meeting-table.jpg</code>
+      <span class="alt">A small team working together around a table</span>
+      <span class="tags">team · handover · people · onboarding</span>
+      <span class="cred">Startup Stock Photos / Stocksnap / CC0 1.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="wrapped-parcel-plain.jpg" alt="A plainly wrapped parcel tied with string"></div>
+    <figcaption>
+      <code>/blog/heroes/wrapped-parcel-plain.jpg</code>
+      <span class="alt">A plainly wrapped parcel tied with string</span>
+      <span class="tags">orders · fulfilment · delivery · ecommerce</span>
+      <span class="cred">Rawpixel Ltd / Flickr / CC0 1.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="sealed-box.jpg" alt="A sealed cardboard box ready to ship"></div>
+    <figcaption>
+      <code>/blog/heroes/sealed-box.jpg</code>
+      <span class="alt">A sealed cardboard box ready to ship</span>
+      <span class="tags">orders · shipping · delivery · tracking</span>
+      <span class="cred">public.resource.org / Flickr / CC0 1.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="clothing-rail-store.jpg" alt="A rail of clothes inside a retail store"></div>
+    <figcaption>
+      <code>/blog/heroes/clothing-rail-store.jpg</code>
+      <span class="alt">A rail of clothes inside a retail store</span>
+      <span class="tags">retail · fashion · catalogue · stock</span>
+      <span class="cred">Random Retail / Flickr / BY 2.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="market-stall.jpg" alt="A busy market stall with goods on display"></div>
+    <figcaption>
+      <code>/blog/heroes/market-stall.jpg</code>
+      <span class="alt">A busy market stall with goods on display</span>
+      <span class="tags">commerce · merchants · small business · MENA</span>
+      <span class="cred">mikecogh / Flickr / BY 2.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="market-produce.jpg" alt="Fresh produce laid out at a market"></div>
+    <figcaption>
+      <code>/blog/heroes/market-produce.jpg</code>
+      <span class="alt">Fresh produce laid out at a market</span>
+      <span class="tags">commerce · small business · local · merchants</span>
+      <span class="cred">rick / Flickr / BY 2.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="notebook-pen-glasses.jpg" alt="A notebook, a pen and a pair of glasses on a desk"></div>
+    <figcaption>
+      <code>/blog/heroes/notebook-pen-glasses.jpg</code>
+      <span class="alt">A notebook, a pen and a pair of glasses on a desk</span>
+      <span class="tags">planning · strategy · writing · audit</span>
+      <span class="cred">Generationbass.com / Flickr / BY 2.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="home-working-table.jpg" alt="A small working table set up at home"></div>
+    <figcaption>
+      <code>/blog/heroes/home-working-table.jpg</code>
+      <span class="alt">A small working table set up at home</span>
+      <span class="tags">small business · solo · getting started</span>
+      <span class="cred">dejankrsmanovic / Flickr / BY 2.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="notebook-and-phone.jpg" alt="A notebook and a phone side by side on a desk"></div>
+    <figcaption>
+      <code>/blog/heroes/notebook-and-phone.jpg</code>
+      <span class="alt">A notebook and a phone side by side on a desk</span>
+      <span class="tags">messaging · planning · whatsapp · notes</span>
+      <span class="cred">Sancho Papa / Flickr / BY 2.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="coin-counting-tray.jpg" alt="Coins sorted into a counting tray"></div>
+    <figcaption>
+      <code>/blog/heroes/coin-counting-tray.jpg</code>
+      <span class="alt">Coins sorted into a counting tray</span>
+      <span class="tags">pricing · cost · budget · money</span>
+      <span class="cred">portableantiquities / Flickr / BY 2.0</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <div class="crop"><img src="city-street-night.jpg" alt="A busy city street at night"></div>
+    <figcaption>
+      <code>/blog/heroes/city-street-night.jpg</code>
+      <span class="alt">A busy city street at night</span>
+      <span class="tags">out of hours · after hours · night · missed messages</span>
+      <span class="cred">laszlo-photo / Flickr / BY 2.0</span>
+    </figcaption>
+  </figure>
+</div>

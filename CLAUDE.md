@@ -138,6 +138,16 @@ Nothing reaches the site without a human flipping a row to `approved`.
 
 ## Hero images
 
+**`blog/heroes/` is the library the scheduled runs use.** Licensed images
+committed to the repo with `manifest.json` describing each one: alt text, tags,
+credit, licence. The writer matches `tags` against the post subject and copies
+the entry into front matter as `hero: /blog/heroes/<file>.jpg`.
+
+They live in the repo because the cloud sandbox's egress allowlist blocks every
+image host (Unsplash, Pexels, Openverse, Flickr) while still allowing a git
+clone. Self-hosting also kills hotlink breakage and link rot. Open
+`blog/heroes/contact-sheet.html` to review them in the exact crop a hero uses.
+
 `blog/ART-DIRECTION.md` defines the look and the source order. Run
 `node scripts/find-image.js "search terms"` for ranked candidates with front
 matter ready to paste. It uses Unsplash and Pexels when `UNSPLASH_ACCESS_KEY`

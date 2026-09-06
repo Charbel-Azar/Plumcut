@@ -55,6 +55,10 @@ const fmtDate = (iso) =>
     timeZone: 'UTC',
   });
 
+// Heroes can be a remote URL or a repo path like /blog/heroes/x.jpg.
+// og:image and JSON-LD both require an absolute URL, so promote local paths.
+const absUrl = (u) => (!u ? '' : u.startsWith('/') ? SITE + u : u);
+
 const slugify = (s) =>
   s
     .toLowerCase()
@@ -548,7 +552,7 @@ function articleJsonLd(post) {
       '@type': 'BlogPosting',
       headline: post.title,
       description: post.description,
-      image: post.hero || OG_FALLBACK,
+      image: absUrl(post.hero) || OG_FALLBACK,
       datePublished: post.date,
       dateModified: post.updated || post.date,
       inLanguage: 'en',
@@ -657,7 +661,7 @@ ${html}
     KEYWORDS: esc((post.keywords || []).join(', ')),
     URL: `${SITE}/blog/${post.slug}`,
     OGTYPE: 'article',
-    IMAGE: esc(post.hero || OG_FALLBACK),
+    IMAGE: esc(absUrl(post.hero) || OG_FALLBACK),
     IMAGETYPE: /\.png(\?|$)/i.test(post.hero || '') ? 'image/png' : 'image/jpeg',
     IMAGEALT: esc(post.heroAlt || post.title),
     JSONLD: articleJsonLd(post),
