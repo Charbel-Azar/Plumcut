@@ -11,6 +11,7 @@
 ## Field notes
 - [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
 <!-- BLOG:LIST:START -->
+- [What to Automate First in an Ecommerce Business](https://plumcut.com/blog/what-to-automate-first-ecommerce): Automation pays back in a specific order. The sequence that works for a MENA or Gulf online store, what to leave manual, and how to tell which is which.
 - [Can AI Answer Where Is My Order on WhatsApp in 2026?](https://plumcut.com/blog/where-is-my-order-whatsapp): The most common message in commerce is a tracking question. What it takes to answer it automatically on WhatsApp, what it costs, and where it breaks.
 - [What the WhatsApp Business API Really Costs in 2026](https://plumcut.com/blog/whatsapp-business-api-cost): Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.
 - [WhatsApp AI for Shopify Stores in Lebanon and the Gulf](https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf): Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.
