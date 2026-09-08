@@ -12,6 +12,7 @@
 - [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
 <!-- BLOG:LIST:START -->
 - [What to Automate First in an Ecommerce Business](https://plumcut.com/blog/what-to-automate-first-ecommerce): Automation pays back in a specific order. The sequence that works for a MENA or Gulf online store, what to leave manual, and how to tell which is which.
+- [Automating Delivery Updates and the Courier Loop](https://plumcut.com/blog/automate-logistics-delivery-updates): The operations side of order tracking: courier data quality, failed attempts, cash on delivery reattempts, and why a sent message is not a delivered one.
 - [Automating the Back Office of a Small Commerce Team](https://plumcut.com/blog/automate-internal-operations-commerce): Order handovers, staff questions, approvals and the weekly report. The internal half of store automation, and which parts are worth wiring up first.
 - [How to Automate Customer Service Without Losing the Customer](https://plumcut.com/blog/automate-customer-service-without-losing-customers): Automated support fails at the handover, not the answer. How to design escalation, meet Meta's policy requirement, and keep the relationship you already have.
 - [Can AI Answer Where Is My Order on WhatsApp in 2026?](https://plumcut.com/blog/where-is-my-order-whatsapp): The most common message in commerce is a tracking question. What it takes to answer it automatically on WhatsApp, what it costs, and where it breaks.
